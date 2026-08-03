@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 import TopBar from "@/components/Topbar";
 import {
@@ -53,9 +54,9 @@ function MainNav() {
       {/* Desktop links */}
       <nav className="hidden lg:flex items-center gap-1 font-display text-sm uppercase tracking-wide">
         {links.map((label, i) => (
-          <a
+          <Link
             key={label}
-            href="#"
+            href="about/overview"
             className={`flex items-center gap-1.5 px-4 py-2.5 ${
               i === 0
                 ? "border-b-2 font-normal"
@@ -67,7 +68,7 @@ function MainNav() {
             {i > 0 && i < 4 && (
               <ChevronDown className="h-4 w-4" strokeWidth={2} />
             )}
-          </a>
+          </Link>
         ))}
       </nav>
 
@@ -87,9 +88,13 @@ function MainNav() {
       {open && (
         <div className="absolute left-0 right-0 top-full z-30 flex flex-col gap-1 bg-white px-6 py-4 shadow-lg lg:hidden font-display text-sm uppercase">
           {links.map((label) => (
-            <a key={label} href="#" className="py-2 border-b border-black/10">
+            <Link
+              key={label}
+              href="about/overview"
+              className="py-2 border-b border-black/10"
+            >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
