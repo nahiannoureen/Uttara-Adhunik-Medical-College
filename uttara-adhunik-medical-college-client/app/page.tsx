@@ -2570,8 +2570,9 @@ function AlumniEvents() {
 
         {/* Image */}
         <div className="w-full lg:w-[627px] lg:shrink-0">
-          <PhotoPlaceholder
-            label="Alumni gathered on campus lawn"
+          <img
+            src="/alumni.png"
+            alt="Alumni gathered on campus lawn"
             className="h-[607px] w-full"
           />
         </div>
@@ -2582,55 +2583,215 @@ function AlumniEvents() {
 /* ------------------------------------------------------------------ */
 /*  12. News                                                           */
 /* ------------------------------------------------------------------ */
+// function NewsSection() {
+//   const posts = [
+//     {
+//       tag: "Education",
+//       date: "August 6, 2024",
+//       title: "10 Effective Study Tips for College Success",
+//     },
+//     {
+//       tag: "University",
+//       date: "July 4, 2024",
+//       title: "After Decades Of Improvement, Cardiovascular Care Advances",
+//     },
+//   ];
+//   return (
+//     <section className="flex flex-col gap-12 px-6 md:px-20 py-20 bg-white">
+//       <div>
+//         <h2
+//           className="font-display text-3xl md:text-5xl font-bold"
+//           style={{ color: GREEN }}
+//         >
+//           Read Our Latest News
+//         </h2>
+//         <p className="mt-2 font-body text-[#444444]">
+//           You'll find something to spark your curiosity and enhance
+//         </p>
+//       </div>
+
+//       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+//         {posts.map((p) => (
+//           <div
+//             key={p.title}
+//             className="flex flex-col sm:flex-row items-center gap-6 border border-dashed p-5"
+//             style={{ borderColor: GREEN }}
+//           >
+//             <img
+//               src="/news1.png"
+//               alt={""}
+//               className="h-[220px] w-full sm:w-[240px] shrink-0"
+//             />
+//             <div className="flex flex-col gap-4">
+//               <span
+//                 className="w-fit px-3 py-1 font-body text-xs"
+//                 style={{ backgroundColor: YELLOW }}
+//               >
+//                 {p.tag}
+//               </span>
+//               <p className="font-body text-lg text-[#110C2D]">{p.title}</p>
+//               <div className="flex items-center gap-3 font-body text-sm text-[#737477]">
+//                 <span>{p.date}</span>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
 function NewsSection() {
   const posts = [
     {
       tag: "Education",
       date: "August 6, 2024",
       title: "10 Effective Study Tips for College Success",
+      image: "/news1.png",
     },
     {
       tag: "University",
       date: "July 4, 2024",
       title: "After Decades Of Improvement, Cardiovascular Care Advances",
+      image: "/news2.png",
     },
   ];
+
   return (
-    <section className="flex flex-col gap-12 px-6 md:px-20 py-20 bg-white">
-      <div>
+    <section className="w-full px-6 py-16 md:px-20 md:py-20">
+      {/* ================================
+          SECTION HEADING
+      ================================= */}
+      <div className="mb-12 flex flex-col items-center text-center">
+        <div className="mb-4 flex items-center">
+          {/* Green decorative mark */}
+          <span
+            className="mr-3 block h-[23px] w-[32.5px]"
+            style={{ backgroundColor: GREEN }}
+          />
+
+          <span
+            className="font-body text-[19.5px] font-medium leading-[23px]"
+            style={{ color: GREEN }}
+          >
+            knowledge meets innovation
+          </span>
+        </div>
+
         <h2
-          className="font-display text-3xl md:text-5xl font-bold"
+          className="font-display text-3xl font-bold md:text-5xl"
           style={{ color: GREEN }}
         >
           Read Our Latest News
         </h2>
-        <p className="mt-2 font-body text-[#444444]">
-          You'll find something to spark your curiosity and enhance
+
+        <p className="mt-4 max-w-[700px] font-body text-[16px] leading-[28px] text-[#737477]">
+          You'll find something to spark your curiosity and enhance your
+          knowledge.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {posts.map((p) => (
+      {/* ================================
+          NEWS CARDS
+      ================================= */}
+      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-10 md:grid-cols-2">
+        {posts.map((post) => (
           <div
-            key={p.title}
-            className="flex flex-col sm:flex-row items-center gap-6 border border-dashed p-5"
+            key={post.title}
+            className="
+              flex
+              flex-col
+              overflow-hidden
+              border
+              border-dashed
+              bg-white
+              sm:flex-row
+            "
             style={{ borderColor: GREEN }}
           >
-            <PhotoPlaceholder
-              label={p.title}
-              className="h-[220px] w-full sm:w-[240px] shrink-0"
-            />
-            <div className="flex flex-col gap-4">
+            {/* ==========================
+                NEWS IMAGE
+            =========================== */}
+            <div className="h-[240px] w-full shrink-0 overflow-hidden sm:h-[220px] sm:w-[240px]">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                "
+              />
+            </div>
+
+            {/* ==========================
+                NEWS CONTENT
+            =========================== */}
+            <div
+              className="
+                flex
+                flex-1
+                flex-col
+                justify-center
+                gap-4
+                p-6
+              "
+            >
+              {/* Tag */}
               <span
-                className="w-fit px-3 py-1 font-body text-xs"
+                className="
+                  w-fit
+                  px-3
+                  py-1
+                  font-body
+                  text-xs
+                  font-medium
+                  text-[#110C2D]
+                "
                 style={{ backgroundColor: YELLOW }}
               >
-                {p.tag}
+                {post.tag}
               </span>
-              <p className="font-body text-lg text-[#110C2D]">{p.title}</p>
-              <div className="flex items-center gap-3 font-body text-sm text-[#737477]">
-                <span>{p.date}</span>
+
+              {/* Title */}
+              <h3
+                className="
+                  m-0
+                  font-display
+                  text-[20px]
+                  font-semibold
+                  leading-[28px]
+                  text-[#110C2D]
+                "
+              >
+                {post.title}
+              </h3>
+
+              {/* Date */}
+              <div className="flex items-center gap-3">
+                <span className="font-body text-sm text-[#737477]">
+                  {post.date}
+                </span>
               </div>
+
+              {/* Read More */}
+              <button
+                type="button"
+                className="
+                  flex
+                  w-fit
+                  items-center
+                  gap-2
+                  font-body
+                  text-[15px]
+                  font-medium
+                  transition-opacity
+                  hover:opacity-75
+                "
+                style={{ color: GREEN }}
+              >
+                Read More
+                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+              </button>
             </div>
           </div>
         ))}
@@ -2645,38 +2806,89 @@ function NewsSection() {
 
 function Testimonials() {
   const reviews = [
-    { name: "Emma Elizabeth", role: "Assistant Teacher" },
-    { name: "Zent Ekizie", role: "Assistant Teacher" },
-    { name: "Samantha Willow", role: "Teacher" },
+    {
+      name: "Emma Elizabeth",
+      role: "Assistant Teacher",
+      image: "/student1.png",
+    },
+    {
+      name: "Zent Ekizie",
+      role: "Assistant Teacher",
+      image: "/student2.png",
+    },
+    {
+      name: "Samantha Willow",
+      role: "Teacher",
+      image: "/student3.png",
+    },
   ];
 
   return (
-    <section className="flex flex-col items-center bg-[#F6F6F6] px-6 py-[100px] md:px-20">
-      {/* Heading */}
-      <div className="flex w-full max-w-[1440px] flex-col items-center gap-5">
+    <section className="w-full bg-[#F8F8F8] px-6 py-16 md:px-20 md:py-20">
+      {/* =========================================
+          HEADING
+      ========================================== */}
+      <div className="flex flex-col items-center">
+        <div className="flex items-center">
+          {/* Green decorative mark */}
+          <span
+            className="mr-3 block h-[23px] w-[32.5px]"
+            style={{ backgroundColor: GREEN }}
+          />
+
+          <span
+            className="font-body text-[19.5px] font-medium leading-[23px]"
+            style={{ color: GREEN }}
+          >
+            knowledge meets innovation
+          </span>
+        </div>
+
         <h2
-          className="font-display text-center text-[42px] font-bold leading-[48px] md:text-[50px]"
+          className="
+            mt-4
+            text-center
+            font-display
+            text-[42px]
+            font-bold
+            leading-[48px]
+            md:text-[50px]
+          "
           style={{ color: GREEN }}
         >
           My Students Feedback
         </h2>
 
-        <p className="w-full text-center font-body text-base leading-[29px] text-[#737477]">
+        <p className="mt-3 w-full text-center font-body text-base leading-[29px] text-[#737477]">
           You'll find something to spark your curiosity and enhance
         </p>
       </div>
 
-      {/* Testimonials */}
-      <div className="mt-[50px] w-full max-w-[1290px] overflow-hidden">
-        <div className="grid grid-cols-1 gap-0 md:grid-cols-3">
-          {reviews.map((r, index) => (
+      {/* =========================================
+          TESTIMONIALS
+      ========================================== */}
+      <div className="mx-auto mt-[50px] w-full max-w-[1290px] overflow-hidden">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-0">
+          {reviews.map((review, index) => (
             <div
-              key={r.name}
-              className="relative flex h-[317px] flex-col bg-white px-10 pt-12"
+              key={review.name}
+              className="
+                relative
+                flex
+                h-[317px]
+                flex-col
+                bg-white
+                px-10
+                pt-12
+              "
             >
-              {/* Stars */}
+              {/* =================================
+                  STARS
+              ================================== */}
               <div className="flex gap-[5px]">
-                {Array.from({ length: index === 1 ? 5 : 4 }).map((_, i) => (
+                {Array.from({
+                  length: index === 1 ? 5 : 4,
+                }).map((_, i) => (
                   <Star
                     key={i}
                     className="h-[16px] w-[16px] fill-current"
@@ -2685,37 +2897,55 @@ function Testimonials() {
                 ))}
               </div>
 
-              {/* Review */}
+              {/* =================================
+                  REVIEW
+              ================================== */}
               <p className="mt-[21px] max-w-[340px] font-body text-[18px] leading-[28px] text-[#444444]">
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old.
               </p>
 
-              {/* Author */}
+              {/* =================================
+                  AUTHOR
+              ================================== */}
               <div className="absolute bottom-[39px] left-10 flex items-center">
-                <div
-                  className="h-[50px] w-[50px] shrink-0 rounded-full"
-                  style={{ backgroundColor: GREEN }}
-                />
+                {/* Student Image */}
+                <div className="h-[50px] w-[50px] shrink-0 overflow-hidden rounded-full">
+                  <img
+                    src={review.image}
+                    alt={review.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
 
+                {/* Name + Role */}
                 <div className="ml-[10px]">
                   <p
                     className="font-display text-[17.8px] font-bold leading-5"
                     style={{ color: GREEN }}
                   >
-                    {r.name}
+                    {review.name}
                   </p>
 
                   <p className="mt-[6px] font-body text-[15px] leading-[27px] text-[#444444]">
-                    {r.role}
+                    {review.role}
                   </p>
                 </div>
               </div>
 
-              {/* Quote */}
+              {/* =================================
+                  QUOTE
+              ================================== */}
               <div
-                className="absolute bottom-[38px] right-[40px] font-display text-[70px] leading-none"
+                className="
+                  absolute
+                  bottom-[38px]
+                  right-[40px]
+                  font-display
+                  text-[70px]
+                  leading-none
+                "
                 style={{ color: GREEN }}
               >
                 ”
@@ -2724,7 +2954,9 @@ function Testimonials() {
           ))}
         </div>
 
-        {/* Slider dots */}
+        {/* =========================================
+            SLIDER DOTS
+        ========================================== */}
         <div className="mt-[48px] flex justify-center gap-2">
           <span className="h-2 w-2 rounded-full bg-[#FECD2F]" />
           <span className="h-2 w-2 rounded-full bg-[#444444]/20" />
@@ -2733,7 +2965,6 @@ function Testimonials() {
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  14. Footer                                                        */
 /* ------------------------------------------------------------------ */
