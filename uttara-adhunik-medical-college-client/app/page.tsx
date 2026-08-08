@@ -1059,30 +1059,26 @@ function AboutUAMC() {
                   EYEBROW
               ---------------------------------------------- */}
               <div className="flex h-[45.67px] w-fit items-end">
-                {/* Green mark */}
-                <span
-                  className="
-                    block
-                    h-[23.36px]
-                    w-[32.5px]
-                    shrink-0
-                  "
-                  style={{ backgroundColor: GREEN }}
+                {/* Icon */}
+                <img
+                  src="/knowledge.png"
+                  alt=""
+                  className="h-[23.36px] w-[32.5px] shrink-0 object-contain"
                 />
 
                 {/* Text */}
                 <span
                   className="
-                    flex
-                    h-[45.67px]
-                    items-center
-                    justify-center
-                    px-[10.83px]
-                    font-body
-                    text-[19.5px]
-                    font-medium
-                    leading-[23px]
-                  "
+      flex
+      h-[45.67px]
+      items-center
+      justify-center
+      px-[10.83px]
+      font-body
+      text-[19.5px]
+      font-medium
+      leading-[23px]
+    "
                   style={{ color: GREEN }}
                 >
                   knowledge meets innovation
@@ -1879,7 +1875,6 @@ function AdmissionCTA() {
 /* ------------------------------------------------------------------ */
 /*  8. Facilities                                                     */
 /* ------------------------------------------------------------------ */
-
 function OurFacilities() {
   const items = [
     "Hostel",
@@ -1896,50 +1891,59 @@ function OurFacilities() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="w-full bg-[#FAF6F6] py-[50px]">
-      {/* Section Header */}
-      <div className="flex flex-col items-center bg-[#FAF6F6] px-6 py-10">
-        <div className="mb-2 flex items-end">
-          <span
-            className="mr-3 block h-[23px] w-[33px]"
-            style={{ backgroundColor: GREEN }}
-          />
+    <section className="w-full bg-white">
+      {/* =====================================================
+          SECTION HEADER
+      ====================================================== */}
+      <div className="flex w-full flex-col items-center gap-[10px] px-5 py-10 md:px-10 lg:py-[50px]">
+        {/* Eyebrow */}
+        <div className="flex h-[45.67px] w-fit items-end">
+          {/* Knowledge Icon */}
+          <div className="flex h-[45.03px] w-[32.5px] shrink-0 items-center">
+            <img
+              src="/knowledge.png"
+              alt=""
+              className="h-[23.36px] w-[32.5px] object-contain"
+            />
+          </div>
 
+          {/* Knowledge Text */}
           <span
-            className="font-body text-[19.5px] font-medium leading-[23px]"
+            className="flex h-[45.67px] items-center justify-center px-[10.83px] font-body text-[19.5px] font-medium leading-[23px]"
             style={{ color: GREEN }}
           >
             knowledge meets innovation
           </span>
         </div>
 
+        {/* Heading */}
         <h2 className="font-display text-center text-[42px] font-bold leading-[1.2] tracking-[0.03em] text-black md:text-[60px] md:leading-[72px]">
           Our Facilities
         </h2>
       </div>
 
-      {/* Main Content */}
+      {/* =====================================================
+          MAIN CONTENT
+      ====================================================== */}
       <div className="flex w-full justify-center bg-[#FAF6F6] px-5 pb-20 pt-10 md:px-10 lg:px-20">
         <div className="flex w-full max-w-[1432px] flex-col items-center gap-8 lg:flex-row lg:items-stretch lg:gap-0">
-          {/* Left Facilities Menu */}
+          {/* =================================================
+              LEFT — FACILITIES MENU
+          ================================================== */}
           <div className="flex w-full max-w-[600px] flex-col gap-5 lg:mr-[-70px] lg:shrink-0">
             {items.map((item, i) => (
               <button
                 key={item}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`flex h-[65px] w-full items-center justify-between rounded-[5px] p-[10px] transition-all ${
-                  i === active ? "text-[#018837]" : "bg-white text-black"
-                }`}
-                style={
-                  i === active
-                    ? {
-                        backgroundColor: "#FFFFFF",
-                        boxShadow: "0 0 0 1px rgba(1,136,55,0.05)",
-                      }
-                    : undefined
-                }
+                className="flex h-[65px] w-full items-center justify-between rounded-[5px] bg-white p-[10px] transition-all"
+                style={{
+                  color: i === active ? GREEN : "#000000",
+                  boxShadow:
+                    i === active ? "0 0 0 1px rgba(1,136,55,0.05)" : "none",
+                }}
               >
+                {/* Facility Name */}
                 <span
                   className="flex items-center px-[10px] font-display text-[18.7px] font-bold leading-[22px]"
                   style={{
@@ -1949,6 +1953,7 @@ function OurFacilities() {
                   {item}
                 </span>
 
+                {/* Arrow Box */}
                 <span
                   className="flex h-[36.4px] w-[36.4px] shrink-0 items-center justify-center rounded-[2px]"
                   style={{
@@ -1968,14 +1973,16 @@ function OurFacilities() {
             ))}
           </div>
 
-          {/* Right Content Card */}
+          {/* =================================================
+              RIGHT — FACILITY CARD
+          ================================================== */}
           <div className="flex w-full max-w-[832px] flex-col overflow-hidden bg-white lg:ml-0 lg:h-[741px] lg:flex-row">
             {/* Facility Image */}
             <div className="relative h-[400px] w-full shrink-0 overflow-hidden lg:h-full lg:w-[404px]">
               <img
                 src="/hostel.jpg"
                 alt="UAMC Hostel building"
-                className="h-full w-full"
+                className="h-full w-full object-cover"
               />
             </div>
 
@@ -2008,6 +2015,7 @@ function OurFacilities() {
                   className="flex w-fit items-center gap-5 border-b border-[#0094D3] pb-[2px] font-body text-[11px] font-semibold leading-[13px] text-[#0094D3]"
                 >
                   <span>View Details</span>
+
                   <ArrowRight className="h-[11px] w-[11px]" strokeWidth={1.5} />
                 </a>
               </div>
@@ -2029,7 +2037,6 @@ function OurFacilities() {
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  9. Principal message                                              */
 /* ------------------------------------------------------------------ */
@@ -2968,120 +2975,7 @@ function Testimonials() {
 /* ------------------------------------------------------------------ */
 /*  14. Footer                                                        */
 /* ------------------------------------------------------------------ */
-// function Footer() {
-//   const campusLinks = [
-//     "Our Campus",
-//     "Careers",
-//     "News",
-//     "Support",
-//     "Accessible mode",
-//   ];
-//   const pageLinks = ["Home", "About", "Facilities", "Admission", "Contact"];
-//   const posts = [
-//     { title: "Those inequalities that Matter", date: "August 6, 2024" },
-//     {
-//       title: "After Decades Of Improvement, Cardiovascular",
-//       date: "July 4, 2024",
-//     },
-//   ];
 
-//   return (
-//     <footer className="flex flex-col items-center bg-black px-6 md:px-20 pt-14 pb-8 text-white">
-//       <div className="flex w-full max-w-6xl flex-col md:flex-row items-center justify-between gap-8 border-b border-[#242424] pb-14">
-//         <h3 className="font-body text-2xl">Subscribe To Newsletter</h3>
-//         <div className="flex w-full max-w-md items-stretch">
-//           <input
-//             placeholder="Enter Your mail"
-//             className="flex-1 border px-5 py-4 font-body text-sm bg-transparent outline-none placeholder:text-white/70"
-//             style={{ borderColor: GREEN }}
-//           />
-//           <button className="px-8 py-4 font-body text-sm font-medium bg-white text-[#110C2D]">
-//             Submit Button →
-//           </button>
-//         </div>
-//       </div>
-
-//       <div className="grid w-full max-w-6xl grid-cols-1 md:grid-cols-4 gap-10 py-14">
-//         <div className="flex flex-col gap-5">
-//           <div className="flex items-center gap-3">
-//             <div
-//               className="flex h-12 w-12 items-center justify-center rounded-full text-white font-display font-bold"
-//               style={{ backgroundColor: GREEN }}
-//             >
-//               U
-//             </div>
-//             <span className="font-display text-lg font-bold">
-//               Uttara Adhunik Medical College
-//             </span>
-//           </div>
-//           <p className="font-body text-[#737477]">
-//             We are passionate education dedicated to providing high-quality
-//             resources for learners of all backgrounds.
-//           </p>
-//           {/* <div className="flex items-center gap-4">
-//             {[Facebook, Youtube, Linkedin, Instagram].map((Icon, i) => (
-//               <Icon
-//                 key={i}
-//                 className="h-4 w-4 text-[#737477]"
-//                 strokeWidth={1.8}
-//               />
-//             ))}
-//           </div> */}
-//         </div>
-
-//         <div>
-//           <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
-//             Our Campus
-//           </h4>
-//           <ul className="flex flex-col gap-2 font-body text-[#737477]">
-//             {campusLinks.map((l) => (
-//               <li key={l}>
-//                 <a href="#">{l}</a>
-//               </li>
-//             ))}
-//           </ul>
-//         </div>
-
-//         <div>
-//           <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
-//             Our Pages
-//           </h4>
-//           <ul className="flex flex-col gap-2 font-body text-[#737477]">
-//             {pageLinks.map((l) => (
-//               <li key={l}>
-//                 <a href="#">{l}</a>
-//               </li>
-//             ))}
-//           </ul>
-//         </div>
-
-//         <div>
-//           <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
-//             Recent Posts
-//           </h4>
-//           <div className="flex flex-col gap-4">
-//             {posts.map((p) => (
-//               <div key={p.title} className="flex items-center gap-3">
-//                 <PhotoPlaceholder label="" className="h-14 w-20 shrink-0" />
-//                 <div>
-//                   <p className="font-body text-xs text-[#737477]">{p.date}</p>
-//                   <p className="font-body text-sm">{p.title}</p>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className="flex w-full max-w-6xl flex-col sm:flex-row items-center justify-between gap-2 border-t border-[#242424] pt-6 font-body text-sm text-[#737477]">
-//         <span>
-//           Copyright @ 2024. All Rights Reserved by{" "}
-//           <span className="text-white">Umaio</span>
-//         </span>
-//       </div>
-//     </footer>
-//   );
-// }
 function Footer() {
   const campusLinks = [
     "Our Campus",
@@ -3097,12 +2991,12 @@ function Footer() {
     {
       title: "Those inequalities that Matter",
       date: "August 6, 2024",
-      image: "/images/post-1.webp",
+      image: "/post1.png",
     },
     {
       title: "After Decades Of Improvement, Cardiovascular",
       date: "July 4, 2024",
-      image: "/images/post-2.webp",
+      image: "/post2.png",
     },
   ];
 
@@ -3204,7 +3098,7 @@ function Footer() {
                 "
               >
                 <img
-                  src="/images/logo.png"
+                  src="/logo2.png"
                   alt="Uttara Adhunik Medical College"
                   className="h-full w-full object-contain"
                 />
