@@ -166,81 +166,243 @@ function PhotoPlaceholder({ label, className = "" }) {
 //   );
 // }
 
-/* ------------------------------------------------------------------ */
-/*  2. Hero                                                            */
-/* ------------------------------------------------------------------ */
 function Hero() {
   const slides = ["01", "02", "03", "04", "05"];
+
   return (
     <section
       id="home"
-      className="relative flex flex-col justify-end px-6 md:px-20 py-10 md:py-14 text-white"
+      className="relative flex min-h-[750px] flex-col justify-end px-6 py-[50px] text-white md:px-20"
       style={{
-        backgroundImage:
-          "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(1,136,55,0.75) 100%)",
+        backgroundImage: `
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(1, 136, 55, 0.7) 100%
+      ),
+      url("/hero.jpg")
+    `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      <PhotoPlaceholder
-        label="Doctors in the hospital corridor"
-        className="absolute inset-0 -z-10"
-      />
-
-      {/* slide counter */}
-      <div className="mx-auto mb-10 flex items-center gap-8 font-display text-xs font-bold uppercase tracking-widest">
-        <span>Prev</span>
-        <div className="flex items-center gap-4">
-          {slides.map((s, i) => (
-            <span key={s} className="flex items-center gap-4">
-              <span
-                className={i === slides.length - 1 ? "" : "opacity-70"}
-                style={i === slides.length - 1 ? { color: YELLOW } : {}}
-              >
-                {s}
-              </span>
-              {i < slides.length - 1 && (
-                <span className="h-4 w-px bg-white/40" />
-              )}
-            </span>
-          ))}
-        </div>
-        <span>Next</span>
-      </div>
-
-      <div className="mx-auto flex w-full max-w-6xl flex-col md:flex-row items-end justify-between gap-10 rounded-sm bg-black/10 p-6 md:p-10 backdrop-blur-sm">
-        <div className="flex flex-col gap-6 max-w-xl">
-          <span className="inline-flex items-center gap-2 border-l-2 border-white pl-3 font-body text-sm">
-            Shaping the Future of Healthcare, One Student at a Time
-          </span>
-          <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight">
-            Excellence in Medical Education,{" "}
-            <span style={{ color: YELLOW }}>Innovation</span> in Healthcare
-          </h1>
+      {/* Main content wrapper */}
+      <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-between">
+        {/* =========================
+            SLIDE NAVIGATION
+        ========================== */}
+        <div className="mx-auto flex h-7 w-full max-w-[896px] items-center justify-center gap-6 md:gap-[100px]">
+          {/* Prev */}
           <button
-            className="flex w-fit items-center gap-2 bg-white px-6 py-3 font-body text-sm font-medium"
-            style={{ color: GREEN }}
+            type="button"
+            className="font-display text-[13px] font-bold uppercase leading-[13px]"
           >
-            View Our Program
-            <ArrowRight className="h-4 w-4" strokeWidth={2} />
+            Prev
+          </button>
+
+          {/* Slide numbers */}
+          <div className="flex h-7 items-center justify-center gap-4 md:gap-[37px]">
+            {/* Left divider */}
+            <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+
+            <div className="flex items-center">
+              {slides.map((slide, index) => (
+                <div key={slide} className="flex items-center">
+                  <button
+                    type="button"
+                    className="flex h-7 w-8 items-center justify-center px-[5px] font-display text-[18px] font-bold leading-[18px]"
+                    style={{
+                      color: index === 0 ? YELLOW : "rgba(255, 255, 255, 1)",
+                    }}
+                  >
+                    {slide}
+                  </button>
+
+                  {index < slides.length - 1 && (
+                    <span className="mx-2 h-[22px] w-px bg-white/30" />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Right divider */}
+            <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+          </div>
+
+          {/* Next */}
+          <button
+            type="button"
+            className="font-display text-[13px] font-bold uppercase leading-[13px]"
+          >
+            Next
           </button>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <h3
-            className="font-display text-2xl font-bold"
-            style={{ color: YELLOW }}
-          >
-            MBBS Degrees
-          </h3>
-          {["Bachelor of Medicine", "Bachelor of Surgery"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="flex items-center justify-between gap-6 border-b border-white/40 pb-2 font-body text-sm"
+        {/* =========================
+            CONTENT PANEL
+        ========================== */}
+        <div
+          className="
+            mx-auto flex w-full max-w-[1440px]
+            flex-col justify-between gap-12
+            bg-black/10 p-5
+            backdrop-blur-[2.5px]
+            md:min-h-[399px]
+            md:flex-row
+            md:items-end
+          "
+        >
+          {/* =========================
+              LEFT CONTENT
+          ========================== */}
+          <div className="flex w-full max-w-[600px] flex-col gap-7">
+            {/* Intro */}
+            <div className="flex items-center gap-2">
+              {/* Left decorative line */}
+              <span className="h-[40px] w-[2px] bg-white" />
+
+              <span className="font-body text-[14px] font-normal leading-[23px]">
+                Shaping the Future of Healthcare, One Student at a Time
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h1
+              className="
+                max-w-[670px]
+                font-display
+                text-[40px]
+                font-bold
+                leading-[1.2]
+                md:text-[60px]
+                md:leading-[75px]
+              "
             >
-              {item}
-              <ArrowRight className="h-4 w-4" strokeWidth={2} />
-            </a>
-          ))}
+              Excellence in Medical Education,{" "}
+              <span style={{ color: YELLOW }}>Innovation</span> in Healthcare
+            </h1>
+
+            {/* CTA */}
+            <button
+              type="button"
+              className="
+                flex
+                h-[48px]
+                w-fit
+                items-center
+                justify-center
+                gap-[10px]
+                bg-white
+                px-[26px]
+                py-[13px]
+                font-body
+                text-[14px]
+                font-medium
+                leading-[22px]
+                transition-opacity
+                hover:opacity-90
+              "
+              style={{ color: GREEN }}
+            >
+              <span>View Our Program</span>
+
+              <ArrowRight className="h-[22px] w-[12px]" strokeWidth={2} />
+            </button>
+          </div>
+
+          {/* =========================
+              MBBS CONTENT
+          ========================== */}
+          <div className="flex w-full max-w-[272px] flex-col gap-[22px]">
+            <h3
+              className="
+                flex
+                h-[54px]
+                items-center
+                font-display
+                text-[30px]
+                font-bold
+                leading-[34px]
+              "
+              style={{ color: YELLOW }}
+            >
+              MBBS Degrees
+            </h3>
+
+            <div className="flex w-full flex-col gap-[10px]">
+              {/* Bachelor of Medicine */}
+              <div className="flex flex-col pb-[10px]">
+                <a
+                  href="#"
+                  className="
+                    flex
+                    h-[26px]
+                    w-full
+                    items-center
+                    justify-between
+                    font-display
+                    text-[16px]
+                    font-normal
+                    leading-[26px]
+                  "
+                >
+                  <span>Bachelor of Medicine</span>
+
+                  <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
+                </a>
+
+                <p
+                  className="
+                    mt-[10px]
+                    font-body
+                    text-[12px]
+                    font-normal
+                    leading-[15px]
+                    text-white/50
+                  "
+                >
+                  Comprehensive medical education preparing students for
+                  professional healthcare practice.
+                </p>
+              </div>
+
+              {/* Bachelor of Surgery */}
+              <div className="flex flex-col pb-[10px]">
+                <a
+                  href="#"
+                  className="
+                    flex
+                    h-[26px]
+                    w-full
+                    items-center
+                    justify-between
+                    font-display
+                    text-[16px]
+                    font-normal
+                    leading-[26px]
+                  "
+                >
+                  <span>Bachelor of Surgery</span>
+
+                  <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
+                </a>
+
+                <p
+                  className="
+                    mt-[10px]
+                    font-body
+                    text-[12px]
+                    font-normal
+                    leading-[15px]
+                    text-white/50
+                  "
+                >
+                  Develop practical surgical knowledge and skills through
+                  hands-on clinical learning.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -351,140 +513,927 @@ function NoticeAndPublication() {
 /* ------------------------------------------------------------------ */
 /*  4. About UAMC                                                     */
 /* ------------------------------------------------------------------ */
+
+// function AboutUAMC() {
+//   const aboutBoxes = [
+//     {
+//       title: "College Mission",
+//       sub: "Statement",
+//       icon: "/icons/mission.svg",
+//     },
+//     {
+//       title: "College Vision",
+//       sub: "Achievement",
+//       icon: "/icons/vision.svg",
+//     },
+//   ];
+
+//   return (
+//     <section
+//       className="
+//         flex
+//         w-full
+//         flex-col
+//         justify-center
+//         px-6
+//         py-[70px]
+//         md:px-[80px]
+//         md:py-[100px]
+//       "
+//     >
+//       <div
+//         className="
+//           mx-auto
+//           flex
+//           w-full
+//           max-w-[1440px]
+//           flex-col
+//           items-center
+//           gap-10
+//           lg:flex-row
+//           lg:items-center
+//           lg:gap-[40px]
+//         "
+//       >
+//         {/* =========================================
+//             LEFT - IMAGE COMPOSITION
+//         ========================================== */}
+//         <div
+//           className="
+//             relative
+//             h-[500px]
+//             w-full
+//             max-w-[700px]
+//             shrink-0
+//             md:h-[617.56px]
+//           "
+//         >
+//           {/* Left main image */}
+//           <div
+//             className="
+//               absolute
+//               left-0
+//               top-[44.83px]
+//               h-[450px]
+//               w-[58%]
+//               overflow-hidden
+//               md:h-[572.73px]
+//               md:w-[360.21px]
+//             "
+//           >
+//             <img
+//               src="/about1.jpg"
+//               alt="Uttara Adhunik Medical College"
+//               className="h-full w-full object-cover"
+//             />
+//           </div>
+
+//           {/* Right main image */}
+//           <div
+//             className="
+//               absolute
+//               right-0
+//               top-0
+//               h-[450px]
+//               w-[42%]
+//               overflow-hidden
+//               shadow-[0_3.33px_3.33px_rgba(0,0,0,0.25)]
+//               md:left-[397.43px]
+//               md:right-auto
+//               md:top-[22.42px]
+//               md:h-[572.73px]
+//               md:w-[302.57px]
+//             "
+//           >
+//             <img
+//               src="/about2.jpg"
+//               alt="Uttara Adhunik Medical College"
+//               className="h-full w-full object-cover"
+//             />
+//           </div>
+
+//           {/* =========================================
+//               CIRCULAR LOGO / IMAGE
+//               Positioned OVER the left image
+//           ========================================== */}
+//           <div
+//             className="
+//               absolute
+//               left-0
+//               top-[135px]
+//               z-20
+//               flex
+//               h-[230px]
+//               w-[230px]
+//               items-center
+//               justify-center
+//               overflow-hidden
+//               rounded-full
+//               bg-white
+//               p-[3px]
+//               md:left-0
+//               md:top-[162px]
+//               md:h-[300.17px]
+//               md:w-[300.17px]
+//             "
+//           >
+//             <img
+//               src="/logo2.png"
+//               alt="UAMC Logo"
+//               className="h-full w-full rounded-full object-cover"
+//             />
+//           </div>
+//         </div>
+
+//         {/* =========================================
+//             RIGHT - ABOUT CONTENT
+//         ========================================== */}
+//         <div
+//           className="
+//             flex
+//             w-full
+//             max-w-[700px]
+//             flex-col
+//             gap-8
+//             lg:self-stretch
+//           "
+//         >
+//           {/* Heading area */}
+//           <div className="flex flex-col gap-[21.67px]">
+//             {/* Eyebrow */}
+//             <div className="flex flex-col gap-[4px]">
+//               <div className="flex items-end">
+//                 {/* Green decorative mark */}
+//                 <span
+//                   className="
+//                     mr-3
+//                     h-[23px]
+//                     w-[32.5px]
+//                     shrink-0
+//                   "
+//                   style={{ backgroundColor: GREEN }}
+//                 />
+
+//                 <span
+//                   className="
+//                     flex
+//                     h-[45px]
+//                     items-center
+//                     px-[10px]
+//                     font-body
+//                     text-[19.5px]
+//                     font-medium
+//                     leading-[23px]
+//                   "
+//                   style={{ color: GREEN }}
+//                 >
+//                   knowledge meets innovation
+//                 </span>
+//               </div>
+
+//               {/* Main heading */}
+//               <h2
+//                 className="
+//                   font-display
+//                   text-[52px]
+//                   font-light
+//                   leading-[62px]
+//                   text-[#262626]
+//                   md:text-[65px]
+//                 "
+//               >
+//                 About{" "}
+//                 <span className="font-bold" style={{ color: GREEN }}>
+//                   UAMC
+//                 </span>
+//               </h2>
+//             </div>
+
+//             {/* Description */}
+//             <div className="flex flex-col gap-[27px]">
+//               <p
+//                 className="
+//                   font-body
+//                   text-[16px]
+//                   font-bold
+//                   leading-[31px]
+//                   text-[#737477]
+//                   md:text-[17.33px]
+//                 "
+//               >
+//                 Uttara Adhunik Medical College (UAMC) is a prestigious medical
+//                 institution located in Uttara Model Town, Dhaka, Bangladesh.
+//                 Established in 2003.
+//               </p>
+
+//               <p
+//                 className="
+//                   font-body
+//                   text-[16px]
+//                   font-normal
+//                   leading-[31px]
+//                   text-[#737477]
+//                   md:text-[17.33px]
+//                 "
+//               >
+//                 UAMC offers a Bachelor of Medicine and Bachelor of Surgery
+//                 (MBBS) program, designed to equip students with the knowledge,
+//                 skills, and hands-on clinical training needed to excel in the
+//                 medical profession.
+//               </p>
+//             </div>
+//           </div>
+
+//           {/* =========================================
+//               MISSION / VISION BOXES
+//           ========================================== */}
+//           <div
+//             className="
+//               flex
+//               w-full
+//               flex-col
+//               gap-5
+//               sm:flex-row
+//               md:gap-[21.67px]
+//             "
+//           >
+//             {aboutBoxes.map((box) => (
+//               <div
+//                 key={box.title}
+//                 className="
+//                   flex
+//                   h-[97.05px]
+//                   flex-1
+//                   items-center
+//                   border
+//                   border-dashed
+//                   px-6
+//                   md:px-[33.58px]
+//                 "
+//                 style={{ borderColor: GREEN }}
+//               >
+//                 {/* Icon */}
+//                 <div
+//                   className="
+//                     flex
+//                     h-[54.17px]
+//                     w-[54.17px]
+//                     shrink-0
+//                     items-center
+//                     justify-center
+//                   "
+//                 >
+//                   {box.icon ? (
+//                     <img
+//                       src={box.icon}
+//                       alt=""
+//                       className="h-full w-full object-contain"
+//                     />
+//                   ) : (
+//                     <div
+//                       className="h-10 w-10 rounded-full"
+//                       style={{ backgroundColor: GREEN }}
+//                     />
+//                   )}
+//                 </div>
+
+//                 {/* Text */}
+//                 <div className="ml-6 flex flex-col">
+//                   <span
+//                     className="
+//                       font-display
+//                       text-[18px]
+//                       font-medium
+//                       leading-[23px]
+//                     "
+//                     style={{ color: GREEN }}
+//                   >
+//                     {box.title}
+//                   </span>
+
+//                   <span
+//                     className="
+//                       font-display
+//                       text-[18px]
+//                       font-medium
+//                       leading-[23px]
+//                     "
+//                     style={{ color: GREEN }}
+//                   >
+//                     {box.sub}
+//                   </span>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* =========================================
+//               CTA
+//           ========================================== */}
+//           <button
+//             type="button"
+//             className="
+//               flex
+//               h-[60.5px]
+//               w-fit
+//               items-center
+//               justify-center
+//               gap-[10px]
+//               px-[32.5px]
+//               py-[16.25px]
+//               font-body
+//               text-[17.33px]
+//               font-medium
+//               leading-[27px]
+//               text-white
+//               transition-opacity
+//               hover:opacity-90
+//             "
+//             style={{ backgroundColor: GREEN }}
+//           >
+//             <span>View Our Program</span>
+
+//             <ArrowRight className="h-[27px] w-[15px]" strokeWidth={2} />
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 function AboutUAMC() {
+  const aboutBoxes = [
+    {
+      title: "College Mission",
+      sub: "Statement",
+      icon: "/about3.png",
+    },
+    {
+      title: "College Vision",
+      sub: "Achievement",
+      icon: "/about4.png",
+    },
+  ];
+
+  const GREEN = "#018837";
+
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-center gap-10 px-6 md:px-20 py-16 md:py-24">
-      <div className="relative w-full max-w-[500px] h-[420px] shrink-0">
-        <PhotoPlaceholder
-          label="Campus building"
-          className="absolute left-0 top-6 h-[90%] w-[52%]"
-        />
-        <PhotoPlaceholder
-          label="Lecture hall"
-          className="absolute right-0 top-0 h-[90%] w-[42%] shadow-lg"
-        />
+    <section className="w-full bg-white">
+      {/* =====================================================
+          FIGMA FRAME
+          1440px × 617.56px
+      ====================================================== */}
+      <div
+        className="
+          mx-auto
+          flex
+          w-full
+          max-w-[1440px]
+          flex-col
+          items-center
+          gap-10
+          px-5
+          py-10
+
+          lg:h-[617.56px]
+          lg:flex-row
+          lg:items-center
+          lg:gap-[40px]
+          lg:px-0
+          lg:py-0
+        "
+      >
+        {/* =================================================
+            LEFT — IMAGE COMPOSITION
+            Figma: 700 × 617.56
+        ================================================== */}
         <div
-          className="absolute left-[32%] top-[38%] flex h-32 w-32 items-center justify-center rounded-full text-white text-center font-display text-xs font-bold shadow-xl"
-          style={{ backgroundColor: GREEN }}
+          className="
+            relative
+            h-[520px]
+            w-full
+            shrink-0
+
+            lg:h-[617.56px]
+            lg:w-[700px]
+          "
         >
-          UAMC
-          <br />
-          Est. 2003
-        </div>
-      </div>
+          {/* ---------------------------------------------
+              LEFT IMAGE
+              Figma:
+              width  = 360.21
+              height = 572.73
+              left   = 0
+              top    = 44.83
+          ---------------------------------------------- */}
+          <div
+            className="
+              absolute
+              left-0
+              top-[20px]
+              h-[480px]
+              w-[62%]
+              overflow-hidden
 
-      <div className="flex w-full max-w-xl flex-col gap-8">
-        <div className="flex flex-col gap-3">
-          <span
-            className="flex items-center gap-2 font-body text-lg font-medium"
-            style={{ color: GREEN }}
+              lg:top-[44.83px]
+              lg:h-[572.73px]
+              lg:w-[360.21px]
+            "
           >
-            <span className="h-6 w-8" style={{ backgroundColor: GREEN }} />
-            knowledge meets innovation
-          </span>
-          <h2 className="font-display text-5xl font-light text-[#262626]">
-            About{" "}
-            <span className="font-bold" style={{ color: GREEN }}>
-              UAMC
-            </span>
-          </h2>
+            <img
+              src="/about1.jpg"
+              alt="Uttara Adhunik Medical College"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* ---------------------------------------------
+              RIGHT IMAGE
+              Figma:
+              width  = 302.57
+              height = 572.73
+              left   = 397.43
+              top    = 22.42
+          ---------------------------------------------- */}
+          <div
+            className="
+              absolute
+              right-0
+              top-0
+              h-[480px]
+              w-[52%]
+              overflow-hidden
+              shadow-[0_3.33px_3.33px_rgba(0,0,0,0.25)]
+
+              lg:left-[397.43px]
+              lg:right-auto
+              lg:top-[22.42px]
+              lg:h-[572.73px]
+              lg:w-[302.57px]
+            "
+          >
+            <img
+              src="/about2.jpg"
+              alt="Uttara Adhunik Medical College"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* ---------------------------------------------
+              LOGO
+
+              Figma:
+              300.17 × 300.17
+
+              Important:
+              logo must sit ABOVE both images.
+          ---------------------------------------------- */}
+          <div
+            className="
+              absolute
+              left-[10%]
+              top-[110px]
+              z-20
+              flex
+              h-[230px]
+              w-[230px]
+              items-center
+              justify-center
+              overflow-hidden
+              rounded-full
+              p-[3px]
+
+              lg:left-[32%]
+              lg:top-[158px]
+              lg:h-[300.17px]
+              lg:w-[300.17px]
+            "
+          >
+            <img
+              src="/logo2.png"
+              alt="UAMC Logo"
+              className="h-full w-full rounded-full object-cover"
+            />
+          </div>
         </div>
 
-        <p className="font-body text-lg leading-relaxed text-[#737477]">
-          <strong className="text-[#444444]">
-            Uttara Adhunik Medical College (UAMC) is a prestigious medical
-            institution located in Uttara Model Town, Dhaka, Bangladesh.
-            Established in 2003.
-          </strong>
-        </p>
-        <p className="font-body text-lg leading-relaxed text-[#737477]">
-          UAMC offers a Bachelor of Medicine and Bachelor of Surgery (MBBS)
-          program, designed to equip students with the knowledge, skills, and
-          hands-on clinical training needed to excel in the medical profession.
-        </p>
+        {/* =================================================
+            RIGHT — ABOUT CONTENT
+            Figma: 700px
+        ================================================== */}
+        <div
+          className="
+            flex
+            w-full
+            flex-col
+            gap-8
 
-        <div className="flex flex-col sm:flex-row gap-5">
-          {[
-            { title: "College Mission", sub: "Statement" },
-            { title: "College Vision", sub: "Achievement" },
-          ].map((box) => (
+            lg:h-[617.56px]
+            lg:w-[700px]
+            lg:shrink-0
+            lg:gap-[38px]
+          "
+        >
+          {/* =================================================
+              FRAME 55
+          ================================================== */}
+          <div
+            className="
+              flex
+              flex-col
+              gap-[21.67px]
+
+              lg:w-[661.89px]
+            "
+          >
+            {/* =================================================
+                FRAME 54
+            ================================================== */}
             <div
-              key={box.title}
-              className="flex flex-1 items-center gap-4 border border-dashed p-5"
-              style={{ borderColor: GREEN }}
+              className="
+                flex
+                flex-col
+                gap-[4.33px]
+              "
             >
-              <div
-                className="h-10 w-10 shrink-0 rounded-full"
-                style={{ backgroundColor: GREEN }}
-              />
-              <div>
-                <p
-                  className="font-display text-lg font-medium"
+              {/* ---------------------------------------------
+                  EYEBROW
+              ---------------------------------------------- */}
+              <div className="flex h-[45.67px] w-fit items-end">
+                {/* Green mark */}
+                <span
+                  className="
+                    block
+                    h-[23.36px]
+                    w-[32.5px]
+                    shrink-0
+                  "
+                  style={{ backgroundColor: GREEN }}
+                />
+
+                {/* Text */}
+                <span
+                  className="
+                    flex
+                    h-[45.67px]
+                    items-center
+                    justify-center
+                    px-[10.83px]
+                    font-body
+                    text-[19.5px]
+                    font-medium
+                    leading-[23px]
+                  "
                   style={{ color: GREEN }}
                 >
-                  {box.title}
-                </p>
-                <p
-                  className="font-display text-lg font-medium"
-                  style={{ color: GREEN }}
+                  knowledge meets innovation
+                </span>
+              </div>
+
+              {/* ---------------------------------------------
+                  HEADING
+                  Figma: 65px / 62px
+              ---------------------------------------------- */}
+              <div className="flex h-[84.67px] items-center">
+                <h2
+                  className="
+                    whitespace-nowrap
+                    font-display
+                    text-[52px]
+                    font-light
+                    leading-[62px]
+                    text-[#262626]
+
+                    lg:text-[65px]
+                  "
                 >
-                  {box.sub}
-                </p>
+                  About{" "}
+                  <span className="font-bold" style={{ color: GREEN }}>
+                    UAMC
+                  </span>
+                </h2>
               </div>
             </div>
-          ))}
-        </div>
 
-        <button
-          className="flex w-fit items-center gap-2 px-8 py-4 font-body font-medium text-white"
-          style={{ backgroundColor: GREEN }}
-        >
-          View Our Program <ArrowRight className="h-4 w-4" strokeWidth={2} />
-        </button>
+            {/* =================================================
+                FRAME 52 — DESCRIPTION
+            ================================================== */}
+            <div
+              className="
+                flex
+                flex-col
+                gap-[27.08px]
+
+                lg:w-[661.89px]
+              "
+            >
+              {/* First paragraph */}
+              <p
+                className="
+                  m-0
+                  w-full
+                  font-body
+                  text-[16px]
+                  font-bold
+                  leading-[31px]
+                  text-[#737477]
+
+                  lg:text-[17.33px]
+                "
+              >
+                Uttara Adhunik Medical College (UAMC) is a prestigious medical
+                institution located in Uttara Model Town, Dhaka, Bangladesh.
+                Established in 2003.
+              </p>
+
+              {/* Second paragraph */}
+              <p
+                className="
+                  m-0
+                  w-full
+                  font-body
+                  text-[16px]
+                  font-normal
+                  leading-[31px]
+                  text-[#737477]
+
+                  lg:text-[17.33px]
+                "
+              >
+                UAMC offers a Bachelor of Medicine and Bachelor of Surgery
+                (MBBS) program, designed to equip students with the knowledge,
+                skills, and hands-on clinical training needed to excel in the
+                medical profession.
+              </p>
+            </div>
+          </div>
+
+          {/* =================================================
+              FRAME 53
+              700 × 97.05
+          ================================================== */}
+          <div
+            className="
+              flex
+              w-full
+              flex-col
+              gap-5
+
+              sm:flex-row
+
+              lg:h-[97.05px]
+              lg:w-[700px]
+              lg:gap-[21.67px]
+            "
+          >
+            {aboutBoxes.map((box) => (
+              <div
+                key={box.title}
+                className="
+                  relative
+                  flex
+                  h-[97.05px]
+                  w-full
+                  shrink-0
+                  items-center
+                  border
+                  border-dashed
+
+                  lg:w-[339.17px]
+                "
+                style={{ borderColor: GREEN }}
+              >
+                {/* Icon */}
+                <div
+                  className="
+                    ml-[20px]
+                    flex
+                    h-[54.17px]
+                    w-[54.17px]
+                    shrink-0
+                    items-center
+                    justify-center
+
+                    lg:ml-[33.58px]
+                  "
+                >
+                  <img
+                    src={box.icon}
+                    alt=""
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+
+                {/* Text */}
+                <div
+                  className="
+                    ml-[20px]
+                    flex
+                    flex-col
+
+                    lg:ml-[26px]
+                  "
+                >
+                  <span
+                    className="
+                      font-display
+                      text-[18px]
+                      font-medium
+                      leading-[23px]
+                    "
+                    style={{ color: GREEN }}
+                  >
+                    {box.title}
+                  </span>
+
+                  <span
+                    className="
+                      font-display
+                      text-[18px]
+                      font-medium
+                      leading-[23px]
+                    "
+                    style={{ color: GREEN }}
+                  >
+                    {box.sub}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* =================================================
+              CTA
+          ================================================== */}
+          <button
+            type="button"
+            className="
+              flex
+              h-[60.5px]
+              w-fit
+              items-center
+              justify-center
+              gap-[10px]
+              px-[32.5px]
+              py-[16.25px]
+              font-body
+              text-[17.33px]
+              font-medium
+              leading-[27px]
+              text-white
+              transition-opacity
+              hover:opacity-90
+            "
+            style={{ backgroundColor: GREEN }}
+          >
+            <span>View Our Program</span>
+
+            <ArrowRight className="h-[27.08px] w-[15.19px]" strokeWidth={2} />
+          </button>
+        </div>
       </div>
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  5. Stat strip                                                     */
 /* ------------------------------------------------------------------ */
+
 function StatStrip() {
   const stats = [
-    { value: "90%", label: "Post-Graduation Success Rate" },
-    { value: "Top 10", label: "Colleges That Create Futures" },
-    { value: "No. 1", label: "In The Nation For Materials R&D" },
+    {
+      value: "90%",
+      label: "Post-Graduation Success Rate",
+      width: "w-[144px]",
+    },
+    {
+      value: "Top 10",
+      label: "Colleges That Create Futures",
+      width: "w-[142px]",
+    },
+    {
+      value: "No. 1",
+      label: "In The Nation For Materials R&D",
+      width: "w-[147px]",
+    },
   ];
+
   return (
     <section
-      className="flex items-center justify-center px-6 md:px-24 py-14"
+      className="
+        flex
+        min-h-[311px]
+        w-full
+        flex-col
+        items-center
+        justify-center
+        px-6
+        py-[50px]
+        md:px-[100px]
+      "
       style={{
-        backgroundImage:
-          "linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), linear-gradient(135deg, #0a3d1f, #018837)",
+        backgroundImage: `
+          linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("/statistic.jpg")
+        `,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
+      {/* =========================================
+          GLASS STAT PANEL
+      ========================================== */}
       <div
-        className="flex w-full max-w-5xl flex-col sm:flex-row items-center justify-center gap-10 sm:gap-0 p-10"
+        className="
+          flex
+          w-full
+          max-w-[1233px]
+          flex-col
+          items-center
+          justify-center
+          gap-10
+          px-8
+          py-10
+          md:h-[211px]
+          md:flex-row
+          md:gap-[150px]
+          md:px-[100px]
+          md:py-[50px]
+        "
         style={{
-          backgroundColor: "rgba(1,136,55,0.5)",
+          backgroundColor: "rgba(1, 136, 55, 0.5)",
           backdropFilter: "blur(5px)",
+          WebkitBackdropFilter: "blur(5px)",
         }}
       >
-        {stats.map((s, i) => (
-          <div key={s.label} className="flex items-center gap-10">
-            <div className="flex flex-col items-center gap-3 text-center w-36">
-              <span className="font-display text-4xl text-white">
-                {s.value}
-              </span>
+        {stats.map((stat, index) => (
+          <div key={stat.label} className="flex items-center">
+            {/* Stat */}
+            <div
+              className={`
+                flex
+                ${stat.width}
+                flex-col
+                items-center
+                gap-[19px]
+              `}
+            >
+              {/* Value */}
               <span
-                className="font-display text-lg font-bold"
+                className="
+                  flex
+                  h-[48px]
+                  w-full
+                  items-center
+                  justify-center
+                  whitespace-nowrap
+                  font-display
+                  text-[48px]
+                  font-normal
+                  leading-[48px]
+                  text-white
+                "
+              >
+                {stat.value}
+              </span>
+
+              {/* Label */}
+              <span
+                className="
+                  flex
+                  h-[44px]
+                  w-full
+                  items-center
+                  justify-center
+                  text-center
+                  font-display
+                  text-[18px]
+                  font-bold
+                  leading-[22px]
+                "
                 style={{ color: YELLOW }}
               >
-                {s.label}
+                {stat.label}
               </span>
             </div>
-            {i < stats.length - 1 && (
-              <span className="hidden sm:block h-24 w-px bg-white/40" />
+
+            {/* Divider */}
+            {index < stats.length - 1 && (
+              <span
+                className="
+                  mx-8
+                  hidden
+                  h-[94px]
+                  w-px
+                  shrink-0
+                  bg-white/50
+                  md:mx-0
+                  md:block
+                "
+              />
             )}
           </div>
         ))}
@@ -496,108 +1445,371 @@ function StatStrip() {
 /* ------------------------------------------------------------------ */
 /*  6. Find Your Department                                           */
 /* ------------------------------------------------------------------ */
+
 function FindDepartment() {
   return (
-    <section className="flex flex-col lg:flex-row items-center gap-12 px-6 md:px-20 py-16 md:py-24 bg-gradient-to-b from-white to-[#f7f7f7]">
-      <div className="flex w-full max-w-2xl flex-col gap-8">
-        <div>
-          <h2
-            className="font-display text-4xl font-bold"
-            style={{ color: GREEN }}
-          >
-            Find Your Department
-          </h2>
-          <p className="mt-3 font-body text-sm leading-relaxed text-[#737477]">
-            Use the search bar below to explore our comprehensive MBBS program
-            and discover the perfect path to kickstart your medical career. Join
-            UAMC and embark on a journey of academic excellence, hands-on
-            clinical training, and cutting-edge medical research!
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center gap-3 bg-[#E8E8F4] px-5 py-4">
-            <Search
-              className="h-5 w-5 shrink-0"
-              style={{ color: GREEN }}
-              strokeWidth={2}
-            />
-            <input
-              placeholder='Find your program like "Department of Physiology"'
-              className="w-full bg-transparent font-body text-sm text-[#9191A6] outline-none placeholder:text-[#9191A6]"
-            />
-          </div>
-          <p
-            className="font-body text-sm font-bold"
-            style={{ color: "rgba(1,136,55,0.7)" }}
-          >
-            Popular Search: Department of Microbiology &nbsp; Department of
-            Community Medicine &nbsp; Department of Pathology
-          </p>
-        </div>
-
+    <section
+      id="departments"
+      className="
+        flex
+        w-full
+        items-center
+        px-6
+        py-[70px]
+        md:px-20
+        md:py-[100px]
+      "
+      // style={{
+      //   backgroundImage: `
+      //     linear-gradient(
+      //       180deg,
+      //       #ffffff 0%,
+      //       rgba(255, 255, 255, 0) 100%
+      //     ),
+      //     url("/statistic.jpg")
+      //   `,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      // }}
+    >
+      <div
+        className="
+          mx-auto
+          flex
+          w-full
+          max-w-[1440px]
+          flex-col
+          items-center
+          gap-12
+          lg:flex-row
+          lg:gap-[50px]
+        "
+      >
+        {/* =========================================
+            LEFT CONTENT
+        ========================================== */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-between gap-5 p-5"
-          style={{
-            backgroundColor: "rgba(1,136,55,0.1)",
-            border: `1px dashed ${GREEN}`,
-          }}
+          className="
+            flex
+            w-full
+            max-w-[769px]
+            flex-col
+            justify-between
+            gap-[43px]
+            lg:min-h-[456.85px]
+          "
         >
-          <div className="flex items-center gap-4">
-            <PhotoPlaceholder
-              label="Microbiology"
-              className="h-20 w-28 shrink-0"
-            />
-            <div className="flex flex-col gap-2">
-              <span
-                className="w-fit px-3 py-1 font-body text-xs font-semibold"
-                style={{ backgroundColor: YELLOW }}
-              >
-                Popular Program
-              </span>
-              <p
-                className="font-body text-lg font-bold"
+          {/* Heading + description */}
+          <div className="flex w-full flex-col">
+            {/* Heading */}
+            <div className="flex h-[68px] items-center py-[10px]">
+              <h2
+                className="
+                  font-display
+                  text-[32px]
+                  font-bold
+                  leading-[48px]
+                  md:text-[40px]
+                "
                 style={{ color: GREEN }}
               >
-                Department of Microbiology
+                Find Your Department
+              </h2>
+            </div>
+
+            {/* Description */}
+            <div className="flex min-h-[74px] items-center py-[10px]">
+              <p
+                className="
+                  font-body
+                  text-[14px]
+                  font-normal
+                  leading-[18px]
+                  text-[#737477]
+                  md:text-[15px]
+                "
+              >
+                Use the search bar below to explore our comprehensive MBBS
+                program and discover the perfect path to kickstart your medical
+                career. Join UAMC and embark on a journey of academic
+                excellence, hands-on clinical training, and cutting-edge medical
+                research!
               </p>
             </div>
           </div>
+
+          {/* Search + popular searches */}
+          <div className="flex w-full flex-col gap-[10px]">
+            {/* Search box */}
+            <div
+              className="
+                flex
+                h-[68px]
+                w-full
+                items-center
+                gap-[10px]
+                px-5
+                py-[15px]
+              "
+              style={{ backgroundColor: "#E8E8F4" }}
+            >
+              <Search
+                className="h-6 w-6 shrink-0"
+                style={{ color: GREEN }}
+                strokeWidth={2}
+              />
+
+              <div className="flex h-[38px] items-center px-[10px]">
+                <input
+                  type="text"
+                  placeholder='Find your program like "Department of Physiology"'
+                  className="
+                    w-full
+                    min-w-0
+                    bg-transparent
+                    font-body
+                    text-[15px]
+                    font-medium
+                    leading-[18px]
+                    text-[#9191A6]
+                    outline-none
+                    placeholder:text-[#9191A6]
+                  "
+                />
+              </div>
+            </div>
+
+            {/* Popular search */}
+            <div className="flex min-h-[38px] items-center py-[10px]">
+              <p
+                className="
+                  font-body
+                  text-[14px]
+                  font-bold
+                  leading-[18px]
+                  md:text-[15px]
+                "
+                style={{ color: "rgba(1, 136, 55, 0.7)" }}
+              >
+                Popular Search: Department of Microbiology&nbsp;&nbsp;
+                Department of Community Medicine&nbsp;&nbsp; Department of
+                Pathology
+              </p>
+            </div>
+          </div>
+
+          {/* =========================================
+              FEATURED DEPARTMENT
+          ========================================== */}
           <div
-            className="flex h-14 w-14 items-center justify-center rounded-sm"
-            style={{ backgroundColor: GREEN }}
+            className="
+              flex
+              min-h-[120px]
+              w-full
+              items-center
+              justify-between
+              gap-5
+              border
+              border-dashed
+              p-5
+            "
+            style={{
+              backgroundColor: "rgba(1, 136, 55, 0.1)",
+              borderColor: GREEN,
+            }}
           >
-            <ArrowRight
-              className="h-5 w-5"
-              style={{ color: YELLOW }}
-              strokeWidth={2}
-            />
+            {/* Department information */}
+            <div className="flex items-center gap-[10px]">
+              {/* Image */}
+              <div className="h-[80px] w-[116px] shrink-0 overflow-hidden">
+                <img
+                  src="/popular.jpg"
+                  alt="Department of Microbiology"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Text */}
+              <div className="flex h-[75px] w-full max-w-[248px] flex-col gap-[10px]">
+                {/* Badge */}
+                <span
+                  className="
+                    flex
+                    h-[23px]
+                    w-fit
+                    items-center
+                    justify-center
+                    px-[10px]
+                    py-[5px]
+                    font-body
+                    text-[11px]
+                    font-semibold
+                    leading-[13px]
+                    text-black
+                  "
+                  style={{ backgroundColor: YELLOW }}
+                >
+                  Popular Program
+                </span>
+
+                {/* Department name */}
+                <div className="flex h-[42px] items-center py-[10px]">
+                  <p
+                    className="
+                      font-body
+                      text-[16px]
+                      font-bold
+                      leading-[22px]
+                      md:text-[18px]
+                    "
+                    style={{ color: GREEN }}
+                  >
+                    Department of Microbiology
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Arrow button */}
+            <button
+              type="button"
+              aria-label="View Department of Microbiology"
+              className="
+                flex
+                h-[80px]
+                w-[57px]
+                shrink-0
+                items-center
+                justify-center
+                rounded-[2px]
+              "
+              style={{ backgroundColor: GREEN }}
+            >
+              <ArrowRight
+                className="h-6 w-6"
+                style={{ color: YELLOW }}
+                strokeWidth={2}
+              />
+            </button>
           </div>
         </div>
-      </div>
 
-      <div className="relative w-full max-w-xl h-[420px]">
-        <PhotoPlaceholder
-          label="Doctor consulting patient"
-          className="absolute left-0 top-0 h-3/5 w-1/2"
-        />
-        <PhotoPlaceholder
-          label="Nurse checking X-ray results"
-          className="absolute right-0 top-0 h-full w-[55%]"
-        />
+        {/* =========================================
+            RIGHT IMAGE COLLAGE
+        ========================================== */}
         <div
-          className="absolute left-0 bottom-0 flex items-center gap-4 p-6"
-          style={{
-            backgroundColor: "rgba(1,136,55,0.55)",
-            backdropFilter: "blur(5px)",
-          }}
+          className="
+            relative
+            h-[400px]
+            w-full
+            max-w-[621px]
+            lg:h-[456.85px]
+          "
         >
-          <span className="font-display text-4xl font-bold text-white">
-            28+
-          </span>
-          <span className="font-body text-sm text-white max-w-[140px]">
-            Departments Available For Student
-          </span>
+          {/* Small image */}
+          <div
+            className="
+              absolute
+              left-0
+              top-0
+              h-[205px]
+              w-[45%]
+              overflow-hidden
+              lg:h-[234.44px]
+              lg:w-[252px]
+            "
+          >
+            <img
+              src="/find1.jpg"
+              alt="Doctor consulting patient"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* Large image */}
+          <div
+            className="
+              absolute
+              right-0
+              top-0
+              h-full
+              w-[56%]
+              overflow-hidden
+              lg:h-[456.85px]
+              lg:w-[348px]
+            "
+          >
+            <img
+              src="/find2.jpg"
+              alt="Nurse checking X-ray results"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* =========================================
+              28+ DEPARTMENT OVERLAY
+          ========================================== */}
+          <div
+            className="
+              absolute
+              bottom-0
+              left-0
+              flex
+              min-h-[100px]
+              w-[85%]
+              items-center
+              gap-[18px]
+              px-6
+              py-4
+              lg:h-[116.99px]
+              lg:w-[337.69px]
+              lg:px-[30px]
+              lg:py-[15px]
+            "
+            style={{
+              backgroundColor: "rgba(1, 136, 55, 0.5)",
+              backdropFilter: "blur(5px)",
+              WebkitBackdropFilter: "blur(5px)",
+            }}
+          >
+            {/* Round image */}
+            <div className="h-[70px] w-[70px] shrink-0 overflow-hidden rounded-full lg:h-[86.78px] lg:w-[86.78px]">
+              <img
+                src="/171328095_10677961.png"
+                alt=""
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {/* Number + label */}
+            <div className="flex min-w-0 flex-col">
+              <span
+                className="
+                  font-display
+                  text-[32px]
+                  font-bold
+                  leading-[43px]
+                  text-white
+                  lg:text-[36.157px]
+                "
+              >
+                28+
+              </span>
+
+              <span
+                className="
+                  font-body
+                  text-[13px]
+                  font-normal
+                  leading-[18px]
+                  text-white
+                  lg:text-[14.4628px]
+                "
+              >
+                Department Available For Student
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -607,49 +1819,67 @@ function FindDepartment() {
 /* ------------------------------------------------------------------ */
 /*  7. Admission CTA banner                                           */
 /* ------------------------------------------------------------------ */
+
 function AdmissionCTA() {
   return (
     <section
-      className="flex justify-center px-6 md:px-20 py-14"
+      className="flex w-full justify-center px-5 py-[50px] sm:px-10 lg:px-20"
       style={{
         backgroundImage:
-          "linear-gradient(0deg, rgba(1,136,55,0.55), rgba(1,136,55,0.55)), linear-gradient(135deg,#062b16,#0a3d1f)",
+          "linear-gradient(0deg, rgba(1, 136, 55, 0.4), rgba(1, 136, 55, 0.4)), url('/admission.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div
-        className="flex w-full max-w-6xl flex-col items-center gap-8 py-12 px-6 text-center"
+        className="flex w-full max-w-[1440px] flex-col items-center gap-[30px] py-[50px]"
         style={{
-          backgroundColor: "rgba(0,0,0,0.12)",
+          backgroundColor: "rgba(0, 0, 0, 0.1)",
           backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
         }}
       >
-        <h2
-          className="font-display text-4xl md:text-6xl font-bold tracking-wide"
-          style={{ color: YELLOW }}
-        >
-          UAMC Admission
-        </h2>
-        <p className="max-w-4xl font-body text-white/90">
-          Uttara Adhunik Medical College (UAMC) was established in 2003 with a
-          vision to provide quality medical education and healthcare services.
-          Founded through the dedicated efforts of medical professionals and
-          social leaders, UAMC is committed to training future doctors while
-          ensuring affordable healthcare for the community.
-        </p>
+        {/* Heading + Description */}
+        <div className="flex w-full flex-col items-center gap-5">
+          <h2
+            className="font-display text-center text-[40px] font-bold leading-[1.2] tracking-[0.05em] sm:text-[48px] lg:text-[60px] lg:leading-[72px]"
+            style={{ color: YELLOW }}
+          >
+            UAMC Admission
+          </h2>
+
+          <div className="flex w-full items-center justify-center px-5 sm:px-10 lg:px-20">
+            <p className="w-full max-w-[1280px] text-center font-body text-[16px] font-normal leading-[22px] text-white sm:text-[18px]">
+              Uttara Adhunik Medical College (UAMC) was established in 2003 with
+              a vision to provide quality medical education and healthcare
+              services. Founded through the dedicated efforts of medical
+              professionals and social leaders, UAMC is committed to training
+              future doctors while ensuring affordable healthcare for the
+              community.
+            </p>
+          </div>
+        </div>
+
+        {/* Button */}
         <button
-          className="px-10 py-4 font-body font-medium text-white"
-          style={{ backgroundColor: GREEN }}
+          type="button"
+          className="flex h-[55px] w-[230px] items-center justify-center gap-[10px] font-body text-[16px] font-medium leading-[25px] text-white transition-opacity hover:opacity-90"
+          style={{
+            backgroundColor: GREEN,
+          }}
         >
-          Learn More →
+          <span>Learn More</span>
+
+          <ArrowRight className="h-[25px] w-[14px]" strokeWidth={2} />
         </button>
       </div>
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  8. Facilities                                                     */
 /* ------------------------------------------------------------------ */
+
 function OurFacilities() {
   const items = [
     "Hostel",
@@ -662,78 +1892,137 @@ function OurFacilities() {
     "Publications",
     "Seminar",
   ];
+
   const [active, setActive] = useState(0);
 
   return (
-    <section className="flex flex-col gap-10 py-16">
-      <div className="flex flex-col items-center gap-2 bg-[#FAF6F6] py-10">
-        <span
-          className="flex items-center gap-2 font-body text-lg font-medium"
-          style={{ color: GREEN }}
-        >
-          <span className="h-6 w-8" style={{ backgroundColor: GREEN }} />{" "}
-          knowledge meets innovation
-        </span>
-        <h2 className="font-display text-4xl md:text-6xl font-bold text-black">
+    <section className="w-full bg-[#FAF6F6] py-[50px]">
+      {/* Section Header */}
+      <div className="flex flex-col items-center bg-[#FAF6F6] px-6 py-10">
+        <div className="mb-2 flex items-end">
+          <span
+            className="mr-3 block h-[23px] w-[33px]"
+            style={{ backgroundColor: GREEN }}
+          />
+
+          <span
+            className="font-body text-[19.5px] font-medium leading-[23px]"
+            style={{ color: GREEN }}
+          >
+            knowledge meets innovation
+          </span>
+        </div>
+
+        <h2 className="font-display text-center text-[42px] font-bold leading-[1.2] tracking-[0.03em] text-black md:text-[60px] md:leading-[72px]">
           Our Facilities
         </h2>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-center gap-6 bg-[#FAF6F6] px-6 md:px-20 pb-16">
-        <div className="flex w-full max-w-xs flex-col gap-2">
-          {items.map((item, i) => (
-            <button
-              key={item}
-              onClick={() => setActive(i)}
-              className={`flex items-center justify-between px-5 py-4 font-display text-base font-bold ${
-                i === active ? "text-white" : "bg-white text-black"
-              }`}
-              style={i === active ? { backgroundColor: GREEN } : {}}
-            >
-              {item}
-              <ArrowRight
-                className="h-4 w-4"
-                style={{ color: YELLOW }}
-                strokeWidth={2}
-              />
-            </button>
-          ))}
-        </div>
+      {/* Main Content */}
+      <div className="flex w-full justify-center bg-[#FAF6F6] px-5 pb-20 pt-10 md:px-10 lg:px-20">
+        <div className="flex w-full max-w-[1432px] flex-col items-center gap-8 lg:flex-row lg:items-stretch lg:gap-0">
+          {/* Left Facilities Menu */}
+          <div className="flex w-full max-w-[600px] flex-col gap-5 lg:mr-[-70px] lg:shrink-0">
+            {items.map((item, i) => (
+              <button
+                key={item}
+                type="button"
+                onClick={() => setActive(i)}
+                className={`flex h-[65px] w-full items-center justify-between rounded-[5px] p-[10px] transition-all ${
+                  i === active ? "text-[#018837]" : "bg-white text-black"
+                }`}
+                style={
+                  i === active
+                    ? {
+                        backgroundColor: "#FFFFFF",
+                        boxShadow: "0 0 0 1px rgba(1,136,55,0.05)",
+                      }
+                    : undefined
+                }
+              >
+                <span
+                  className="flex items-center px-[10px] font-display text-[18.7px] font-bold leading-[22px]"
+                  style={{
+                    color: i === active ? GREEN : "#000000",
+                  }}
+                >
+                  {item}
+                </span>
 
-        <div className="flex w-full max-w-3xl flex-col md:flex-row items-center gap-8 bg-white p-6">
-          <PhotoPlaceholder
-            label="Hostel building"
-            className="h-[340px] w-full md:w-[45%] shrink-0"
-          />
-          <div className="flex flex-col gap-6">
-            <h3
-              className="font-display text-3xl font-bold"
-              style={{ color: GREEN }}
-            >
-              Hostel Facilities
-            </h3>
-            <div>
-              <p className="font-display text-lg font-medium text-[#4A4A4A]">
-                Ladies hostel:
-              </p>
-              <p className="font-body text-lg text-[#4A4A4A]">
-                Hostel accommodations for female students are available with
-                limited number of seats.
-              </p>
+                <span
+                  className="flex h-[36.4px] w-[36.4px] shrink-0 items-center justify-center rounded-[2px]"
+                  style={{
+                    backgroundColor:
+                      i === active
+                        ? "rgba(1,136,55,0.5)"
+                        : "rgba(1,136,55,0.1)",
+                  }}
+                >
+                  <ArrowRight
+                    className="h-[25px] w-[25px]"
+                    style={{ color: YELLOW }}
+                    strokeWidth={2}
+                  />
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Right Content Card */}
+          <div className="flex w-full max-w-[832px] flex-col overflow-hidden bg-white lg:ml-0 lg:h-[741px] lg:flex-row">
+            {/* Facility Image */}
+            <div className="relative h-[400px] w-full shrink-0 overflow-hidden lg:h-full lg:w-[404px]">
+              <img
+                src="/hostel.jpg"
+                alt="UAMC Hostel building"
+                className="h-full w-full"
+              />
             </div>
-            <a
-              href="#"
-              className="w-fit border-b border-[#0094D3] font-body text-sm font-semibold text-[#0094D3]"
-            >
-              View Details →
-            </a>
-            <button
-              className="flex w-fit items-center gap-2 px-8 py-4 font-body font-medium text-white"
-              style={{ backgroundColor: GREEN }}
-            >
-              View Our Program{" "}
-              <ArrowRight className="h-4 w-4" strokeWidth={2} />
-            </button>
+
+            {/* Facility Details */}
+            <div className="flex w-full flex-col justify-center px-6 py-12 lg:h-full lg:w-[418px] lg:px-[10px]">
+              <div className="flex flex-col gap-[38px] px-2 lg:px-[7.7px]">
+                {/* Title */}
+                <h3
+                  className="font-display text-[32px] font-bold leading-[46px] lg:text-[38.4px]"
+                  style={{ color: GREEN }}
+                >
+                  Hostel Facilities
+                </h3>
+
+                {/* Description */}
+                <div className="flex flex-col gap-[8px]">
+                  <p className="font-display text-[19px] font-medium leading-[23px] text-[#4A4A4A]">
+                    Ladies hostel:
+                  </p>
+
+                  <p className="font-body text-[19px] font-normal leading-[23px] text-[#4A4A4A]">
+                    Hostel accommodations for female students are available with
+                    limited number of seats.
+                  </p>
+                </div>
+
+                {/* View Details */}
+                <a
+                  href="#"
+                  className="flex w-fit items-center gap-5 border-b border-[#0094D3] pb-[2px] font-body text-[11px] font-semibold leading-[13px] text-[#0094D3]"
+                >
+                  <span>View Details</span>
+                  <ArrowRight className="h-[11px] w-[11px]" strokeWidth={1.5} />
+                </a>
+              </div>
+
+              {/* View Program Button */}
+              <button
+                type="button"
+                className="mt-[50px] flex h-[55px] w-[230px] items-center justify-center gap-2 px-[30px] font-body text-[16px] font-medium leading-[25px] text-white"
+                style={{ backgroundColor: GREEN }}
+              >
+                <span>View Our Program</span>
+
+                <ArrowRight className="h-[14px] w-[14px]" strokeWidth={2} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -744,102 +2033,438 @@ function OurFacilities() {
 /* ------------------------------------------------------------------ */
 /*  9. Principal message                                              */
 /* ------------------------------------------------------------------ */
+
 function PrincipalMessage() {
+  const GREEN = "#018837";
+  const YELLOW = "#FFBF2F";
+
   return (
     <section
-      className="flex flex-col items-center gap-10 px-6 md:px-20 py-16 md:py-24"
+      className="
+        flex
+        w-full
+        flex-col
+        items-center
+        gap-10
+        px-6
+        py-16
+
+        md:px-20
+        md:py-20
+      "
       style={{ backgroundColor: "rgba(1,136,55,0.1)" }}
     >
-      <span
-        className="flex items-center gap-2 font-body text-lg font-medium"
-        style={{ color: GREEN }}
+      {/* =====================================================
+          SECTION HEADING
+      ====================================================== */}
+      <div
+        className="
+          flex
+          w-full
+          max-w-[1440px]
+          flex-col
+          items-center
+          gap-[10px]
+        "
       >
-        <span className="h-6 w-8" style={{ backgroundColor: GREEN }} />{" "}
-        knowledge meets innovation
-      </span>
-      <h2 className="font-display text-4xl md:text-6xl font-bold text-center text-black">
-        Message from the <span style={{ color: YELLOW }}>Principal</span>
-      </h2>
-
-      <div className="flex flex-col lg:flex-row items-center gap-12 w-full max-w-6xl">
-        <div className="flex flex-col gap-7 flex-1">
-          <div className="flex flex-col gap-1">
-            <p className="font-display text-2xl font-bold tracking-wide text-black">
-              Honorable
-            </p>
-            <p
-              className="font-display text-3xl font-bold tracking-wide"
-              style={{ color: GREEN }}
-            >
-              Prof. Dr. Mohammad Mohibur Rahman
-            </p>
-            <p className="font-display text-5xl font-bold tracking-wide text-[#444444]">
-              Principal{" "}
-              <span className="text-2xl align-middle">(In Charge)</span>
-            </p>
+        {/* Eyebrow */}
+        <div className="flex h-[45.67px] w-[321.17px] items-end">
+          {/* Figma Frame 48 / Vector */}
+          <div
+            className="
+              flex
+              h-[45.03px]
+              w-[32.5px]
+              shrink-0
+              items-center
+            "
+          >
+            <img
+              src="/knowledge.png"
+              alt=""
+              className="h-[23.36px] w-[32.5px] object-contain"
+            />
           </div>
 
-          <div className="flex flex-col gap-5">
-            <h4 className="font-body text-xl font-bold text-[#444444]">
+          {/* Figma Frame 49 */}
+          <div
+            className="
+              flex
+              h-[45.67px]
+              w-[288.67px]
+              items-center
+              justify-center
+              gap-[10.83px]
+              px-[10.83px]
+            "
+          >
+            <span
+              className="
+                font-body
+                text-[19.5px]
+                font-medium
+                leading-[23px]
+              "
+              style={{ color: GREEN }}
+            >
+              knowledge meets innovation
+            </span>
+          </div>
+        </div>
+
+        {/* Main heading */}
+        <h2
+          className="
+            m-0
+            w-full
+            text-center
+            font-display
+            text-[42px]
+            font-bold
+            leading-[1.2]
+            tracking-[0.03em]
+            text-black
+
+            md:text-[60px]
+            md:leading-[72px]
+          "
+        >
+          Message from the <span style={{ color: YELLOW }}>Principal</span>
+        </h2>
+      </div>
+
+      {/* =====================================================
+          MAIN CONTENT
+          Figma: 1440 × 573
+      ====================================================== */}
+      <div
+        className="
+          flex
+          w-full
+          max-w-[1440px]
+          flex-col
+          items-center
+          gap-10
+
+          lg:flex-row
+          lg:items-center
+          lg:gap-[50px]
+        "
+      >
+        {/* ===================================================
+            LEFT CONTENT
+            Figma: 695px
+        ==================================================== */}
+        <div
+          className="
+            flex
+            w-full
+            max-w-[695px]
+            flex-col
+            gap-[28px]
+
+            lg:h-[541px]
+            lg:w-[695px]
+            lg:max-w-none
+            lg:shrink-0
+          "
+        >
+          {/* Principal Information */}
+          <div
+            className="
+              flex
+              flex-col
+              gap-[20px]
+            "
+          >
+            {/* -----------------------------------------------
+                SIGNATURE
+            ------------------------------------------------ */}
+            <div className="flex h-[141px] w-[186px] items-start">
+              <img
+                src="/sig.png"
+                alt="Principal's signature"
+                className="
+                  block
+                  h-[141px]
+                  w-[186px]
+                  object-contain
+                  object-left
+                "
+              />
+            </div>
+
+            {/* -----------------------------------------------
+                NAME + POSITION
+            ------------------------------------------------ */}
+            <div className="flex flex-col">
+              <p
+                className="
+                  m-0
+                  font-display
+                  text-[24px]
+                  font-bold
+                  leading-[29px]
+                  tracking-[0.03em]
+                  text-black
+                "
+              >
+                Honorable
+              </p>
+
+              <p
+                className="
+                  m-0
+                  font-display
+                  text-[28px]
+                  font-bold
+                  leading-[38px]
+                  tracking-[0.03em]
+
+                  md:text-[32px]
+                "
+                style={{ color: GREEN }}
+              >
+                Prof. Dr. Mohammad Mohibur Rahman
+              </p>
+
+              <p
+                className="
+                  m-0
+                  font-display
+                  text-[48px]
+                  font-bold
+                  leading-[120%]
+                  tracking-[0.03em]
+                  text-[#444444]
+
+                  md:text-[70px]
+                "
+              >
+                Principal{" "}
+                <span
+                  className="
+                    align-middle
+                    text-[28px]
+
+                    md:text-[32px]
+                  "
+                >
+                  (In Charge)
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* =================================================
+              MESSAGE
+          ================================================== */}
+          <div
+            className="
+              flex
+              flex-col
+              gap-[20px]
+            "
+          >
+            <h4
+              className="
+                m-0
+                font-body
+                text-[20px]
+                font-bold
+                leading-[24px]
+                text-[#444444]
+              "
+            >
               Ensuring Quality Healthcare &amp; Medical Education
             </h4>
-            <p className="font-body text-sm text-justify text-[#444444]">
+
+            <p
+              className="
+                m-0
+                font-body
+                text-[15px]
+                font-normal
+                leading-[18px]
+                text-[#444444]
+                lg:text-justify
+              "
+            >
               Bangladesh faces significant challenges in delivering healthcare
               nationwide. To support government efforts, Uttara Adhunik Medical
               College Hospital (UAMCH) has been providing comprehensive health
               services since 2003, evolving into a tertiary-level
               multidisciplinary hospital.
             </p>
+
+            {/* Read More */}
             <button
-              className="flex w-fit items-center gap-2 px-8 py-4 font-body font-medium text-white"
+              type="button"
+              className="
+                flex
+                h-[55px]
+                w-[230px]
+                items-center
+                justify-center
+                gap-[10px]
+                px-[30px]
+                py-[15px]
+                font-body
+                text-[16px]
+                font-medium
+                leading-[25px]
+                text-white
+                transition-opacity
+                hover:opacity-90
+              "
               style={{ backgroundColor: GREEN }}
             >
-              Read More <ArrowRight className="h-4 w-4" strokeWidth={2} />
+              <span>Read More</span>
+
+              <ArrowRight className="h-[25px] w-[14.02px]" strokeWidth={2} />
             </button>
           </div>
         </div>
 
-        <PhotoPlaceholder
-          label="Portrait of the Principal"
-          className="w-full lg:w-[45%] h-[420px] shrink-0"
-        />
+        {/* ===================================================
+            PRINCIPAL IMAGE
+            Figma: 695 × 573
+        ==================================================== */}
+        <div
+          className="
+            h-[420px]
+            w-full
+            max-w-[695px]
+            overflow-hidden
+
+            lg:h-[573px]
+            lg:w-[695px]
+            lg:max-w-none
+            lg:shrink-0
+          "
+        >
+          <img
+            src="/principal.jpg"
+            alt="Prof. Dr. Mohammad Mohibur Rahman"
+            className="
+              block
+              h-full
+              w-full
+              object-cover
+            "
+          />
+        </div>
       </div>
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  10. Campus life                                                   */
 /* ------------------------------------------------------------------ */
+
+import { ArrowUpRight } from "lucide-react";
+
 function CampusLife() {
-  const items = ["Student Life", "Arts & Culture", "Recreation & Wellness"];
+  const GREEN = "#018837";
+
+  const campusItems = [
+    {
+      title: "Student Life",
+      image: "/popular.jpg",
+    },
+    {
+      title: "Arts & Culture",
+      image: "/art.png",
+    },
+    {
+      title: "Recreation & Wellness",
+      image: "/recreation.png",
+    },
+  ];
+
   return (
     <section
-      className="flex flex-col items-center gap-16 px-6 md:px-20 py-20"
+      className="relative w-full overflow-hidden"
       style={{ backgroundColor: GREEN }}
     >
-      <div className="flex flex-col items-center gap-4 text-center max-w-xl">
-        <p className="font-body text-white/90">
-          Building a vibrant community of creative and accomplished people from
-          around the world
-        </p>
-        <h2 className="font-display text-5xl md:text-7xl text-white text-right w-full">
-          Campus Life
-        </h2>
-      </div>
+      {/* Main container */}
+      <div className="relative mx-auto flex min-h-[777px] w-full max-w-[1440px] flex-col px-6 py-16 md:px-10 lg:px-0">
+        {/* =====================================================
+            HEADER
+        ====================================================== */}
+        <div className="relative mx-auto flex w-full max-w-[645px] flex-col items-center">
+          {/* Description + Campus Life heading */}
+          <div className="flex w-full flex-col items-center">
+            {/* Description */}
+            <p className="absolute left-0 top-[120px] w-[304px] font-body text-[16px] font-normal leading-[29px] text-white">
+              Building a vibrant community of creative and accomplished people
+              from around the world
+            </p>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-3 gap-9">
-        {items.map((item) => (
-          <div key={item} className="flex flex-col gap-8">
-            <PhotoPlaceholder label={item} className="h-[300px] w-full" />
-            <a
-              href="#"
-              className="flex items-center gap-3 font-display text-xl text-white"
-            >
-              {item} ↗
-            </a>
+            {/* Campus Life Image */}
+            <div className="relative z-10 ml-auto mr-[155px] h-[192px] w-[273px] overflow-hidden">
+              <img
+                src="/campus.png"
+                alt="Campus Life"
+                className="h-full w-full object-contain"
+              />
+            </div>
+
+            {/* Yellow decorative mark */}
+            <div className="absolute right-[116px] top-[-20px] z-20 h-[50px] w-[50px]">
+              <img
+                src="/yellow.png"
+                alt=""
+                className="h-full w-full object-contain"
+              />
+            </div>
           </div>
-        ))}
+        </div>
+
+        {/* =====================================================
+            CAMPUS LIFE CARDS
+        ====================================================== */}
+        <div className="mx-auto mt-[90px] flex w-full max-w-[1285px] flex-col gap-10 md:flex-row md:justify-center md:gap-[36px]">
+          {campusItems.map((item) => (
+            <div
+              key={item.title}
+              className="flex w-full flex-col gap-[34px] md:w-[397px]"
+            >
+              {/* Image */}
+              <div className="h-[305px] w-full overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Title + Arrow */}
+              <div className="flex items-center gap-[22.93px]">
+                <span className="font-display text-[22.85px] font-normal leading-[34px] text-white">
+                  {item.title}
+                </span>
+
+                <ArrowRight
+                  className="h-[26px] w-[26px] rotate-[-30deg] text-white"
+                  strokeWidth={1.8}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* =====================================================
+            RIGHT SIDE DECORATIVE ICON
+            ONLY decorative icon remaining
+        ====================================================== */}
+        <div className="absolute right-[60px] top-[175px] hidden h-[60px] w-[60px] lg:block">
+          <img
+            src="/degree.png"
+            alt=""
+            className="h-full w-full object-contain"
+          />
+        </div>
       </div>
     </section>
   );
@@ -848,6 +2473,9 @@ function CampusLife() {
 /* ------------------------------------------------------------------ */
 /*  11. Alumni events                                                 */
 /* ------------------------------------------------------------------ */
+
+import { CalendarDays, Clock3 } from "lucide-react";
+
 function AlumniEvents() {
   const events = [
     {
@@ -872,59 +2500,85 @@ function AlumniEvents() {
       place: "Yarra Park, UK",
     },
   ];
+
   return (
-    <section
-      className="flex flex-col items-center gap-12 px-6 md:px-20 py-20"
-      style={{ backgroundColor: "#E6F3EB" }}
-    >
-      <div className="flex w-full max-w-6xl items-center justify-between">
-        <h2
-          className="font-display text-3xl md:text-5xl font-bold"
-          style={{ color: GREEN }}
-        >
+    <section className="w-full bg-[#E6F3EB] px-6 py-20 md:px-20 md:py-[100px]">
+      {/* Header */}
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between">
+        <h2 className="font-display text-[43px] font-bold leading-[48px] text-[#018837]">
           Alumni Event
         </h2>
+
         <a
           href="#"
-          className="flex items-center gap-1 font-body text-sm font-medium"
-          style={{ color: GREEN }}
+          className="flex items-center gap-1 font-body text-base font-medium text-[#018837]"
         >
-          View All <ArrowRight className="h-4 w-4 -rotate-45" strokeWidth={2} />
+          View All
+          <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
         </a>
       </div>
 
-      <div className="flex w-full max-w-6xl flex-col lg:flex-row items-stretch gap-10">
-        <div className="flex flex-1 flex-col gap-1">
-          {events.map((e) => (
+      {/* Content */}
+      <div className="mx-auto mt-[50px] flex w-full max-w-[1440px] flex-col gap-10 lg:flex-row lg:items-center lg:gap-[90px]">
+        {/* Events */}
+        <div className="flex w-full flex-col gap-0 lg:w-[722px]">
+          {events.map((event) => (
             <div
-              key={e.num}
-              className="flex items-center gap-8 bg-[#F6F6F6] px-6 py-6"
+              key={event.num}
+              className="flex min-h-[190px] w-full items-center bg-[#F6F6F6] px-[18px]"
             >
-              <span className="font-display text-6xl font-light border border-[#018837]/60 px-3 py-1 text-black">
-                {e.num}
-              </span>
-              <div className="flex flex-col gap-2">
-                <p className="font-body text-lg" style={{ color: GREEN }}>
-                  {e.title}
+              {/* Number */}
+              <div
+                className="
+                  flex h-[108px] w-[108px]
+                  shrink-0 items-center justify-center
+                  border border-[#018837]
+                  font-display text-[90px]
+                  font-normal leading-[108px]
+                  text-black
+                "
+              >
+                {event.num}
+              </div>
+
+              {/* Event information */}
+              <div className="ml-[30px] flex min-w-0 flex-1 flex-col justify-center gap-[9px]">
+                <p className="font-body text-[19px] font-normal leading-[31px] text-[#018837]">
+                  {event.title}
                 </p>
-                <div className="flex items-center gap-5 font-body text-sm text-[#444444]">
-                  <span>{e.date}</span>
-                  <span>{e.time}</span>
-                  <span>{e.place}</span>
+
+                <div className="flex flex-wrap items-center gap-[18px] font-body text-[14px] leading-[26px] text-[#444444]">
+                  <span className="flex items-center gap-[9px]">
+                    <CalendarDays className="h-[15px] w-[15px]" />
+                    {event.date}
+                  </span>
+
+                  <span className="flex items-center gap-[9px]">
+                    <Clock3 className="h-[17px] w-[17px]" />
+                    {event.time}
+                  </span>
+
+                  <span className="flex items-center gap-[9px]">
+                    <MapPin className="h-[15px] w-[15px]" />
+                    {event.place}
+                  </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <PhotoPlaceholder
-          label="Alumni gathered on campus lawn"
-          className="w-full lg:w-[45%] min-h-[300px]"
-        />
+
+        {/* Image */}
+        <div className="w-full lg:w-[627px] lg:shrink-0">
+          <PhotoPlaceholder
+            label="Alumni gathered on campus lawn"
+            className="h-[607px] w-full"
+          />
+        </div>
       </div>
     </section>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  12. News                                                           */
 /* ------------------------------------------------------------------ */
@@ -988,65 +2642,93 @@ function NewsSection() {
 /* ------------------------------------------------------------------ */
 /*  13. Testimonials                                                  */
 /* ------------------------------------------------------------------ */
+
 function Testimonials() {
   const reviews = [
     { name: "Emma Elizabeth", role: "Assistant Teacher" },
     { name: "Zent Ekizie", role: "Assistant Teacher" },
     { name: "Samantha Willow", role: "Teacher" },
   ];
+
   return (
-    <section className="flex flex-col items-center gap-12 px-6 md:px-20 py-20 bg-[#F6F6F6]">
-      <div className="flex flex-col items-center gap-2 text-center">
+    <section className="flex flex-col items-center bg-[#F6F6F6] px-6 py-[100px] md:px-20">
+      {/* Heading */}
+      <div className="flex w-full max-w-[1440px] flex-col items-center gap-5">
         <h2
-          className="font-display text-4xl md:text-5xl font-bold"
+          className="font-display text-center text-[42px] font-bold leading-[48px] md:text-[50px]"
           style={{ color: GREEN }}
         >
           My Students Feedback
         </h2>
-        <p className="font-body text-[#737477]">
+
+        <p className="w-full text-center font-body text-base leading-[29px] text-[#737477]">
           You'll find something to spark your curiosity and enhance
         </p>
       </div>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 md:grid-cols-3 gap-px bg-black/5">
-        {reviews.map((r) => (
-          <div key={r.name} className="flex flex-col gap-6 bg-white p-8">
-            <div className="flex gap-1">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-3.5 w-3.5 fill-current"
-                  style={{ color: YELLOW }}
-                />
-              ))}
-            </div>
-            <p className="font-body text-[#444444] leading-relaxed">
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old.
-            </p>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
+      {/* Testimonials */}
+      <div className="mt-[50px] w-full max-w-[1290px] overflow-hidden">
+        <div className="grid grid-cols-1 gap-0 md:grid-cols-3">
+          {reviews.map((r, index) => (
+            <div
+              key={r.name}
+              className="relative flex h-[317px] flex-col bg-white px-10 pt-12"
+            >
+              {/* Stars */}
+              <div className="flex gap-[5px]">
+                {Array.from({ length: index === 1 ? 5 : 4 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-[16px] w-[16px] fill-current"
+                    style={{ color: YELLOW }}
+                  />
+                ))}
+              </div>
+
+              {/* Review */}
+              <p className="mt-[21px] max-w-[340px] font-body text-[18px] leading-[28px] text-[#444444]">
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+                45 BC, making it over 2000 years old.
+              </p>
+
+              {/* Author */}
+              <div className="absolute bottom-[39px] left-10 flex items-center">
                 <div
-                  className="h-12 w-12 rounded-full"
+                  className="h-[50px] w-[50px] shrink-0 rounded-full"
                   style={{ backgroundColor: GREEN }}
                 />
-                <div>
+
+                <div className="ml-[10px]">
                   <p
-                    className="font-display text-base font-bold"
+                    className="font-display text-[17.8px] font-bold leading-5"
                     style={{ color: GREEN }}
                   >
                     {r.name}
                   </p>
-                  <p className="font-body text-sm text-[#444444]">{r.role}</p>
+
+                  <p className="mt-[6px] font-body text-[15px] leading-[27px] text-[#444444]">
+                    {r.role}
+                  </p>
                 </div>
               </div>
-              <span className="font-display text-3xl" style={{ color: GREEN }}>
+
+              {/* Quote */}
+              <div
+                className="absolute bottom-[38px] right-[40px] font-display text-[70px] leading-none"
+                style={{ color: GREEN }}
+              >
                 ”
-              </span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Slider dots */}
+        <div className="mt-[48px] flex justify-center gap-2">
+          <span className="h-2 w-2 rounded-full bg-[#FECD2F]" />
+          <span className="h-2 w-2 rounded-full bg-[#444444]/20" />
+        </div>
       </div>
     </section>
   );
@@ -1055,6 +2737,120 @@ function Testimonials() {
 /* ------------------------------------------------------------------ */
 /*  14. Footer                                                        */
 /* ------------------------------------------------------------------ */
+// function Footer() {
+//   const campusLinks = [
+//     "Our Campus",
+//     "Careers",
+//     "News",
+//     "Support",
+//     "Accessible mode",
+//   ];
+//   const pageLinks = ["Home", "About", "Facilities", "Admission", "Contact"];
+//   const posts = [
+//     { title: "Those inequalities that Matter", date: "August 6, 2024" },
+//     {
+//       title: "After Decades Of Improvement, Cardiovascular",
+//       date: "July 4, 2024",
+//     },
+//   ];
+
+//   return (
+//     <footer className="flex flex-col items-center bg-black px-6 md:px-20 pt-14 pb-8 text-white">
+//       <div className="flex w-full max-w-6xl flex-col md:flex-row items-center justify-between gap-8 border-b border-[#242424] pb-14">
+//         <h3 className="font-body text-2xl">Subscribe To Newsletter</h3>
+//         <div className="flex w-full max-w-md items-stretch">
+//           <input
+//             placeholder="Enter Your mail"
+//             className="flex-1 border px-5 py-4 font-body text-sm bg-transparent outline-none placeholder:text-white/70"
+//             style={{ borderColor: GREEN }}
+//           />
+//           <button className="px-8 py-4 font-body text-sm font-medium bg-white text-[#110C2D]">
+//             Submit Button →
+//           </button>
+//         </div>
+//       </div>
+
+//       <div className="grid w-full max-w-6xl grid-cols-1 md:grid-cols-4 gap-10 py-14">
+//         <div className="flex flex-col gap-5">
+//           <div className="flex items-center gap-3">
+//             <div
+//               className="flex h-12 w-12 items-center justify-center rounded-full text-white font-display font-bold"
+//               style={{ backgroundColor: GREEN }}
+//             >
+//               U
+//             </div>
+//             <span className="font-display text-lg font-bold">
+//               Uttara Adhunik Medical College
+//             </span>
+//           </div>
+//           <p className="font-body text-[#737477]">
+//             We are passionate education dedicated to providing high-quality
+//             resources for learners of all backgrounds.
+//           </p>
+//           {/* <div className="flex items-center gap-4">
+//             {[Facebook, Youtube, Linkedin, Instagram].map((Icon, i) => (
+//               <Icon
+//                 key={i}
+//                 className="h-4 w-4 text-[#737477]"
+//                 strokeWidth={1.8}
+//               />
+//             ))}
+//           </div> */}
+//         </div>
+
+//         <div>
+//           <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
+//             Our Campus
+//           </h4>
+//           <ul className="flex flex-col gap-2 font-body text-[#737477]">
+//             {campusLinks.map((l) => (
+//               <li key={l}>
+//                 <a href="#">{l}</a>
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+
+//         <div>
+//           <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
+//             Our Pages
+//           </h4>
+//           <ul className="flex flex-col gap-2 font-body text-[#737477]">
+//             {pageLinks.map((l) => (
+//               <li key={l}>
+//                 <a href="#">{l}</a>
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+
+//         <div>
+//           <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
+//             Recent Posts
+//           </h4>
+//           <div className="flex flex-col gap-4">
+//             {posts.map((p) => (
+//               <div key={p.title} className="flex items-center gap-3">
+//                 <PhotoPlaceholder label="" className="h-14 w-20 shrink-0" />
+//                 <div>
+//                   <p className="font-body text-xs text-[#737477]">{p.date}</p>
+//                   <p className="font-body text-sm">{p.title}</p>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="flex w-full max-w-6xl flex-col sm:flex-row items-center justify-between gap-2 border-t border-[#242424] pt-6 font-body text-sm text-[#737477]">
+//         <span>
+//           Copyright @ 2024. All Rights Reserved by{" "}
+//           <span className="text-white">Umaio</span>
+//         </span>
+//       </div>
+//     </footer>
+//   );
+// }
 function Footer() {
   const campusLinks = [
     "Our Campus",
@@ -1063,113 +2859,361 @@ function Footer() {
     "Support",
     "Accessible mode",
   ];
+
   const pageLinks = ["Home", "About", "Facilities", "Admission", "Contact"];
+
   const posts = [
-    { title: "Those inequalities that Matter", date: "August 6, 2024" },
+    {
+      title: "Those inequalities that Matter",
+      date: "August 6, 2024",
+      image: "/images/post-1.webp",
+    },
     {
       title: "After Decades Of Improvement, Cardiovascular",
       date: "July 4, 2024",
+      image: "/images/post-2.webp",
     },
   ];
 
   return (
-    <footer className="flex flex-col items-center bg-black px-6 md:px-20 pt-14 pb-8 text-white">
-      <div className="flex w-full max-w-6xl flex-col md:flex-row items-center justify-between gap-8 border-b border-[#242424] pb-14">
-        <h3 className="font-body text-2xl">Subscribe To Newsletter</h3>
-        <div className="flex w-full max-w-md items-stretch">
-          <input
-            placeholder="Enter Your mail"
-            className="flex-1 border px-5 py-4 font-body text-sm bg-transparent outline-none placeholder:text-white/70"
-            style={{ borderColor: GREEN }}
-          />
-          <button className="px-8 py-4 font-body text-sm font-medium bg-white text-[#110C2D]">
-            Submit Button →
-          </button>
-        </div>
-      </div>
+    <footer className="w-full bg-black text-white">
+      {/* ================= NEWSLETTER ================= */}
+      <div className="border-b border-[#242424]">
+        <div
+          className="
+            mx-auto flex w-full max-w-[1130px]
+            flex-col gap-8
+            px-5 py-[50px]
+            md:flex-row md:items-center md:justify-between
+            md:gap-10
+          "
+        >
+          <h4
+            className="
+              font-body text-[30.94px]
+              font-normal leading-[36px]
+              text-white
+            "
+          >
+            Subscribe To Newsletter
+          </h4>
 
-      <div className="grid w-full max-w-6xl grid-cols-1 md:grid-cols-4 gap-10 py-14">
-        <div className="flex flex-col gap-5">
-          <div className="flex items-center gap-3">
-            <div
-              className="flex h-12 w-12 items-center justify-center rounded-full text-white font-display font-bold"
-              style={{ backgroundColor: GREEN }}
+          <form
+            className="
+              flex w-full max-w-[494px]
+              flex-col gap-[10px]
+              sm:flex-row
+            "
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <input
+              type="email"
+              placeholder="Enter Your mail"
+              className="
+                box-border h-[53px] w-full
+                border border-[#018837]
+                bg-transparent
+                px-[21px] py-[18px]
+                font-body text-[14px]
+                leading-[17px]
+                text-white
+                outline-none
+                placeholder:text-white
+              "
+            />
+
+            <button
+              type="submit"
+              className="
+                flex h-[53px]
+                w-full shrink-0
+                items-center justify-center
+                gap-[3px]
+                bg-white
+                px-[38px]
+                text-[16px]
+                font-medium
+                leading-[18px]
+                text-[#110C2D]
+                transition-colors
+                hover:bg-[#FECD2F]
+                sm:w-[208px]
+              "
             >
-              U
-            </div>
-            <span className="font-display text-lg font-bold">
-              Uttara Adhunik Medical College
-            </span>
-          </div>
-          <p className="font-body text-[#737477]">
-            We are passionate education dedicated to providing high-quality
-            resources for learners of all backgrounds.
-          </p>
-          {/* <div className="flex items-center gap-4">
-            {[Facebook, Youtube, Linkedin, Instagram].map((Icon, i) => (
-              <Icon
-                key={i}
-                className="h-4 w-4 text-[#737477]"
-                strokeWidth={1.8}
-              />
-            ))}
-          </div> */}
-        </div>
+              <span>Submit Button</span>
 
-        <div>
-          <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
-            Our Campus
-          </h4>
-          <ul className="flex flex-col gap-2 font-body text-[#737477]">
-            {campusLinks.map((l) => (
-              <li key={l}>
-                <a href="#">{l}</a>
-              </li>
-            ))}
-          </ul>
+              <span className="text-[18px] leading-none">→</span>
+            </button>
+          </form>
         </div>
+      </div>
 
-        <div>
-          <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
-            Our Pages
-          </h4>
-          <ul className="flex flex-col gap-2 font-body text-[#737477]">
-            {pageLinks.map((l) => (
-              <li key={l}>
-                <a href="#">{l}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="mb-4 font-body text-lg font-medium underline underline-offset-4">
-            Recent Posts
-          </h4>
-          <div className="flex flex-col gap-4">
-            {posts.map((p) => (
-              <div key={p.title} className="flex items-center gap-3">
-                <PhotoPlaceholder label="" className="h-14 w-20 shrink-0" />
-                <div>
-                  <p className="font-body text-xs text-[#737477]">{p.date}</p>
-                  <p className="font-body text-sm">{p.title}</p>
-                </div>
+      {/* ================= MAIN FOOTER ================= */}
+      <div className="mx-auto w-full max-w-[1290px] px-5">
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-12
+            py-[65px]
+            sm:grid-cols-2
+            lg:grid-cols-4
+            lg:gap-0
+          "
+        >
+          {/* ================= BRAND ================= */}
+          <div className="pr-8">
+            <div className="mb-[25px] flex items-center gap-[8px]">
+              {/* Replace this with your actual logo */}
+              <div
+                className="
+                  flex h-[66px] w-[66px]
+                  shrink-0 items-center justify-center
+                  overflow-hidden rounded-full
+                "
+              >
+                <img
+                  src="/images/logo.png"
+                  alt="Uttara Adhunik Medical College"
+                  className="h-full w-full object-contain"
+                />
               </div>
-            ))}
+
+              <h3
+                className="
+                  max-w-[175px]
+                  font-display
+                  text-[20.7px]
+                  font-bold
+                  leading-[25px]
+                  text-white
+                "
+              >
+                Uttara Adhunik Medical College
+              </h3>
+            </div>
+
+            <p
+              className="
+                max-w-[333px]
+                font-body
+                text-[16px]
+                font-normal
+                leading-[29px]
+                text-[#737477]
+              "
+            >
+              We are passionate education dedicated to providing high-quality
+              resources for learners of all backgrounds.
+            </p>
+          </div>
+
+          {/* ================= OUR CAMPUS ================= */}
+          <div>
+            <h4
+              className="
+                mb-[46px]
+                inline-block
+                font-body
+                text-[20px]
+                font-medium
+                leading-[26px]
+                text-white
+                underline
+                underline-offset-4
+              "
+            >
+              Our Campus
+            </h4>
+
+            <ul className="flex flex-col">
+              {campusLinks.map((link) => (
+                <li key={link}>
+                  <a
+                    href="#"
+                    className="
+                      block
+                      py-[8px]
+                      font-body
+                      text-[16px]
+                      font-normal
+                      leading-[25px]
+                      text-[#737477]
+                      transition-colors
+                      hover:text-white
+                    "
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ================= OUR PAGES ================= */}
+          <div>
+            <h4
+              className="
+                mb-[46px]
+                inline-block
+                font-body
+                text-[20px]
+                font-medium
+                leading-[26px]
+                text-white
+                underline
+                underline-offset-4
+              "
+            >
+              Our Pages
+            </h4>
+
+            <ul className="flex flex-col">
+              {pageLinks.map((link) => (
+                <li key={link}>
+                  <a
+                    href="#"
+                    className="
+                      block
+                      py-[8px]
+                      font-body
+                      text-[16px]
+                      font-normal
+                      leading-[25px]
+                      text-[#737477]
+                      transition-colors
+                      hover:text-white
+                    "
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ================= RECENT POSTS ================= */}
+          <div>
+            <h4
+              className="
+                mb-[46px]
+                inline-block
+                font-body
+                text-[20px]
+                font-medium
+                leading-[26px]
+                text-white
+                underline
+                underline-offset-4
+              "
+            >
+              Recent Posts
+            </h4>
+
+            <div className="flex flex-col gap-[28px]">
+              {posts.map((post) => (
+                <a
+                  href="#"
+                  key={post.title}
+                  className="
+                    group
+                    flex
+                    items-start
+                    gap-[20px]
+                  "
+                >
+                  {/* Figma uses 190x80 post images */}
+                  <div
+                    className="
+                      h-[80px]
+                      w-[80px]
+                      shrink-0
+                      overflow-hidden
+                      bg-[#242424]
+                    "
+                  >
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                        transition-transform
+                        duration-300
+                        group-hover:scale-105
+                      "
+                    />
+                  </div>
+
+                  <div className="pt-[1px]">
+                    <div className="mb-[10px] flex items-center gap-[8px]">
+                      <span className="text-[#737477]">›</span>
+
+                      <p
+                        className="
+                          font-body
+                          text-[14px]
+                          font-normal
+                          leading-[25px]
+                          text-[#737477]
+                        "
+                      >
+                        {post.date}
+                      </p>
+                    </div>
+
+                    <p
+                      className="
+                        max-w-[236px]
+                        font-body
+                        text-[15.75px]
+                        font-normal
+                        leading-[18px]
+                        capitalize
+                        text-white
+                      "
+                    >
+                      {post.title}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex w-full max-w-6xl flex-col sm:flex-row items-center justify-between gap-2 border-t border-[#242424] pt-6 font-body text-sm text-[#737477]">
-        <span>
-          Copyright @ 2024. All Rights Reserved by{" "}
-          <span className="text-white">Umaio</span>
-        </span>
+      {/* ================= COPYRIGHT ================= */}
+      <div className="border-t border-[#242424]">
+        <div
+          className="
+            mx-auto
+            flex
+            min-h-[64px]
+            w-full
+            max-w-[1290px]
+            items-center
+            px-5
+          "
+        >
+          <p
+            className="
+              font-body
+              text-[16px]
+              font-normal
+              leading-[29px]
+              text-[#737477]
+            "
+          >
+            Copyright @ 2024. All Rights Reserved by{" "}
+            <span className="text-white">Umaio</span>
+          </p>
+        </div>
       </div>
     </footer>
   );
 }
-
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
