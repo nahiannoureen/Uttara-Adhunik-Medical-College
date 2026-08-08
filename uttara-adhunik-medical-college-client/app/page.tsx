@@ -18,6 +18,10 @@ import {
   // Instagram,
   X,
 } from "lucide-react";
+import Hero from "@/components/Hero";
+import StatStrip from "@/components/StatStrip";
+import About from "@/components/About";
+import NoticeAndPublication from "@/components/NoticeAndPublication";
 
 /* ------------------------------------------------------------------ */
 /*  Shared tokens (kept as plain constants so every section stays     */
@@ -166,349 +170,386 @@ function PhotoPlaceholder({ label, className = "" }) {
 //   );
 // }
 
-function Hero() {
-  const slides = ["01", "02", "03", "04", "05"];
+// function Hero() {
+//   const slides = ["01", "02", "03", "04", "05"];
 
-  return (
-    <section
-      id="home"
-      className="relative flex min-h-[750px] flex-col justify-end px-6 py-[50px] text-white md:px-20"
-      style={{
-        backgroundImage: `
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(1, 136, 55, 0.7) 100%
-      ),
-      url("/hero.jpg")
-    `,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Main content wrapper */}
-      <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-between">
-        {/* =========================
-            SLIDE NAVIGATION
-        ========================== */}
-        <div className="mx-auto flex h-7 w-full max-w-[896px] items-center justify-center gap-6 md:gap-[100px]">
-          {/* Prev */}
-          <button
-            type="button"
-            className="font-display text-[13px] font-bold uppercase leading-[13px]"
-          >
-            Prev
-          </button>
+//   return (
+//     <section
+//       id="home"
+//       className="relative flex min-h-[750px] flex-col justify-end px-6 py-[50px] text-white md:px-20"
+//       style={{
+//         backgroundImage: `
+//       linear-gradient(
+//         180deg,
+//         rgba(0, 0, 0, 0.2) 0%,
+//         rgba(1, 136, 55, 0.7) 100%
+//       ),
+//       url("/hero.jpg")
+//     `,
+//         backgroundSize: "cover",
+//         backgroundPosition: "center",
+//       }}
+//     >
+//       {/* Main content wrapper */}
+//       <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-between">
+//         {/* =========================
+//             SLIDE NAVIGATION
+//         ========================== */}
+//         <div className="mx-auto flex h-7 w-full max-w-[896px] items-center justify-center gap-6 md:gap-[100px]">
+//           {/* Prev */}
+//           <button
+//             type="button"
+//             className="font-display text-[13px] font-bold uppercase leading-[13px]"
+//           >
+//             Prev
+//           </button>
 
-          {/* Slide numbers */}
-          <div className="flex h-7 items-center justify-center gap-4 md:gap-[37px]">
-            {/* Left divider */}
-            <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+//           {/* Slide numbers */}
+//           <div className="flex h-7 items-center justify-center gap-4 md:gap-[37px]">
+//             {/* Left divider */}
+//             <span className="hidden h-px w-[125px] bg-white/30 md:block" />
 
-            <div className="flex items-center">
-              {slides.map((slide, index) => (
-                <div key={slide} className="flex items-center">
-                  <button
-                    type="button"
-                    className="flex h-7 w-8 items-center justify-center px-[5px] font-display text-[18px] font-bold leading-[18px]"
-                    style={{
-                      color: index === 0 ? YELLOW : "rgba(255, 255, 255, 1)",
-                    }}
-                  >
-                    {slide}
-                  </button>
+//             <div className="flex items-center">
+//               {slides.map((slide, index) => (
+//                 <div key={slide} className="flex items-center">
+//                   <button
+//                     type="button"
+//                     className="flex h-7 w-8 items-center justify-center px-[5px] font-display text-[18px] font-bold leading-[18px]"
+//                     style={{
+//                       color: index === 0 ? YELLOW : "rgba(255, 255, 255, 1)",
+//                     }}
+//                   >
+//                     {slide}
+//                   </button>
 
-                  {index < slides.length - 1 && (
-                    <span className="mx-2 h-[22px] w-px bg-white/30" />
-                  )}
-                </div>
-              ))}
-            </div>
+//                   {index < slides.length - 1 && (
+//                     <span className="mx-2 h-[22px] w-px bg-white/30" />
+//                   )}
+//                 </div>
+//               ))}
+//             </div>
 
-            {/* Right divider */}
-            <span className="hidden h-px w-[125px] bg-white/30 md:block" />
-          </div>
+//             {/* Right divider */}
+//             <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+//           </div>
 
-          {/* Next */}
-          <button
-            type="button"
-            className="font-display text-[13px] font-bold uppercase leading-[13px]"
-          >
-            Next
-          </button>
-        </div>
+//           {/* Next */}
+//           <button
+//             type="button"
+//             className="font-display text-[13px] font-bold uppercase leading-[13px]"
+//           >
+//             Next
+//           </button>
+//         </div>
 
-        {/* =========================
-            CONTENT PANEL
-        ========================== */}
-        <div
-          className="
-            mx-auto flex w-full max-w-[1440px]
-            flex-col justify-between gap-12
-            bg-black/10 p-5
-            backdrop-blur-[2.5px]
-            md:min-h-[399px]
-            md:flex-row
-            md:items-end
-          "
-        >
-          {/* =========================
-              LEFT CONTENT
-          ========================== */}
-          <div className="flex w-full max-w-[600px] flex-col gap-7">
-            {/* Intro */}
-            <div className="flex items-center gap-2">
-              {/* Left decorative line */}
-              <span className="h-[40px] w-[2px] bg-white" />
+//         {/* =========================
+//             CONTENT PANEL
+//         ========================== */}
+//         <div
+//           className="
+//             mx-auto flex w-full max-w-[1440px]
+//             flex-col justify-between gap-12
+//             bg-black/10 p-5
+//             backdrop-blur-[2.5px]
+//             md:min-h-[399px]
+//             md:flex-row
+//             md:items-end
+//           "
+//         >
+//           {/* =========================
+//               LEFT CONTENT
+//           ========================== */}
+//           <div className="flex w-full max-w-[600px] flex-col gap-7">
+//             {/* Intro */}
+//             <div className="flex items-center gap-2">
+//               {/* Left decorative line */}
+//               <span className="h-[40px] w-[2px] bg-white" />
 
-              <span className="font-body text-[14px] font-normal leading-[23px]">
-                Shaping the Future of Healthcare, One Student at a Time
-              </span>
-            </div>
+//               <span className="font-body text-[14px] font-normal leading-[23px]">
+//                 Shaping the Future of Healthcare, One Student at a Time
+//               </span>
+//             </div>
 
-            {/* Heading */}
-            <h1
-              className="
-                max-w-[670px]
-                font-display
-                text-[40px]
-                font-bold
-                leading-[1.2]
-                md:text-[60px]
-                md:leading-[75px]
-              "
-            >
-              Excellence in Medical Education,{" "}
-              <span style={{ color: YELLOW }}>Innovation</span> in Healthcare
-            </h1>
+//             {/* Heading */}
+//             <h1
+//               className="
+//                 max-w-[670px]
+//                 font-display
+//                 text-[40px]
+//                 font-bold
+//                 leading-[1.2]
+//                 md:text-[60px]
+//                 md:leading-[75px]
+//               "
+//             >
+//               Excellence in Medical Education,{" "}
+//               <span style={{ color: YELLOW }}>Innovation</span> in Healthcare
+//             </h1>
 
-            {/* CTA */}
-            <button
-              type="button"
-              className="
-                flex
-                h-[48px]
-                w-fit
-                items-center
-                justify-center
-                gap-[10px]
-                bg-white
-                px-[26px]
-                py-[13px]
-                font-body
-                text-[14px]
-                font-medium
-                leading-[22px]
-                transition-opacity
-                hover:opacity-90
-              "
-              style={{ color: GREEN }}
-            >
-              <span>View Our Program</span>
+//             {/* CTA */}
+//             <button
+//               type="button"
+//               className="
+//                 flex
+//                 h-[48px]
+//                 w-fit
+//                 items-center
+//                 justify-center
+//                 gap-[10px]
+//                 bg-white
+//                 px-[26px]
+//                 py-[13px]
+//                 font-body
+//                 text-[14px]
+//                 font-medium
+//                 leading-[22px]
+//                 transition-opacity
+//                 hover:opacity-90
+//               "
+//               style={{ color: GREEN }}
+//             >
+//               <span>View Our Program</span>
 
-              <ArrowRight className="h-[22px] w-[12px]" strokeWidth={2} />
-            </button>
-          </div>
+//               <ArrowRight className="h-[22px] w-[12px]" strokeWidth={2} />
+//             </button>
+//           </div>
 
-          {/* =========================
-              MBBS CONTENT
-          ========================== */}
-          <div className="flex w-full max-w-[272px] flex-col gap-[22px]">
-            <h3
-              className="
-                flex
-                h-[54px]
-                items-center
-                font-display
-                text-[30px]
-                font-bold
-                leading-[34px]
-              "
-              style={{ color: YELLOW }}
-            >
-              MBBS Degrees
-            </h3>
+//           {/* =========================
+//               MBBS CONTENT
+//           ========================== */}
+//           <div className="flex w-full max-w-[272px] flex-col gap-[22px]">
+//             <h3
+//               className="
+//                 flex
+//                 h-[54px]
+//                 items-center
+//                 font-display
+//                 text-[30px]
+//                 font-bold
+//                 leading-[34px]
+//               "
+//               style={{ color: YELLOW }}
+//             >
+//               MBBS Degrees
+//             </h3>
 
-            <div className="flex w-full flex-col gap-[10px]">
-              {/* Bachelor of Medicine */}
-              <div className="flex flex-col pb-[10px]">
-                <a
-                  href="#"
-                  className="
-                    flex
-                    h-[26px]
-                    w-full
-                    items-center
-                    justify-between
-                    font-display
-                    text-[16px]
-                    font-normal
-                    leading-[26px]
-                  "
-                >
-                  <span>Bachelor of Medicine</span>
+//             <div className="flex w-full flex-col gap-[10px]">
+//               {/* Bachelor of Medicine */}
+//               <div className="flex flex-col pb-[10px]">
+//                 <a
+//                   href="#"
+//                   className="
+//                     flex
+//                     h-[26px]
+//                     w-full
+//                     items-center
+//                     justify-between
+//                     font-display
+//                     text-[16px]
+//                     font-normal
+//                     leading-[26px]
+//                   "
+//                 >
+//                   <span>Bachelor of Medicine</span>
 
-                  <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
-                </a>
+//                   <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
+//                 </a>
 
-                <p
-                  className="
-                    mt-[10px]
-                    font-body
-                    text-[12px]
-                    font-normal
-                    leading-[15px]
-                    text-white/50
-                  "
-                >
-                  Comprehensive medical education preparing students for
-                  professional healthcare practice.
-                </p>
-              </div>
+//                 <p
+//                   className="
+//                     mt-[10px]
+//                     font-body
+//                     text-[12px]
+//                     font-normal
+//                     leading-[15px]
+//                     text-white/50
+//                   "
+//                 >
+//                   Comprehensive medical education preparing students for
+//                   professional healthcare practice.
+//                 </p>
+//               </div>
 
-              {/* Bachelor of Surgery */}
-              <div className="flex flex-col pb-[10px]">
-                <a
-                  href="#"
-                  className="
-                    flex
-                    h-[26px]
-                    w-full
-                    items-center
-                    justify-between
-                    font-display
-                    text-[16px]
-                    font-normal
-                    leading-[26px]
-                  "
-                >
-                  <span>Bachelor of Surgery</span>
+//               {/* Bachelor of Surgery */}
+//               <div className="flex flex-col pb-[10px]">
+//                 <a
+//                   href="#"
+//                   className="
+//                     flex
+//                     h-[26px]
+//                     w-full
+//                     items-center
+//                     justify-between
+//                     font-display
+//                     text-[16px]
+//                     font-normal
+//                     leading-[26px]
+//                   "
+//                 >
+//                   <span>Bachelor of Surgery</span>
 
-                  <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
-                </a>
+//                   <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
+//                 </a>
 
-                <p
-                  className="
-                    mt-[10px]
-                    font-body
-                    text-[12px]
-                    font-normal
-                    leading-[15px]
-                    text-white/50
-                  "
-                >
-                  Develop practical surgical knowledge and skills through
-                  hands-on clinical learning.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+//                 <p
+//                   className="
+//                     mt-[10px]
+//                     font-body
+//                     text-[12px]
+//                     font-normal
+//                     leading-[15px]
+//                     text-white/50
+//                   "
+//                 >
+//                   Develop practical surgical knowledge and skills through
+//                   hands-on clinical learning.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 /* ------------------------------------------------------------------ */
 /*  3. Notice board + Publication (tabbed lists)                      */
 /* ------------------------------------------------------------------ */
-const noticeSample = Array.from({ length: 6 }).map((_, i) => ({
-  day: "12",
-  month: "Mar 25",
-  time: "3.40 PM",
-  title:
-    '"BCPS e-Logbook: Modernizing the Monitoring of FCPS 1st Phase Training"',
-}));
+// import { useState } from "react";
+// import { Clock } from "lucide-react";
 
-function TabbedList({ eyebrow, title, tabs, items }) {
-  const [active, setActive] = useState(0);
-  return (
-    <div className="flex w-full flex-col gap-6">
-      <div className="flex items-end justify-between px-2">
-        <h2
-          className="font-display text-3xl md:text-4xl font-bold"
-          style={{ color: GREEN }}
-        >
-          {title}
-        </h2>
-        <a
-          href="#"
-          className="flex items-center gap-1 font-body text-sm font-medium"
-          style={{ color: GREEN }}
-        >
-          View All <ArrowRight className="h-4 w-4 -rotate-45" strokeWidth={2} />
-        </a>
-      </div>
+// const GREEN = "#006A4E";
 
-      <div className="flex flex-col">
-        {/* tab bar */}
-        <div className="flex items-center gap-1 bg-[#E8E8F4] p-2">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab}
-              onClick={() => setActive(i)}
-              className={`flex-1 py-4 font-display text-sm font-bold uppercase tracking-wide ${
-                i === active ? "bg-white shadow-sm" : "text-black font-normal"
-              }`}
-              style={
-                i === active
-                  ? { color: GREEN, borderBottom: `2px solid ${GREEN}` }
-                  : {}
-              }
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+// const noticeSample = Array.from({ length: 6 }, (\_, i) => ({
+// day: "12",
+// month: "Mar 25",
+// time: "3:40 PM",
+// title: "BCPS e-Logbook: Modernizing the Monitoring of FCPS 1st Phase Training",
+// }));
 
-        {/* list */}
-        <div className="flex max-h-[610px] flex-col gap-2.5 overflow-y-auto bg-white p-2.5">
-          {items.map((item, i) => (
-            <div key={i} className="flex items-center gap-4 bg-[#E8E8F4] p-5">
-              <div className="flex w-[90px] shrink-0 flex-col text-center">
-                <div className="bg-[#E8E8F4] py-1.5 font-body text-2xl font-bold text-[#444444]">
-                  {item.day}
-                </div>
-                <div
-                  className="py-1.5 font-body text-base font-semibold text-white"
-                  style={{ backgroundColor: GREEN }}
-                >
-                  {item.month}
-                </div>
-              </div>
-              <div className="flex flex-1 flex-col gap-3">
-                <p className="font-body text-base font-medium text-[#444444]">
-                  {item.title}
-                </p>
-                <span className="flex items-center gap-2 font-body text-sm font-semibold text-[#444444]">
-                  <Clock className="h-3.5 w-3.5" strokeWidth={1.8} />
-                  {item.time}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+// function TabbedList({ eyebrow, title, tabs, items }) {
+// const [active, setActive] = useState(0);
 
-function NoticeAndPublication() {
-  return (
-    <section className="flex flex-col lg:flex-row items-start justify-center gap-10 px-6 md:px-20 py-16">
-      <TabbedList
-        title="Notice Board"
-        tabs={["General Notice", "Admission Notice", "Reports", "Job Circular"]}
-        items={noticeSample}
-      />
-      <TabbedList
-        title="Publication"
-        tabs={["Journal", "Tenders"]}
-        items={noticeSample}
-      />
-    </section>
-  );
-}
+// return (
+
+// <div className="w-full">
+// {eyebrow && (
+// <p
+// className="mb-2 font-body text-sm font-semibold uppercase tracking-wide"
+// style={{ color: GREEN }} >
+// {eyebrow}
+// </p>
+// )}
+
+//       <div className="mb-4 flex items-center justify-between">
+//         <h2
+//           className="font-display text-3xl font-bold md:text-4xl"
+//           style={{ color: GREEN }}
+//         >
+//           {title}
+//         </h2>
+
+//         <a
+//           href="#"
+//           className="flex items-center gap-1 font-body text-sm font-medium"
+//           style={{ color: GREEN }}
+//         >
+//           View All
+//           <span aria-hidden="true">→</span>
+//         </a>
+//       </div>
+
+//       <div className="flex flex-col">
+//         {/* Tab bar */}
+//         <div className="flex items-center gap-1 bg-[#E8E8F4] p-2">
+//           {tabs.map((tab, i) => (
+//             <button
+//               key={tab}
+//               type="button"
+//               onClick={() => setActive(i)}
+//               className={`flex-1 py-4 font-display text-sm uppercase tracking-wide ${
+//                 i === active
+//                   ? "bg-white font-bold shadow-sm"
+//                   : "font-normal text-black"
+//               }`}
+//               style={
+//                 i === active
+//                   ? {
+//                       color: GREEN,
+//                       borderBottom: `2px solid ${GREEN}`,
+//                     }
+//                   : {}
+//               }
+//             >
+//               {tab}
+//             </button>
+//           ))}
+//         </div>
+
+//         {/* List */}
+//         <div className="flex max-h-[610px] flex-col gap-2.5 overflow-y-auto bg-white p-2.5">
+//           {items.map((item, i) => (
+//             <div
+//               key={i}
+//               className="flex items-center gap-4 bg-[#E8E8F4] p-5"
+//             >
+//               <div className="flex w-[90px] shrink-0 flex-col text-center">
+//                 <div className="bg-[#E8E8F4] py-1.5 font-body text-2xl font-bold text-[#444444]">
+//                   {item.day}
+//                 </div>
+
+//                 <div
+//                   className="py-1.5 font-body text-base font-semibold text-white"
+//                   style={{ backgroundColor: GREEN }}
+//                 >
+//                   {item.month}
+//                 </div>
+//               </div>
+
+//               <div className="flex flex-1 flex-col gap-3">
+//                 <p className="font-body text-base font-medium text-[#444444]">
+//                   {item.title}
+//                 </p>
+
+//                 <span className="flex items-center gap-2 font-body text-sm font-semibold text-[#444444]">
+//                   <Clock className="h-3.5 w-3.5" strokeWidth={1.8} />
+//                   {item.time}
+//                 </span>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+
+// );
+// }
+
+// function NoticeAndPublication() {
+// return (
+
+// <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+// <TabbedList
+// title="Notice Board"
+// tabs={[
+// "General Notice",
+// "Admission Notice",
+// "Reports",
+// "Job Circular",
+// ]}
+// items={noticeSample}
+// />
+
+//       <TabbedList
+//         title="Publication"
+//         tabs={["Journal", "Tenders"]}
+//         items={noticeSample}
+//       />
+//     </div>
+
+// );
+// }
 
 /* ------------------------------------------------------------------ */
 /*  4. About UAMC                                                     */
@@ -519,28 +560,23 @@ function NoticeAndPublication() {
 //     {
 //       title: "College Mission",
 //       sub: "Statement",
-//       icon: "/icons/mission.svg",
+//       icon: "/about3.png",
 //     },
 //     {
 //       title: "College Vision",
 //       sub: "Achievement",
-//       icon: "/icons/vision.svg",
+//       icon: "/about4.png",
 //     },
 //   ];
 
+//   const GREEN = "#018837";
+
 //   return (
-//     <section
-//       className="
-//         flex
-//         w-full
-//         flex-col
-//         justify-center
-//         px-6
-//         py-[70px]
-//         md:px-[80px]
-//         md:py-[100px]
-//       "
-//     >
+//     <section className="w-full bg-white">
+//       {/* =====================================================
+//           FIGMA FRAME
+//           1440px × 617.56px
+//       ====================================================== */}
 //       <div
 //         className="
 //           mx-auto
@@ -550,35 +586,52 @@ function NoticeAndPublication() {
 //           flex-col
 //           items-center
 //           gap-10
+//           px-5
+//           py-10
+
+//           lg:h-[617.56px]
 //           lg:flex-row
 //           lg:items-center
 //           lg:gap-[40px]
+//           lg:px-0
+//           lg:py-0
 //         "
 //       >
-//         {/* =========================================
-//             LEFT - IMAGE COMPOSITION
-//         ========================================== */}
+//         {/* =================================================
+//             LEFT — IMAGE COMPOSITION
+//             Figma: 700 × 617.56
+//         ================================================== */}
 //         <div
 //           className="
 //             relative
-//             h-[500px]
+//             h-[520px]
 //             w-full
-//             max-w-[700px]
 //             shrink-0
-//             md:h-[617.56px]
+
+//             lg:h-[617.56px]
+//             lg:w-[700px]
 //           "
 //         >
-//           {/* Left main image */}
+//           {/* ---------------------------------------------
+//               LEFT IMAGE
+//               Figma:
+//               width  = 360.21
+//               height = 572.73
+//               left   = 0
+//               top    = 44.83
+//           ---------------------------------------------- */}
 //           <div
 //             className="
 //               absolute
 //               left-0
-//               top-[44.83px]
-//               h-[450px]
-//               w-[58%]
+//               top-[20px]
+//               h-[480px]
+//               w-[62%]
 //               overflow-hidden
-//               md:h-[572.73px]
-//               md:w-[360.21px]
+
+//               lg:top-[44.83px]
+//               lg:h-[572.73px]
+//               lg:w-[360.21px]
 //             "
 //           >
 //             <img
@@ -588,21 +641,29 @@ function NoticeAndPublication() {
 //             />
 //           </div>
 
-//           {/* Right main image */}
+//           {/* ---------------------------------------------
+//               RIGHT IMAGE
+//               Figma:
+//               width  = 302.57
+//               height = 572.73
+//               left   = 397.43
+//               top    = 22.42
+//           ---------------------------------------------- */}
 //           <div
 //             className="
 //               absolute
 //               right-0
 //               top-0
-//               h-[450px]
-//               w-[42%]
+//               h-[480px]
+//               w-[52%]
 //               overflow-hidden
 //               shadow-[0_3.33px_3.33px_rgba(0,0,0,0.25)]
-//               md:left-[397.43px]
-//               md:right-auto
-//               md:top-[22.42px]
-//               md:h-[572.73px]
-//               md:w-[302.57px]
+
+//               lg:left-[397.43px]
+//               lg:right-auto
+//               lg:top-[22.42px]
+//               lg:h-[572.73px]
+//               lg:w-[302.57px]
 //             "
 //           >
 //             <img
@@ -612,15 +673,20 @@ function NoticeAndPublication() {
 //             />
 //           </div>
 
-//           {/* =========================================
-//               CIRCULAR LOGO / IMAGE
-//               Positioned OVER the left image
-//           ========================================== */}
+//           {/* ---------------------------------------------
+//               LOGO
+
+//               Figma:
+//               300.17 × 300.17
+
+//               Important:
+//               logo must sit ABOVE both images.
+//           ---------------------------------------------- */}
 //           <div
 //             className="
 //               absolute
-//               left-0
-//               top-[135px]
+//               left-[10%]
+//               top-[110px]
 //               z-20
 //               flex
 //               h-[230px]
@@ -629,12 +695,12 @@ function NoticeAndPublication() {
 //               justify-center
 //               overflow-hidden
 //               rounded-full
-//               bg-white
 //               p-[3px]
-//               md:left-0
-//               md:top-[162px]
-//               md:h-[300.17px]
-//               md:w-[300.17px]
+
+//               lg:left-[32%]
+//               lg:top-[158px]
+//               lg:h-[300.17px]
+//               lg:w-[300.17px]
 //             "
 //           >
 //             <img
@@ -645,80 +711,124 @@ function NoticeAndPublication() {
 //           </div>
 //         </div>
 
-//         {/* =========================================
-//             RIGHT - ABOUT CONTENT
-//         ========================================== */}
+//         {/* =================================================
+//             RIGHT — ABOUT CONTENT
+//             Figma: 700px
+//         ================================================== */}
 //         <div
 //           className="
 //             flex
 //             w-full
-//             max-w-[700px]
 //             flex-col
 //             gap-8
-//             lg:self-stretch
+
+//             lg:h-[617.56px]
+//             lg:w-[700px]
+//             lg:shrink-0
+//             lg:gap-[38px]
 //           "
 //         >
-//           {/* Heading area */}
-//           <div className="flex flex-col gap-[21.67px]">
-//             {/* Eyebrow */}
-//             <div className="flex flex-col gap-[4px]">
-//               <div className="flex items-end">
-//                 {/* Green decorative mark */}
-//                 <span
-//                   className="
-//                     mr-3
-//                     h-[23px]
-//                     w-[32.5px]
-//                     shrink-0
-//                   "
-//                   style={{ backgroundColor: GREEN }}
+//           {/* =================================================
+//               FRAME 55
+//           ================================================== */}
+//           <div
+//             className="
+//               flex
+//               flex-col
+//               gap-[21.67px]
+
+//               lg:w-[661.89px]
+//             "
+//           >
+//             {/* =================================================
+//                 FRAME 54
+//             ================================================== */}
+//             <div
+//               className="
+//                 flex
+//                 flex-col
+//                 gap-[4.33px]
+//               "
+//             >
+//               {/* ---------------------------------------------
+//                   EYEBROW
+//               ---------------------------------------------- */}
+//               <div className="flex h-[45.67px] w-fit items-end">
+//                 {/* Icon */}
+//                 <img
+//                   src="/knowledge.png"
+//                   alt=""
+//                   className="h-[23.36px] w-[32.5px] shrink-0 object-contain"
 //                 />
 
+//                 {/* Text */}
 //                 <span
 //                   className="
-//                     flex
-//                     h-[45px]
-//                     items-center
-//                     px-[10px]
-//                     font-body
-//                     text-[19.5px]
-//                     font-medium
-//                     leading-[23px]
-//                   "
+//       flex
+//       h-[45.67px]
+//       items-center
+//       justify-center
+//       px-[10.83px]
+//       font-body
+//       text-[19.5px]
+//       font-medium
+//       leading-[23px]
+//     "
 //                   style={{ color: GREEN }}
 //                 >
 //                   knowledge meets innovation
 //                 </span>
 //               </div>
 
-//               {/* Main heading */}
-//               <h2
-//                 className="
-//                   font-display
-//                   text-[52px]
-//                   font-light
-//                   leading-[62px]
-//                   text-[#262626]
-//                   md:text-[65px]
-//                 "
-//               >
-//                 About{" "}
-//                 <span className="font-bold" style={{ color: GREEN }}>
-//                   UAMC
-//                 </span>
-//               </h2>
+//               {/* ---------------------------------------------
+//                   HEADING
+//                   Figma: 65px / 62px
+//               ---------------------------------------------- */}
+//               <div className="flex h-[84.67px] items-center">
+//                 <h2
+//                   className="
+//                     whitespace-nowrap
+//                     font-display
+//                     text-[52px]
+//                     font-light
+//                     leading-[62px]
+//                     text-[#262626]
+
+//                     lg:text-[65px]
+//                   "
+//                 >
+//                   About{" "}
+//                   <span className="font-bold" style={{ color: GREEN }}>
+//                     UAMC
+//                   </span>
+//                 </h2>
+//               </div>
 //             </div>
 
-//             {/* Description */}
-//             <div className="flex flex-col gap-[27px]">
+//             {/* =================================================
+//                 FRAME 52 — DESCRIPTION
+//             ================================================== */}
+//             <div
+//               className="
+//                 flex
+//                 flex-col
+//                 gap-[27.08px]
+
+//                 lg:w-[661.89px]
+//               "
+//             >
+//               {/* First paragraph */}
 //               <p
 //                 className="
+//                   m-0
+//                   w-full
 //                   font-body
 //                   text-[16px]
 //                   font-bold
 //                   leading-[31px]
 //                   text-[#737477]
-//                   md:text-[17.33px]
+
+//                   lg:text-[17.33px]
 //                 "
 //               >
 //                 Uttara Adhunik Medical College (UAMC) is a prestigious medical
@@ -726,14 +836,18 @@ function NoticeAndPublication() {
 //                 Established in 2003.
 //               </p>
 
+//               {/* Second paragraph */}
 //               <p
 //                 className="
+//                   m-0
+//                   w-full
 //                   font-body
 //                   text-[16px]
 //                   font-normal
 //                   leading-[31px]
 //                   text-[#737477]
-//                   md:text-[17.33px]
+
+//                   lg:text-[17.33px]
 //                 "
 //               >
 //                 UAMC offers a Bachelor of Medicine and Bachelor of Surgery
@@ -744,61 +858,72 @@ function NoticeAndPublication() {
 //             </div>
 //           </div>
 
-//           {/* =========================================
-//               MISSION / VISION BOXES
-//           ========================================== */}
+//           {/* =================================================
+//               FRAME 53
+//               700 × 97.05
+//           ================================================== */}
 //           <div
 //             className="
 //               flex
 //               w-full
 //               flex-col
 //               gap-5
+
 //               sm:flex-row
-//               md:gap-[21.67px]
+
+//               lg:h-[97.05px]
+//               lg:w-[700px]
+//               lg:gap-[21.67px]
 //             "
 //           >
 //             {aboutBoxes.map((box) => (
 //               <div
 //                 key={box.title}
 //                 className="
+//                   relative
 //                   flex
 //                   h-[97.05px]
-//                   flex-1
+//                   w-full
+//                   shrink-0
 //                   items-center
 //                   border
 //                   border-dashed
-//                   px-6
-//                   md:px-[33.58px]
+
+//                   lg:w-[339.17px]
 //                 "
 //                 style={{ borderColor: GREEN }}
 //               >
 //                 {/* Icon */}
 //                 <div
 //                   className="
+//                     ml-[20px]
 //                     flex
 //                     h-[54.17px]
 //                     w-[54.17px]
 //                     shrink-0
 //                     items-center
 //                     justify-center
+
+//                     lg:ml-[33.58px]
 //                   "
 //                 >
-//                   {box.icon ? (
-//                     <img
-//                       src={box.icon}
-//                       alt=""
-//                       className="h-full w-full object-contain"
-//                     />
-//                   ) : (
-//                     <div
-//                       className="h-10 w-10 rounded-full"
-//                       style={{ backgroundColor: GREEN }}
-//                     />
-//                   )}
+//                   <img
+//                     src={box.icon}
+//                     alt=""
+//                     className="h-full w-full object-contain"
+//                   />
 //                 </div>
 
 //                 {/* Text */}
-//                 <div className="ml-6 flex flex-col">
+//                 <div
+//                   className="
+//                     ml-[20px]
+//                     flex
+//                     flex-col
+
+//                     lg:ml-[26px]
+//                   "
+//                 >
 //                   <span
 //                     className="
 //                       font-display
@@ -827,9 +952,9 @@ function NoticeAndPublication() {
 //             ))}
 //           </div>
 
-//           {/* =========================================
+//           {/* =================================================
 //               CTA
-//           ========================================== */}
+//           ================================================== */}
 //           <button
 //             type="button"
 //             className="
@@ -853,590 +978,13 @@ function NoticeAndPublication() {
 //           >
 //             <span>View Our Program</span>
 
-//             <ArrowRight className="h-[27px] w-[15px]" strokeWidth={2} />
+//             <ArrowRight className="h-[27.08px] w-[15.19px]" strokeWidth={2} />
 //           </button>
 //         </div>
 //       </div>
 //     </section>
 //   );
 // }
-function AboutUAMC() {
-  const aboutBoxes = [
-    {
-      title: "College Mission",
-      sub: "Statement",
-      icon: "/about3.png",
-    },
-    {
-      title: "College Vision",
-      sub: "Achievement",
-      icon: "/about4.png",
-    },
-  ];
-
-  const GREEN = "#018837";
-
-  return (
-    <section className="w-full bg-white">
-      {/* =====================================================
-          FIGMA FRAME
-          1440px × 617.56px
-      ====================================================== */}
-      <div
-        className="
-          mx-auto
-          flex
-          w-full
-          max-w-[1440px]
-          flex-col
-          items-center
-          gap-10
-          px-5
-          py-10
-
-          lg:h-[617.56px]
-          lg:flex-row
-          lg:items-center
-          lg:gap-[40px]
-          lg:px-0
-          lg:py-0
-        "
-      >
-        {/* =================================================
-            LEFT — IMAGE COMPOSITION
-            Figma: 700 × 617.56
-        ================================================== */}
-        <div
-          className="
-            relative
-            h-[520px]
-            w-full
-            shrink-0
-
-            lg:h-[617.56px]
-            lg:w-[700px]
-          "
-        >
-          {/* ---------------------------------------------
-              LEFT IMAGE
-              Figma:
-              width  = 360.21
-              height = 572.73
-              left   = 0
-              top    = 44.83
-          ---------------------------------------------- */}
-          <div
-            className="
-              absolute
-              left-0
-              top-[20px]
-              h-[480px]
-              w-[62%]
-              overflow-hidden
-
-              lg:top-[44.83px]
-              lg:h-[572.73px]
-              lg:w-[360.21px]
-            "
-          >
-            <img
-              src="/about1.jpg"
-              alt="Uttara Adhunik Medical College"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          {/* ---------------------------------------------
-              RIGHT IMAGE
-              Figma:
-              width  = 302.57
-              height = 572.73
-              left   = 397.43
-              top    = 22.42
-          ---------------------------------------------- */}
-          <div
-            className="
-              absolute
-              right-0
-              top-0
-              h-[480px]
-              w-[52%]
-              overflow-hidden
-              shadow-[0_3.33px_3.33px_rgba(0,0,0,0.25)]
-
-              lg:left-[397.43px]
-              lg:right-auto
-              lg:top-[22.42px]
-              lg:h-[572.73px]
-              lg:w-[302.57px]
-            "
-          >
-            <img
-              src="/about2.jpg"
-              alt="Uttara Adhunik Medical College"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          {/* ---------------------------------------------
-              LOGO
-
-              Figma:
-              300.17 × 300.17
-
-              Important:
-              logo must sit ABOVE both images.
-          ---------------------------------------------- */}
-          <div
-            className="
-              absolute
-              left-[10%]
-              top-[110px]
-              z-20
-              flex
-              h-[230px]
-              w-[230px]
-              items-center
-              justify-center
-              overflow-hidden
-              rounded-full
-              p-[3px]
-
-              lg:left-[32%]
-              lg:top-[158px]
-              lg:h-[300.17px]
-              lg:w-[300.17px]
-            "
-          >
-            <img
-              src="/logo2.png"
-              alt="UAMC Logo"
-              className="h-full w-full rounded-full object-cover"
-            />
-          </div>
-        </div>
-
-        {/* =================================================
-            RIGHT — ABOUT CONTENT
-            Figma: 700px
-        ================================================== */}
-        <div
-          className="
-            flex
-            w-full
-            flex-col
-            gap-8
-
-            lg:h-[617.56px]
-            lg:w-[700px]
-            lg:shrink-0
-            lg:gap-[38px]
-          "
-        >
-          {/* =================================================
-              FRAME 55
-          ================================================== */}
-          <div
-            className="
-              flex
-              flex-col
-              gap-[21.67px]
-
-              lg:w-[661.89px]
-            "
-          >
-            {/* =================================================
-                FRAME 54
-            ================================================== */}
-            <div
-              className="
-                flex
-                flex-col
-                gap-[4.33px]
-              "
-            >
-              {/* ---------------------------------------------
-                  EYEBROW
-              ---------------------------------------------- */}
-              <div className="flex h-[45.67px] w-fit items-end">
-                {/* Icon */}
-                <img
-                  src="/knowledge.png"
-                  alt=""
-                  className="h-[23.36px] w-[32.5px] shrink-0 object-contain"
-                />
-
-                {/* Text */}
-                <span
-                  className="
-      flex
-      h-[45.67px]
-      items-center
-      justify-center
-      px-[10.83px]
-      font-body
-      text-[19.5px]
-      font-medium
-      leading-[23px]
-    "
-                  style={{ color: GREEN }}
-                >
-                  knowledge meets innovation
-                </span>
-              </div>
-
-              {/* ---------------------------------------------
-                  HEADING
-                  Figma: 65px / 62px
-              ---------------------------------------------- */}
-              <div className="flex h-[84.67px] items-center">
-                <h2
-                  className="
-                    whitespace-nowrap
-                    font-display
-                    text-[52px]
-                    font-light
-                    leading-[62px]
-                    text-[#262626]
-
-                    lg:text-[65px]
-                  "
-                >
-                  About{" "}
-                  <span className="font-bold" style={{ color: GREEN }}>
-                    UAMC
-                  </span>
-                </h2>
-              </div>
-            </div>
-
-            {/* =================================================
-                FRAME 52 — DESCRIPTION
-            ================================================== */}
-            <div
-              className="
-                flex
-                flex-col
-                gap-[27.08px]
-
-                lg:w-[661.89px]
-              "
-            >
-              {/* First paragraph */}
-              <p
-                className="
-                  m-0
-                  w-full
-                  font-body
-                  text-[16px]
-                  font-bold
-                  leading-[31px]
-                  text-[#737477]
-
-                  lg:text-[17.33px]
-                "
-              >
-                Uttara Adhunik Medical College (UAMC) is a prestigious medical
-                institution located in Uttara Model Town, Dhaka, Bangladesh.
-                Established in 2003.
-              </p>
-
-              {/* Second paragraph */}
-              <p
-                className="
-                  m-0
-                  w-full
-                  font-body
-                  text-[16px]
-                  font-normal
-                  leading-[31px]
-                  text-[#737477]
-
-                  lg:text-[17.33px]
-                "
-              >
-                UAMC offers a Bachelor of Medicine and Bachelor of Surgery
-                (MBBS) program, designed to equip students with the knowledge,
-                skills, and hands-on clinical training needed to excel in the
-                medical profession.
-              </p>
-            </div>
-          </div>
-
-          {/* =================================================
-              FRAME 53
-              700 × 97.05
-          ================================================== */}
-          <div
-            className="
-              flex
-              w-full
-              flex-col
-              gap-5
-
-              sm:flex-row
-
-              lg:h-[97.05px]
-              lg:w-[700px]
-              lg:gap-[21.67px]
-            "
-          >
-            {aboutBoxes.map((box) => (
-              <div
-                key={box.title}
-                className="
-                  relative
-                  flex
-                  h-[97.05px]
-                  w-full
-                  shrink-0
-                  items-center
-                  border
-                  border-dashed
-
-                  lg:w-[339.17px]
-                "
-                style={{ borderColor: GREEN }}
-              >
-                {/* Icon */}
-                <div
-                  className="
-                    ml-[20px]
-                    flex
-                    h-[54.17px]
-                    w-[54.17px]
-                    shrink-0
-                    items-center
-                    justify-center
-
-                    lg:ml-[33.58px]
-                  "
-                >
-                  <img
-                    src={box.icon}
-                    alt=""
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-
-                {/* Text */}
-                <div
-                  className="
-                    ml-[20px]
-                    flex
-                    flex-col
-
-                    lg:ml-[26px]
-                  "
-                >
-                  <span
-                    className="
-                      font-display
-                      text-[18px]
-                      font-medium
-                      leading-[23px]
-                    "
-                    style={{ color: GREEN }}
-                  >
-                    {box.title}
-                  </span>
-
-                  <span
-                    className="
-                      font-display
-                      text-[18px]
-                      font-medium
-                      leading-[23px]
-                    "
-                    style={{ color: GREEN }}
-                  >
-                    {box.sub}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* =================================================
-              CTA
-          ================================================== */}
-          <button
-            type="button"
-            className="
-              flex
-              h-[60.5px]
-              w-fit
-              items-center
-              justify-center
-              gap-[10px]
-              px-[32.5px]
-              py-[16.25px]
-              font-body
-              text-[17.33px]
-              font-medium
-              leading-[27px]
-              text-white
-              transition-opacity
-              hover:opacity-90
-            "
-            style={{ backgroundColor: GREEN }}
-          >
-            <span>View Our Program</span>
-
-            <ArrowRight className="h-[27.08px] w-[15.19px]" strokeWidth={2} />
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-/* ------------------------------------------------------------------ */
-/*  5. Stat strip                                                     */
-/* ------------------------------------------------------------------ */
-
-function StatStrip() {
-  const stats = [
-    {
-      value: "90%",
-      label: "Post-Graduation Success Rate",
-      width: "w-[144px]",
-    },
-    {
-      value: "Top 10",
-      label: "Colleges That Create Futures",
-      width: "w-[142px]",
-    },
-    {
-      value: "No. 1",
-      label: "In The Nation For Materials R&D",
-      width: "w-[147px]",
-    },
-  ];
-
-  return (
-    <section
-      className="
-        flex
-        min-h-[311px]
-        w-full
-        flex-col
-        items-center
-        justify-center
-        px-6
-        py-[50px]
-        md:px-[100px]
-      "
-      style={{
-        backgroundImage: `
-          linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)
-          ),
-          url("/statistic.jpg")
-        `,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* =========================================
-          GLASS STAT PANEL
-      ========================================== */}
-      <div
-        className="
-          flex
-          w-full
-          max-w-[1233px]
-          flex-col
-          items-center
-          justify-center
-          gap-10
-          px-8
-          py-10
-          md:h-[211px]
-          md:flex-row
-          md:gap-[150px]
-          md:px-[100px]
-          md:py-[50px]
-        "
-        style={{
-          backgroundColor: "rgba(1, 136, 55, 0.5)",
-          backdropFilter: "blur(5px)",
-          WebkitBackdropFilter: "blur(5px)",
-        }}
-      >
-        {stats.map((stat, index) => (
-          <div key={stat.label} className="flex items-center">
-            {/* Stat */}
-            <div
-              className={`
-                flex
-                ${stat.width}
-                flex-col
-                items-center
-                gap-[19px]
-              `}
-            >
-              {/* Value */}
-              <span
-                className="
-                  flex
-                  h-[48px]
-                  w-full
-                  items-center
-                  justify-center
-                  whitespace-nowrap
-                  font-display
-                  text-[48px]
-                  font-normal
-                  leading-[48px]
-                  text-white
-                "
-              >
-                {stat.value}
-              </span>
-
-              {/* Label */}
-              <span
-                className="
-                  flex
-                  h-[44px]
-                  w-full
-                  items-center
-                  justify-center
-                  text-center
-                  font-display
-                  text-[18px]
-                  font-bold
-                  leading-[22px]
-                "
-                style={{ color: YELLOW }}
-              >
-                {stat.label}
-              </span>
-            </div>
-
-            {/* Divider */}
-            {index < stats.length - 1 && (
-              <span
-                className="
-                  mx-8
-                  hidden
-                  h-[94px]
-                  w-px
-                  shrink-0
-                  bg-white/50
-                  md:mx-0
-                  md:block
-                "
-              />
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /*  6. Find Your Department                                           */
@@ -3342,6 +2890,7 @@ function Footer() {
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
+
 export default function LandingPage() {
   return (
     <div className="font-body text-black">
@@ -3349,7 +2898,7 @@ export default function LandingPage() {
       {/* <Navbar /> */}
       <Hero />
       <NoticeAndPublication />
-      <AboutUAMC />
+      <About />
       <StatStrip />
       <FindDepartment />
       <AdmissionCTA />
