@@ -22,6 +22,8 @@ import Hero from "@/components/Hero";
 import StatStrip from "@/components/StatStrip";
 import About from "@/components/About";
 import NoticeAndPublication from "@/components/NoticeAndPublication";
+import FindDepartment from "@/components/FindDepartment";
+import Admission from "@/components/Admission";
 
 /* ------------------------------------------------------------------ */
 /*  Shared tokens (kept as plain constants so every section stays     */
@@ -413,1013 +415,6 @@ function PhotoPlaceholder({ label, className = "" }) {
 //   );
 // }
 
-/* ------------------------------------------------------------------ */
-/*  3. Notice board + Publication (tabbed lists)                      */
-/* ------------------------------------------------------------------ */
-// import { useState } from "react";
-// import { Clock } from "lucide-react";
-
-// const GREEN = "#006A4E";
-
-// const noticeSample = Array.from({ length: 6 }, (\_, i) => ({
-// day: "12",
-// month: "Mar 25",
-// time: "3:40 PM",
-// title: "BCPS e-Logbook: Modernizing the Monitoring of FCPS 1st Phase Training",
-// }));
-
-// function TabbedList({ eyebrow, title, tabs, items }) {
-// const [active, setActive] = useState(0);
-
-// return (
-
-// <div className="w-full">
-// {eyebrow && (
-// <p
-// className="mb-2 font-body text-sm font-semibold uppercase tracking-wide"
-// style={{ color: GREEN }} >
-// {eyebrow}
-// </p>
-// )}
-
-//       <div className="mb-4 flex items-center justify-between">
-//         <h2
-//           className="font-display text-3xl font-bold md:text-4xl"
-//           style={{ color: GREEN }}
-//         >
-//           {title}
-//         </h2>
-
-//         <a
-//           href="#"
-//           className="flex items-center gap-1 font-body text-sm font-medium"
-//           style={{ color: GREEN }}
-//         >
-//           View All
-//           <span aria-hidden="true">→</span>
-//         </a>
-//       </div>
-
-//       <div className="flex flex-col">
-//         {/* Tab bar */}
-//         <div className="flex items-center gap-1 bg-[#E8E8F4] p-2">
-//           {tabs.map((tab, i) => (
-//             <button
-//               key={tab}
-//               type="button"
-//               onClick={() => setActive(i)}
-//               className={`flex-1 py-4 font-display text-sm uppercase tracking-wide ${
-//                 i === active
-//                   ? "bg-white font-bold shadow-sm"
-//                   : "font-normal text-black"
-//               }`}
-//               style={
-//                 i === active
-//                   ? {
-//                       color: GREEN,
-//                       borderBottom: `2px solid ${GREEN}`,
-//                     }
-//                   : {}
-//               }
-//             >
-//               {tab}
-//             </button>
-//           ))}
-//         </div>
-
-//         {/* List */}
-//         <div className="flex max-h-[610px] flex-col gap-2.5 overflow-y-auto bg-white p-2.5">
-//           {items.map((item, i) => (
-//             <div
-//               key={i}
-//               className="flex items-center gap-4 bg-[#E8E8F4] p-5"
-//             >
-//               <div className="flex w-[90px] shrink-0 flex-col text-center">
-//                 <div className="bg-[#E8E8F4] py-1.5 font-body text-2xl font-bold text-[#444444]">
-//                   {item.day}
-//                 </div>
-
-//                 <div
-//                   className="py-1.5 font-body text-base font-semibold text-white"
-//                   style={{ backgroundColor: GREEN }}
-//                 >
-//                   {item.month}
-//                 </div>
-//               </div>
-
-//               <div className="flex flex-1 flex-col gap-3">
-//                 <p className="font-body text-base font-medium text-[#444444]">
-//                   {item.title}
-//                 </p>
-
-//                 <span className="flex items-center gap-2 font-body text-sm font-semibold text-[#444444]">
-//                   <Clock className="h-3.5 w-3.5" strokeWidth={1.8} />
-//                   {item.time}
-//                 </span>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-
-// );
-// }
-
-// function NoticeAndPublication() {
-// return (
-
-// <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-// <TabbedList
-// title="Notice Board"
-// tabs={[
-// "General Notice",
-// "Admission Notice",
-// "Reports",
-// "Job Circular",
-// ]}
-// items={noticeSample}
-// />
-
-//       <TabbedList
-//         title="Publication"
-//         tabs={["Journal", "Tenders"]}
-//         items={noticeSample}
-//       />
-//     </div>
-
-// );
-// }
-
-/* ------------------------------------------------------------------ */
-/*  4. About UAMC                                                     */
-/* ------------------------------------------------------------------ */
-
-// function AboutUAMC() {
-//   const aboutBoxes = [
-//     {
-//       title: "College Mission",
-//       sub: "Statement",
-//       icon: "/about3.png",
-//     },
-//     {
-//       title: "College Vision",
-//       sub: "Achievement",
-//       icon: "/about4.png",
-//     },
-//   ];
-
-//   const GREEN = "#018837";
-
-//   return (
-//     <section className="w-full bg-white">
-//       {/* =====================================================
-//           FIGMA FRAME
-//           1440px × 617.56px
-//       ====================================================== */}
-//       <div
-//         className="
-//           mx-auto
-//           flex
-//           w-full
-//           max-w-[1440px]
-//           flex-col
-//           items-center
-//           gap-10
-//           px-5
-//           py-10
-
-//           lg:h-[617.56px]
-//           lg:flex-row
-//           lg:items-center
-//           lg:gap-[40px]
-//           lg:px-0
-//           lg:py-0
-//         "
-//       >
-//         {/* =================================================
-//             LEFT — IMAGE COMPOSITION
-//             Figma: 700 × 617.56
-//         ================================================== */}
-//         <div
-//           className="
-//             relative
-//             h-[520px]
-//             w-full
-//             shrink-0
-
-//             lg:h-[617.56px]
-//             lg:w-[700px]
-//           "
-//         >
-//           {/* ---------------------------------------------
-//               LEFT IMAGE
-//               Figma:
-//               width  = 360.21
-//               height = 572.73
-//               left   = 0
-//               top    = 44.83
-//           ---------------------------------------------- */}
-//           <div
-//             className="
-//               absolute
-//               left-0
-//               top-[20px]
-//               h-[480px]
-//               w-[62%]
-//               overflow-hidden
-
-//               lg:top-[44.83px]
-//               lg:h-[572.73px]
-//               lg:w-[360.21px]
-//             "
-//           >
-//             <img
-//               src="/about1.jpg"
-//               alt="Uttara Adhunik Medical College"
-//               className="h-full w-full object-cover"
-//             />
-//           </div>
-
-//           {/* ---------------------------------------------
-//               RIGHT IMAGE
-//               Figma:
-//               width  = 302.57
-//               height = 572.73
-//               left   = 397.43
-//               top    = 22.42
-//           ---------------------------------------------- */}
-//           <div
-//             className="
-//               absolute
-//               right-0
-//               top-0
-//               h-[480px]
-//               w-[52%]
-//               overflow-hidden
-//               shadow-[0_3.33px_3.33px_rgba(0,0,0,0.25)]
-
-//               lg:left-[397.43px]
-//               lg:right-auto
-//               lg:top-[22.42px]
-//               lg:h-[572.73px]
-//               lg:w-[302.57px]
-//             "
-//           >
-//             <img
-//               src="/about2.jpg"
-//               alt="Uttara Adhunik Medical College"
-//               className="h-full w-full object-cover"
-//             />
-//           </div>
-
-//           {/* ---------------------------------------------
-//               LOGO
-
-//               Figma:
-//               300.17 × 300.17
-
-//               Important:
-//               logo must sit ABOVE both images.
-//           ---------------------------------------------- */}
-//           <div
-//             className="
-//               absolute
-//               left-[10%]
-//               top-[110px]
-//               z-20
-//               flex
-//               h-[230px]
-//               w-[230px]
-//               items-center
-//               justify-center
-//               overflow-hidden
-//               rounded-full
-//               p-[3px]
-
-//               lg:left-[32%]
-//               lg:top-[158px]
-//               lg:h-[300.17px]
-//               lg:w-[300.17px]
-//             "
-//           >
-//             <img
-//               src="/logo2.png"
-//               alt="UAMC Logo"
-//               className="h-full w-full rounded-full object-cover"
-//             />
-//           </div>
-//         </div>
-
-//         {/* =================================================
-//             RIGHT — ABOUT CONTENT
-//             Figma: 700px
-//         ================================================== */}
-//         <div
-//           className="
-//             flex
-//             w-full
-//             flex-col
-//             gap-8
-
-//             lg:h-[617.56px]
-//             lg:w-[700px]
-//             lg:shrink-0
-//             lg:gap-[38px]
-//           "
-//         >
-//           {/* =================================================
-//               FRAME 55
-//           ================================================== */}
-//           <div
-//             className="
-//               flex
-//               flex-col
-//               gap-[21.67px]
-
-//               lg:w-[661.89px]
-//             "
-//           >
-//             {/* =================================================
-//                 FRAME 54
-//             ================================================== */}
-//             <div
-//               className="
-//                 flex
-//                 flex-col
-//                 gap-[4.33px]
-//               "
-//             >
-//               {/* ---------------------------------------------
-//                   EYEBROW
-//               ---------------------------------------------- */}
-//               <div className="flex h-[45.67px] w-fit items-end">
-//                 {/* Icon */}
-//                 <img
-//                   src="/knowledge.png"
-//                   alt=""
-//                   className="h-[23.36px] w-[32.5px] shrink-0 object-contain"
-//                 />
-
-//                 {/* Text */}
-//                 <span
-//                   className="
-//       flex
-//       h-[45.67px]
-//       items-center
-//       justify-center
-//       px-[10.83px]
-//       font-body
-//       text-[19.5px]
-//       font-medium
-//       leading-[23px]
-//     "
-//                   style={{ color: GREEN }}
-//                 >
-//                   knowledge meets innovation
-//                 </span>
-//               </div>
-
-//               {/* ---------------------------------------------
-//                   HEADING
-//                   Figma: 65px / 62px
-//               ---------------------------------------------- */}
-//               <div className="flex h-[84.67px] items-center">
-//                 <h2
-//                   className="
-//                     whitespace-nowrap
-//                     font-display
-//                     text-[52px]
-//                     font-light
-//                     leading-[62px]
-//                     text-[#262626]
-
-//                     lg:text-[65px]
-//                   "
-//                 >
-//                   About{" "}
-//                   <span className="font-bold" style={{ color: GREEN }}>
-//                     UAMC
-//                   </span>
-//                 </h2>
-//               </div>
-//             </div>
-
-//             {/* =================================================
-//                 FRAME 52 — DESCRIPTION
-//             ================================================== */}
-//             <div
-//               className="
-//                 flex
-//                 flex-col
-//                 gap-[27.08px]
-
-//                 lg:w-[661.89px]
-//               "
-//             >
-//               {/* First paragraph */}
-//               <p
-//                 className="
-//                   m-0
-//                   w-full
-//                   font-body
-//                   text-[16px]
-//                   font-bold
-//                   leading-[31px]
-//                   text-[#737477]
-
-//                   lg:text-[17.33px]
-//                 "
-//               >
-//                 Uttara Adhunik Medical College (UAMC) is a prestigious medical
-//                 institution located in Uttara Model Town, Dhaka, Bangladesh.
-//                 Established in 2003.
-//               </p>
-
-//               {/* Second paragraph */}
-//               <p
-//                 className="
-//                   m-0
-//                   w-full
-//                   font-body
-//                   text-[16px]
-//                   font-normal
-//                   leading-[31px]
-//                   text-[#737477]
-
-//                   lg:text-[17.33px]
-//                 "
-//               >
-//                 UAMC offers a Bachelor of Medicine and Bachelor of Surgery
-//                 (MBBS) program, designed to equip students with the knowledge,
-//                 skills, and hands-on clinical training needed to excel in the
-//                 medical profession.
-//               </p>
-//             </div>
-//           </div>
-
-//           {/* =================================================
-//               FRAME 53
-//               700 × 97.05
-//           ================================================== */}
-//           <div
-//             className="
-//               flex
-//               w-full
-//               flex-col
-//               gap-5
-
-//               sm:flex-row
-
-//               lg:h-[97.05px]
-//               lg:w-[700px]
-//               lg:gap-[21.67px]
-//             "
-//           >
-//             {aboutBoxes.map((box) => (
-//               <div
-//                 key={box.title}
-//                 className="
-//                   relative
-//                   flex
-//                   h-[97.05px]
-//                   w-full
-//                   shrink-0
-//                   items-center
-//                   border
-//                   border-dashed
-
-//                   lg:w-[339.17px]
-//                 "
-//                 style={{ borderColor: GREEN }}
-//               >
-//                 {/* Icon */}
-//                 <div
-//                   className="
-//                     ml-[20px]
-//                     flex
-//                     h-[54.17px]
-//                     w-[54.17px]
-//                     shrink-0
-//                     items-center
-//                     justify-center
-
-//                     lg:ml-[33.58px]
-//                   "
-//                 >
-//                   <img
-//                     src={box.icon}
-//                     alt=""
-//                     className="h-full w-full object-contain"
-//                   />
-//                 </div>
-
-//                 {/* Text */}
-//                 <div
-//                   className="
-//                     ml-[20px]
-//                     flex
-//                     flex-col
-
-//                     lg:ml-[26px]
-//                   "
-//                 >
-//                   <span
-//                     className="
-//                       font-display
-//                       text-[18px]
-//                       font-medium
-//                       leading-[23px]
-//                     "
-//                     style={{ color: GREEN }}
-//                   >
-//                     {box.title}
-//                   </span>
-
-//                   <span
-//                     className="
-//                       font-display
-//                       text-[18px]
-//                       font-medium
-//                       leading-[23px]
-//                     "
-//                     style={{ color: GREEN }}
-//                   >
-//                     {box.sub}
-//                   </span>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-
-//           {/* =================================================
-//               CTA
-//           ================================================== */}
-//           <button
-//             type="button"
-//             className="
-//               flex
-//               h-[60.5px]
-//               w-fit
-//               items-center
-//               justify-center
-//               gap-[10px]
-//               px-[32.5px]
-//               py-[16.25px]
-//               font-body
-//               text-[17.33px]
-//               font-medium
-//               leading-[27px]
-//               text-white
-//               transition-opacity
-//               hover:opacity-90
-//             "
-//             style={{ backgroundColor: GREEN }}
-//           >
-//             <span>View Our Program</span>
-
-//             <ArrowRight className="h-[27.08px] w-[15.19px]" strokeWidth={2} />
-//           </button>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-/* ------------------------------------------------------------------ */
-/*  6. Find Your Department                                           */
-/* ------------------------------------------------------------------ */
-
-function FindDepartment() {
-  return (
-    <section
-      id="departments"
-      className="
-        flex
-        w-full
-        items-center
-        px-6
-        py-[70px]
-        md:px-20
-        md:py-[100px]
-      "
-      // style={{
-      //   backgroundImage: `
-      //     linear-gradient(
-      //       180deg,
-      //       #ffffff 0%,
-      //       rgba(255, 255, 255, 0) 100%
-      //     ),
-      //     url("/statistic.jpg")
-      //   `,
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      // }}
-    >
-      <div
-        className="
-          mx-auto
-          flex
-          w-full
-          max-w-[1440px]
-          flex-col
-          items-center
-          gap-12
-          lg:flex-row
-          lg:gap-[50px]
-        "
-      >
-        {/* =========================================
-            LEFT CONTENT
-        ========================================== */}
-        <div
-          className="
-            flex
-            w-full
-            max-w-[769px]
-            flex-col
-            justify-between
-            gap-[43px]
-            lg:min-h-[456.85px]
-          "
-        >
-          {/* Heading + description */}
-          <div className="flex w-full flex-col">
-            {/* Heading */}
-            <div className="flex h-[68px] items-center py-[10px]">
-              <h2
-                className="
-                  font-display
-                  text-[32px]
-                  font-bold
-                  leading-[48px]
-                  md:text-[40px]
-                "
-                style={{ color: GREEN }}
-              >
-                Find Your Department
-              </h2>
-            </div>
-
-            {/* Description */}
-            <div className="flex min-h-[74px] items-center py-[10px]">
-              <p
-                className="
-                  font-body
-                  text-[14px]
-                  font-normal
-                  leading-[18px]
-                  text-[#737477]
-                  md:text-[15px]
-                "
-              >
-                Use the search bar below to explore our comprehensive MBBS
-                program and discover the perfect path to kickstart your medical
-                career. Join UAMC and embark on a journey of academic
-                excellence, hands-on clinical training, and cutting-edge medical
-                research!
-              </p>
-            </div>
-          </div>
-
-          {/* Search + popular searches */}
-          <div className="flex w-full flex-col gap-[10px]">
-            {/* Search box */}
-            <div
-              className="
-                flex
-                h-[68px]
-                w-full
-                items-center
-                gap-[10px]
-                px-5
-                py-[15px]
-              "
-              style={{ backgroundColor: "#E8E8F4" }}
-            >
-              <Search
-                className="h-6 w-6 shrink-0"
-                style={{ color: GREEN }}
-                strokeWidth={2}
-              />
-
-              <div className="flex h-[38px] items-center px-[10px]">
-                <input
-                  type="text"
-                  placeholder='Find your program like "Department of Physiology"'
-                  className="
-                    w-full
-                    min-w-0
-                    bg-transparent
-                    font-body
-                    text-[15px]
-                    font-medium
-                    leading-[18px]
-                    text-[#9191A6]
-                    outline-none
-                    placeholder:text-[#9191A6]
-                  "
-                />
-              </div>
-            </div>
-
-            {/* Popular search */}
-            <div className="flex min-h-[38px] items-center py-[10px]">
-              <p
-                className="
-                  font-body
-                  text-[14px]
-                  font-bold
-                  leading-[18px]
-                  md:text-[15px]
-                "
-                style={{ color: "rgba(1, 136, 55, 0.7)" }}
-              >
-                Popular Search: Department of Microbiology&nbsp;&nbsp;
-                Department of Community Medicine&nbsp;&nbsp; Department of
-                Pathology
-              </p>
-            </div>
-          </div>
-
-          {/* =========================================
-              FEATURED DEPARTMENT
-          ========================================== */}
-          <div
-            className="
-              flex
-              min-h-[120px]
-              w-full
-              items-center
-              justify-between
-              gap-5
-              border
-              border-dashed
-              p-5
-            "
-            style={{
-              backgroundColor: "rgba(1, 136, 55, 0.1)",
-              borderColor: GREEN,
-            }}
-          >
-            {/* Department information */}
-            <div className="flex items-center gap-[10px]">
-              {/* Image */}
-              <div className="h-[80px] w-[116px] shrink-0 overflow-hidden">
-                <img
-                  src="/popular.jpg"
-                  alt="Department of Microbiology"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-
-              {/* Text */}
-              <div className="flex h-[75px] w-full max-w-[248px] flex-col gap-[10px]">
-                {/* Badge */}
-                <span
-                  className="
-                    flex
-                    h-[23px]
-                    w-fit
-                    items-center
-                    justify-center
-                    px-[10px]
-                    py-[5px]
-                    font-body
-                    text-[11px]
-                    font-semibold
-                    leading-[13px]
-                    text-black
-                  "
-                  style={{ backgroundColor: YELLOW }}
-                >
-                  Popular Program
-                </span>
-
-                {/* Department name */}
-                <div className="flex h-[42px] items-center py-[10px]">
-                  <p
-                    className="
-                      font-body
-                      text-[16px]
-                      font-bold
-                      leading-[22px]
-                      md:text-[18px]
-                    "
-                    style={{ color: GREEN }}
-                  >
-                    Department of Microbiology
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Arrow button */}
-            <button
-              type="button"
-              aria-label="View Department of Microbiology"
-              className="
-                flex
-                h-[80px]
-                w-[57px]
-                shrink-0
-                items-center
-                justify-center
-                rounded-[2px]
-              "
-              style={{ backgroundColor: GREEN }}
-            >
-              <ArrowRight
-                className="h-6 w-6"
-                style={{ color: YELLOW }}
-                strokeWidth={2}
-              />
-            </button>
-          </div>
-        </div>
-
-        {/* =========================================
-            RIGHT IMAGE COLLAGE
-        ========================================== */}
-        <div
-          className="
-            relative
-            h-[400px]
-            w-full
-            max-w-[621px]
-            lg:h-[456.85px]
-          "
-        >
-          {/* Small image */}
-          <div
-            className="
-              absolute
-              left-0
-              top-0
-              h-[205px]
-              w-[45%]
-              overflow-hidden
-              lg:h-[234.44px]
-              lg:w-[252px]
-            "
-          >
-            <img
-              src="/find1.jpg"
-              alt="Doctor consulting patient"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          {/* Large image */}
-          <div
-            className="
-              absolute
-              right-0
-              top-0
-              h-full
-              w-[56%]
-              overflow-hidden
-              lg:h-[456.85px]
-              lg:w-[348px]
-            "
-          >
-            <img
-              src="/find2.jpg"
-              alt="Nurse checking X-ray results"
-              className="h-full w-full object-cover"
-            />
-          </div>
-
-          {/* =========================================
-              28+ DEPARTMENT OVERLAY
-          ========================================== */}
-          <div
-            className="
-              absolute
-              bottom-0
-              left-0
-              flex
-              min-h-[100px]
-              w-[85%]
-              items-center
-              gap-[18px]
-              px-6
-              py-4
-              lg:h-[116.99px]
-              lg:w-[337.69px]
-              lg:px-[30px]
-              lg:py-[15px]
-            "
-            style={{
-              backgroundColor: "rgba(1, 136, 55, 0.5)",
-              backdropFilter: "blur(5px)",
-              WebkitBackdropFilter: "blur(5px)",
-            }}
-          >
-            {/* Round image */}
-            <div className="h-[70px] w-[70px] shrink-0 overflow-hidden rounded-full lg:h-[86.78px] lg:w-[86.78px]">
-              <img
-                src="/171328095_10677961.png"
-                alt=""
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            {/* Number + label */}
-            <div className="flex min-w-0 flex-col">
-              <span
-                className="
-                  font-display
-                  text-[32px]
-                  font-bold
-                  leading-[43px]
-                  text-white
-                  lg:text-[36.157px]
-                "
-              >
-                28+
-              </span>
-
-              <span
-                className="
-                  font-body
-                  text-[13px]
-                  font-normal
-                  leading-[18px]
-                  text-white
-                  lg:text-[14.4628px]
-                "
-              >
-                Department Available For Student
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  7. Admission CTA banner                                           */
-/* ------------------------------------------------------------------ */
-
-function AdmissionCTA() {
-  return (
-    <section
-      className="flex w-full justify-center px-5 py-[50px] sm:px-10 lg:px-20"
-      style={{
-        backgroundImage:
-          "linear-gradient(0deg, rgba(1, 136, 55, 0.4), rgba(1, 136, 55, 0.4)), url('/admission.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div
-        className="flex w-full max-w-[1440px] flex-col items-center gap-[30px] py-[50px]"
-        style={{
-          backgroundColor: "rgba(0, 0, 0, 0.1)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-        }}
-      >
-        {/* Heading + Description */}
-        <div className="flex w-full flex-col items-center gap-5">
-          <h2
-            className="font-display text-center text-[40px] font-bold leading-[1.2] tracking-[0.05em] sm:text-[48px] lg:text-[60px] lg:leading-[72px]"
-            style={{ color: YELLOW }}
-          >
-            UAMC Admission
-          </h2>
-
-          <div className="flex w-full items-center justify-center px-5 sm:px-10 lg:px-20">
-            <p className="w-full max-w-[1280px] text-center font-body text-[16px] font-normal leading-[22px] text-white sm:text-[18px]">
-              Uttara Adhunik Medical College (UAMC) was established in 2003 with
-              a vision to provide quality medical education and healthcare
-              services. Founded through the dedicated efforts of medical
-              professionals and social leaders, UAMC is committed to training
-              future doctors while ensuring affordable healthcare for the
-              community.
-            </p>
-          </div>
-        </div>
-
-        {/* Button */}
-        <button
-          type="button"
-          className="flex h-[55px] w-[230px] items-center justify-center gap-[10px] font-body text-[16px] font-medium leading-[25px] text-white transition-opacity hover:opacity-90"
-          style={{
-            backgroundColor: GREEN,
-          }}
-        >
-          <span>Learn More</span>
-
-          <ArrowRight className="h-[25px] w-[14px]" strokeWidth={2} />
-        </button>
-      </div>
-    </section>
-  );
-}
 /* ------------------------------------------------------------------ */
 /*  8. Facilities                                                     */
 /* ------------------------------------------------------------------ */
@@ -2524,369 +1519,369 @@ function Testimonials() {
 /*  14. Footer                                                        */
 /* ------------------------------------------------------------------ */
 
-function Footer() {
-  const campusLinks = [
-    "Our Campus",
-    "Careers",
-    "News",
-    "Support",
-    "Accessible mode",
-  ];
+// function Footer() {
+//   const campusLinks = [
+//     "Our Campus",
+//     "Careers",
+//     "News",
+//     "Support",
+//     "Accessible mode",
+//   ];
 
-  const pageLinks = ["Home", "About", "Facilities", "Admission", "Contact"];
+//   const pageLinks = ["Home", "About", "Facilities", "Admission", "Contact"];
 
-  const posts = [
-    {
-      title: "Those inequalities that Matter",
-      date: "August 6, 2024",
-      image: "/post1.png",
-    },
-    {
-      title: "After Decades Of Improvement, Cardiovascular",
-      date: "July 4, 2024",
-      image: "/post2.png",
-    },
-  ];
+//   const posts = [
+//     {
+//       title: "Those inequalities that Matter",
+//       date: "August 6, 2024",
+//       image: "/post1.png",
+//     },
+//     {
+//       title: "After Decades Of Improvement, Cardiovascular",
+//       date: "July 4, 2024",
+//       image: "/post2.png",
+//     },
+//   ];
 
-  return (
-    <footer className="w-full bg-black text-white">
-      {/* ================= NEWSLETTER ================= */}
-      <div className="border-b border-[#242424]">
-        <div
-          className="
-            mx-auto flex w-full max-w-[1130px]
-            flex-col gap-8
-            px-5 py-[50px]
-            md:flex-row md:items-center md:justify-between
-            md:gap-10
-          "
-        >
-          <h4
-            className="
-              font-body text-[30.94px]
-              font-normal leading-[36px]
-              text-white
-            "
-          >
-            Subscribe To Newsletter
-          </h4>
+//   return (
+//     <footer className="w-full bg-black text-white">
+//       {/* ================= NEWSLETTER ================= */}
+//       <div className="border-b border-[#242424]">
+//         <div
+//           className="
+//             mx-auto flex w-full max-w-[1130px]
+//             flex-col gap-8
+//             px-5 py-[50px]
+//             md:flex-row md:items-center md:justify-between
+//             md:gap-10
+//           "
+//         >
+//           <h4
+//             className="
+//               font-body text-[30.94px]
+//               font-normal leading-[36px]
+//               text-white
+//             "
+//           >
+//             Subscribe To Newsletter
+//           </h4>
 
-          <form
-            className="
-              flex w-full max-w-[494px]
-              flex-col gap-[10px]
-              sm:flex-row
-            "
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              placeholder="Enter Your mail"
-              className="
-                box-border h-[53px] w-full
-                border border-[#018837]
-                bg-transparent
-                px-[21px] py-[18px]
-                font-body text-[14px]
-                leading-[17px]
-                text-white
-                outline-none
-                placeholder:text-white
-              "
-            />
+//           <form
+//             className="
+//               flex w-full max-w-[494px]
+//               flex-col gap-[10px]
+//               sm:flex-row
+//             "
+//             onSubmit={(e) => e.preventDefault()}
+//           >
+//             <input
+//               type="email"
+//               placeholder="Enter Your mail"
+//               className="
+//                 box-border h-[53px] w-full
+//                 border border-[#018837]
+//                 bg-transparent
+//                 px-[21px] py-[18px]
+//                 font-body text-[14px]
+//                 leading-[17px]
+//                 text-white
+//                 outline-none
+//                 placeholder:text-white
+//               "
+//             />
 
-            <button
-              type="submit"
-              className="
-                flex h-[53px]
-                w-full shrink-0
-                items-center justify-center
-                gap-[3px]
-                bg-white
-                px-[38px]
-                text-[16px]
-                font-medium
-                leading-[18px]
-                text-[#110C2D]
-                transition-colors
-                hover:bg-[#FECD2F]
-                sm:w-[208px]
-              "
-            >
-              <span>Submit Button</span>
+//             <button
+//               type="submit"
+//               className="
+//                 flex h-[53px]
+//                 w-full shrink-0
+//                 items-center justify-center
+//                 gap-[3px]
+//                 bg-white
+//                 px-[38px]
+//                 text-[16px]
+//                 font-medium
+//                 leading-[18px]
+//                 text-[#110C2D]
+//                 transition-colors
+//                 hover:bg-[#FECD2F]
+//                 sm:w-[208px]
+//               "
+//             >
+//               <span>Submit Button</span>
 
-              <span className="text-[18px] leading-none">→</span>
-            </button>
-          </form>
-        </div>
-      </div>
+//               <span className="text-[18px] leading-none">→</span>
+//             </button>
+//           </form>
+//         </div>
+//       </div>
 
-      {/* ================= MAIN FOOTER ================= */}
-      <div className="mx-auto w-full max-w-[1290px] px-5">
-        <div
-          className="
-            grid
-            grid-cols-1
-            gap-12
-            py-[65px]
-            sm:grid-cols-2
-            lg:grid-cols-4
-            lg:gap-0
-          "
-        >
-          {/* ================= BRAND ================= */}
-          <div className="pr-8">
-            <div className="mb-[25px] flex items-center gap-[8px]">
-              {/* Replace this with your actual logo */}
-              <div
-                className="
-                  flex h-[66px] w-[66px]
-                  shrink-0 items-center justify-center
-                  overflow-hidden rounded-full
-                "
-              >
-                <img
-                  src="/logo2.png"
-                  alt="Uttara Adhunik Medical College"
-                  className="h-full w-full object-contain"
-                />
-              </div>
+//       {/* ================= MAIN FOOTER ================= */}
+//       <div className="mx-auto w-full max-w-[1290px] px-5">
+//         <div
+//           className="
+//             grid
+//             grid-cols-1
+//             gap-12
+//             py-[65px]
+//             sm:grid-cols-2
+//             lg:grid-cols-4
+//             lg:gap-0
+//           "
+//         >
+//           {/* ================= BRAND ================= */}
+//           <div className="pr-8">
+//             <div className="mb-[25px] flex items-center gap-[8px]">
+//               {/* Replace this with your actual logo */}
+//               <div
+//                 className="
+//                   flex h-[66px] w-[66px]
+//                   shrink-0 items-center justify-center
+//                   overflow-hidden rounded-full
+//                 "
+//               >
+//                 <img
+//                   src="/logo2.png"
+//                   alt="Uttara Adhunik Medical College"
+//                   className="h-full w-full object-contain"
+//                 />
+//               </div>
 
-              <h3
-                className="
-                  max-w-[175px]
-                  font-display
-                  text-[20.7px]
-                  font-bold
-                  leading-[25px]
-                  text-white
-                "
-              >
-                Uttara Adhunik Medical College
-              </h3>
-            </div>
+//               <h3
+//                 className="
+//                   max-w-[175px]
+//                   font-display
+//                   text-[20.7px]
+//                   font-bold
+//                   leading-[25px]
+//                   text-white
+//                 "
+//               >
+//                 Uttara Adhunik Medical College
+//               </h3>
+//             </div>
 
-            <p
-              className="
-                max-w-[333px]
-                font-body
-                text-[16px]
-                font-normal
-                leading-[29px]
-                text-[#737477]
-              "
-            >
-              We are passionate education dedicated to providing high-quality
-              resources for learners of all backgrounds.
-            </p>
-          </div>
+//             <p
+//               className="
+//                 max-w-[333px]
+//                 font-body
+//                 text-[16px]
+//                 font-normal
+//                 leading-[29px]
+//                 text-[#737477]
+//               "
+//             >
+//               We are passionate education dedicated to providing high-quality
+//               resources for learners of all backgrounds.
+//             </p>
+//           </div>
 
-          {/* ================= OUR CAMPUS ================= */}
-          <div>
-            <h4
-              className="
-                mb-[46px]
-                inline-block
-                font-body
-                text-[20px]
-                font-medium
-                leading-[26px]
-                text-white
-                underline
-                underline-offset-4
-              "
-            >
-              Our Campus
-            </h4>
+//           {/* ================= OUR CAMPUS ================= */}
+//           <div>
+//             <h4
+//               className="
+//                 mb-[46px]
+//                 inline-block
+//                 font-body
+//                 text-[20px]
+//                 font-medium
+//                 leading-[26px]
+//                 text-white
+//                 underline
+//                 underline-offset-4
+//               "
+//             >
+//               Our Campus
+//             </h4>
 
-            <ul className="flex flex-col">
-              {campusLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    className="
-                      block
-                      py-[8px]
-                      font-body
-                      text-[16px]
-                      font-normal
-                      leading-[25px]
-                      text-[#737477]
-                      transition-colors
-                      hover:text-white
-                    "
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+//             <ul className="flex flex-col">
+//               {campusLinks.map((link) => (
+//                 <li key={link}>
+//                   <a
+//                     href="#"
+//                     className="
+//                       block
+//                       py-[8px]
+//                       font-body
+//                       text-[16px]
+//                       font-normal
+//                       leading-[25px]
+//                       text-[#737477]
+//                       transition-colors
+//                       hover:text-white
+//                     "
+//                   >
+//                     {link}
+//                   </a>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
 
-          {/* ================= OUR PAGES ================= */}
-          <div>
-            <h4
-              className="
-                mb-[46px]
-                inline-block
-                font-body
-                text-[20px]
-                font-medium
-                leading-[26px]
-                text-white
-                underline
-                underline-offset-4
-              "
-            >
-              Our Pages
-            </h4>
+//           {/* ================= OUR PAGES ================= */}
+//           <div>
+//             <h4
+//               className="
+//                 mb-[46px]
+//                 inline-block
+//                 font-body
+//                 text-[20px]
+//                 font-medium
+//                 leading-[26px]
+//                 text-white
+//                 underline
+//                 underline-offset-4
+//               "
+//             >
+//               Our Pages
+//             </h4>
 
-            <ul className="flex flex-col">
-              {pageLinks.map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
-                    className="
-                      block
-                      py-[8px]
-                      font-body
-                      text-[16px]
-                      font-normal
-                      leading-[25px]
-                      text-[#737477]
-                      transition-colors
-                      hover:text-white
-                    "
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+//             <ul className="flex flex-col">
+//               {pageLinks.map((link) => (
+//                 <li key={link}>
+//                   <a
+//                     href="#"
+//                     className="
+//                       block
+//                       py-[8px]
+//                       font-body
+//                       text-[16px]
+//                       font-normal
+//                       leading-[25px]
+//                       text-[#737477]
+//                       transition-colors
+//                       hover:text-white
+//                     "
+//                   >
+//                     {link}
+//                   </a>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
 
-          {/* ================= RECENT POSTS ================= */}
-          <div>
-            <h4
-              className="
-                mb-[46px]
-                inline-block
-                font-body
-                text-[20px]
-                font-medium
-                leading-[26px]
-                text-white
-                underline
-                underline-offset-4
-              "
-            >
-              Recent Posts
-            </h4>
+//           {/* ================= RECENT POSTS ================= */}
+//           <div>
+//             <h4
+//               className="
+//                 mb-[46px]
+//                 inline-block
+//                 font-body
+//                 text-[20px]
+//                 font-medium
+//                 leading-[26px]
+//                 text-white
+//                 underline
+//                 underline-offset-4
+//               "
+//             >
+//               Recent Posts
+//             </h4>
 
-            <div className="flex flex-col gap-[28px]">
-              {posts.map((post) => (
-                <a
-                  href="#"
-                  key={post.title}
-                  className="
-                    group
-                    flex
-                    items-start
-                    gap-[20px]
-                  "
-                >
-                  {/* Figma uses 190x80 post images */}
-                  <div
-                    className="
-                      h-[80px]
-                      w-[80px]
-                      shrink-0
-                      overflow-hidden
-                      bg-[#242424]
-                    "
-                  >
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="
-                        h-full
-                        w-full
-                        object-cover
-                        transition-transform
-                        duration-300
-                        group-hover:scale-105
-                      "
-                    />
-                  </div>
+//             <div className="flex flex-col gap-[28px]">
+//               {posts.map((post) => (
+//                 <a
+//                   href="#"
+//                   key={post.title}
+//                   className="
+//                     group
+//                     flex
+//                     items-start
+//                     gap-[20px]
+//                   "
+//                 >
+//                   {/* Figma uses 190x80 post images */}
+//                   <div
+//                     className="
+//                       h-[80px]
+//                       w-[80px]
+//                       shrink-0
+//                       overflow-hidden
+//                       bg-[#242424]
+//                     "
+//                   >
+//                     <img
+//                       src={post.image}
+//                       alt={post.title}
+//                       className="
+//                         h-full
+//                         w-full
+//                         object-cover
+//                         transition-transform
+//                         duration-300
+//                         group-hover:scale-105
+//                       "
+//                     />
+//                   </div>
 
-                  <div className="pt-[1px]">
-                    <div className="mb-[10px] flex items-center gap-[8px]">
-                      <span className="text-[#737477]">›</span>
+//                   <div className="pt-[1px]">
+//                     <div className="mb-[10px] flex items-center gap-[8px]">
+//                       <span className="text-[#737477]">›</span>
 
-                      <p
-                        className="
-                          font-body
-                          text-[14px]
-                          font-normal
-                          leading-[25px]
-                          text-[#737477]
-                        "
-                      >
-                        {post.date}
-                      </p>
-                    </div>
+//                       <p
+//                         className="
+//                           font-body
+//                           text-[14px]
+//                           font-normal
+//                           leading-[25px]
+//                           text-[#737477]
+//                         "
+//                       >
+//                         {post.date}
+//                       </p>
+//                     </div>
 
-                    <p
-                      className="
-                        max-w-[236px]
-                        font-body
-                        text-[15.75px]
-                        font-normal
-                        leading-[18px]
-                        capitalize
-                        text-white
-                      "
-                    >
-                      {post.title}
-                    </p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+//                     <p
+//                       className="
+//                         max-w-[236px]
+//                         font-body
+//                         text-[15.75px]
+//                         font-normal
+//                         leading-[18px]
+//                         capitalize
+//                         text-white
+//                       "
+//                     >
+//                       {post.title}
+//                     </p>
+//                   </div>
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
 
-      {/* ================= COPYRIGHT ================= */}
-      <div className="border-t border-[#242424]">
-        <div
-          className="
-            mx-auto
-            flex
-            min-h-[64px]
-            w-full
-            max-w-[1290px]
-            items-center
-            px-5
-          "
-        >
-          <p
-            className="
-              font-body
-              text-[16px]
-              font-normal
-              leading-[29px]
-              text-[#737477]
-            "
-          >
-            Copyright @ 2024. All Rights Reserved by{" "}
-            <span className="text-white">Umaio</span>
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
+//       {/* ================= COPYRIGHT ================= */}
+//       <div className="border-t border-[#242424]">
+//         <div
+//           className="
+//             mx-auto
+//             flex
+//             min-h-[64px]
+//             w-full
+//             max-w-[1290px]
+//             items-center
+//             px-5
+//           "
+//         >
+//           <p
+//             className="
+//               font-body
+//               text-[16px]
+//               font-normal
+//               leading-[29px]
+//               text-[#737477]
+//             "
+//           >
+//             Copyright @ 2024. All Rights Reserved by{" "}
+//             <span className="text-white">Umaio</span>
+//           </p>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -2901,14 +1896,13 @@ export default function LandingPage() {
       <About />
       <StatStrip />
       <FindDepartment />
-      <AdmissionCTA />
+      <Admission />
       <OurFacilities />
       <PrincipalMessage />
       <CampusLife />
       <AlumniEvents />
       <NewsSection />
       <Testimonials />
-      <Footer />
     </div>
   );
 }
