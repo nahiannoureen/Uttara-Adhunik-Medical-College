@@ -1,0 +1,159 @@
+import React from "react";
+
+const GREEN = "#018837";
+
+export default function CafeteriaSection() {
+  return (
+    <section
+      className="w-full bg-[#E6F4EB]"
+      style={{
+        padding: "80px",
+      }}
+    >
+      <div
+        className="mx-auto flex flex-col"
+        style={{
+          width: "100%",
+          maxWidth: "1440px",
+          gap: "50px",
+        }}
+      >
+        {/* =========================================
+            TOP CONTENT
+        ========================================== */}
+        <div
+          className="flex w-full flex-col md:flex-row"
+          style={{
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: "50px",
+            minHeight: "140px",
+          }}
+        >
+          {/* =========================================
+              LEFT SIDE
+              ICON + CAFETERIA SERVICES IMAGE
+          ========================================== */}
+          <div
+            className="flex w-full flex-1"
+            style={{
+              alignItems: "flex-start",
+            }}
+          >
+            <div
+              className="flex"
+              style={{
+                width: "372px",
+                height: "120px",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
+              {/* Cafeteria Icon */}
+              <img
+                src="/hat.png"
+                alt=""
+                style={{
+                  width: "120px",
+                  height: "120px",
+                  flexShrink: 0,
+                  objectFit: "contain",
+                }}
+              />
+
+              {/* Cafeteria Services IMAGE
+                  This is an image, NOT HTML text */}
+              <img
+                src="/cafe.png"
+                alt="Cafeteria Services"
+                style={{
+                  width: "232px",
+                  height: "120px",
+                  flexShrink: 0,
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+          </div>
+
+          {/* =========================================
+              RIGHT SIDE
+              DESCRIPTION
+          ========================================== */}
+          <div
+            className="flex w-full flex-1"
+            style={{
+              width: "683px",
+              height: "140px",
+              padding: "10px",
+              justifyContent: "center",
+              alignItems: "center",
+              boxSizing: "border-box",
+            }}
+          >
+            <p
+              style={{
+                width: "663px",
+                height: "120px",
+                margin: 0,
+                display: "flex",
+                alignItems: "center",
+                fontFamily: "'Bitter', serif",
+                fontStyle: "normal",
+                fontWeight: 700,
+                fontSize: "20px",
+                lineHeight: "30px",
+                letterSpacing: "0.01em",
+                textAlign: "justify",
+                color: "#444444",
+              }}
+            >
+              Nourishing Meals in a Relaxed Setting Located on the 3rd floor,
+              the UAMCH cafeteria offers a variety of balanced, nutritious, and
+              hygienic meals at subsidized prices for students, staff, and
+              visitors.
+            </p>
+          </div>
+        </div>
+
+        {/* =========================================
+            LARGE CAFETERIA IMAGE
+        ========================================== */}
+        <div
+          className="flex w-full"
+          style={{
+            height: "455px",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: "10px",
+          }}
+        >
+          <div
+            className="w-full"
+            style={{
+              height: "457.35px",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              gap: "10px",
+            }}
+          >
+            <img
+              src="/large.png"
+              alt="UAMCH Cafeteria"
+              style={{
+                width: "100%",
+                height: "457.35px",
+                flexGrow: 1,
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

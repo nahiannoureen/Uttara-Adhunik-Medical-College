@@ -182,7 +182,7 @@ export default function Banner() {
             <span className="text-black mx-[6px]">&gt;&gt;</span>
 
             {/* Current page */}
-            <span style={{ color: GREEN }}>Library</span>
+            <span style={{ color: GREEN }}>Publications</span>
           </div>
 
           {/* FACILITIES UAMC IMAGE */}

@@ -22,7 +22,7 @@ export default function Banner() {
             <span>&gt;</span>
             <span>ABOUT UAMC</span>
             <span>&gt;&gt;</span>
-            <span className="font-semibold">OVERVIEW</span>
+            <span className="font-semibold">ORGANIZATIONAL STRUCTURE</span>
           </div>
 
           <h1
