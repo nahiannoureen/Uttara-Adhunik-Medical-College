@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 
-export default function AboutUAMC() {
+export default function AboutSection() {
   const aboutBoxes = [
     {
       title: "College Mission",
@@ -17,7 +17,7 @@ export default function AboutUAMC() {
   const GREEN = "#018837";
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white my-[64px]">
       {/* =====================================================
           FIGMA FRAME
           1440px × 617.56px
