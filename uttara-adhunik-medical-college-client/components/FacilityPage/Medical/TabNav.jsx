@@ -19,7 +19,7 @@ const TABS = [
 ];
 
 export default function TabNav() {
-  const [active, setActive] = useState("Hospital Service");
+  const [active, setActive] = useState("Medical Education Unit");
 
   const renderTab = (tab) => {
     const isActive = active === tab;

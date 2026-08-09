@@ -29,17 +29,37 @@ export default function TabNav() {
         key={tab}
         type="button"
         onClick={() => setActive(tab)}
-        className="shrink-0 w-[200px] h-[45px] px-[30px] py-[15px] rounded-[5px] flex items-center justify-center transition-all duration-200"
+        className="shrink-0"
         style={{
-          backgroundColor: isActive ? GREEN : GRAY,
+          width: "200px",
+          height: "45px",
+          padding: "15px 30px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          boxSizing: "border-box",
+
+          background: isActive ? GREEN : GRAY,
+
           border: isActive ? `2px dashed ${GREEN}` : "2px solid transparent",
+
           backdropFilter: "blur(25px)",
+          borderRadius: "5px",
+
+          cursor: "pointer",
         }}
       >
         <span
-          className="text-white text-[12px] leading-[15px] font-medium text-center whitespace-nowrap"
           style={{
             fontFamily: "'Inter', sans-serif",
+            fontStyle: "normal",
+            fontWeight: 500,
+            fontSize: "12px",
+            lineHeight: "15px",
+            color: "#FFFFFF",
+            textAlign: "center",
+            whiteSpace: "nowrap",
           }}
         >
           {tab}
@@ -49,16 +69,75 @@ export default function TabNav() {
   };
 
   return (
-    <section className="w-full bg-[#FBFBFB] px-6 md:px-20 py-10 md:py-[50px]">
-      <div className="w-full max-w-[1441px] mx-auto flex flex-col items-center gap-[30px]">
-        {/* First Row - 5 Tabs */}
-        <div className="w-full flex flex-wrap lg:flex-nowrap justify-center items-center gap-[30px]">
-          {TABS.slice(0, 5).map(renderTab)}
+    <section
+      style={{
+        width: "100%",
+        minHeight: "220px",
+        background: "#FBFBFB",
+
+        padding: "50px 80px",
+        boxSizing: "border-box",
+
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+
+        gap: "10px",
+      }}
+    >
+      {/* Figma Frame 1261155664 */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1441px",
+          height: "120px",
+
+          margin: "0 auto",
+
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "center",
+
+          gap: "30px",
+        }}
+      >
+        {/* First Row - 6 Tabs */}
+        {/* Figma Frame 1261155665 */}
+        <div
+          style={{
+            width: "100%",
+            height: "45px",
+
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+
+            gap: "30px",
+          }}
+        >
+          {TABS.slice(0, 6).map(renderTab)}
         </div>
 
-        {/* Second Row - 3 Tabs */}
-        <div className="w-full flex flex-wrap justify-center items-center gap-[30px]">
-          {TABS.slice(5).map(renderTab)}
+        {/* Second Row - 4 Tabs */}
+        {/* Figma Frame 1261155666 */}
+        <div
+          style={{
+            width: "890px",
+            height: "45px",
+
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+
+            justifyContent: "flex-start",
+
+            gap: "30px",
+          }}
+        >
+          {TABS.slice(6).map(renderTab)}
         </div>
       </div>
     </section>
