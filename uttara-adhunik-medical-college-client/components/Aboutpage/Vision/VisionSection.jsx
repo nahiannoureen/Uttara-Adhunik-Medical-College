@@ -27,7 +27,7 @@ const fontImport = `
   .font-body { font-family: 'Inter', sans-serif; }
 `;
 
-export default function Vision() {
+export default function VisionSection() {
   return (
     <section className="w-full bg-[#E6F3EB]">
       {/* Main Vision Section */}
