@@ -54,7 +54,7 @@ export default function LaboratoryServices() {
             >
               {/* Laboratory Icon */}
               <img
-                src="/assets/laboratory-svgrepo-com 1.png"
+                src="/microscope.png"
                 alt=""
                 className="
                   w-[120px]
@@ -75,7 +75,7 @@ export default function LaboratoryServices() {
                 "
               >
                 <img
-                  src="/assets/Laboratory Services.png"
+                  src="/lab.png"
                   alt="Laboratory Services"
                   className="
                     w-[278px]
