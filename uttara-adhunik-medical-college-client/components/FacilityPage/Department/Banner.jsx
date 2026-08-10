@@ -1,125 +1,57 @@
 const GREEN = "#018837";
+const YELLOW = "#FECD2F";
 
 export default function Banner() {
   return (
-    <section
-      className="
-        relative
-        w-full
-        h-[500px]
-        bg-cover
-        bg-center
-        flex
-        items-end
-        px-[80px]
-        py-[80px]
-      "
+    <div
+      className="relative flex w-full items-end bg-cover bg-center px-6 py-16 md:px-20 md:py-20"
       style={{
-        backgroundImage: `url("/assets/Asset 1@4x 2.png")`,
+        backgroundImage: `linear-gradient(
+          rgba(255,255,255,0.4),
+          rgba(255,255,255,0.4)
+        ), url("bg.png")`,
       }}
     >
-      {/* Green Overlay */}
       <div
-        className="
-          w-full
-          h-[327.29px]
-          flex
-          flex-row
-          justify-between
-          items-end
-          gap-[20px]
-          px-[50px]
-          py-[20px]
-        "
+        className="flex w-full flex-col items-center justify-between gap-8 rounded px-6 py-8 md:flex-row md:items-end md:px-12 md:py-10"
         style={{
           background: "rgba(1, 136, 55, 0.3)",
         }}
       >
-        {/* Left Content */}
-        <div
-          className="
-            flex
-            flex-col
-            justify-end
-            items-start
-            gap-[10px]
-            flex-1
-            h-[118.67px]
-          "
-        >
-          {/* Breadcrumb */}
+        {/* Breadcrumb + Title */}
+        <div className="flex flex-col gap-3">
           <div
-            className="
-              w-[313px]
-              h-[24px]
-              flex
-              items-center
-              text-[20px]
-              leading-[24px]
-              font-medium
-              whitespace-nowrap
-            "
+            className="flex items-center gap-2 text-sm font-medium text-black"
             style={{
               fontFamily: "'Inter', sans-serif",
             }}
           >
-            <span className="text-black">HOME</span>
-
-            <span className="text-black mx-[6px]">&gt;</span>
-
-            <span className="text-black">FACILITIES</span>
-
-            <span className="text-black mx-[6px]">&gt;&gt;</span>
-
-            {/* Current page */}
-            <span style={{ color: GREEN }}>Departments</span>
+            <span>HOME</span>
+            <span>›</span>
+            <span>FACILITIES</span>
+            <span>››</span>
+            <span className="text-[#018837]">Labratory</span>
           </div>
 
-          {/* FACILITIES UAMC IMAGE */}
-          <div
-            className="
-              w-[1090px]
-              h-[84.67px]
-              flex
-              items-center
-              py-[10.8332px]
-            "
+          <h1
+            className="text-4xl font-light md:text-6xl"
+            style={{
+              fontFamily: "'Bitter', serif",
+            }}
           >
-            <img
-              src="/heading.png"
-              alt="Facilities UAMC"
-              className="
-                w-[558px]
-                h-[63px]
-                object-contain
-                object-left
-              "
-            />
-          </div>
+            FACILITIES <span className="font-bold text-[#018837]">UAMC</span>
+          </h1>
         </div>
 
-        {/* Right Image */}
-        <div
-          className="
-            shrink-0
-            w-[250px]
-            h-[287.29px]
-            flex
-            items-end
-            justify-center
-          "
-        >
+        {/* College Logo */}
+        <div className="flex shrink-0 items-center justify-center">
           <img
-            src="/assets/Adobe Express - file.png"
-            alt="UAMC"
-            className="
-              w-[250px]
-              h-[287.29px]
-              object-contain
-            "
+            src="/logo2.png"
+            alt="Uttara Adhunik Medical College"
+            className="h-[90px] w-[90px] object-contain md:h-[120px] md:w-[120px]"
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 }

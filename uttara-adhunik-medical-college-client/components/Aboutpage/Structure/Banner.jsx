@@ -4,51 +4,52 @@ const YELLOW = "#FECD2F";
 export default function Banner() {
   return (
     <div
-      className="relative w-full bg-cover bg-center flex items-end px-6 md:px-20 py-16 md:py-20"
+      className="relative flex w-full items-end bg-cover bg-center px-6 py-16 md:px-20 md:py-20"
       style={{
         backgroundImage: `linear-gradient(
           rgba(255,255,255,0.4),
           rgba(255,255,255,0.4)
-        ), url("https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=1600&h=500&fit=crop")`,
+        ), url("/bg.png)`,
       }}
     >
       <div
-        className="w-full flex flex-col md:flex-row items-center md:items-end justify-between gap-8 px-6 md:px-12 py-8 md:py-10 rounded"
-        style={{ background: "rgba(1, 136, 55, 0.3)" }}
+        className="flex w-full flex-col items-center justify-between gap-8 rounded px-6 py-8 md:flex-row md:items-end md:px-12 md:py-10"
+        style={{
+          background: "rgba(1, 136, 55, 0.3)",
+        }}
       >
-        <div>
-          <div className="flex items-center gap-2 text-sm md:text-base font-medium text-black mb-2">
+        {/* Breadcrumb + Title */}
+        <div className="flex flex-col gap-3">
+          <div
+            className="flex items-center gap-2 text-sm font-medium text-black"
+            style={{
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
             <span>HOME</span>
-            <span>&gt;</span>
+            <span>›</span>
             <span>ABOUT UAMC</span>
-            <span>&gt;&gt;</span>
-            <span className="font-semibold">ORGANIZATIONAL STRUCTURE</span>
+            <span>››</span>
+            <span className="text-[#018837]">Organizational Structure</span>
           </div>
 
           <h1
-            className="text-4xl md:text-6xl font-light text-[#262626]"
-            style={{ fontFamily: "'Bitter', serif" }}
+            className="text-4xl font-light md:text-6xl"
+            style={{
+              fontFamily: "'Bitter', serif",
+            }}
           >
-            About <span className="font-bold">UAMC</span>
+            ABOUT <span className="font-bold text-[#018837]">UAMC</span>
           </h1>
         </div>
 
-        <div className="shrink-0 w-40 h-40 md:w-56 md:h-56 rounded-full bg-white p-2 shadow-lg flex flex-col items-center justify-center text-center border-4 border-yellow-400">
-          <div
-            className="w-full h-full rounded-full flex flex-col items-center justify-center text-white text-[10px] md:text-xs font-semibold p-2"
-            style={{ background: GREEN }}
-          >
-            <span className="uppercase tracking-wider">Uttara Adhunik</span>
-
-            <span className="uppercase tracking-wider">Medical College</span>
-
-            <span
-              className="my-1 px-2 py-0.5 rounded text-black text-[9px] md:text-[10px] font-bold"
-              style={{ background: YELLOW }}
-            >
-              ESTD · 2007
-            </span>
-          </div>
+        {/* College Logo */}
+        <div className="flex shrink-0 items-center justify-center">
+          <img
+            src="/logo2.png"
+            alt="Uttara Adhunik Medical College"
+            className="h-[90px] w-[90px] object-contain md:h-[120px] md:w-[120px]"
+          />
         </div>
       </div>
     </div>
