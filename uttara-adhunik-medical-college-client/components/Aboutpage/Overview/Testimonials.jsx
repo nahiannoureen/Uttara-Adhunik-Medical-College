@@ -1,32 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import {
-  MapPin,
-  Mail,
-  Phone,
-  Search,
-  ChevronDown,
-  AlignJustify,
-  Clock,
-  ArrowRight,
-  Star,
-  Menu,
-  // Facebook,
-  // Youtube,
-  // Linkedin,
-  // Instagram,
-  X,
-} from "lucide-react";
+import { Star } from "lucide-react";
 
 const GREEN = "#018837";
 const YELLOW = "#FECD2F";
-
-const fontImport = `
-  @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap');
-  .font-display { font-family: 'Bitter', serif; }
-  .font-body { font-family: 'Inter', sans-serif; }
-`;
 
 export default function Testimonials() {
   const reviews = [
@@ -34,43 +11,57 @@ export default function Testimonials() {
       name: "Emma Elizabeth",
       role: "Assistant Teacher",
       image: "/student1.png",
+      rating: 4,
     },
     {
       name: "Zent Ekizie",
       role: "Assistant Teacher",
       image: "/student2.png",
+      rating: 5,
     },
     {
       name: "Samantha Willow",
       role: "Teacher",
       image: "/student3.png",
+      rating: 4,
     },
   ];
 
   return (
-    <section className="w-full bg-[#F8F8F8] px-6 py-16 md:px-20 md:py-20">
+    <section
+      className="
+        flex
+        w-full
+        flex-col
+        items-center
+        bg-[#F6F6F6]
+        px-5
+        py-[70px]
+        md:px-10
+        lg:px-20
+        lg:py-[100px]
+      "
+    >
       {/* =========================================
           HEADING
       ========================================== */}
-      <div className="flex flex-col items-center">
-        <div className="flex items-center">
-          {/* Green decorative mark */}
-          <span
-            className="mr-3 block h-[23px] w-[32.5px]"
-            style={{ backgroundColor: GREEN }}
-          />
-
-          <span
-            className="font-body text-[19.5px] font-medium leading-[23px]"
-            style={{ color: GREEN }}
-          >
-            knowledge meets innovation
-          </span>
-        </div>
-
+      <div
+        className="
+          flex
+          w-full
+          max-w-[1440px]
+          flex-col
+          items-center
+          gap-5
+        "
+      >
         <h2
           className="
-            mt-4
+            m-0
+            flex
+            h-[48px]
+            items-center
+            justify-center
             text-center
             font-display
             text-[42px]
@@ -83,7 +74,18 @@ export default function Testimonials() {
           My Students Feedback
         </h2>
 
-        <p className="mt-3 w-full text-center font-body text-base leading-[29px] text-[#737477]">
+        <p
+          className="
+            m-0
+            w-full
+            text-center
+            font-body
+            text-[16px]
+            font-normal
+            leading-[29px]
+            text-[#737477]
+          "
+        >
           You'll find something to spark your curiosity and enhance
         </p>
       </div>
@@ -91,15 +93,31 @@ export default function Testimonials() {
       {/* =========================================
           TESTIMONIALS
       ========================================== */}
-      <div className="mx-auto mt-[50px] w-full max-w-[1290px] overflow-hidden">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-0">
-          {reviews.map((review, index) => (
+      <div
+        className="
+          mx-auto
+          mt-[50px]
+          w-full
+          max-w-[1290px]
+        "
+      >
+        <div
+          className="
+            grid
+            w-full
+            grid-cols-1
+            gap-5
+            md:grid-cols-3
+            md:gap-0
+          "
+        >
+          {reviews.map((review) => (
             <div
               key={review.name}
               className="
                 relative
                 flex
-                h-[317px]
+                h-[316.8px]
                 flex-col
                 bg-white
                 px-10
@@ -109,14 +127,13 @@ export default function Testimonials() {
               {/* =================================
                   STARS
               ================================== */}
-              <div className="flex gap-[5px]">
-                {Array.from({
-                  length: index === 1 ? 5 : 4,
-                }).map((_, i) => (
+              <div className="flex gap-[4.6px]">
+                {Array.from({ length: review.rating }).map((_, index) => (
                   <Star
-                    key={i}
-                    className="h-[16px] w-[16px] fill-current"
-                    style={{ color: YELLOW }}
+                    key={index}
+                    className="h-[16.13px] w-[16.13px]"
+                    fill={YELLOW}
+                    strokeWidth={0}
                   />
                 ))}
               </div>
@@ -124,7 +141,18 @@ export default function Testimonials() {
               {/* =================================
                   REVIEW
               ================================== */}
-              <p className="mt-[21px] max-w-[340px] font-body text-[18px] leading-[28px] text-[#444444]">
+              <p
+                className="
+                  m-0
+                  mt-[21.29px]
+                  max-w-[339.42px]
+                  font-body
+                  text-[18px]
+                  font-normal
+                  leading-[28px]
+                  text-[#444444]
+                "
+              >
                 Contrary to popular belief, Lorem Ipsum is not simply random
                 text. It has roots in a piece of classical Latin literature from
                 45 BC, making it over 2000 years old.
@@ -133,7 +161,15 @@ export default function Testimonials() {
               {/* =================================
                   AUTHOR
               ================================== */}
-              <div className="absolute bottom-[39px] left-10 flex items-center">
+              <div
+                className="
+                  absolute
+                  bottom-[39px]
+                  left-10
+                  flex
+                  items-center
+                "
+              >
                 {/* Student Image */}
                 <div className="h-[50px] w-[50px] shrink-0 overflow-hidden rounded-full">
                   <img
@@ -146,13 +182,29 @@ export default function Testimonials() {
                 {/* Name + Role */}
                 <div className="ml-[10px]">
                   <p
-                    className="font-display text-[17.8px] font-bold leading-5"
+                    className="
+                      m-0
+                      font-display
+                      text-[17.8125px]
+                      font-bold
+                      leading-[20px]
+                    "
                     style={{ color: GREEN }}
                   >
                     {review.name}
                   </p>
 
-                  <p className="mt-[6px] font-body text-[15px] leading-[27px] text-[#444444]">
+                  <p
+                    className="
+                      m-0
+                      mt-[6px]
+                      font-body
+                      text-[15px]
+                      font-normal
+                      leading-[27px]
+                      text-[#444444]
+                    "
+                  >
                     {review.role}
                   </p>
                 </div>
@@ -168,6 +220,7 @@ export default function Testimonials() {
                   right-[40px]
                   font-display
                   text-[70px]
+                  font-bold
                   leading-none
                 "
                 style={{ color: GREEN }}
@@ -182,8 +235,12 @@ export default function Testimonials() {
             SLIDER DOTS
         ========================================== */}
         <div className="mt-[48px] flex justify-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-[#FECD2F]" />
-          <span className="h-2 w-2 rounded-full bg-[#444444]/20" />
+          <span
+            className="h-2 w-2 rounded-full"
+            style={{ backgroundColor: YELLOW }}
+          />
+
+          <span className="h-2 w-2 rounded-full bg-[#444444] opacity-20" />
         </div>
       </div>
     </section>
