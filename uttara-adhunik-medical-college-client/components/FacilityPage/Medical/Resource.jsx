@@ -34,7 +34,7 @@ const Resource = () => {
     <section className="resource-section">
       <div className="resource-container">
         {/* =================================
-            Facilities & Resources
+            FACILITIES & RESOURCES
         ================================= */}
         <div className="resource-group">
           <div className="resource-heading">
@@ -49,9 +49,9 @@ const Resource = () => {
         </div>
 
         {/* =================================
-            Academic Databases
+            ACADEMIC DATABASES
         ================================= */}
-        <div className="resource-group database-group">
+        <div className="resource-group">
           <div className="resource-heading">
             <h2>Academic Databases</h2>
           </div>
@@ -66,9 +66,9 @@ const Resource = () => {
         </div>
 
         {/* =================================
-            Academic Activities
+            ACADEMIC ACTIVITIES
         ================================= */}
-        <div className="resource-group activities-group">
+        <div className="resource-group">
           <div className="resource-heading">
             <h2>Academic Activities</h2>
           </div>
@@ -92,18 +92,15 @@ const Resource = () => {
       </div>
 
       {/* =================================
-          Styles
+          STYLES
       ================================= */}
       <style>{`
+
         /* =================================
-           Main Section
+           MAIN SECTION
         ================================= */
 
         .resource-section {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-
           width: 100%;
           min-height: 1152.79px;
 
@@ -114,42 +111,51 @@ const Resource = () => {
           background: #ffffff;
         }
 
-        .resource-container {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
 
+        /* =================================
+           MAIN CONTAINER
+        ================================= */
+
+        .resource-container {
           width: 100%;
           max-width: 1440px;
 
-          gap: 30px;
-        }
+          margin: 0 auto;
 
-        /* =================================
-           Groups
-        ================================= */
-
-        .resource-group {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
 
+          gap: 50px;
+        }
+
+
+        /* =================================
+           RESOURCE GROUP
+        ================================= */
+
+        .resource-group {
           width: 100%;
+
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
 
           gap: 30px;
         }
 
+
         /* =================================
-           Headings
+           HEADING
         ================================= */
 
         .resource-heading {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-
           width: 100%;
           height: 80px;
+
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
 
           padding: 10px;
 
@@ -171,42 +177,44 @@ const Resource = () => {
           color: #000000;
         }
 
+
         /* =================================
-           Facilities Grid
+           FACILITIES GRID
         ================================= */
 
         .resource-grid {
-          display: grid;
-
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-
           width: 100%;
 
-          gap: 30px;
+          display: grid;
+
+          grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+
+          column-gap: 30px;
+          row-gap: 30px;
         }
 
-        .resource-grid .resource-card:last-child {
-          grid-column: 1 / 2;
-        }
 
         /* =================================
-           Resource Card
+           RESOURCE CARD
         ================================= */
 
         .resource-card {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-
           width: 100%;
           min-height: 100px;
 
           padding: 20px;
 
-          gap: 10px;
-
           box-sizing: border-box;
+
+          display: flex;
+          flex-direction: row;
+
+          align-items: center;
+          justify-content: space-between;
+
+          gap: 20px;
 
           background: rgba(1, 136, 55, 0.1);
         }
@@ -228,23 +236,24 @@ const Resource = () => {
           color: #444444;
         }
 
+
         /* =================================
-           Arrow
+           ARROW BUTTON
         ================================= */
 
         .resource-arrow {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
           width: 36.4px;
           height: 36.4px;
 
           flex-shrink: 0;
 
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
           background: #ffffff;
 
-          border-radius: 2.07972px;
+          border-radius: 2.08px;
 
           text-decoration: none;
 
@@ -278,72 +287,71 @@ const Resource = () => {
           color: #ffffff;
         }
 
+
         /* =================================
-           Academic Database
+           ACADEMIC DATABASE
         ================================= */
 
-        .database-group {
-          width: 100%;
-        }
-
         .database-grid {
-          display: flex;
-
           width: 100%;
+
+          display: flex;
         }
 
         .resource-card-large {
           width: 100%;
-          height: 100px;
+          min-height: 100px;
         }
+
 
         /* =================================
-           Academic Activities
+           ACADEMIC ACTIVITIES
         ================================= */
 
-        .activities-group {
-          width: 100%;
-        }
-
         .activities-grid {
-          display: flex;
-
           width: 100%;
+
+          display: flex;
         }
 
         .activities-column {
+          width: 50%;
+
           display: flex;
           flex-direction: column;
-
-          width: 705px;
 
           gap: 30px;
         }
 
         .activities-column .resource-card {
-          width: 705px;
-          min-height: 76.4px;
+          width: 100%;
           height: 76.4px;
+          min-height: 76.4px;
         }
 
         .activities-column .resource-card p {
           height: 30px;
+
+          display: flex;
+          align-items: center;
         }
 
+
         /* =================================
-           Activities Description
+           DESCRIPTION
         ================================= */
 
         .activities-description {
+          width: 100%;
+
+          margin: 0;
+          padding: 0;
+
           display: flex;
           align-items: center;
           justify-content: center;
 
-          width: 100%;
           min-height: 60px;
-
-          margin: 0;
-          padding: 0;
 
           font-family: "Inter", sans-serif;
           font-style: normal;
@@ -359,45 +367,45 @@ const Resource = () => {
           color: #000000;
         }
 
+
         /* =================================
-           Tablet
+           TABLET
         ================================= */
 
         @media (max-width: 1100px) {
+
           .resource-section {
             padding: 60px 40px;
+          }
+
+          .resource-container {
+            gap: 40px;
           }
 
           .resource-grid {
             grid-template-columns: 1fr;
           }
 
-          .resource-grid .resource-card:last-child {
-            grid-column: auto;
-          }
-
           .activities-column {
             width: 100%;
           }
 
-          .activities-column .resource-card {
-            width: 100%;
-          }
         }
 
+
         /* =================================
-           Mobile
+           MOBILE
         ================================= */
 
         @media (max-width: 600px) {
+
           .resource-section {
             padding: 40px 20px;
-
             min-height: auto;
           }
 
           .resource-container {
-            gap: 25px;
+            gap: 35px;
           }
 
           .resource-group {
@@ -406,7 +414,6 @@ const Resource = () => {
 
           .resource-heading {
             height: auto;
-
             padding: 0;
           }
 
@@ -417,8 +424,8 @@ const Resource = () => {
 
           .resource-card {
             min-height: 90px;
-
             padding: 15px;
+            gap: 15px;
           }
 
           .resource-card p {
@@ -436,6 +443,7 @@ const Resource = () => {
           }
 
           .activities-column {
+            width: 100%;
             gap: 15px;
           }
 
@@ -448,16 +456,17 @@ const Resource = () => {
           .activities-description {
             font-size: 15px;
             line-height: 24px;
-
-            text-align: center;
           }
+
         }
 
+
         /* =================================
-           Small Mobile
+           SMALL MOBILE
         ================================= */
 
         @media (max-width: 400px) {
+
           .resource-section {
             padding: 30px 15px;
           }
@@ -475,7 +484,9 @@ const Resource = () => {
             font-size: 14px;
             line-height: 22px;
           }
+
         }
+
       `}</style>
     </section>
   );

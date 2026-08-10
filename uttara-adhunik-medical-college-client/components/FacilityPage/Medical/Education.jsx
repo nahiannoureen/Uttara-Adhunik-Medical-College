@@ -6,7 +6,6 @@ export default function Education() {
           w-full
           max-w-[1600px]
           mx-auto
-          h-auto
           min-h-[805px]
           flex
           flex-col
@@ -14,6 +13,7 @@ export default function Education() {
           gap-[50px]
           px-[80px]
           py-[80px]
+          box-border
         "
       >
         {/* ================= TOP CONTENT ================= */}
@@ -29,19 +29,17 @@ export default function Education() {
             gap-[50px]
           "
         >
-          {/* LEFT SIDE */}
+          {/* ================= LEFT SIDE ================= */}
           <div
             className="
               w-[707px]
               h-[120px]
               flex
-              flex-col
               items-start
-              gap-[50px]
               flex-1
             "
           >
-            {/* Icon + Laboratory Services Image */}
+            {/* ICON + TITLE */}
             <div
               className="
                 w-[418px]
@@ -52,7 +50,7 @@ export default function Education() {
                 gap-[20px]
               "
             >
-              {/* Laboratory Icon */}
+              {/* Medical Education Icon */}
               <img
                 src="/bag.png"
                 alt=""
@@ -64,30 +62,57 @@ export default function Education() {
                 "
               />
 
-              {/* Laboratory Services Image */}
+              {/* TEXT */}
               <div
                 className="
                   w-[278px]
                   h-[120px]
                   flex
-                  items-center
+                  flex-col
                   justify-center
+                  items-start
                 "
               >
-                <img
-                  src="/meu.png"
-                  alt="Laboratory Services"
+                {/* Medical Education */}
+                <h1
                   className="
-                    w-[278px]
-                    h-[120px]
-                    object-contain
+                    m-0
+                    whitespace-nowrap
+                    text-[50px]
+                    leading-[60px]
+                    font-bold
+                    tracking-[0.01em]
+                    text-[#018837]
                   "
-                />
+                  style={{
+                    fontFamily: "'Bitter', serif",
+                  }}
+                >
+                  Medical Education
+                </h1>
+
+                {/* Unit (MEU) */}
+                <h1
+                  className="
+                    m-0
+                    whitespace-nowrap
+                    text-[50px]
+                    leading-[60px]
+                    font-bold
+                    tracking-[0.01em]
+                    text-[#018837]
+                  "
+                  style={{
+                    fontFamily: "'Bitter', serif",
+                  }}
+                >
+                  Unit (MEU)
+                </h1>
               </div>
             </div>
           </div>
 
-          {/* DESCRIPTION */}
+          {/* ================= DESCRIPTION ================= */}
           <div
             className="
               w-[683px]
@@ -99,6 +124,7 @@ export default function Education() {
               px-[10px]
               py-[10px]
               shrink-0
+              box-border
             "
           >
             <p
@@ -119,9 +145,9 @@ export default function Education() {
                 fontFamily: "'Bitter', serif",
               }}
             >
-              Enhancing Learning Through Technology & Collaboration The Medical
-              Education Unit (MEU) is a vital academic support center of the
-              college, situated adjacent to the library. It is designed to
+              Enhancing Learning Through Technology &amp; Collaboration The
+              Medical Education Unit (MEU) is a vital academic support center of
+              the college, situated adjacent to the library. It is designed to
               enhance the quality of medical education by offering digital
               resources, training facilities, and collaborative opportunities.
             </p>
@@ -153,7 +179,7 @@ export default function Education() {
           >
             <img
               src="/assets/eb3eef03-816e-45c5-8b6f-695bc5f3b6eb.jpg"
-              alt="Laboratory Services"
+              alt="Medical Education Unit"
               className="
                 w-full
                 h-[457.35px]
