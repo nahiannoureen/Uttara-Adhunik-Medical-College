@@ -101,7 +101,7 @@ export default function Banner() {
 
             <span style={{ margin: "0 6px" }}>&gt;&gt;</span>
 
-            <span style={{ color: GREEN }}>Admission Procedure & Fees</span>
+            <span style={{ color: GREEN }}>Online Registration</span>
           </div>
 
           {/* =========================================

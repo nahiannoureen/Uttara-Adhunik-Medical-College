@@ -1,6 +1,7 @@
 "use client";
 
 const GREEN = "#018837";
+const YELLOW = "#FECD2F";
 
 export default function Banner() {
   return (
@@ -15,10 +16,11 @@ export default function Banner() {
         alignItems: "flex-start",
 
         padding: "80px",
+        gap: "10px",
 
         boxSizing: "border-box",
 
-        backgroundImage: `url("/assets/Asset 1@4x 2.png")`,
+        backgroundImage: `url("/bg.png")`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -52,8 +54,8 @@ export default function Banner() {
         ========================================== */}
         <div
           style={{
-            flex: "1 1 auto",
-            width: "auto",
+            flex: "1 1 0%",
+            width: "1090px",
             height: "118.67px",
 
             display: "flex",
@@ -62,17 +64,17 @@ export default function Banner() {
             alignItems: "flex-start",
 
             padding: 0,
-            margin: 0,
+            margin: "0 auto",
 
             gap: "10px",
 
-            minWidth: 0,
+            boxSizing: "border-box",
           }}
         >
           {/* Breadcrumb */}
           <div
             style={{
-              width: "303px",
+              width: "396px",
               height: "24px",
 
               display: "flex",
@@ -93,23 +95,11 @@ export default function Banner() {
           >
             <span>HOME</span>
 
-            <span
-              style={{
-                margin: "0 6px",
-              }}
-            >
-              &gt;
-            </span>
+            <span style={{ margin: "0 6px" }}>&gt;</span>
 
-            <span>ADMISSION</span>
+            <span>ADMISSION UAMC</span>
 
-            <span
-              style={{
-                margin: "0 6px",
-              }}
-            >
-              &gt;&gt;
-            </span>
+            <span style={{ margin: "0 6px" }}>&gt;&gt;</span>
 
             <span style={{ color: GREEN }}>Admission Papers</span>
           </div>
@@ -119,7 +109,7 @@ export default function Banner() {
           ========================================== */}
           <div
             style={{
-              width: "100%",
+              width: "1090px",
               height: "84.67px",
 
               display: "flex",
@@ -132,34 +122,45 @@ export default function Banner() {
               boxSizing: "border-box",
             }}
           >
-            <div
+            {/* Heading 2 → Facilities UAMC */}
+            <h1
               style={{
-                width: "558px",
+                width: "564px",
                 height: "63px",
 
                 display: "flex",
                 alignItems: "center",
 
-                flexShrink: 0,
+                padding: 0,
+                margin: 0,
 
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Bitter', serif",
                 fontStyle: "normal",
-                fontWeight: 700,
-                fontSize: "48px",
-                lineHeight: "63px",
+                fontWeight: 300,
+                fontSize: "70px",
+                lineHeight: "62px",
 
-                color: "#000000",
+                color: "#262626",
+
                 whiteSpace: "nowrap",
               }}
             >
-              Admission <span style={{  }}>UAMC</span>
-            </div>
+              ADMISSION{" "}
+              <span
+                style={{
+                  marginLeft: "10px",
+                  fontWeight: 700,
+                  color: GREEN,
+                }}
+              >
+                UAMC
+              </span>
+            </h1>
           </div>
         </div>
 
         {/* =========================================
-            RIGHT IMAGE
-            EXACT FIGMA SIZE
+            RIGHT LOGO
             250px × 287.29px
         ========================================== */}
         <div
@@ -172,14 +173,14 @@ export default function Banner() {
             justifyContent: "center",
 
             padding: 0,
-            margin: 0,
+            margin: "0 auto",
 
             flexShrink: 0,
           }}
         >
           <img
-            src="/assets/Adobe Express - file.png"
-            alt="UAMC"
+            src="/logo2.png"
+            alt="Uttara Adhunik Medical College"
             style={{
               width: "250px",
               height: "287.29px",

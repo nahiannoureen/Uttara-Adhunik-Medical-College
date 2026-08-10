@@ -14,7 +14,7 @@ const TABS = [
 ];
 
 export default function TabNav() {
-  const [active, setActive] = useState("Admission Papers");
+  const [active, setActive] = useState("Online Registration");
 
   const renderTab = (tab) => {
     const isActive = active === tab;
