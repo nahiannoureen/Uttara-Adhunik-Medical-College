@@ -7,150 +7,83 @@ const GRAY = "#737477";
 
 const TABS = [
   "Overview",
-  "History of UAMC",
+  "History Of UAMC",
   "Vision & Mission",
   "Aim & Objective",
   "Organizational Structure",
-  "Founder Member",
+  "Founder Members",
   "EC Members",
   "GB Members",
 ];
 
 export default function TabNav() {
-  const [active, setActive] = useState("History of UAMC");
-
-  const renderTab = (tab) => {
-    const isActive = active === tab;
-
-    return (
-      <button
-        key={tab}
-        type="button"
-        onClick={() => setActive(tab)}
-        style={{
-          width: "200px",
-          height: "45px",
-
-          padding: "15px 30px",
-
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-
-          boxSizing: "border-box",
-          flexShrink: 0,
-
-          background: isActive ? GREEN : GRAY,
-
-          border: isActive ? `2px dashed ${GREEN}` : "2px solid transparent",
-
-          backdropFilter: "blur(25px)",
-          WebkitBackdropFilter: "blur(25px)",
-
-          borderRadius: "5px",
-
-          cursor: "pointer",
-        }}
-      >
-        <span
-          style={{
-            width: "100%",
-
-            fontFamily: "'Inter', sans-serif",
-            fontStyle: "normal",
-            fontWeight: 500,
-            fontSize: "12px",
-            lineHeight: "15px",
-
-            color: "#FFFFFF",
-
-            textAlign: "center",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {tab}
-        </span>
-      </button>
-    );
-  };
+  const [active, setActive] = useState("History Of UAMC");
 
   return (
-    <section
-      style={{
-        /* Navigation */
-        width: "100%",
-        height: "220px",
+    <section className="w-full bg-[#FBFBFB] px-6 md:px-20 py-[50px]">
+      <div className="max-w-[1441px] mx-auto">
+        {/* First row - 5 tabs */}
+        <div className="flex flex-wrap justify-center gap-[30px]">
+          {TABS.slice(0, 5).map((tab) => {
+            const isActive = active === tab;
 
-        background: "#FBFBFB",
-
-        padding: "50px 80px",
-
-        boxSizing: "border-box",
-
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-
-        gap: "10px",
-      }}
-    >
-      {/* Frame 1261155664 */}
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "1441px",
-
-          height: "120px",
-
-          margin: "0 auto",
-
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "center",
-
-          /* Figma gap between tab rows */
-          gap: "30px",
-
-          /* Extra 30px gap from Banner */
-          transform: "translateY(30px)",
-        }}
-      >
-        {/* Frame 1261155665 */}
-        <div
-          style={{
-            width: "100%",
-            height: "45px",
-
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-
-            gap: "20px",
-          }}
-        >
-          {TABS.map(renderTab)}
+            return (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActive(tab)}
+                className="w-[200px] h-[45px] px-[30px] py-[15px] rounded-[5px] flex items-center justify-center transition-all duration-200"
+                style={{
+                  backgroundColor: isActive ? GREEN : GRAY,
+                  border: isActive
+                    ? `2px dashed ${GREEN}`
+                    : "2px solid transparent",
+                  backdropFilter: "blur(25px)",
+                }}
+              >
+                <span
+                  className="text-white text-[12px] leading-[15px] font-medium text-center whitespace-nowrap"
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                  }}
+                >
+                  {tab}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Frame 1261155666 */}
-        <div
-          style={{
-            width: "890px",
-            height: "45px",
+        {/* Second row - 3 tabs */}
+        <div className="flex flex-wrap justify-center gap-[30px] mt-[30px]">
+          {TABS.slice(5).map((tab) => {
+            const isActive = active === tab;
 
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-start",
-
-            gap: "20px",
-          }}
-        >
-          {/* Second row intentionally empty.
-              Add additional tabs here if your Figma has them. */}
+            return (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActive(tab)}
+                className="w-[200px] h-[45px] px-[30px] py-[15px] rounded-[5px] flex items-center justify-center transition-all duration-200"
+                style={{
+                  backgroundColor: isActive ? GREEN : GRAY,
+                  border: isActive
+                    ? `2px dashed ${GREEN}`
+                    : "2px solid transparent",
+                  backdropFilter: "blur(25px)",
+                }}
+              >
+                <span
+                  className="text-white text-[12px] leading-[15px] font-medium text-center whitespace-nowrap"
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                  }}
+                >
+                  {tab}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>

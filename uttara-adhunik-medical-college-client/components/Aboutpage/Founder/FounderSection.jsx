@@ -97,7 +97,7 @@ export default function FounderSection() {
       {/* Section heading */}
       <div className="w-full px-[20px] lg:px-[80px] mb-[50px]">
         <h2 className="font-['Bitter'] font-medium text-[38px] sm:text-[45px] lg:text-[50px] leading-[60px] text-black">
-          Founder Member
+          Founder Members
         </h2>
       </div>
 

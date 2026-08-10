@@ -29,27 +29,22 @@ export default function TabNav() {
         key={tab}
         type="button"
         onClick={() => setActive(tab)}
+        className="shrink-0"
         style={{
           width: "200px",
           height: "45px",
-
           padding: "15px 30px",
-
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-between",
+          justifyContent: "center",
           alignItems: "center",
-
           boxSizing: "border-box",
-          flexShrink: 0,
 
           background: isActive ? GREEN : GRAY,
 
           border: isActive ? `2px dashed ${GREEN}` : "2px solid transparent",
 
           backdropFilter: "blur(25px)",
-          WebkitBackdropFilter: "blur(25px)",
-
           borderRadius: "5px",
 
           cursor: "pointer",
@@ -57,16 +52,12 @@ export default function TabNav() {
       >
         <span
           style={{
-            width: "100%",
-
             fontFamily: "'Inter', sans-serif",
             fontStyle: "normal",
             fontWeight: 500,
             fontSize: "12px",
             lineHeight: "15px",
-
             color: "#FFFFFF",
-
             textAlign: "center",
             whiteSpace: "nowrap",
           }}
@@ -80,14 +71,11 @@ export default function TabNav() {
   return (
     <section
       style={{
-        /* Navigation */
         width: "100%",
-        height: "220px",
-
+        minHeight: "220px",
         background: "#FBFBFB",
 
         padding: "50px 80px",
-
         boxSizing: "border-box",
 
         display: "flex",
@@ -98,12 +86,11 @@ export default function TabNav() {
         gap: "10px",
       }}
     >
-      {/* Frame 1261155664 */}
+      {/* Figma Frame 1261155664 */}
       <div
         style={{
           width: "100%",
           maxWidth: "1441px",
-
           height: "120px",
 
           margin: "0 auto",
@@ -113,14 +100,11 @@ export default function TabNav() {
           justifyContent: "flex-start",
           alignItems: "center",
 
-          /* Figma gap between tab rows */
           gap: "30px",
-
-          /* Extra 30px gap from Banner */
-          transform: "translateY(30px)",
         }}
       >
-        {/* Frame 1261155665 */}
+        {/* First Row - 6 Tabs */}
+        {/* Figma Frame 1261155665 */}
         <div
           style={{
             width: "100%",
@@ -128,16 +112,17 @@ export default function TabNav() {
 
             display: "flex",
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
 
-            gap: "20px",
+            gap: "30px",
           }}
         >
-          {TABS.map(renderTab)}
+          {TABS.slice(0, 6).map(renderTab)}
         </div>
 
-        {/* Frame 1261155666 */}
+        {/* Second Row - 4 Tabs */}
+        {/* Figma Frame 1261155666 */}
         <div
           style={{
             width: "890px",
@@ -146,13 +131,13 @@ export default function TabNav() {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
+
             justifyContent: "flex-start",
 
-            gap: "20px",
+            gap: "30px",
           }}
         >
-          {/* Second row intentionally empty.
-              Add additional tabs here if your Figma has them. */}
+          {TABS.slice(6).map(renderTab)}
         </div>
       </div>
     </section>
