@@ -8,14 +8,18 @@
 //       ========================= */}
 //       <div className="library-opening">
 //         <div className="opening-item">
-//           <span className="clock-icon">◷</span>
+//           <img src="/time.png" alt="Opening time" className="opening-icon" />
 //           <span>Open: 8:00 AM – 9:00 PM</span>
 //         </div>
 
 //         <div className="opening-divider" />
 
 //         <div className="opening-item">
-//           <span className="calendar-icon">▣</span>
+//           <img
+//             src="/working-days.png"
+//             alt="Working days"
+//             className="opening-icon"
+//           />
 //           <span>Days: All working days</span>
 //         </div>
 //       </div>
@@ -24,18 +28,21 @@
 //           Library Content
 //       ========================= */}
 //       <div className="library-content">
-//         {/* Heading + Description */}
+//         {/* =========================
+//             Heading + Description
+//         ========================= */}
 //         <div className="library-intro">
+//           {/* LEFT: Icon + Heading */}
 //           <div className="library-title">
-//             <div className="library-icon">📚</div>
+//             <img src="/fil.png" alt="Library" className="library-icon" />
 
-//             <h2>
-//               About the
-//               <br />
-//               Library
-//             </h2>
+//             <div className="library-heading">
+//               <div className="about-text">About the</div>
+//               <div className="library-text">Library</div>
+//             </div>
 //           </div>
 
+//           {/* RIGHT: Description */}
 //           <div className="library-description">
 //             A Modern Hub for Academic Excellence The College Library is a fully
 //             air-conditioned, modern facility located on the 12th floor of the
@@ -44,7 +51,9 @@
 //           </div>
 //         </div>
 
-//         {/* Library Image */}
+//         {/* =========================
+//             Library Image
+//         ========================= */}
 //         <div className="library-image-wrapper">
 //           <img
 //             src="/images/f187def8-5bd0-4b17-a1ac-a234d92577a9.jpg"
@@ -53,25 +62,41 @@
 //           />
 //         </div>
 
-//         {/* Statistics */}
+//         {/* =========================
+//             Statistics
+//         ========================= */}
 //         <div className="library-statistics">
-//           <div className="library-stat">
-//             <div className="stat-number">3,371 +</div>
+//           {/* BOOKS */}
+//           <div className="library-stat books-stat">
+//             <div className="stat-number">3,371+</div>
+
+//             <div className="stat-subtitle">latest editions</div>
+
 //             <div className="stat-label">Books</div>
 //           </div>
 
+//           {/* DIVIDER */}
 //           <div className="stat-divider" />
 
-//           <div className="library-stat">
-//             <div className="stat-number">1,187 + 367</div>
+//           {/* JOURNALS */}
+//           <div className="library-stat journals-stat">
+//             <div className="stat-number">1,187+</div>
+
+//             <div className="stat-subtitle">367 Foreign journals</div>
+
 //             <div className="stat-label">Journals</div>
 //           </div>
 //         </div>
 
-//         {/* Digital Catalog */}
+//         {/* =========================
+//             Digital Catalog
+//         ========================= */}
 //         <div className="digital-catalog">
-//           <strong>Digital Catalog:</strong> All resources are indexed and
-//           catalogued in a computerized database for easy access.
+//           <strong>Digital Catalog:</strong>
+//           <span>
+//             All resources are indexed and catalogued in a computerized database
+//             for easy access.
+//           </span>
 //         </div>
 //       </div>
 
@@ -132,6 +157,7 @@
 //           font-family: "Inter", sans-serif;
 //           font-style: normal;
 //           font-weight: 700;
+
 //           font-size: 18px;
 //           line-height: 30px;
 
@@ -142,18 +168,15 @@
 //           white-space: nowrap;
 //         }
 
-//         .clock-icon,
-//         .calendar-icon {
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
+//         .opening-icon {
+//           display: block;
 
 //           width: 20px;
 //           height: 20px;
 
-//           font-size: 22px;
+//           flex-shrink: 0;
 
-//           color: #018837;
+//           object-fit: contain;
 //         }
 
 //         .opening-divider {
@@ -195,6 +218,10 @@
 //           gap: 100px;
 //         }
 
+//         /* =========================
+//            Title
+//         ========================= */
+
 //         .library-title {
 //           display: flex;
 //           flex-direction: row;
@@ -209,34 +236,52 @@
 //         }
 
 //         .library-icon {
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
+//           display: block;
 
 //           width: 120px;
 //           height: 120px;
 
-//           font-size: 70px;
+//           flex-shrink: 0;
 
-//           color: #018837;
+//           object-fit: contain;
 //         }
 
-//         .library-title h2 {
-//           margin: 0;
+//         /* =========================
+//            About the / Library
+//         ========================= */
+
+//         .library-heading {
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: center;
+//           align-items: flex-start;
 
 //           width: 242px;
+//           height: 120px;
 
 //           font-family: "Bitter", serif;
 //           font-style: normal;
-//           font-weight: 400;
+//           font-weight: 700;
 
 //           font-size: 50px;
 //           line-height: 60px;
 
 //           letter-spacing: 0.01em;
-
-//           color: #000000;
 //         }
+
+//         .about-text {
+//           color: #000000;
+//           white-space: nowrap;
+//         }
+
+//         .library-text {
+//           color: #018837;
+//           white-space: nowrap;
+//         }
+
+//         /* =========================
+//            Description
+//         ========================= */
 
 //         .library-description {
 //           display: flex;
@@ -264,7 +309,7 @@
 //         }
 
 //         /* =========================
-//            Image
+//            Library Image
 //         ========================= */
 
 //         .library-image-wrapper {
@@ -296,11 +341,17 @@
 //           justify-content: center;
 //           align-items: center;
 
-//           width: 100%;
+//           width: 913px;
+//           height: 105px;
 
+//           padding: 0;
 //           gap: 40px;
 
-//           min-height: 105px;
+//           box-sizing: border-box;
+
+//           align-self: stretch;
+//           margin-left: auto;
+//           margin-right: auto;
 //         }
 
 //         .library-stat {
@@ -308,23 +359,42 @@
 //           flex-direction: column;
 //           align-items: center;
 
-//           text-align: center;
+//           padding: 0;
+
+//           height: 105px;
+
+//           flex-shrink: 0;
 //         }
 
-//         .library-stat:first-child {
+//         /* =========================
+//            Books
+//         ========================= */
+
+//         .books-stat {
 //           width: 142px;
 //         }
 
-//         .library-stat:last-child {
+//         /* =========================
+//            Journals
+//         ========================= */
+
+//         .journals-stat {
 //           width: 178px;
 //         }
+
+//         /* =========================
+//            Main Number
+//         ========================= */
 
 //         .stat-number {
 //           display: flex;
 //           align-items: center;
 //           justify-content: center;
 
-//           min-height: 83px;
+//           width: 100%;
+//           height: 54px;
+
+//           flex-shrink: 0;
 
 //           font-family: "Bitter", serif;
 //           font-style: normal;
@@ -340,12 +410,49 @@
 //           text-align: center;
 //         }
 
+//         /* =========================
+//            Subtitle
+//         ========================= */
+
+//         .stat-subtitle {
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+
+//           width: 100%;
+//           height: 29px;
+
+//           flex-shrink: 0;
+
+//           font-family: "Inter", sans-serif;
+//           font-style: normal;
+//           font-weight: 400;
+
+//           font-size: 14px;
+//           line-height: 18px;
+
+//           letter-spacing: 0.01em;
+
+//           color: #444444;
+
+//           text-align: center;
+
+//           white-space: nowrap;
+//         }
+
+//         /* =========================
+//            Books / Journals Label
+//         ========================= */
+
 //         .stat-label {
 //           display: flex;
 //           align-items: center;
 //           justify-content: center;
 
-//           min-height: 22px;
+//           width: 100%;
+//           height: 22px;
+
+//           flex-shrink: 0;
 
 //           font-family: "Inter", sans-serif;
 //           font-style: normal;
@@ -361,9 +468,15 @@
 //           text-align: center;
 //         }
 
+//         /* =========================
+//            Statistics Divider
+//         ========================= */
+
 //         .stat-divider {
 //           width: 1px;
 //           height: 62px;
+
+//           flex-shrink: 0;
 
 //           background: #000000;
 //         }
@@ -374,10 +487,10 @@
 
 //         .digital-catalog {
 //           display: flex;
+//           flex-direction: row;
 //           align-items: center;
 
 //           width: 100%;
-
 //           min-height: 42px;
 
 //           padding: 10px;
@@ -394,6 +507,13 @@
 //           letter-spacing: 0.01em;
 
 //           color: #444444;
+
+//           gap: 4px;
+//         }
+
+//         .digital-catalog strong {
+//           color: #444444;
+//           flex-shrink: 0;
 //         }
 
 //         /* =========================
@@ -416,6 +536,10 @@
 //           .library-description {
 //             width: auto;
 //             flex: 1;
+//           }
+
+//           .library-statistics {
+//             width: 100%;
 //           }
 //         }
 
@@ -475,12 +599,11 @@
 //           .library-icon {
 //             width: 80px;
 //             height: 80px;
-
-//             font-size: 50px;
 //           }
 
-//           .library-title h2 {
+//           .library-heading {
 //             width: auto;
+//             height: 80px;
 
 //             font-size: 40px;
 //             line-height: 48px;
@@ -507,17 +630,42 @@
 //             height: 300px;
 //           }
 
+//           /* =========================
+//              Mobile Statistics
+//           ========================= */
+
 //           .library-statistics {
+//             width: 100%;
+//             height: 105px;
+
 //             gap: 20px;
+//           }
+
+//           .books-stat,
+//           .journals-stat {
+//             width: auto;
+//             flex: 1;
 //           }
 
 //           .stat-number {
 //             font-size: 32px;
 //             line-height: 40px;
+
+//             height: 44px;
+//           }
+
+//           .stat-subtitle {
+//             font-size: 12px;
+//             line-height: 16px;
+
+//             height: 27px;
 //           }
 
 //           .stat-label {
 //             font-size: 15px;
+//             line-height: 20px;
+
+//             height: 22px;
 //           }
 
 //           .stat-divider {
@@ -529,6 +677,8 @@
 
 //             font-size: 15px;
 //             line-height: 24px;
+
+//             flex-wrap: wrap;
 //           }
 //         }
 
@@ -548,11 +698,11 @@
 //           .library-icon {
 //             width: 60px;
 //             height: 60px;
-
-//             font-size: 40px;
 //           }
 
-//           .library-title h2 {
+//           .library-heading {
+//             height: 60px;
+
 //             font-size: 32px;
 //             line-height: 40px;
 //           }
@@ -565,15 +715,13 @@
 //             gap: 12px;
 //           }
 
-//           .library-stat:first-child,
-//           .library-stat:last-child {
-//             width: auto;
-//             flex: 1;
-//           }
-
 //           .stat-number {
 //             font-size: 25px;
 //             line-height: 32px;
+//           }
+
+//           .stat-subtitle {
+//             font-size: 11px;
 //           }
 
 //           .stat-label {
@@ -596,15 +744,27 @@ const LibrarySection = () => {
           Opening Information
       ========================= */}
       <div className="library-opening">
+        {/* Opening Time */}
         <div className="opening-item">
-          <span className="clock-icon">◷</span>
+          <span className="css-clock" aria-hidden="true">
+            <span className="clock-hand hour-hand" />
+            <span className="clock-hand minute-hand" />
+          </span>
+
           <span>Open: 8:00 AM – 9:00 PM</span>
         </div>
 
+        {/* Divider */}
         <div className="opening-divider" />
 
+        {/* Working Days */}
         <div className="opening-item">
-          <span className="calendar-icon">▣</span>
+          <span className="css-calendar" aria-hidden="true">
+            <span className="calendar-top" />
+            <span className="calendar-line line-one" />
+            <span className="calendar-line line-two" />
+          </span>
+
           <span>Days: All working days</span>
         </div>
       </div>
@@ -613,20 +773,23 @@ const LibrarySection = () => {
           Library Content
       ========================= */}
       <div className="library-content">
-        {/* Heading + Description */}
+        {/* =========================
+            Heading + Description
+        ========================= */}
         <div className="library-intro">
+          {/* LEFT: Icon + HTML Heading */}
           <div className="library-title">
             {/* Library Icon */}
             <img src="/fil.png" alt="Library" className="library-icon" />
 
-            {/* About the Library IMAGE */}
-            <img
-              src="/lib.png"
-              alt="About the Library"
-              className="library-title-image"
-            />
+            {/* HTML Text */}
+            <div className="library-heading">
+              <div className="heading-about">About the</div>
+              <div className="heading-library">Library</div>
+            </div>
           </div>
 
+          {/* Description */}
           <div className="library-description">
             A Modern Hub for Academic Excellence The College Library is a fully
             air-conditioned, modern facility located on the 12th floor of the
@@ -635,7 +798,9 @@ const LibrarySection = () => {
           </div>
         </div>
 
-        {/* Library Image */}
+        {/* =========================
+            Library Image
+        ========================= */}
         <div className="library-image-wrapper">
           <img
             src="/images/f187def8-5bd0-4b17-a1ac-a234d92577a9.jpg"
@@ -644,33 +809,48 @@ const LibrarySection = () => {
           />
         </div>
 
-        {/* Statistics */}
+        {/* =========================
+            Statistics
+        ========================= */}
         <div className="library-statistics">
-          <div className="library-stat">
-            <div className="stat-number">3,371 +</div>
+          {/* BOOKS */}
+          <div className="library-stat books-stat">
+            <div className="stat-number">3,371+</div>
+
+            <div className="stat-subtitle">latest editions</div>
+
             <div className="stat-label">Books</div>
           </div>
 
+          {/* Divider */}
           <div className="stat-divider" />
 
-          <div className="library-stat">
-            <div className="stat-number">1,187 + 367</div>
+          {/* JOURNALS */}
+          <div className="library-stat journals-stat">
+            <div className="stat-number">1,187+</div>
+
+            <div className="stat-subtitle">367 foreign journals</div>
+
             <div className="stat-label">Journals</div>
           </div>
         </div>
 
-        {/* Digital Catalog */}
+        {/* =========================
+            Digital Catalog
+        ========================= */}
         <div className="digital-catalog">
-          <strong>Digital Catalog:</strong> All resources are indexed and
-          catalogued in a computerized database for easy access.
+          <span className="digital-catalog-title">Digital Catalog:</span>
+
+          <span className="digital-catalog-text">
+            All resources are indexed and catalogued in a computerized database
+            for easy access.
+          </span>
         </div>
       </div>
-
       {/* =========================
           Styles
       ========================= */}
       <style>{`
-
         /* =========================
            Main Section
         ========================= */
@@ -724,6 +904,7 @@ const LibrarySection = () => {
           font-family: "Inter", sans-serif;
           font-style: normal;
           font-weight: 700;
+
           font-size: 18px;
           line-height: 30px;
 
@@ -734,8 +915,13 @@ const LibrarySection = () => {
           white-space: nowrap;
         }
 
-        .clock-icon,
-        .calendar-icon {
+        /* =========================
+           CSS CLOCK ICON
+        ========================= */
+
+        .css-clock {
+          position: relative;
+
           display: flex;
           align-items: center;
           justify-content: center;
@@ -743,10 +929,95 @@ const LibrarySection = () => {
           width: 20px;
           height: 20px;
 
-          font-size: 22px;
+          flex-shrink: 0;
 
-          color: #018837;
+          border: 2px solid #018837;
+          border-radius: 50%;
+
+          box-sizing: border-box;
         }
+
+        .clock-hand {
+          position: absolute;
+
+          left: 50%;
+          top: 50%;
+
+          width: 1.5px;
+
+          background: #018837;
+
+          transform-origin: bottom center;
+
+          border-radius: 2px;
+        }
+
+        .hour-hand {
+          height: 5px;
+          transform: translate(-50%, -100%) rotate(0deg);
+        }
+
+        .minute-hand {
+          height: 7px;
+          transform: translate(-50%, -100%) rotate(45deg);
+        }
+
+        /* =========================
+           CSS CALENDAR ICON
+        ========================= */
+
+        .css-calendar {
+          position: relative;
+
+          display: block;
+
+          width: 20px;
+          height: 18px;
+
+          flex-shrink: 0;
+
+          border: 2px solid #018837;
+          border-radius: 2px;
+
+          box-sizing: border-box;
+        }
+
+        .calendar-top {
+          position: absolute;
+
+          left: 0;
+          top: 4px;
+
+          width: 100%;
+          height: 2px;
+
+          background: #018837;
+        }
+
+        .calendar-line {
+          position: absolute;
+
+          width: 3px;
+          height: 3px;
+
+          background: #018837;
+
+          border-radius: 50%;
+        }
+
+        .line-one {
+          left: 4px;
+          top: 9px;
+        }
+
+        .line-two {
+          left: 10px;
+          top: 9px;
+        }
+
+        /* =========================
+           Opening Divider
+        ========================= */
 
         .opening-divider {
           width: 1px;
@@ -787,6 +1058,10 @@ const LibrarySection = () => {
           gap: 100px;
         }
 
+        /* =========================
+           Library Title
+        ========================= */
+
         .library-title {
           display: flex;
           flex-direction: row;
@@ -816,19 +1091,43 @@ const LibrarySection = () => {
         }
 
         /* =========================
-           About the Library Image
+           HTML Heading
         ========================= */
 
-        .library-title-image {
-          display: block;
+        .library-heading {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
 
           width: 242px;
           height: 120px;
 
-          flex-shrink: 0;
+          font-family: "Bitter", serif;
 
-          object-fit: contain;
+          font-style: normal;
+          font-weight: 700;
+
+          font-size: 50px;
+          line-height: 60px;
+
+          letter-spacing: 0.01em;
         }
+
+        .heading-about {
+          color: #000000;
+
+          white-space: nowrap;
+        }
+
+        .heading-library {
+          color: #018837;
+
+          white-space: nowrap;
+        }
+
+        /* =========================
+           Description
+        ========================= */
 
         .library-description {
           display: flex;
@@ -842,6 +1141,7 @@ const LibrarySection = () => {
           box-sizing: border-box;
 
           font-family: "Inter", sans-serif;
+
           font-style: normal;
           font-weight: 700;
 
@@ -900,25 +1200,35 @@ const LibrarySection = () => {
           flex-direction: column;
           align-items: center;
 
+          height: 105px;
+
+          padding: 0;
+
           text-align: center;
         }
 
-        .library-stat:first-child {
+        .books-stat {
           width: 142px;
         }
 
-        .library-stat:last-child {
+        .journals-stat {
           width: 178px;
         }
+
+        /* =========================
+           Main Number
+        ========================= */
 
         .stat-number {
           display: flex;
           align-items: center;
           justify-content: center;
 
-          min-height: 83px;
+          width: 100%;
+          height: 54px;
 
           font-family: "Bitter", serif;
+
           font-style: normal;
           font-weight: 700;
 
@@ -932,14 +1242,49 @@ const LibrarySection = () => {
           text-align: center;
         }
 
+        /* =========================
+           Subtitle
+        ========================= */
+
+        .stat-subtitle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          width: 100%;
+          height: 29px;
+
+          font-family: "Inter", sans-serif;
+
+          font-style: normal;
+          font-weight: 400;
+
+          font-size: 14px;
+          line-height: 18px;
+
+          letter-spacing: 0.01em;
+
+          color: #444444;
+
+          text-align: center;
+
+          white-space: nowrap;
+        }
+
+        /* =========================
+           Bold Label
+        ========================= */
+
         .stat-label {
           display: flex;
           align-items: center;
           justify-content: center;
 
-          min-height: 22px;
+          width: 100%;
+          height: 22px;
 
           font-family: "Inter", sans-serif;
+
           font-style: normal;
           font-weight: 700;
 
@@ -953,9 +1298,15 @@ const LibrarySection = () => {
           text-align: center;
         }
 
+        /* =========================
+           Statistics Divider
+        ========================= */
+
         .stat-divider {
           width: 1px;
           height: 62px;
+
+          flex-shrink: 0;
 
           background: #000000;
         }
@@ -967,6 +1318,7 @@ const LibrarySection = () => {
         .digital-catalog {
           display: flex;
           align-items: center;
+          gap: 5px;
 
           width: 100%;
 
@@ -977,8 +1329,6 @@ const LibrarySection = () => {
           box-sizing: border-box;
 
           font-family: "Inter", sans-serif;
-          font-style: normal;
-          font-weight: 700;
 
           font-size: 18px;
           line-height: 22px;
@@ -988,12 +1338,20 @@ const LibrarySection = () => {
           color: #444444;
         }
 
+        .digital-catalog strong {
+          font-weight: 700;
+          color: #444444;
+        }
+
+        .digital-catalog span {
+          font-weight: 700;
+        }
+
         /* =========================
            Tablet
         ========================= */
 
         @media (max-width: 1100px) {
-
           .library-section {
             padding: 60px 40px;
           }
@@ -1010,7 +1368,6 @@ const LibrarySection = () => {
             width: auto;
             flex: 1;
           }
-
         }
 
         /* =========================
@@ -1018,7 +1375,6 @@ const LibrarySection = () => {
         ========================= */
 
         @media (max-width: 700px) {
-
           .library-section {
             min-height: auto;
 
@@ -1072,11 +1428,12 @@ const LibrarySection = () => {
             height: 80px;
           }
 
-          .library-title-image {
+          .library-heading {
             width: auto;
             height: 80px;
 
-            max-width: calc(100% - 100px);
+            font-size: 40px;
+            line-height: 44px;
           }
 
           .library-description {
@@ -1109,6 +1466,10 @@ const LibrarySection = () => {
             line-height: 40px;
           }
 
+          .stat-subtitle {
+            font-size: 12px;
+          }
+
           .stat-label {
             font-size: 15px;
           }
@@ -1122,8 +1483,9 @@ const LibrarySection = () => {
 
             font-size: 15px;
             line-height: 24px;
-          }
 
+            flex-wrap: wrap;
+          }
         }
 
         /* =========================
@@ -1131,7 +1493,6 @@ const LibrarySection = () => {
         ========================= */
 
         @media (max-width: 450px) {
-
           .library-section {
             padding: 30px 15px;
           }
@@ -1145,9 +1506,11 @@ const LibrarySection = () => {
             height: 60px;
           }
 
-          .library-title-image {
+          .library-heading {
             height: 60px;
-            max-width: calc(100% - 70px);
+
+            font-size: 32px;
+            line-height: 36px;
           }
 
           .library-image {
@@ -1158,8 +1521,7 @@ const LibrarySection = () => {
             gap: 12px;
           }
 
-          .library-stat:first-child,
-          .library-stat:last-child {
+          .library-stat {
             width: auto;
             flex: 1;
           }
@@ -1169,12 +1531,14 @@ const LibrarySection = () => {
             line-height: 32px;
           }
 
+          .stat-subtitle {
+            font-size: 10px;
+          }
+
           .stat-label {
             font-size: 14px;
           }
-
         }
-
       `}</style>
     </section>
   );
