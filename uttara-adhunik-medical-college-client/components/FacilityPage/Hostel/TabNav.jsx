@@ -31,34 +31,33 @@ export default function TabNav() {
         onClick={() => setActive(tab)}
         style={{
           width: "200px",
-          minWidth: "200px",
           height: "45px",
 
-          margin: 0,
           padding: "15px 30px",
 
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
 
           boxSizing: "border-box",
+          flexShrink: 0,
 
           background: isActive ? GREEN : GRAY,
 
           border: isActive ? `2px dashed ${GREEN}` : "2px solid transparent",
 
           backdropFilter: "blur(25px)",
+          WebkitBackdropFilter: "blur(25px)",
+
           borderRadius: "5px",
 
           cursor: "pointer",
-          flexShrink: 0,
         }}
       >
         <span
           style={{
-            margin: 0,
-            padding: 0,
+            width: "100%",
 
             fontFamily: "'Inter', sans-serif",
             fontStyle: "normal",
@@ -67,6 +66,7 @@ export default function TabNav() {
             lineHeight: "15px",
 
             color: "#FFFFFF",
+
             textAlign: "center",
             whiteSpace: "nowrap",
           }}
@@ -80,86 +80,79 @@ export default function TabNav() {
   return (
     <section
       style={{
+        /* Navigation */
         width: "100%",
         height: "220px",
 
         background: "#FBFBFB",
 
-        /* Same horizontal alignment as Banner */
         padding: "50px 80px",
 
         boxSizing: "border-box",
 
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "flex-start",
+
+        gap: "10px",
       }}
     >
-      {/* =========================================
-          CONTENT CONTAINER
-          Same 80px left/right alignment as Banner
-      ========================================== */}
+      {/* Frame 1261155664 */}
       <div
         style={{
           width: "100%",
           maxWidth: "1441px",
+
           height: "120px",
 
-          margin: 0,
-          padding: 0,
+          margin: "0 auto",
 
           display: "flex",
           flexDirection: "column",
+          justifyContent: "flex-start",
           alignItems: "center",
 
+          /* Figma gap between tab rows */
           gap: "30px",
+
+          /* Extra 30px gap from Banner */
+          transform: "translateY(30px)",
         }}
       >
-        {/* =========================================
-            FIRST ROW
-            Figma: 1441px × 45px
-        ========================================== */}
+        {/* Frame 1261155665 */}
         <div
           style={{
             width: "100%",
             height: "45px",
 
-            margin: 0,
-            padding: 0,
-
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent: "center",
             alignItems: "center",
 
-            gap: "30px",
+            gap: "20px",
           }}
         >
-          {TABS.slice(0, 6).map(renderTab)}
+          {TABS.map(renderTab)}
         </div>
 
-        {/* =========================================
-            SECOND ROW
-            Figma: 890px × 45px
-        ========================================== */}
+        {/* Frame 1261155666 */}
         <div
           style={{
             width: "890px",
             height: "45px",
 
-            margin: "0 auto",
-            padding: 0,
-
             display: "flex",
             flexDirection: "row",
-            justifyContent: "flex-start",
             alignItems: "center",
+            justifyContent: "flex-start",
 
-            gap: "30px",
+            gap: "20px",
           }}
         >
-          {TABS.slice(6).map(renderTab)}
+          {/* Second row intentionally empty.
+              Add additional tabs here if your Figma has them. */}
         </div>
       </div>
     </section>
