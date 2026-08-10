@@ -8,6 +8,7 @@ export default function CafeteriaSection() {
       className="w-full bg-[#E6F4EB]"
       style={{
         padding: "80px",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -32,7 +33,7 @@ export default function CafeteriaSection() {
         >
           {/* =========================================
               LEFT SIDE
-              ICON + CAFETERIA SERVICES IMAGE
+              ICON + HTML TEXT
           ========================================== */}
           <div
             className="flex w-full flex-1"
@@ -43,7 +44,7 @@ export default function CafeteriaSection() {
             <div
               className="flex"
               style={{
-                width: "372px",
+                width: "500px",
                 height: "120px",
                 flexDirection: "row",
                 alignItems: "center",
@@ -53,7 +54,7 @@ export default function CafeteriaSection() {
               {/* Cafeteria Icon */}
               <img
                 src="/hat.png"
-                alt=""
+                alt="Cafeteria"
                 style={{
                   width: "120px",
                   height: "120px",
@@ -62,18 +63,53 @@ export default function CafeteriaSection() {
                 }}
               />
 
-              {/* Cafeteria Services IMAGE
-                  This is an image, NOT HTML text */}
-              <img
-                src="/cafe.png"
-                alt="Cafeteria Services"
+              {/* =====================================
+                  CAFETERIA SERVICES HTML TEXT
+              ====================================== */}
+              <div
                 style={{
-                  width: "232px",
+                  width: "300px",
                   height: "120px",
-                  flexShrink: 0,
-                  objectFit: "contain",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
                 }}
-              />
+              >
+                {/* Cafeteria */}
+                <h1
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Bitter', serif",
+                    fontStyle: "normal",
+                    fontWeight: 700,
+                    fontSize: "50px",
+                    lineHeight: "60px",
+                    letterSpacing: "0.01em",
+                    color: GREEN,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Cafeteria
+                </h1>
+
+                {/* Services */}
+                <h1
+                  style={{
+                    margin: 0,
+                    fontFamily: "'Bitter', serif",
+                    fontStyle: "normal",
+                    fontWeight: 700,
+                    fontSize: "50px",
+                    lineHeight: "60px",
+                    letterSpacing: "0.01em",
+                    color: "#000000",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Services
+                </h1>
+              </div>
             </div>
           </div>
 
