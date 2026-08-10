@@ -1,57 +1,198 @@
+"use client";
+
 const GREEN = "#018837";
 const YELLOW = "#FECD2F";
 
 export default function Banner() {
   return (
-    <div
-      className="relative flex w-full items-end bg-cover bg-center px-6 py-16 md:px-20 md:py-20"
+    <section
       style={{
-        backgroundImage: `linear-gradient(
-          rgba(255,255,255,0.4),
-          rgba(255,255,255,0.4)
-        ), url("/bg.png)`,
+        width: "100%",
+        height: "500px",
+
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        alignItems: "flex-start",
+
+        padding: "80px",
+        gap: "10px",
+
+        boxSizing: "border-box",
+
+        backgroundImage: `url("/bg.png")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
+      {/* =========================================
+          FRAME 1261155625
+          1440px × 327.29px
+      ========================================== */}
       <div
-        className="flex w-full flex-col items-center justify-between gap-8 rounded px-6 py-8 md:flex-row md:items-end md:px-12 md:py-10"
         style={{
+          width: "100%",
+          height: "327.29px",
+
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+
+          padding: "20px 50px",
+          gap: "20px",
+
+          boxSizing: "border-box",
+
           background: "rgba(1, 136, 55, 0.3)",
         }}
       >
-        {/* Breadcrumb + Title */}
-        <div className="flex flex-col gap-3">
+        {/* =========================================
+            FRAME 1261155626
+            LEFT CONTENT
+        ========================================== */}
+        <div
+          style={{
+            flex: "1 1 0%",
+            width: "1090px",
+            height: "118.67px",
+
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
+            alignItems: "flex-start",
+
+            padding: 0,
+            margin: "0 auto",
+
+            gap: "10px",
+
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Breadcrumb */}
           <div
-            className="flex items-center gap-2 text-sm font-medium text-black"
             style={{
+              width: "396px",
+              height: "24px",
+
+              display: "flex",
+              alignItems: "center",
+
+              padding: 0,
+              margin: 0,
+
               fontFamily: "'Inter', sans-serif",
+              fontStyle: "normal",
+              fontWeight: 500,
+              fontSize: "20px",
+              lineHeight: "24px",
+
+              color: "#000000",
+              whiteSpace: "nowrap",
             }}
           >
             <span>HOME</span>
-            <span>›</span>
+
+            <span style={{ margin: "0 6px" }}>&gt;</span>
+
             <span>FACILITIES</span>
-            <span>››</span>
-            <span className="text-[#018837]">Hostel</span>
+
+            <span style={{ margin: "0 6px" }}>&gt;&gt;</span>
+
+            <span style={{ color: GREEN }}>Hostel</span>
           </div>
 
-          <h1
-            className="text-4xl font-light md:text-6xl"
+          {/* =========================================
+              FRAME 51
+          ========================================== */}
+          <div
             style={{
-              fontFamily: "'Bitter', serif",
+              width: "1090px",
+              height: "84.67px",
+
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+
+              padding: "10.8332px 0",
+              gap: "10.83px",
+
+              boxSizing: "border-box",
             }}
           >
-            FACILITIES <span className="font-bold text-[#018837]">UAMC</span>
-          </h1>
+            {/* Heading 2 → Facilities UAMC */}
+            <h1
+              style={{
+                width: "564px",
+                height: "63px",
+
+                display: "flex",
+                alignItems: "center",
+
+                padding: 0,
+                margin: 0,
+
+                fontFamily: "'Bitter', serif",
+                fontStyle: "normal",
+                fontWeight: 300,
+                fontSize: "70px",
+                lineHeight: "62px",
+
+                color: "#262626",
+
+                whiteSpace: "nowrap",
+              }}
+            >
+              FACILITIES{" "}
+              <span
+                style={{
+                  marginLeft: "10px",
+                  fontWeight: 700,
+                  color: GREEN,
+                }}
+              >
+                UAMC
+              </span>
+            </h1>
+          </div>
         </div>
 
-        {/* College Logo */}
-        <div className="flex shrink-0 items-center justify-center">
+        {/* =========================================
+            RIGHT LOGO
+            250px × 287.29px
+        ========================================== */}
+        <div
+          style={{
+            width: "250px",
+            height: "287.29px",
+
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "center",
+
+            padding: 0,
+            margin: "0 auto",
+
+            flexShrink: 0,
+          }}
+        >
           <img
             src="/logo2.png"
             alt="Uttara Adhunik Medical College"
-            className="h-[90px] w-[90px] object-contain md:h-[120px] md:w-[120px]"
+            style={{
+              width: "250px",
+              height: "287.29px",
+
+              display: "block",
+
+              objectFit: "contain",
+              objectPosition: "center bottom",
+            }}
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

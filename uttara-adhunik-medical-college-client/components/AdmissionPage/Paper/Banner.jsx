@@ -132,21 +132,28 @@ export default function Banner() {
               boxSizing: "border-box",
             }}
           >
-            <img
-              src="/heading.png"
-              alt="Facilities UAMC"
+            <div
               style={{
                 width: "558px",
                 height: "63px",
 
-                display: "block",
+                display: "flex",
+                alignItems: "center",
 
                 flexShrink: 0,
 
-                objectFit: "contain",
-                objectPosition: "left center",
+                fontFamily: "'Inter', sans-serif",
+                fontStyle: "normal",
+                fontWeight: 700,
+                fontSize: "48px",
+                lineHeight: "63px",
+
+                color: "#000000",
+                whiteSpace: "nowrap",
               }}
-            />
+            >
+              Admission <span style={{  }}>UAMC</span>
+            </div>
           </div>
         </div>
 
