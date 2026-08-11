@@ -95,22 +95,59 @@ import React, { useState } from "react";
 /* ------------------------------------------------------------------ */
 /* Hero / page banner                                                  */
 /* ------------------------------------------------------------------ */
+// function HeroBanner() {
+//   return (
+//     <section className="relative w-full bg-gradient-to-br from-[#DCEEE1] to-[#EAF5EC] overflow-hidden">
+//       <div className="max-w-[1440px] mx-auto px-8 py-14 relative">
+//         <div className="relative bg-[#018837]/10 backdrop-blur-sm px-10 py-10 flex items-end justify-between flex-wrap gap-6">
+//           <div>
+//             <p className="text-[16px] font-medium text-black flex items-center gap-1">
+//               HOME <span className="text-black/50">›</span> Notice &amp; Media
+//             </p>
+//             <h1 className="font-serif font-light text-[44px] md:text-[64px] leading-none text-[#262626] mt-2">
+//               Notice <span className="font-bold text-[#018837]">UAMC</span>
+//             </h1>
+//           </div>
+//           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#018837] text-white flex items-center justify-center font-bold text-2xl shrink-0">
+//             UAMC
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 function HeroBanner() {
   return (
-    <section className="relative w-full bg-gradient-to-br from-[#DCEEE1] to-[#EAF5EC] overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-8 py-14 relative">
-        <div className="relative bg-[#018837]/10 backdrop-blur-sm px-10 py-10 flex items-end justify-between flex-wrap gap-6">
+    <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#DCEEE1] to-[#EAF5EC]">
+      <div className="relative mx-auto max-w-[1440px] px-8 py-14">
+        <div className="relative flex flex-wrap items-end justify-between gap-6 bg-[#018837]/10 px-10 py-10 backdrop-blur-sm">
+          {/* Left Content */}
           <div>
-            <p className="text-[16px] font-medium text-black flex items-center gap-1">
-              HOME <span className="text-black/50">›</span> Notice &amp; Media
+            <p className="flex items-center gap-1 text-[16px] font-medium text-black">
+              HOME <span className="text-black/50">›</span>{" "}
+              <span className="text-[#018837]">Notice &amp; Media</span>
             </p>
-            <h1 className="font-serif font-light text-[44px] md:text-[64px] leading-none text-[#262626] mt-2">
+
+            <h1 className="mt-2 font-serif text-[44px] font-light leading-none text-[#262626] md:text-[64px]">
               Notice <span className="font-bold text-[#018837]">UAMC</span>
             </h1>
           </div>
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#018837] text-white flex items-center justify-center font-bold text-2xl shrink-0">
-            UAMC
-          </div>
+
+          {/* Right Side Image */}
+          <img
+            src="/logo2.png"
+            alt="UAMC"
+            className="
+              h-24
+              w-24
+              shrink-0
+              rounded-full
+              object-cover
+              md:h-32
+              md:w-32
+            "
+          />
         </div>
       </div>
     </section>
