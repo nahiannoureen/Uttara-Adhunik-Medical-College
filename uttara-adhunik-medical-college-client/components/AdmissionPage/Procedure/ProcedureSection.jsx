@@ -240,7 +240,7 @@ import React from "react";
 
 const GREEN = "#018837";
 
-export default function ProcedureSection() {
+export default function ProduceSection() {
   return (
     <section
       className="w-full"
