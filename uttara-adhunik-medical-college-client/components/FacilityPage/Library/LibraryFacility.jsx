@@ -1,10 +1,22 @@
 import React from "react";
 
 const facilities = [
-  "Reading Space: Accommodation for 105 students and teachers at a time in a quiet, focused environment.",
-  "Book Lending: Textbooks can be borrowed for on-campus or at-home use.",
-  "Internet Access: High-speed internet is available for research and study.",
-  "Photocopying: A photocopy machine is available for quick access to academic materials.",
+  {
+    heading: "Reading Space:",
+    text: "Accommodation for 105 students and teachers at a time in a quiet, focused environment.",
+  },
+  {
+    heading: "Book Lending:",
+    text: "Textbooks can be borrowed for on-campus or at-home use.",
+  },
+  {
+    heading: "Internet Access:",
+    text: "High-speed internet is available for research and study.",
+  },
+  {
+    heading: "Photocopying:",
+    text: "A photocopy machine is available for quick access to academic materials.",
+  },
 ];
 
 const LibraryFacility = () => {
@@ -25,7 +37,9 @@ const LibraryFacility = () => {
         <div className="facility-column">
           {facilities.slice(0, 2).map((facility, index) => (
             <div className="facility-card" key={index}>
-              <p>{facility}</p>
+              <p>
+                <strong>{facility.heading}</strong> <span>{facility.text}</span>
+              </p>
 
               <a href="#" className="facility-arrow" aria-label="Learn more">
                 <span>→</span>
@@ -38,7 +52,9 @@ const LibraryFacility = () => {
         <div className="facility-column">
           {facilities.slice(2, 4).map((facility, index) => (
             <div className="facility-card" key={index + 2}>
-              <p>{facility}</p>
+              <p>
+                <strong>{facility.heading}</strong> <span>{facility.text}</span>
+              </p>
 
               <a href="#" className="facility-arrow" aria-label="Learn more">
                 <span>→</span>
@@ -172,7 +188,6 @@ const LibraryFacility = () => {
 
           font-family: "Inter", sans-serif;
           font-style: normal;
-          font-weight: 700;
 
           font-size: 18px;
           line-height: 30px;
@@ -180,6 +195,17 @@ const LibraryFacility = () => {
           letter-spacing: 0.01em;
 
           color: #444444;
+        }
+
+        /* Card Heading - Bold */
+        .facility-card p strong {
+          font-weight: 700;
+          color: #444444;
+        }
+
+        /* Card Description - Normal */
+        .facility-card p span {
+          font-weight: 400;
         }
 
         /* =========================
@@ -215,7 +241,10 @@ const LibraryFacility = () => {
           color: #018837;
 
           font-family: Arial, sans-serif;
+
           font-size: 25px;
+          font-weight: 400;
+
           line-height: 1;
 
           transform: translateY(-1px);
@@ -289,6 +318,14 @@ const LibraryFacility = () => {
           .facility-card p {
             font-size: 15px;
             line-height: 24px;
+          }
+
+          .facility-card p strong {
+            font-weight: 700;
+          }
+
+          .facility-card p span {
+            font-weight: 400;
           }
 
           .facility-arrow {

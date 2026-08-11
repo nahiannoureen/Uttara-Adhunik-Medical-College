@@ -7,19 +7,27 @@
 //           Opening Information
 //       ========================= */}
 //       <div className="library-opening">
+//         {/* Opening Time */}
 //         <div className="opening-item">
-//           <img src="/time.png" alt="Opening time" className="opening-icon" />
+//           <span className="css-clock" aria-hidden="true">
+//             <span className="clock-hand hour-hand" />
+//             <span className="clock-hand minute-hand" />
+//           </span>
+
 //           <span>Open: 8:00 AM – 9:00 PM</span>
 //         </div>
 
+//         {/* Divider */}
 //         <div className="opening-divider" />
 
+//         {/* Working Days */}
 //         <div className="opening-item">
-//           <img
-//             src="/working-days.png"
-//             alt="Working days"
-//             className="opening-icon"
-//           />
+//           <span className="css-calendar" aria-hidden="true">
+//             <span className="calendar-top" />
+//             <span className="calendar-line line-one" />
+//             <span className="calendar-line line-two" />
+//           </span>
+
 //           <span>Days: All working days</span>
 //         </div>
 //       </div>
@@ -37,17 +45,20 @@
 //             <img src="/fil.png" alt="Library" className="library-icon" />
 
 //             <div className="library-heading">
-//               <div className="about-text">About the</div>
-//               <div className="library-text">Library</div>
+//               <div className="heading-about">About the</div>
+//               <div className="heading-library">Library</div>
 //             </div>
 //           </div>
 
 //           {/* RIGHT: Description */}
 //           <div className="library-description">
-//             A Modern Hub for Academic Excellence The College Library is a fully
-//             air-conditioned, modern facility located on the 12th floor of the
-//             academic building, designed to support students and faculty with
-//             rich academic resources and a comfortable study environment.
+//             <span className="description-heading">
+//               A Modern Hub for Academic Excellence
+//             </span>{" "}
+//             The College Library is a fully air-conditioned, modern facility
+//             located on the 12th floor of the academic building, designed to
+//             support students and faculty with rich academic resources and a
+//             comfortable study environment.
 //           </div>
 //         </div>
 
@@ -75,14 +86,14 @@
 //             <div className="stat-label">Books</div>
 //           </div>
 
-//           {/* DIVIDER */}
+//           {/* Divider */}
 //           <div className="stat-divider" />
 
 //           {/* JOURNALS */}
 //           <div className="library-stat journals-stat">
 //             <div className="stat-number">1,187+</div>
 
-//             <div className="stat-subtitle">367 Foreign journals</div>
+//             <div className="stat-subtitle">367 foreign journals</div>
 
 //             <div className="stat-label">Journals</div>
 //           </div>
@@ -92,11 +103,13 @@
 //             Digital Catalog
 //         ========================= */}
 //         <div className="digital-catalog">
-//           <strong>Digital Catalog:</strong>
-//           <span>
-//             All resources are indexed and catalogued in a computerized database
-//             for easy access.
-//           </span>
+//           <p>
+//             <strong>Digital Catalog:</strong>{" "}
+//             <span>
+//               All resources are indexed and catalogued in a computerized
+//               database for easy access.
+//             </span>
+//           </p>
 //         </div>
 //       </div>
 
@@ -168,16 +181,111 @@
 //           white-space: nowrap;
 //         }
 
-//         .opening-icon {
-//           display: block;
+//         /* =========================
+//            CSS CLOCK ICON
+//         ========================= */
+
+//         .css-clock {
+//           position: relative;
+
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
 
 //           width: 20px;
 //           height: 20px;
 
 //           flex-shrink: 0;
 
-//           object-fit: contain;
+//           border: 2px solid #018837;
+//           border-radius: 50%;
+
+//           box-sizing: border-box;
 //         }
+
+//         .clock-hand {
+//           position: absolute;
+
+//           left: 50%;
+//           top: 50%;
+
+//           width: 1.5px;
+
+//           background: #018837;
+
+//           transform-origin: bottom center;
+
+//           border-radius: 2px;
+//         }
+
+//         .hour-hand {
+//           height: 5px;
+
+//           transform: translate(-50%, -100%) rotate(0deg);
+//         }
+
+//         .minute-hand {
+//           height: 7px;
+
+//           transform: translate(-50%, -100%) rotate(45deg);
+//         }
+
+//         /* =========================
+//            CSS CALENDAR ICON
+//         ========================= */
+
+//         .css-calendar {
+//           position: relative;
+
+//           display: block;
+
+//           width: 20px;
+//           height: 18px;
+
+//           flex-shrink: 0;
+
+//           border: 2px solid #018837;
+//           border-radius: 2px;
+
+//           box-sizing: border-box;
+//         }
+
+//         .calendar-top {
+//           position: absolute;
+
+//           left: 0;
+//           top: 4px;
+
+//           width: 100%;
+//           height: 2px;
+
+//           background: #018837;
+//         }
+
+//         .calendar-line {
+//           position: absolute;
+
+//           width: 3px;
+//           height: 3px;
+
+//           background: #018837;
+
+//           border-radius: 50%;
+//         }
+
+//         .line-one {
+//           left: 4px;
+//           top: 9px;
+//         }
+
+//         .line-two {
+//           left: 10px;
+//           top: 9px;
+//         }
+
+//         /* =========================
+//            Opening Divider
+//         ========================= */
 
 //         .opening-divider {
 //           width: 1px;
@@ -219,7 +327,7 @@
 //         }
 
 //         /* =========================
-//            Title
+//            Library Title
 //         ========================= */
 
 //         .library-title {
@@ -235,6 +343,10 @@
 //           height: 120px;
 //         }
 
+//         /* =========================
+//            Library Icon
+//         ========================= */
+
 //         .library-icon {
 //           display: block;
 
@@ -247,19 +359,19 @@
 //         }
 
 //         /* =========================
-//            About the / Library
+//            HTML Heading
 //         ========================= */
 
 //         .library-heading {
 //           display: flex;
 //           flex-direction: column;
 //           justify-content: center;
-//           align-items: flex-start;
 
 //           width: 242px;
 //           height: 120px;
 
 //           font-family: "Bitter", serif;
+
 //           font-style: normal;
 //           font-weight: 700;
 
@@ -269,13 +381,15 @@
 //           letter-spacing: 0.01em;
 //         }
 
-//         .about-text {
+//         .heading-about {
 //           color: #000000;
+
 //           white-space: nowrap;
 //         }
 
-//         .library-text {
+//         .heading-library {
 //           color: #018837;
+
 //           white-space: nowrap;
 //         }
 
@@ -284,8 +398,7 @@
 //         ========================= */
 
 //         .library-description {
-//           display: flex;
-//           align-items: center;
+//           display: block;
 
 //           width: 683px;
 //           min-height: 141px;
@@ -295,8 +408,9 @@
 //           box-sizing: border-box;
 
 //           font-family: "Inter", sans-serif;
+
 //           font-style: normal;
-//           font-weight: 700;
+//           font-weight: 400;
 
 //           font-size: 20px;
 //           line-height: 30px;
@@ -308,8 +422,12 @@
 //           color: #444444;
 //         }
 
+//         .description-heading {
+//           font-weight: 700;
+//         }
+
 //         /* =========================
-//            Library Image
+//            Image
 //         ========================= */
 
 //         .library-image-wrapper {
@@ -338,45 +456,33 @@
 //         .library-statistics {
 //           display: flex;
 //           flex-direction: row;
+
 //           justify-content: center;
 //           align-items: center;
 
-//           width: 913px;
-//           height: 105px;
+//           width: 100%;
 
-//           padding: 0;
 //           gap: 40px;
 
-//           box-sizing: border-box;
-
-//           align-self: stretch;
-//           margin-left: auto;
-//           margin-right: auto;
+//           min-height: 105px;
 //         }
 
 //         .library-stat {
 //           display: flex;
 //           flex-direction: column;
-//           align-items: center;
 
-//           padding: 0;
+//           align-items: center;
 
 //           height: 105px;
 
-//           flex-shrink: 0;
-//         }
+//           padding: 0;
 
-//         /* =========================
-//            Books
-//         ========================= */
+//           text-align: center;
+//         }
 
 //         .books-stat {
 //           width: 142px;
 //         }
-
-//         /* =========================
-//            Journals
-//         ========================= */
 
 //         .journals-stat {
 //           width: 178px;
@@ -388,15 +494,15 @@
 
 //         .stat-number {
 //           display: flex;
+
 //           align-items: center;
 //           justify-content: center;
 
 //           width: 100%;
 //           height: 54px;
 
-//           flex-shrink: 0;
-
 //           font-family: "Bitter", serif;
+
 //           font-style: normal;
 //           font-weight: 700;
 
@@ -416,15 +522,15 @@
 
 //         .stat-subtitle {
 //           display: flex;
+
 //           align-items: center;
 //           justify-content: center;
 
 //           width: 100%;
 //           height: 29px;
 
-//           flex-shrink: 0;
-
 //           font-family: "Inter", sans-serif;
+
 //           font-style: normal;
 //           font-weight: 400;
 
@@ -441,20 +547,20 @@
 //         }
 
 //         /* =========================
-//            Books / Journals Label
+//            Bold Label
 //         ========================= */
 
 //         .stat-label {
 //           display: flex;
+
 //           align-items: center;
 //           justify-content: center;
 
 //           width: 100%;
 //           height: 22px;
 
-//           flex-shrink: 0;
-
 //           font-family: "Inter", sans-serif;
+
 //           font-style: normal;
 //           font-weight: 700;
 
@@ -486,11 +592,8 @@
 //         ========================= */
 
 //         .digital-catalog {
-//           display: flex;
-//           flex-direction: row;
-//           align-items: center;
-
 //           width: 100%;
+
 //           min-height: 42px;
 
 //           padding: 10px;
@@ -498,22 +601,31 @@
 //           box-sizing: border-box;
 
 //           font-family: "Inter", sans-serif;
-//           font-style: normal;
-//           font-weight: 700;
 
 //           font-size: 18px;
-//           line-height: 22px;
+//           line-height: 30px;
 
 //           letter-spacing: 0.01em;
 
-//           color: #444444;
+//           color: #000000;
 
-//           gap: 4px;
+//           text-align: center;
+//         }
+
+//         .digital-catalog p {
+//           width: 100%;
+
+//           margin: 0;
+
+//           font-weight: 400;
 //         }
 
 //         .digital-catalog strong {
-//           color: #444444;
-//           flex-shrink: 0;
+//           font-weight: 700;
+//         }
+
+//         .digital-catalog span {
+//           font-weight: 400;
 //         }
 
 //         /* =========================
@@ -536,10 +648,6 @@
 //           .library-description {
 //             width: auto;
 //             flex: 1;
-//           }
-
-//           .library-statistics {
-//             width: 100%;
 //           }
 //         }
 
@@ -603,14 +711,16 @@
 
 //           .library-heading {
 //             width: auto;
+
 //             height: 80px;
 
 //             font-size: 40px;
-//             line-height: 48px;
+//             line-height: 44px;
 //           }
 
 //           .library-description {
 //             width: 100%;
+
 //             min-height: auto;
 
 //             padding: 0;
@@ -627,45 +737,25 @@
 
 //           .library-image {
 //             width: 100%;
+
 //             height: 300px;
 //           }
 
-//           /* =========================
-//              Mobile Statistics
-//           ========================= */
-
 //           .library-statistics {
-//             width: 100%;
-//             height: 105px;
-
 //             gap: 20px;
-//           }
-
-//           .books-stat,
-//           .journals-stat {
-//             width: auto;
-//             flex: 1;
 //           }
 
 //           .stat-number {
 //             font-size: 32px;
 //             line-height: 40px;
-
-//             height: 44px;
 //           }
 
 //           .stat-subtitle {
 //             font-size: 12px;
-//             line-height: 16px;
-
-//             height: 27px;
 //           }
 
 //           .stat-label {
 //             font-size: 15px;
-//             line-height: 20px;
-
-//             height: 22px;
 //           }
 
 //           .stat-divider {
@@ -677,8 +767,6 @@
 
 //             font-size: 15px;
 //             line-height: 24px;
-
-//             flex-wrap: wrap;
 //           }
 //         }
 
@@ -704,7 +792,7 @@
 //             height: 60px;
 
 //             font-size: 32px;
-//             line-height: 40px;
+//             line-height: 36px;
 //           }
 
 //           .library-image {
@@ -715,17 +803,28 @@
 //             gap: 12px;
 //           }
 
+//           .library-stat {
+//             width: auto;
+
+//             flex: 1;
+//           }
+
 //           .stat-number {
 //             font-size: 25px;
 //             line-height: 32px;
 //           }
 
 //           .stat-subtitle {
-//             font-size: 11px;
+//             font-size: 10px;
 //           }
 
 //           .stat-label {
 //             font-size: 14px;
+//           }
+
+//           .digital-catalog {
+//             font-size: 14px;
+//             line-height: 22px;
 //           }
 //         }
 //       `}</style>
@@ -751,7 +850,10 @@ const LibrarySection = () => {
             <span className="clock-hand minute-hand" />
           </span>
 
-          <span>Open: 8:00 AM – 9:00 PM</span>
+          <span>
+            <strong>Open:</strong>{" "}
+            <span className="opening-normal">8:00 AM – 9:00 PM</span>
+          </span>
         </div>
 
         {/* Divider */}
@@ -765,7 +867,10 @@ const LibrarySection = () => {
             <span className="calendar-line line-two" />
           </span>
 
-          <span>Days: All working days</span>
+          <span>
+            <strong>Days:</strong>{" "}
+            <span className="opening-normal">All working days</span>
+          </span>
         </div>
       </div>
 
@@ -777,24 +882,26 @@ const LibrarySection = () => {
             Heading + Description
         ========================= */}
         <div className="library-intro">
-          {/* LEFT: Icon + HTML Heading */}
+          {/* LEFT: Icon + Heading */}
           <div className="library-title">
-            {/* Library Icon */}
             <img src="/fil.png" alt="Library" className="library-icon" />
 
-            {/* HTML Text */}
             <div className="library-heading">
               <div className="heading-about">About the</div>
               <div className="heading-library">Library</div>
             </div>
           </div>
 
-          {/* Description */}
+          {/* RIGHT: Description */}
           <div className="library-description">
-            A Modern Hub for Academic Excellence The College Library is a fully
-            air-conditioned, modern facility located on the 12th floor of the
-            academic building, designed to support students and faculty with
-            rich academic resources and a comfortable study environment.
+            <strong>A Modern Hub for Academic Excellence</strong>
+
+            <span>
+              The College Library is a fully air-conditioned, modern facility
+              located on the 12th floor of the academic building, designed to
+              support students and faculty with rich academic resources and a
+              comfortable study environment.
+            </span>
           </div>
         </div>
 
@@ -838,43 +945,17 @@ const LibrarySection = () => {
         {/* =========================
             Digital Catalog
         ========================= */}
-        {/* <div className="digital-catalog">
-          <span className="digital-catalog-title">Digital Catalog:</span>
-
-          <span className="digital-catalog-text">
-            All resources are indexed and catalogued in a computerized database
-            for easy access.
-          </span>
-        </div> */}
-        <div
-          style={{
-            width: "100%",
-            height: "30px",
-            marginTop: "30px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <p
-            style={{
-              width: "100%",
-              margin: 0,
-              fontFamily: '"Inter", sans-serif',
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "18px",
-              lineHeight: "30px",
-              letterSpacing: "0.01em",
-              textAlign: "center",
-              color: "#000000",
-            }}
-          >
-            Digital Catalog: All resources are indexed and catalogued in a
-            computerized database for easy access.
+        <div className="digital-catalog">
+          <p>
+            <strong>Digital Catalog:</strong>{" "}
+            <span>
+              All resources are indexed and catalogued in a computerized
+              database for easy access.
+            </span>
           </p>
         </div>
       </div>
+
       {/* =========================
           Styles
       ========================= */}
@@ -931,7 +1012,6 @@ const LibrarySection = () => {
 
           font-family: "Inter", sans-serif;
           font-style: normal;
-          font-weight: 700;
 
           font-size: 18px;
           line-height: 30px;
@@ -941,6 +1021,14 @@ const LibrarySection = () => {
           color: #000000;
 
           white-space: nowrap;
+        }
+
+        .opening-item strong {
+          font-weight: 700;
+        }
+
+        .opening-normal {
+          font-weight: 400;
         }
 
         /* =========================
@@ -982,11 +1070,13 @@ const LibrarySection = () => {
 
         .hour-hand {
           height: 5px;
+
           transform: translate(-50%, -100%) rotate(0deg);
         }
 
         .minute-hand {
           height: 7px;
+
           transform: translate(-50%, -100%) rotate(45deg);
         }
 
@@ -1159,7 +1249,9 @@ const LibrarySection = () => {
 
         .library-description {
           display: flex;
-          align-items: center;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
 
           width: 683px;
           min-height: 141px;
@@ -1171,7 +1263,6 @@ const LibrarySection = () => {
           font-family: "Inter", sans-serif;
 
           font-style: normal;
-          font-weight: 700;
 
           font-size: 20px;
           line-height: 30px;
@@ -1181,6 +1272,22 @@ const LibrarySection = () => {
           text-align: justify;
 
           color: #444444;
+        }
+
+        .library-description strong {
+          display: block;
+
+          width: 100%;
+
+          font-weight: 700;
+        }
+
+        .library-description span {
+          display: block;
+
+          width: 100%;
+
+          font-weight: 400;
         }
 
         /* =========================
@@ -1346,7 +1453,7 @@ const LibrarySection = () => {
         .digital-catalog {
           display: flex;
           align-items: center;
-          gap: 5px;
+          justify-content: center;
 
           width: 100%;
 
@@ -1359,20 +1466,27 @@ const LibrarySection = () => {
           font-family: "Inter", sans-serif;
 
           font-size: 18px;
-          line-height: 22px;
+          line-height: 30px;
 
           letter-spacing: 0.01em;
 
-          color: #444444;
+          color: #000000;
+
+          text-align: center;
+        }
+
+        .digital-catalog p {
+          width: 100%;
+
+          margin: 0;
         }
 
         .digital-catalog strong {
           font-weight: 700;
-          color: #444444;
         }
 
         .digital-catalog span {
-          font-weight: 700;
+          font-weight: 400;
         }
 
         /* =========================
@@ -1476,6 +1590,11 @@ const LibrarySection = () => {
             text-align: left;
           }
 
+          .library-description strong,
+          .library-description span {
+            width: 100%;
+          }
+
           .library-image-wrapper {
             padding: 0;
           }
@@ -1512,7 +1631,7 @@ const LibrarySection = () => {
             font-size: 15px;
             line-height: 24px;
 
-            flex-wrap: wrap;
+            text-align: center;
           }
         }
 

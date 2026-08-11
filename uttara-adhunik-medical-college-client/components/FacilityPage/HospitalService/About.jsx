@@ -193,7 +193,6 @@ export default function About() {
 
         <div className="flex w-full flex-col gap-[50px]">
           {/* Title + Icon + Description */}
-
           <div className="flex w-full flex-col items-center gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-[100px] xl:gap-[200px]">
             {/* Title + Icon */}
 
@@ -233,26 +232,73 @@ export default function About() {
 
             {/* Description */}
 
-            <div className="flex w-full max-w-[683px] items-center justify-center px-[10px] py-[10px] lg:h-[108px]">
+            {/* <div
+              className="flex w-full flex-1"
+              style={{
+                width: "683px",
+                height: "140px",
+                padding: "10px",
+                justifyContent: "center",
+                alignItems: "center",
+                boxSizing: "border-box",
+              }}
+            >
               <p
-                className="w-full max-w-[663px] text-justify text-[15px] font-bold leading-[22px] tracking-[0.01em] text-[#444444] sm:text-[16px] md:text-[18px]"
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  width: "663px",
+                  height: "120px",
+                  margin: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  fontFamily: "'Bitter', serif",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  fontSize: "20px",
+                  lineHeight: "30px",
+                  letterSpacing: "0.01em",
+                  textAlign: "justify",
+                  color: "#444444",
                 }}
               >
-                Uttara Adhunik Medical College Hospital (UAMCH) is the teaching
-                and training hospital of the college. It is a 500-bedded,
-                multidisciplinary tertiary care facility located in Uttara,
-                Dhaka. The hospital serves patients from all over the country,
-                particularly from Uttara, Tongi, Gazipur, and Savar.
+                <span style={{ display: "block" }}>
+                  <strong>
+                    Uttara Adhunik Medical College Hospital (UAMCH)
+                  </strong>{" "}
+                  is the teaching and training hospital of the college. It is a
+                  500-bedded, multidisciplinary tertiary care facility located
+                  in Uttara, Dhaka. The hospital serves patients from all over
+                  the country, particularly from Uttara, Tongi, Gazipur, and
+                  Savar.
+                </span>
               </p>
             </div>
-          </div>
+            ```jsx
+{/* Description */}
 
+            <div className="flex w-full flex-1 items-center lg:max-w-[683px]">
+              <p
+                className="m-0 w-full px-[10px] text-justify text-[18px] leading-[30px] tracking-[0.01em] text-[#444444] sm:text-[19px] lg:text-[20px]"
+                style={{
+                  fontFamily: "'Bitter', serif",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  boxSizing: "border-box",
+                }}
+              >
+                <strong>Uttara Adhunik Medical College Hospital (UAMCH)</strong>{" "}
+                is the teaching and training hospital of the college. It is a
+                500-bedded, multidisciplinary tertiary care facility located in
+                Uttara, Dhaka. The hospital serves patients from all over the
+                country, particularly from Uttara, Tongi, Gazipur, and Savar.
+              </p>
+            </div>
+          </div>{" "}
+          */
           {/* =========================
               Hospital Image
           ========================== */}
-
           <div className="flex w-full flex-col items-start gap-[10px] px-[10px]">
             <div className="h-[300px] w-full overflow-hidden rounded-sm sm:h-[400px] md:h-[450px] lg:h-[532.5px]">
               <img
@@ -345,13 +391,14 @@ export default function About() {
 
           <div className="flex h-[42px] w-full items-center justify-center px-[10px] py-[10px]">
             <p
-              className="flex h-[22px] w-[951px] items-center justify-center whitespace-nowrap text-center text-[18px] font-bold leading-[22px] text-[#444444]"
+              className="flex h-[22px] w-[951px] items-center justify-center whitespace-nowrap text-center text-[18px] leading-[22px] text-[#444444]"
               style={{
                 fontFamily: "'Inter', sans-serif",
               }}
             >
-              Additional Structures: Separate buildings for Radiology,
-              Orthopedics, ENT, Dental &amp; Emergency Departments
+              <strong className="font-bold">Additional Structures:</strong>{" "}
+              Separate buildings for Radiology, Orthopedics, ENT, Dental &amp;
+              Emergency Departments
             </p>
           </div>
         </div>
