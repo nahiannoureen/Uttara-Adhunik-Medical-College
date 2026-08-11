@@ -56,8 +56,8 @@ const notices = [
 function DownloadIcon() {
   return (
     <svg
-      width="18"
-      height="18"
+      width="19"
+      height="19"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -89,8 +89,8 @@ function DownloadIcon() {
 function ShareIcon() {
   return (
     <svg
-      width="18"
-      height="18"
+      width="19"
+      height="19"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -99,12 +99,14 @@ function ShareIcon() {
       <circle cx="18" cy="5" r="2.5" stroke={GREEN} strokeWidth="1.8" />
       <circle cx="6" cy="12" r="2.5" stroke={GREEN} strokeWidth="1.8" />
       <circle cx="18" cy="19" r="2.5" stroke={GREEN} strokeWidth="1.8" />
+
       <path
         d="M8.2 10.8L15.8 6.2"
         stroke={GREEN}
         strokeWidth="1.8"
         strokeLinecap="round"
       />
+
       <path
         d="M8.2 13.2L15.8 17.8"
         stroke={GREEN}
@@ -126,22 +128,16 @@ function ActionButton({ children, label }) {
 function NoticeRow({ no, date, title }) {
   return (
     <div className="notice-row">
-      {/* Number */}
       <div className="notice-number">{no}</div>
 
-      {/* Date */}
       <div className="notice-date">{date}</div>
 
-      {/* Separator */}
       <div className="notice-separator" />
 
-      {/* Title */}
       <div className="notice-title">{title}</div>
 
-      {/* Separator */}
       <div className="notice-separator" />
 
-      {/* Actions */}
       <div className="notice-actions">
         <ActionButton label={`Download ${title}`}>
           <DownloadIcon />
@@ -160,15 +156,22 @@ export default function NoticeSection() {
     <section className="notice-section">
       <div className="notice-container">
         {/* Header */}
-        <div className="notice-header">
+        <header className="notice-header">
           <h2>Admission Papers &amp; Notices</h2>
 
           <p>MBBS Admission – Session 2024–2025</p>
+        </header>
+
+        {/* Green accent visible above the table */}
+        {/* Green accent + heading above the table */}
+        <div className="notice-accent-heading">
+          <div className="notice-accent" />
+
+          <h3>Recent Admission Notices &amp; Required Documents</h3>
         </div>
 
-        {/* Notice Table */}
+        {/* Table */}
         <div className="notice-table">
-          {/* Table Header */}
           <div className="notice-table-header">
             <div>No.</div>
             <div>Date</div>
@@ -178,7 +181,6 @@ export default function NoticeSection() {
             <div>Action</div>
           </div>
 
-          {/* Notice Rows */}
           {notices.map((notice) => (
             <NoticeRow key={notice.no} {...notice} />
           ))}
@@ -187,119 +189,139 @@ export default function NoticeSection() {
         {/* Note */}
         <div className="notice-note">
           <p>
-            Note: All applicants are advised to check the latest official
-            notices on the Directorate General of Medical Education (DGME)
-            website for up-to-date admission instructions and required
-            documents.
+            <strong> Note:</strong> All applicants are advised to check the
+            latest official notices on the Directorate General of Medical
+            Education (DGME) website for up-to-date admission instructions and
+            required documents.
           </p>
         </div>
       </div>
 
       <style>{`
+        * {
+          box-sizing: border-box;
+        }
+
         .notice-section {
           width: 100%;
-          min-height: 1258.8px;
-          box-sizing: border-box;
-          padding: 80px;
-          background: #ffffff;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          gap: 50px;
+          min-height: 1258px;
+          padding: 76px 77px 80px;
+          background: #fff;
+          font-family: "Inter", Arial, sans-serif;
         }
 
         .notice-container {
           width: 100%;
-          max-width: 1440px;
+          max-width: 1400px;
           margin: 0 auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 50px;
         }
 
-        /* ================================
+        /* =========================
            HEADER
-        ================================= */
+        ========================= */
 
         .notice-header {
           width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+          text-align: center;
         }
 
         .notice-header h2 {
           margin: 0;
-          font-family: "Bitter", serif;
-          font-style: normal;
-          font-weight: 700;
+          font-family: "Bitter", Georgia, serif;
           font-size: 50px;
           line-height: 60px;
+          font-weight: 700;
           letter-spacing: 0.01em;
-          text-align: center;
-          color: #000000;
+          color: #000;
         }
 
         .notice-header p {
-          margin: 10px 0 0;
-          font-family: "Inter", sans-serif;
-          font-style: normal;
-          font-weight: 400;
+          margin: 8px 0 0;
+          font-family: "Inter", Arial, sans-serif;
           font-size: 15px;
-          line-height: 30px;
-          letter-spacing: 0.01em;
-          text-align: center;
-          color: #000000;
+          line-height: 22px;
+          font-weight: 400;
+          color: #000;
         }
 
-        /* ================================
+        /* =========================
+           GREEN ACCENT
+        ========================= */
+
+       .notice-accent-heading {
+  width: 100%;
+  height: 45px;
+  margin-top: 66px;
+  margin-bottom: 19px;
+
+  display: flex;
+  align-items: center;
+}
+
+.notice-accent {
+  width: 4px;
+  min-width: 4px;
+  height: 45px;
+  margin: 0 14px 0 0;
+  background: ${GREEN};
+}
+
+.notice-accent-heading h3 {
+  margin: 0;
+
+  font-family: "Bitter", Georgia, serif;
+  font-size: 40px;
+  line-height: 45px;
+  font-weight: 700;
+
+  color: #444444;
+}
+
+        /* =========================
            TABLE
-        ================================= */
+        ========================= */
 
         .notice-table {
           width: 100%;
-          border: 1px solid rgba(68, 68, 68, 0.5);
-          box-sizing: border-box;
           overflow: hidden;
+          background: #fff;
+          border-top: 1px solid rgba(68, 68, 68, 0.45);
         }
 
         .notice-table-header,
         .notice-row {
+          width: 100%;
           display: grid;
           grid-template-columns:
             70px
-            235px
+            352px
             1px
-            minmax(300px, 1fr)
+            minmax(0, 1fr)
             1px
-            90px;
+            352px;
           align-items: center;
-          width: 100%;
-          box-sizing: border-box;
+          padding-left: 20px;
+          padding-right: 20px;
         }
 
-        /* ================================
+        /* =========================
            TABLE HEADER
-        ================================= */
+        ========================= */
 
         .notice-table-header {
-          height: 56px;
-          padding: 20px;
-          background: rgba(20, 168, 0, 0.1);
-          border-top: 1px solid rgba(68, 68, 68, 0.5);
-          border-bottom: 1px solid rgba(68, 68, 68, 0.5);
-          color: #444444;
-          font-family: "Bitter", serif;
+          height: 55px;
+          background: rgba(20, 168, 0, 0.10);
+          border-bottom: 1px solid rgba(68, 68, 68, 0.45);
+
+          font-family: "Bitter", Georgia, serif;
           font-size: 15px;
+          line-height: 18px;
           font-weight: 700;
-          line-height: 15px;
+          color: #444;
         }
 
         .notice-table-header > div:nth-child(4) {
-          padding-left: 20px;
+          padding-left: 116px;
         }
 
         .notice-table-header > div:nth-child(6) {
@@ -307,15 +329,15 @@ export default function NoticeSection() {
           text-align: right;
         }
 
-        /* ================================
+        /* =========================
            ROW
-        ================================= */
+        ========================= */
 
         .notice-row {
-          min-height: 80px;
-          padding: 20px;
-          border-bottom: 1px solid rgba(68, 68, 68, 0.25);
-          background: #ffffff;
+          min-height: 82px;
+          padding-top: 18px;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(68, 68, 68, 0.12);
         }
 
         .notice-row:last-child {
@@ -325,12 +347,15 @@ export default function NoticeSection() {
         .notice-number,
         .notice-date,
         .notice-title {
-          font-family: "Inter", sans-serif;
-          font-style: normal;
-          font-weight: 400;
+          font-family: "Inter", Arial, sans-serif;
           font-size: 15px;
-          line-height: 20px;
-          color: #444444;
+          line-height: 17px;
+          font-weight: 400;
+          color: #444;
+        }
+
+        .notice-number {
+          padding-left: 0;
         }
 
         .notice-date {
@@ -338,19 +363,23 @@ export default function NoticeSection() {
         }
 
         .notice-title {
-          padding-left: 20px;
+          padding-left: 116px;
           padding-right: 20px;
         }
 
+        /* =========================
+           SEPARATORS
+        ========================= */
+
         .notice-separator {
           width: 1px;
-          height: 24px;
+          height: 17px;
           background: rgba(68, 68, 68, 0.5);
         }
 
-        /* ================================
+        /* =========================
            ACTIONS
-        ================================= */
+        ========================= */
 
         .notice-actions {
           display: flex;
@@ -364,12 +393,14 @@ export default function NoticeSection() {
           width: 40px;
           height: 40px;
           padding: 0;
-          border: none;
+          border: 0;
           border-radius: 50%;
-          background: rgba(1, 136, 55, 0.1);
+          background: rgba(1, 136, 55, 0.10);
+
           display: flex;
           align-items: center;
           justify-content: center;
+
           cursor: pointer;
           transition:
             background-color 0.2s ease,
@@ -377,7 +408,7 @@ export default function NoticeSection() {
         }
 
         .notice-action-button:hover {
-          background: rgba(1, 136, 55, 0.2);
+          background: rgba(1, 136, 55, 0.18);
           transform: translateY(-1px);
         }
 
@@ -385,37 +416,43 @@ export default function NoticeSection() {
           transform: translateY(0);
         }
 
-        /* ================================
+        /* =========================
            NOTE
-        ================================= */
+        ========================= */
 
         .notice-note {
           width: 100%;
-          min-height: 48px;
+          margin-top: 28px;
           padding: 10px 20px;
-          box-sizing: border-box;
           border-left: 4px solid ${GREEN};
-          display: flex;
-          align-items: center;
         }
 
         .notice-note p {
-          margin: 0;
-          font-family: "Inter", sans-serif;
-          font-style: normal;
-          font-weight: 700;
-          font-size: 16px;
-          line-height: 27px;
-          color: #000000;
-        }
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 400;
+  color: #444466; /* lighter black */
+}
 
-        /* ================================
+.notice-note strong {
+  font-weight: 700;
+  color: #000000; /* Note: stays bold black */
+}
+
+        /* =========================
            TABLET
-        ================================= */
+        ========================= */
 
         @media (max-width: 1200px) {
           .notice-section {
-            padding: 60px 40px;
+            padding: 60px 40px 70px;
+          }
+
+          .notice-header h2 {
+            font-size: 44px;
+            line-height: 52px;
           }
 
           .notice-table-header,
@@ -424,39 +461,41 @@ export default function NoticeSection() {
               60px
               180px
               1px
-              minmax(250px, 1fr)
+              minmax(0, 1fr)
               1px
-              100px;
+              120px;
           }
 
-          .notice-header h2 {
-            font-size: 44px;
-            line-height: 52px;
+          .notice-table-header > div:nth-child(4),
+          .notice-title {
+            padding-left: 40px;
           }
         }
 
-        /* ================================
+        /* =========================
            MOBILE
-        ================================= */
+        ========================= */
 
         @media (max-width: 768px) {
           .notice-section {
             min-height: auto;
-            padding: 50px 20px;
-          }
-
-          .notice-container {
-            gap: 35px;
+            padding: 45px 20px 60px;
           }
 
           .notice-header h2 {
-            font-size: 34px;
-            line-height: 42px;
+            font-size: 32px;
+            line-height: 40px;
           }
 
           .notice-header p {
+            margin-top: 8px;
             font-size: 14px;
-            line-height: 24px;
+            line-height: 22px;
+          }
+
+          .notice-accent {
+            margin-top: 45px;
+            margin-bottom: 18px;
           }
 
           .notice-table {
@@ -475,8 +514,13 @@ export default function NoticeSection() {
               100px;
           }
 
+          .notice-table-header > div:nth-child(4),
+          .notice-title {
+            padding-left: 20px;
+          }
+
           .notice-row {
-            min-height: 75px;
+            min-height: 78px;
           }
 
           .notice-note p {

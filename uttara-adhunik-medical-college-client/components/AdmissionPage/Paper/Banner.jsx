@@ -28,11 +28,12 @@ export default function Banner() {
     >
       {/* =========================================
           FRAME 1261155625
-          1440px × 327.29px
+          PREVIOUS BANNER SIZE
       ========================================== */}
       <div
         style={{
           width: "100%",
+          maxWidth: "1440px",
           height: "327.29px",
 
           display: "flex",
@@ -46,6 +47,8 @@ export default function Banner() {
           boxSizing: "border-box",
 
           background: "rgba(1, 136, 55, 0.3)",
+
+          margin: "0 auto",
         }}
       >
         {/* =========================================
@@ -55,7 +58,8 @@ export default function Banner() {
         <div
           style={{
             flex: "1 1 0%",
-            width: "1090px",
+            width: "100%",
+            maxWidth: "1090px",
             height: "118.67px",
 
             display: "flex",
@@ -109,7 +113,8 @@ export default function Banner() {
           ========================================== */}
           <div
             style={{
-              width: "1090px",
+              width: "100%",
+              maxWidth: "1090px",
               height: "84.67px",
 
               display: "flex",
@@ -122,7 +127,7 @@ export default function Banner() {
               boxSizing: "border-box",
             }}
           >
-            {/* Heading 2 → Facilities UAMC */}
+            {/* Heading → ABOUT UAMC */}
             <h1
               style={{
                 width: "564px",
@@ -161,7 +166,6 @@ export default function Banner() {
 
         {/* =========================================
             RIGHT LOGO
-            250px × 287.29px
         ========================================== */}
         <div
           style={{

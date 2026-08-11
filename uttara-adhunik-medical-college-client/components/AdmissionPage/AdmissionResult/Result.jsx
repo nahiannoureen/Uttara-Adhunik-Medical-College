@@ -2,7 +2,9 @@
 
 import React from "react";
 
-const admissions = [
+const GREEN = "#018837";
+
+const notices = [
   {
     no: "01",
     date: "July 18, 2022",
@@ -40,455 +42,483 @@ const admissions = [
   },
 ];
 
+function DownloadIcon() {
+  return (
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 3V15"
+        stroke={GREEN}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path
+        d="M7 10L12 15L17 10"
+        stroke={GREEN}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5 20H19"
+        stroke={GREEN}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ShareIcon() {
+  return (
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="18" cy="5" r="2.5" stroke={GREEN} strokeWidth="1.8" />
+      <circle cx="6" cy="12" r="2.5" stroke={GREEN} strokeWidth="1.8" />
+      <circle cx="18" cy="19" r="2.5" stroke={GREEN} strokeWidth="1.8" />
+
+      <path
+        d="M8.2 10.8L15.8 6.2"
+        stroke={GREEN}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M8.2 13.2L15.8 17.8"
+        stroke={GREEN}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function ActionButton({ children, label }) {
+  return (
+    <button type="button" aria-label={label} className="notice-action-button">
+      {children}
+    </button>
+  );
+}
+
+function NoticeRow({ no, date, title }) {
+  return (
+    <div className="notice-row">
+      <div className="notice-number">{no}</div>
+
+      <div className="notice-date">{date}</div>
+
+      <div className="notice-separator" />
+
+      <div className="notice-title">{title}</div>
+
+      <div className="notice-separator" />
+
+      <div className="notice-actions">
+        <ActionButton label={`Download ${title}`}>
+          <DownloadIcon />
+        </ActionButton>
+
+        <ActionButton label={`Share ${title}`}>
+          <ShareIcon />
+        </ActionButton>
+      </div>
+    </div>
+  );
+}
+
 export default function Result() {
   return (
-    <>
-      <style jsx>{`
-        .result-section {
-          width: 100%;
-          max-width: 1600px;
-          min-height: 1098.8px;
-          margin: 0 auto;
-          padding: 60px 80px 80px;
+    <section className="notice-section">
+      <div className="notice-container">
+        {/* Header */}
+        <header className="notice-header">
+          <h2>Admission Results</h2>
+
+          <p>MBBS Admission (Session: 2021–2022)</p>
+        </header>
+
+        {/* Green accent visible above the table */}
+        {/* Green accent + heading above the table */}
+        <div className="notice-accent-heading">
+          <div className="notice-accent" />
+
+          <h3>Recent Admission Notices &amp; Required Documents</h3>
+        </div>
+
+        {/* Table */}
+        <div className="notice-table">
+          <div className="notice-table-header">
+            <div>No.</div>
+            <div>Date</div>
+            <div />
+            <div>Title</div>
+            <div />
+            <div>Action</div>
+          </div>
+
+          {notices.map((notice) => (
+            <NoticeRow key={notice.no} {...notice} />
+          ))}
+        </div>
+
+        {/* Note */}
+        <div className="notice-note">
+          <p>
+            <strong>Note:</strong> Applicants are advised to fill out the
+            appropriate form as per their eligibility criteria and submit it
+            along with required documents to the college office within the
+            notified deadlines.
+          </p>
+        </div>
+      </div>
+
+      <style>{`
+        * {
           box-sizing: border-box;
+        }
 
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
+        .notice-section {
+  width: 100%;
+  min-height: 1130px;
+  padding: 76px 77px 30px;
+  background: #fff;
+  font-family: "Inter", Arial, sans-serif;
+}
 
-          background: #ffffff;
+        .notice-container {
+          width: 100%;
+          max-width: 1400px;
+          margin: 0 auto;
         }
 
         /* =========================
-           UPPER SECTION
+           HEADER
         ========================= */
 
-        .result-header {
+        .notice-header {
           width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin: 0 0 30px 0;
-          padding: 0;
+          text-align: center;
         }
 
-        .result-header h1 {
-          width: 448px;
-          height: 60px;
+        .notice-header h2 {
           margin: 0;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          font-family: "Bitter", serif;
-          font-style: normal;
-          font-weight: 700;
+          font-family: "Bitter", Georgia, serif;
           font-size: 50px;
           line-height: 60px;
-          letter-spacing: 0.01em;
-          text-align: center;
-
-          color: #000000;
-        }
-
-        .result-header p {
-          width: 303px;
-          height: 50px;
-          margin: 0;
-          padding: 10px;
-
-          box-sizing: border-box;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          font-family: "Inter", sans-serif;
-          font-style: normal;
-          font-weight: 400;
-          font-size: 15px;
-          line-height: 30px;
-          letter-spacing: 0.01em;
-          text-align: center;
-
-          color: #000000;
-        }
-
-        /* =========================
-           CONTENT
-        ========================= */
-
-        .result-content {
-          width: 100%;
-          max-width: 1440px;
-          margin: 0 auto;
-
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-
-          gap: 20px;
-        }
-
-        /* =========================
-           RECENT HEADING
-        ========================= */
-
-        .recent-heading {
-          width: 100%;
-          min-height: 45px;
-          margin: 0;
-
-          display: flex;
-          align-items: center;
-
-          box-sizing: border-box;
-        }
-
-        .green-bar {
-          width: 4px;
-          min-width: 4px;
-          height: 45px;
-
-          background: #018837;
-
-          margin-right: 14px;
-        }
-
-        .recent-heading h2 {
-          margin: 0;
-
-          font-family: "Bitter", serif;
-          font-style: normal;
           font-weight: 700;
-          font-size: 40px;
-          line-height: 45px;
-
-          color: #444444;
+          letter-spacing: 0.01em;
+          color: #000;
         }
+
+        .notice-header p {
+          margin: 8px 0 0;
+          font-family: "Inter", Arial, sans-serif;
+          font-size: 15px;
+          line-height: 22px;
+          font-weight: 400;
+          color: #000;
+        }
+
+        /* =========================
+           GREEN ACCENT
+        ========================= */
+
+        .notice-accent-heading {
+  width: 100%;
+  height: 45px;
+  margin-top: 66px;
+  margin-bottom: 19px;
+
+  display: flex;
+  align-items: center;
+}
+
+.notice-accent {
+  width: 4px;
+  min-width: 4px;
+  height: 45px;
+  margin: 0 14px 0 0;
+  background: ${GREEN};
+}
+
+.notice-accent-heading h3 {
+  margin: 0;
+
+  font-family: "Bitter", Georgia, serif;
+  font-size: 40px;
+  line-height: 45px;
+  font-weight: 700;
+
+  color: #444444;
+}
 
         /* =========================
            TABLE
         ========================= */
 
-        .result-table {
-          width: 1400px;
-          max-width: 100%;
-          margin: 0;
-
-          display: flex;
-          flex-direction: column;
-
-          box-sizing: border-box;
+        .notice-table {
+          width: 100%;
+          overflow: hidden;
+          background: #fff;
+          border-top: 1px solid rgba(68, 68, 68, 0.45);
         }
 
-        .table-header,
-        .table-row {
+        .notice-table-header,
+        .notice-row {
           width: 100%;
-          box-sizing: border-box;
-
           display: grid;
           grid-template-columns:
             70px
-            235px
+            352px
             1px
-            minmax(350px, 1fr)
+            minmax(0, 1fr)
             1px
-            235px;
-
+            352px;
           align-items: center;
+          padding-left: 20px;
+          padding-right: 20px;
         }
 
         /* =========================
            TABLE HEADER
         ========================= */
 
-        .table-header {
-          height: 56px;
-          padding: 20px;
+        .notice-table-header {
+          height: 55px;
+          background: rgba(20, 168, 0, 0.10);
+          border-bottom: 1px solid rgba(68, 68, 68, 0.45);
 
-          background: rgba(20, 168, 0, 0.1);
-
-          border-top: 1px solid rgba(68, 68, 68, 0.5);
-          border-bottom: 1px solid rgba(68, 68, 68, 0.5);
-
-          font-family: "Bitter", serif;
-          font-style: normal;
+          font-family: "Bitter", Georgia, serif;
+          font-size: 15px;
+          line-height: 18px;
           font-weight: 700;
-          font-size: 15px;
-          line-height: 15px;
-
-          color: #444444;
+          color: #444;
         }
 
-        .table-header > div {
-          display: flex;
-          align-items: center;
+        .notice-table-header > div:nth-child(4) {
+          padding-left: 116px;
         }
 
-        .table-header .divider,
-        .table-row .divider {
-          width: 1px;
-          height: 16px;
-
-          background: #444444;
-
-          justify-self: center;
-        }
-
-        .table-header .action-title {
-          justify-content: flex-end;
+        .notice-table-header > div:nth-child(6) {
+          padding-left: 20px;
+          text-align: right;
         }
 
         /* =========================
-           TABLE ROW
+           ROW
         ========================= */
 
-        .table-row {
-          min-height: 80px;
-          padding: 20px;
+        .notice-row {
+          min-height: 82px;
+          padding-top: 18px;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(68, 68, 68, 0.12);
+        }
 
-          font-family: "Inter", sans-serif;
-          font-style: normal;
+        .notice-row:last-child {
+          border-bottom: none;
+        }
+
+        .notice-number,
+        .notice-date,
+        .notice-title {
+          font-family: "Inter", Arial, sans-serif;
+          font-size: 15px;
+          line-height: 17px;
           font-weight: 400;
-          font-size: 15px;
-          line-height: 15px;
-
-          color: #444444;
+          color: #444;
         }
 
-        .table-row > div {
-          display: flex;
-          align-items: center;
+        .notice-number {
+          padding-left: 0;
+        }
+
+        .notice-date {
+          padding-right: 20px;
+        }
+
+        .notice-title {
+          padding-left: 116px;
+          padding-right: 20px;
         }
 
         /* =========================
-           ACTION BUTTONS
+           SEPARATORS
         ========================= */
 
-        .actions {
-          display: flex !important;
-          justify-content: flex-end;
-          align-items: center;
-
-          gap: 10px;
+        .notice-separator {
+          width: 1px;
+          height: 17px;
+          background: rgba(68, 68, 68, 0.5);
         }
 
-        .action-button {
+        /* =========================
+           ACTIONS
+        ========================= */
+
+        .notice-actions {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 10px;
+          padding-left: 20px;
+        }
+
+        .notice-action-button {
           width: 40px;
           height: 40px;
           padding: 0;
-
-          border: none;
+          border: 0;
           border-radius: 50%;
+          background: rgba(1, 136, 55, 0.10);
 
           display: flex;
           align-items: center;
           justify-content: center;
 
-          background: rgba(1, 136, 55, 0.1);
-
-          color: #018837;
-
           cursor: pointer;
 
-          font-family: "Inter", sans-serif;
-          font-size: 20px;
-          font-weight: 600;
-
-          transition: background 0.2s ease;
+          transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
         }
 
-        .action-button:hover {
-          background: rgba(1, 136, 55, 0.2);
+        .notice-action-button:hover {
+          background: rgba(1, 136, 55, 0.18);
+          transform: translateY(-1px);
+        }
+
+        .notice-action-button:active {
+          transform: translateY(0);
         }
 
         /* =========================
            NOTE
         ========================= */
 
-        .note {
+        .notice-note {
           width: 100%;
-          max-width: 1428px;
-          min-height: 48px;
-
-          box-sizing: border-box;
-
-          display: flex;
-          align-items: center;
-
+          margin-top: 28px;
           padding: 10px 20px;
-          gap: 10px;
-
-          margin: 0;
+          border-left: 4px solid ${GREEN};
         }
 
-        .note .green-bar {
-          width: 4px;
-          min-width: 4px;
-          height: 48px;
-
+        .notice-note p {
           margin: 0;
-
-          background: #018837;
-
-          align-self: stretch;
+          font-family: "Inter", Arial, sans-serif;
+          font-size: 15px;
+          line-height: 25px;
+          font-weight: 400;
+          color: #444466;
         }
 
-        .note p {
-          margin: 0;
-
-          font-family: "Inter", sans-serif;
-          font-style: normal;
+        .notice-note strong {
           font-weight: 700;
-          font-size: 16px;
-          line-height: 27px;
-
           color: #000000;
         }
 
         /* =========================
-           RESPONSIVE
+           TABLET
         ========================= */
 
         @media (max-width: 1200px) {
-          .result-section {
-            padding: 50px 30px;
+          .notice-section {
+            padding: 60px 40px 70px;
           }
 
-          .table-header,
-          .table-row {
+          .notice-header h2 {
+            font-size: 44px;
+            line-height: 52px;
+          }
+
+          .notice-table-header,
+          .notice-row {
             grid-template-columns:
               60px
               180px
               1px
-              minmax(250px, 1fr)
+              minmax(0, 1fr)
               1px
-              180px;
+              120px;
+          }
+
+          .notice-table-header > div:nth-child(4),
+          .notice-title {
+            padding-left: 40px;
           }
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 768px) {
-          .result-section {
-            padding: 40px 20px;
+          .notice-section {
+            min-height: auto;
+            padding: 45px 20px 60px;
           }
 
-          .result-header {
-            margin-bottom: 25px;
+          .notice-header h2 {
+            font-size: 32px;
+            line-height: 40px;
           }
 
-          .result-header h1 {
-            width: 100%;
-            height: auto;
-            font-size: 36px;
-            line-height: 44px;
+          .notice-header p {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 22px;
           }
 
-          .result-header p {
-            width: auto;
+          .notice-accent {
+            margin-top: 45px;
+            margin-bottom: 18px;
           }
 
-          .recent-heading h2 {
-            font-size: 26px;
-            line-height: 34px;
-          }
-
-          .result-table {
+          .notice-table {
             overflow-x: auto;
           }
 
-          .table-header,
-          .table-row {
-            min-width: 1100px;
+          .notice-table-header,
+          .notice-row {
+            min-width: 760px;
+            grid-template-columns:
+              60px
+              160px
+              1px
+              minmax(300px, 1fr)
+              1px
+              100px;
           }
 
-          .note {
-            align-items: flex-start;
+          .notice-table-header > div:nth-child(4),
+          .notice-title {
+            padding-left: 20px;
+          }
+
+          .notice-row {
+            min-height: 78px;
+          }
+
+          .notice-note p {
+            font-size: 14px;
+            line-height: 22px;
           }
         }
       `}</style>
-
-      <section className="result-section">
-        {/* UPPER SECTION */}
-        <div className="result-header">
-          <h1>Admission Results</h1>
-
-          <p>MBBS Admission (Session: 2021–2022)</p>
-        </div>
-
-        {/* MAIN CONTENT */}
-        <div className="result-content">
-          {/* RECENT */}
-          <div className="recent-heading">
-            <span className="green-bar" />
-
-            <h2>Recent Admission Notices &amp; Required Documents</h2>
-          </div>
-
-          {/* TABLE */}
-          <div className="result-table">
-            {/* TABLE HEADER */}
-            <div className="table-header">
-              <div>No.</div>
-
-              <div>Date</div>
-
-              <div className="divider" />
-
-              <div>Title</div>
-
-              <div className="divider" />
-
-              <div className="action-title">Action</div>
-            </div>
-
-            {/* TABLE ROWS */}
-            {admissions.map((item) => (
-              <div className="table-row" key={item.no}>
-                <div>{item.no}</div>
-
-                <div>{item.date}</div>
-
-                <div className="divider" />
-
-                <div>{item.title}</div>
-
-                <div className="divider" />
-
-                <div className="actions">
-                  <button
-                    type="button"
-                    className="action-button"
-                    aria-label={`Download ${item.title}`}
-                  >
-                    ↓
-                  </button>
-
-                  <button
-                    type="button"
-                    className="action-button"
-                    aria-label={`Share ${item.title}`}
-                  >
-                    ↗
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* NOTE */}
-          <div className="note">
-            <span className="green-bar" />
-
-            <p>
-              Note: Applicants are advised to fill out the appropriate form as
-              per their eligibility criteria and submit it along with required
-              documents to the college office within the notified deadlines.
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+    </section>
   );
 }
