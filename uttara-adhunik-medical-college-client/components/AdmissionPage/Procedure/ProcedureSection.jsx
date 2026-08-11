@@ -1,241 +1,3 @@
-// import React from "react";
-
-// const GREEN = "#018837";
-
-// export default function ProcedureSection() {
-//   return (
-//     <section
-//       className="w-full"
-//       style={{
-//         background: "#E6F4EB",
-//         padding: "80px",
-//         boxSizing: "border-box",
-//       }}
-//     >
-//       <div
-//         className="mx-auto flex flex-col"
-//         style={{
-//           width: "100%",
-//           maxWidth: "1440px",
-//           gap: "50px",
-//         }}
-//       >
-//         {/* =========================================
-//             TOP CONTENT
-//         ========================================== */}
-//         <div
-//           className="flex w-full flex-col md:flex-row"
-//           style={{
-//             justifyContent: "space-between",
-//             alignItems: "flex-start",
-//             gap: "200px",
-//             height: "120px",
-//           }}
-//         >
-//           {/* =========================================
-//               HOSPITAL ICON + HEADING IMAGE
-//           ========================================== */}
-//           <div
-//             className="flex shrink-0"
-//             style={{
-//               width: "644px",
-//               height: "120px",
-//               alignItems: "center",
-//               margin: "0 auto",
-//             }}
-//           >
-//             {/*
-//               This is ONE IMAGE containing:
-//               Hospital icon + Admission Procedure & Fees
-//             */}
-//             <img
-//               src="/hospital-heading.png"
-//               alt="Admission Procedure & Fees"
-//               style={{
-//                 width: "644px",
-//                 height: "120px",
-//                 display: "block",
-//                 objectFit: "contain",
-//                 objectPosition: "left center",
-//               }}
-//             />
-//           </div>
-
-//           {/* =========================================
-//               DESCRIPTION
-//           ========================================== */}
-//           <div
-//             className="flex shrink-0"
-//             style={{
-//               width: "683px",
-//               height: "108px",
-//               padding: "10px",
-//               boxSizing: "border-box",
-//               justifyContent: "center",
-//               alignItems: "center",
-//               margin: "0 auto",
-//             }}
-//           >
-//             <p
-//               style={{
-//                 width: "663px",
-//                 height: "88px",
-//                 margin: 0,
-
-//                 display: "flex",
-//                 alignItems: "center",
-
-//                 fontFamily: "'Inter', sans-serif",
-//                 fontStyle: "normal",
-//                 fontWeight: 700,
-//                 fontSize: "18px",
-//                 lineHeight: "22px",
-//                 letterSpacing: "0.01em",
-
-//                 textAlign: "justify",
-//                 color: "#444444",
-//               }}
-//             >
-//               Uttara Adhunik Medical College (UAMC) is the teaching and training
-//               hospital of the college. It is a 500-bedded, multidisciplinary
-//               tertiary care facility located in Uttara, Dhaka. The hospital
-//               serves patients from all over the country, particularly from
-//               Uttara, Tongi, Gazipur, and Savar.
-//             </p>
-//           </div>
-//         </div>
-
-//         {/* =========================================
-//             IMAGE + ADMISSION OVERLAY
-//         ========================================== */}
-//         <div
-//           style={{
-//             width: "1440px",
-//             height: "488px",
-//             padding: "10px",
-//             boxSizing: "border-box",
-
-//             display: "flex",
-//             flexDirection: "column",
-//             alignItems: "flex-start",
-//             gap: "10px",
-
-//             position: "relative",
-//           }}
-//         >
-//           {/* =========================================
-//               GROUP 8
-//           ========================================== */}
-//           <div
-//             style={{
-//               width: "1420px",
-//               height: "468px",
-//               position: "relative",
-//             }}
-//           >
-//             {/* =========================================
-//                 HOSPITAL IMAGE
-//             ========================================== */}
-//             <img
-//               src="/team-young-specialist-doctors-standing-corridor-hospital.jpg"
-//               alt="Hospital doctors"
-//               style={{
-//                 position: "absolute",
-
-//                 width: "1033.45px",
-//                 height: "468px",
-
-//                 left: "0px",
-//                 top: "0px",
-
-//                 display: "block",
-
-//                 objectFit: "cover",
-//               }}
-//             />
-
-//             {/* =========================================
-//                 YELLOW ADMISSION PANEL
-//             ========================================== */}
-//             <div
-//               style={{
-//                 position: "absolute",
-
-//                 width: "669.25px",
-//                 height: "170px",
-
-//                 left: "750.75px",
-//                 top: "149px",
-
-//                 display: "flex",
-//                 flexDirection: "row",
-//                 alignItems: "flex-start",
-
-//                 padding: "20px 50px",
-//                 gap: "10px",
-
-//                 boxSizing: "border-box",
-
-//                 background: "#FECD2F",
-//               }}
-//             >
-//               {/* =========================================
-//                   ADMISSION CONTENT
-//               ========================================== */}
-//               <div
-//                 style={{
-//                   width: "525px",
-//                   height: "96px",
-
-//                   display: "flex",
-//                   flexDirection: "row",
-//                   alignItems: "flex-end",
-
-//                   padding: 0,
-//                   gap: "10px",
-//                 }}
-//               >
-//                 <span
-//                   style={{
-//                     width: "415px",
-//                     height: "96px",
-
-//                     display: "flex",
-//                     alignItems: "center",
-
-//                     fontFamily: "'Bitter', serif",
-//                     fontStyle: "normal",
-//                     fontWeight: 700,
-//                     fontSize: "80px",
-//                     lineHeight: "96px",
-//                     letterSpacing: "0.01em",
-
-//                     color: "#000000",
-//                   }}
-//                 >
-//                   Admission
-//                 </span>
-
-//                 {/* Figma Line 10 */}
-//                 <div
-//                   style={{
-//                     width: "100px",
-//                     height: "0px",
-
-//                     borderTop: "2px solid #000000",
-
-//                     flexShrink: 0,
-//                   }}
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 import React from "react";
 
 const GREEN = "#018837";
@@ -292,18 +54,16 @@ export default function ProduceSection() {
                 flexShrink: 0,
               }}
             />
-            {/* HTML Heading */}
 
+            {/* HTML Heading */}
             <h1
               style={{
                 margin: 0,
                 width: "504px",
                 height: "120px",
-
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-
                 fontFamily: "'Canela Trial', serif",
                 fontStyle: "normal",
                 fontWeight: 700,
@@ -313,7 +73,7 @@ export default function ProduceSection() {
               }}
             >
               <span>
-                <span style={{ color: "#018837" }}>Admission</span>{" "}
+                <span style={{ color: GREEN }}>Admission</span>{" "}
                 <span style={{ color: "#000000" }}>Procedure</span>
               </span>
 
@@ -325,42 +85,38 @@ export default function ProduceSection() {
               DESCRIPTION
           ========================================== */}
           <div
-            className="flex shrink-0"
+            className="flex w-full flex-1"
             style={{
               width: "683px",
-              height: "108px",
+              height: "170px",
               padding: "10px",
-              boxSizing: "border-box",
               justifyContent: "center",
               alignItems: "center",
-              margin: "0 auto",
+              boxSizing: "border-box",
             }}
           >
             <p
               style={{
                 width: "663px",
-                height: "88px",
+                height: "150px",
                 margin: 0,
-
-                display: "flex",
-                alignItems: "center",
-
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'Bitter', serif",
                 fontStyle: "normal",
-                fontWeight: 700,
-                fontSize: "18px",
-                lineHeight: "22px",
+                fontWeight: 400,
+                fontSize: "20px",
+                lineHeight: "30px",
                 letterSpacing: "0.01em",
-
-                textAlign: "justify",
+                textAlign: "left",
                 color: "#444444",
               }}
             >
-              Uttara Adhunik Medical College (UAMC) is the teaching and training
-              hospital of the college. It is a 500-bedded, multidisciplinary
-              tertiary care facility located in Uttara, Dhaka. The hospital
-              serves patients from all over the country, particularly from
-              Uttara, Tongi, Gazipur, and Savar.
+              <strong style={{ fontWeight: 700 }}>
+                Uttara Adhunik Medical College(UAMC)
+              </strong>{" "}
+              is the teaching and training hospital of the college. It is a
+              500-bedded, multidisciplinary tertiary care facility located in
+              Uttara, Dhaka. The hospital serves patients from all over the
+              country, particularly from Uttara, Tongi, Gazipur, and Savar.
             </p>
           </div>
         </div>
@@ -374,12 +130,10 @@ export default function ProduceSection() {
             height: "488px",
             padding: "10px",
             boxSizing: "border-box",
-
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "10px",
-
             position: "relative",
           }}
         >
@@ -401,15 +155,11 @@ export default function ProduceSection() {
               alt="Hospital doctors"
               style={{
                 position: "absolute",
-
                 width: "1033.45px",
                 height: "468px",
-
                 left: "0px",
                 top: "0px",
-
                 display: "block",
-
                 objectFit: "cover",
               }}
             />
@@ -420,22 +170,16 @@ export default function ProduceSection() {
             <div
               style={{
                 position: "absolute",
-
                 width: "669.25px",
                 height: "170px",
-
                 left: "750.75px",
                 top: "149px",
-
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "flex-start",
-
                 padding: "20px 50px",
                 gap: "10px",
-
                 boxSizing: "border-box",
-
                 background: "#FECD2F",
               }}
             >
@@ -446,11 +190,9 @@ export default function ProduceSection() {
                 style={{
                   width: "525px",
                   height: "96px",
-
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "flex-end",
-
                   padding: 0,
                   gap: "10px",
                 }}
@@ -460,17 +202,14 @@ export default function ProduceSection() {
                   style={{
                     width: "415px",
                     height: "96px",
-
                     display: "flex",
                     alignItems: "center",
-
                     fontFamily: "'Bitter', serif",
                     fontStyle: "normal",
                     fontWeight: 700,
                     fontSize: "80px",
                     lineHeight: "96px",
                     letterSpacing: "0.01em",
-
                     color: "#000000",
                   }}
                 >
@@ -482,9 +221,7 @@ export default function ProduceSection() {
                   style={{
                     width: "100px",
                     height: "0px",
-
                     borderTop: "2px solid #000000",
-
                     flexShrink: 0,
                   }}
                 />

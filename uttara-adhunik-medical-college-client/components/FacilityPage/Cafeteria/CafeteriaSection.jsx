@@ -134,10 +134,12 @@ export default function CafeteriaSection() {
                 height: "120px",
                 margin: 0,
                 display: "flex",
-                alignItems: "center",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
                 fontFamily: "'Bitter', serif",
                 fontStyle: "normal",
-                fontWeight: 700,
+                fontWeight: 400,
                 fontSize: "20px",
                 lineHeight: "30px",
                 letterSpacing: "0.01em",
@@ -145,10 +147,16 @@ export default function CafeteriaSection() {
                 color: "#444444",
               }}
             >
-              Nourishing Meals in a Relaxed Setting Located on the 3rd floor,
-              the UAMCH cafeteria offers a variety of balanced, nutritious, and
-              hygienic meals at subsidized prices for students, staff, and
-              visitors.
+              <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                <strong>Nourishing Meals in a Relaxed Setting</strong>
+              </span>
+
+              <span style={{ display: "block" }}>
+                Located on the 3rd floor, the{" "}
+                <strong style={{ fontWeight: 700 }}>UAMCH</strong> cafeteria
+                offers a variety of balanced, nutritious, and hygienic meals at
+                subsidized prices for students, staff, and visitors.
+              </span>
             </p>
           </div>
         </div>

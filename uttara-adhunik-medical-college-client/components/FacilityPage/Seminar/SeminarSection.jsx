@@ -278,11 +278,12 @@ export default function SeminarSection() {
               RIGHT SIDE
               DESCRIPTION
           ========================================== */}
+
           <div
             className="flex w-full flex-1"
             style={{
               width: "683px",
-              height: "170px",
+              height: "140px",
               padding: "10px",
               justifyContent: "center",
               alignItems: "center",
@@ -292,13 +293,15 @@ export default function SeminarSection() {
             <p
               style={{
                 width: "663px",
-                height: "150px",
+                height: "120px",
                 margin: 0,
                 display: "flex",
-                alignItems: "center",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
                 fontFamily: "'Bitter', serif",
                 fontStyle: "normal",
-                fontWeight: 700,
+                fontWeight: 400,
                 fontSize: "20px",
                 lineHeight: "30px",
                 letterSpacing: "0.01em",
@@ -306,11 +309,21 @@ export default function SeminarSection() {
                 color: "#444444",
               }}
             >
-              Promoting Knowledge Through Shared Clinical Experiences At Uttara
-              Adhunik Medical College (UAMC), Scientific Seminars are held every
-              Saturday, playing a key role in enhancing academic exchange and
-              clinical insight. These sessions are coordinated by the Medical
-              Education Unit (MEU).
+              <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                <strong>
+                  Promoting Knowledge Through Shared Clinical Experiences
+                </strong>
+              </span>
+
+              <span style={{ display: "block" }}>
+                At{" "}
+                <strong style={{ fontWeight: 700 }}>
+                  Uttara Adhunik Medical College & Hospital(UAMCH),
+                </strong>{" "}
+                Scientific Seminars are held every Saturday, playing a key role
+                in enhancing academic exchange and clinical insight. These
+                sessions are coordinated by the Medical Education Unit (MEU).
+              </span>
             </p>
           </div>
         </div>

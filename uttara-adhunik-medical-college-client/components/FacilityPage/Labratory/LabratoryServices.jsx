@@ -285,40 +285,47 @@ export default function LaboratoryServices() {
 
           {/* ================= DESCRIPTION ================= */}
           <div
-            className="
-              w-[683px]
-              h-[140px]
-              flex
-              flex-row
-              justify-center
-              items-center
-              px-[10px]
-              py-[10px]
-              shrink-0
-            "
+            className="flex w-full flex-1"
+            style={{
+              width: "683px",
+              height: "140px",
+              padding: "10px",
+              justifyContent: "center",
+              alignItems: "center",
+              boxSizing: "border-box",
+            }}
           >
             <p
-              className="
-                w-[663px]
-                h-[120px]
-                m-0
-                flex
-                items-center
-                text-justify
-                text-[20px]
-                leading-[30px]
-                font-bold
-                tracking-[0.01em]
-                text-[#444444]
-              "
               style={{
+                width: "663px",
+                height: "120px",
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
                 fontFamily: "'Bitter', serif",
+                fontStyle: "normal",
+                fontWeight: 400,
+                fontSize: "20px",
+                lineHeight: "30px",
+                letterSpacing: "0.01em",
+                textAlign: "justify",
+                color: "#444444",
               }}
             >
-              Accuracy. Efficiency. Around-the-Clock Support. At Uttara Adhunik
-              Medical College &amp; Hospital (UAMCH), we prioritize precision
-              and speed in delivering diagnostic test results, ensuring optimal
-              care for every patient.
+              <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                <strong>Accuracy.Efficiency.Around-the-Clock Support</strong>
+              </span>
+
+              <span style={{ display: "block" }}>
+                At{" "}
+                <strong style={{ fontWeight: 700 }}>
+                  Uttara Adhunik Medical College & Hospital(UAMCH),
+                </strong>{" "}
+                we prioritize precision and speed in delivering diagnostic test
+                results,ensuring optimal care for every patient.
+              </span>
             </p>
           </div>
         </div>

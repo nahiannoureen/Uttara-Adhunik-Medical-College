@@ -112,43 +112,50 @@ export default function TrainingSection() {
           </div>
 
           {/* DESCRIPTION */}
+
           <div
-            className="
-              w-[683px]
-              h-[140px]
-              flex
-              flex-row
-              justify-center
-              items-center
-              px-[10px]
-              py-[10px]
-              shrink-0
-              box-border
-            "
+            className="flex w-full flex-1"
+            style={{
+              width: "683px",
+              height: "140px",
+              padding: "10px",
+              justifyContent: "center",
+              alignItems: "center",
+              boxSizing: "border-box",
+            }}
           >
             <p
-              className="
-                w-[663px]
-                h-[120px]
-                m-0
-                flex
-                items-center
-                text-justify
-                text-[20px]
-                leading-[30px]
-                font-bold
-                tracking-[0.01em]
-                text-[#444444]
-              "
               style={{
+                width: "663px",
+                height: "120px",
+                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
                 fontFamily: "'Bitter', serif",
+                fontStyle: "normal",
+                fontWeight: 400,
+                fontSize: "20px",
+                lineHeight: "30px",
+                letterSpacing: "0.01em",
+                textAlign: "justify",
+                color: "#444444",
               }}
             >
-              Building Future Healthcare Professionals Uttara Adhunik Medical
-              College &amp; Hospital (UAMCH) is a proud institution under
-              Bangladesh Medical Studies and Research Institute (BMSRI),
-              offering high-standard training and learning opportunities for
-              both undergraduate and postgraduate medical students.
+              <span style={{ display: "block", whiteSpace: "nowrap" }}>
+                <strong>Building Future Healthcare Professionals</strong>
+              </span>
+
+              <span style={{ display: "block" }}>
+                <strong style={{ fontWeight: 700 }}>
+                  Uttara Adhunik Medical College & Hospital(UAMCH),
+                </strong>{" "}
+                is a proud institution under Bangladesh Medical Studies and
+                Research Institute (BMSRI), offering high-standard training and
+                learning opportunities for both undergraduate and postgraduate
+                medical students.
+              </span>
             </p>
           </div>
         </div>

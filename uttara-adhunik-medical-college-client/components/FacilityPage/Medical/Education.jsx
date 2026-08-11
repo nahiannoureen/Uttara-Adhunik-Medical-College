@@ -145,11 +145,14 @@ export default function Education() {
                 fontFamily: "'Bitter', serif",
               }}
             >
-              Enhancing Learning Through Technology &amp; Collaboration The
-              Medical Education Unit (MEU) is a vital academic support center of
-              the college, situated adjacent to the library. It is designed to
-              enhance the quality of medical education by offering digital
-              resources, training facilities, and collaborative opportunities.
+              <strong>
+                Enhancing Learning Through Technology &amp; Collaboration
+              </strong>{" "}
+              The Medical Education Unit (MEU) is a vital academic support
+              center of the college, situated adjacent to the library. It is
+              designed to enhance the quality of medical education by offering
+              digital resources, training facilities, and collaborative
+              opportunities.
             </p>
           </div>
         </div>

@@ -58,21 +58,19 @@ export default function Service() {
             }}
           >
             {/* Healthy Food Options */}
-            <ServiceItem>
-              Healthy Food Options: Carefully selected menus focused on wellness
-              and nutrition.
-            </ServiceItem>
+            <ServiceItem
+              heading="Healthy Food Options"
+              text="Carefully selected menus focused on wellness and nutrition."
+            />
 
             {/* Extended Hours */}
-            <ServiceItem>
-              Extended Hours: Services are available until late to accommodate
-              busy academic and clinical schedules.
-            </ServiceItem>
+            <ServiceItem
+              heading="Extended Hours"
+              text="Services are available until late to accommodate busy academic and clinical schedules."
+            />
           </div>
 
           {/* RIGHT COLUMN */}
-          {/* No justify-center here.
-              This makes the card align with the FIRST card. */}
           <div
             className="flex w-full flex-1 flex-col"
             style={{
@@ -81,10 +79,10 @@ export default function Service() {
             }}
           >
             {/* Hygiene & Quality */}
-            <ServiceItem>
-              Hygiene &amp; Quality: Cleanliness and food safety are strictly
-              maintained.
-            </ServiceItem>
+            <ServiceItem
+              heading="Hygiene & Quality"
+              text="Cleanliness and food safety are strictly maintained."
+            />
           </div>
         </div>
       </div>
@@ -96,7 +94,7 @@ export default function Service() {
    SERVICE ITEM
 ========================================= */
 
-function ServiceItem({ children }) {
+function ServiceItem({ heading, text }) {
   return (
     <div
       className="flex w-full items-center justify-between"
@@ -114,18 +112,25 @@ function ServiceItem({ children }) {
           margin: 0,
           flex: 1,
           height: "60px",
-          display: "flex",
-          alignItems: "center",
+          display: "block",
           fontFamily: "'Inter', sans-serif",
           fontStyle: "normal",
-          fontWeight: 700,
+          fontWeight: 400,
           fontSize: "18px",
           lineHeight: "30px",
           letterSpacing: "0.01em",
           color: "#444444",
         }}
       >
-        {children}
+        <span
+          style={{
+            fontWeight: 700,
+            whiteSpace: "nowrap",
+          }}
+        >
+          {heading}:
+        </span>{" "}
+        {text}
       </p>
 
       {/* Arrow */}

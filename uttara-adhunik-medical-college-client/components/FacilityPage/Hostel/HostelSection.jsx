@@ -257,24 +257,23 @@ export default function HostelSection() {
                 width: "663px",
                 height: "150px",
                 margin: 0,
-                display: "flex",
-                alignItems: "center",
                 fontFamily: "'Bitter', serif",
                 fontStyle: "normal",
-                fontWeight: 700,
+                fontWeight: 400,
                 fontSize: "20px",
                 lineHeight: "30px",
                 letterSpacing: "0.01em",
-                textAlign: "justify",
+                textAlign: "left",
                 color: "#444444",
               }}
             >
-              UAMC provides comfortable and convenient hostel facilities
-              designed to offer a safe and welcoming environment for students,
-              patients, and their attendants. The hostel services support a
-              peaceful stay with essential facilities, ensuring comfort,
-              convenience, and a supportive environment throughout their time at
-              the medical college.
+              <strong style={{ fontWeight: 700 }}>UAMC</strong> provides
+              comfortable and convenient hostel facilities designed to offer a
+              safe and welcoming environment for students, patients, and their
+              attendants. The hostel services support a peaceful stay with
+              essential facilities, ensuring comfort, convenience, and a
+              supportive environment throughout their time at the medical
+              college.
             </p>
           </div>
         </div>
