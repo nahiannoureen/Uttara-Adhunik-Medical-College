@@ -19,13 +19,13 @@ export default function Diagnostic() {
   const ServiceItem = ({ title }) => {
     return (
       <div
-        className="w-full min-h-[76px] flex items-center justify-between gap-4 px-5 py-5"
+        className="flex min-h-[76px] w-full items-center justify-between gap-4 px-5 py-5"
         style={{
           background: "rgba(1, 136, 55, 0.1)",
         }}
       >
         <span
-          className="text-[16px] md:text-[18px] leading-[30px] font-bold tracking-[0.01em] text-[#444444]"
+          className="text-[16px] font-bold leading-[30px] tracking-[0.01em] text-[#444444] md:text-[18px]"
           style={{
             fontFamily: "'Inter', sans-serif",
           }}
@@ -37,7 +37,7 @@ export default function Diagnostic() {
         <button
           type="button"
           aria-label={`View ${title}`}
-          className="shrink-0 w-[36.4px] h-[36.4px] flex items-center justify-center bg-white rounded-[2px] transition-all duration-200 hover:bg-[#018837] group"
+          className="group flex h-[36.4px] w-[36.4px] shrink-0 items-center justify-center rounded-[2px] bg-white transition-all duration-200 hover:bg-[#018837]"
         >
           <svg
             width="25"
@@ -69,41 +69,63 @@ export default function Diagnostic() {
   };
 
   return (
-    <section className="w-full bg-white px-6 md:px-20 py-16 md:py-20">
-      <div className="w-full max-w-[1440px] mx-auto flex flex-col items-start gap-[30px]">
-        {/* =========================
-            Section Heading
-        ========================== */}
-        <div className="w-full min-h-[80px] px-[10px] flex items-center">
-          <h2
-            className="text-[36px] md:text-[50px] leading-[45px] md:leading-[60px] font-medium tracking-[0.01em] text-black"
-            style={{
-              fontFamily: "'Bitter', serif",
-            }}
-          >
-            Diagnostic &amp; Imaging Services
-          </h2>
-        </div>
+    <>
+      {/* =========================================
+          DIAGNOSTIC & IMAGING SERVICES
+      ========================================== */}
 
-        {/* =========================
-            Services
-        ========================== */}
-        <div className="w-full flex flex-col lg:flex-row items-start gap-[30px]">
-          {/* Left Column */}
-          <div className="w-full lg:w-1/2 flex flex-col gap-[10px]">
-            {LEFT_SERVICES.map((service) => (
-              <ServiceItem key={service} title={service} />
-            ))}
+      <section className="w-full bg-white px-6 py-16 md:px-20 md:py-20">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start gap-[30px]">
+          {/* =========================
+              Section Heading
+          ========================== */}
+
+          <div className="flex min-h-[80px] w-full items-center px-[10px]">
+            <h2
+              className="text-[36px] font-medium leading-[45px] tracking-[0.01em] text-black md:text-[50px] md:leading-[60px]"
+              style={{
+                fontFamily: "'Bitter', serif",
+              }}
+            >
+              Diagnostic &amp; Imaging Services
+            </h2>
           </div>
 
-          {/* Right Column */}
-          <div className="w-full lg:w-1/2 flex flex-col gap-[10px]">
-            {RIGHT_SERVICES.map((service) => (
-              <ServiceItem key={service} title={service} />
-            ))}
+          {/* =========================
+              Services
+          ========================== */}
+
+          <div className="flex w-full flex-col items-start gap-[30px] lg:flex-row">
+            {/* Left Column */}
+
+            <div className="flex w-full flex-col gap-[10px] lg:w-1/2">
+              {LEFT_SERVICES.map((service) => (
+                <ServiceItem key={service} title={service} />
+              ))}
+            </div>
+
+            {/* Right Column */}
+
+            <div className="flex w-full flex-col gap-[10px] lg:w-1/2">
+              {RIGHT_SERVICES.map((service) => (
+                <ServiceItem key={service} title={service} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* =========================================
+          FULL-WIDTH HORIZONTAL DIVIDER
+      ========================================== */}
+
+      <div
+        className="w-full"
+        style={{
+          height: "1px",
+          backgroundColor: "rgba(0, 0, 0, 0.25)",
+        }}
+      />
+    </>
   );
 }

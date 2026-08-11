@@ -838,13 +838,41 @@ const LibrarySection = () => {
         {/* =========================
             Digital Catalog
         ========================= */}
-        <div className="digital-catalog">
+        {/* <div className="digital-catalog">
           <span className="digital-catalog-title">Digital Catalog:</span>
 
           <span className="digital-catalog-text">
             All resources are indexed and catalogued in a computerized database
             for easy access.
           </span>
+        </div> */}
+        <div
+          style={{
+            width: "100%",
+            height: "30px",
+            marginTop: "30px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p
+            style={{
+              width: "100%",
+              margin: 0,
+              fontFamily: '"Inter", sans-serif',
+              fontStyle: "normal",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "30px",
+              letterSpacing: "0.01em",
+              textAlign: "center",
+              color: "#000000",
+            }}
+          >
+            Digital Catalog: All resources are indexed and catalogued in a
+            computerized database for easy access.
+          </p>
         </div>
       </div>
       {/* =========================
