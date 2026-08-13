@@ -1553,8 +1553,8 @@ const defaultNavGroups: NavGroup[] = [
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Visiting",
-            href: "/admin/about/overview/visiting",
+            label: "Visiting at UAMC",
+            href: "/admin/about/overview/visit",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
@@ -1577,12 +1577,12 @@ const defaultNavGroups: NavGroup[] = [
         label: "History of UAMC",
         items: [
           {
-            label: "History Banner",
-            href: "/admin/about/history/hero",
+            label: "Hero",
+            href: "/admin/about/history/history-banner",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Year",
+            label: "Timeline",
             href: "/admin/about/history/year",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
@@ -1595,7 +1595,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "Vision & Mission",
-        href: "/admin/about/vision-mission",
+        href: "/admin/about/vision-and-mission",
         icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
       },
 
@@ -1606,13 +1606,13 @@ const defaultNavGroups: NavGroup[] = [
         label: "Aim & Objective",
         items: [
           {
-            label: "Banner",
-            href: "/admin/about/aim-objective/banner",
+            label: "Hero",
+            href: "/admin/about/aim/banner",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
             label: "Objective",
-            href: "/admin/about/aim-objective/objective",
+            href: "/admin/about/aim/objective",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
         ],
@@ -1623,7 +1623,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "Founder Members",
-        href: "/admin/about/founder-members",
+        href: "/admin/about/member",
         icon: <span className="w-2 h-2 bg-pink-400 rounded-full" />,
       },
 
@@ -1632,7 +1632,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "EC Members",
-        href: "/admin/about/ec-members",
+        href: "/admin/about/ec-member",
         icon: <span className="w-2 h-2 bg-orange-400 rounded-full" />,
       },
 
@@ -1641,7 +1641,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "GB Members",
-        href: "/admin/about/gb-members",
+        href: "/admin/about/gb-member",
         icon: <span className="w-2 h-2 bg-teal-400 rounded-full" />,
       },
     ],
@@ -1661,48 +1661,48 @@ const defaultNavGroups: NavGroup[] = [
         label: "Hospital Service",
         items: [
           {
-            label: "About",
-            href: "/admin/facilities/hospital-service/about",
+            label: "About Hospital",
+            href: "/admin/facility/hospital-service/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Additional Service",
-            href: "/admin/facilities/hospital-service/additional-service",
+            label: "Additional Services",
+            href: "/admin/facility/hospital-service/additional-service",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
-            label: "Clinical Service",
-            href: "/admin/facilities/hospital-service/clinical-service",
+            label: "Clinical Departments",
+            href: "/admin/facility/hospital-service/clinical-service",
             icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
           },
           {
-            label: "Diagnostic Service",
-            href: "/admin/facilities/hospital-service/diagnostic-service",
+            label: "Diagnostic Services",
+            href: "/admin/facility/hospital-service/diagnostic-service",
             icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
           },
           {
-            label: "Emergency Service",
-            href: "/admin/facilities/hospital-service/emergency-service",
+            label: "Emergency Services",
+            href: "/admin/facility/hospital-service/emergency-service",
             icon: <span className="w-2 h-2 bg-red-400 rounded-full" />,
           },
           {
-            label: "Facilities",
-            href: "/admin/facilities/hospital-service/facilities",
+            label: "Facilities & Services",
+            href: "/admin/facility/hospital-service/facilities",
             icon: <span className="w-2 h-2 bg-indigo-400 rounded-full" />,
           },
           {
             label: "Hero",
-            href: "/admin/facilities/hospital-service/hero",
+            href: "/admin/facility/hospital-service/hero",
             icon: <span className="w-2 h-2 bg-pink-400 rounded-full" />,
           },
           {
             label: "Medical Service",
-            href: "/admin/facilities/hospital-service/medical-service",
+            href: "/admin/facility/hospital-service/medical-service",
             icon: <span className="w-2 h-2 bg-teal-400 rounded-full" />,
           },
           {
             label: "Surgical Service",
-            href: "/admin/facilities/hospital-service/surgical-service",
+            href: "/admin/facility/hospital-service/surgical-service",
             icon: <span className="w-2 h-2 bg-orange-400 rounded-full" />,
           },
         ],
@@ -1714,7 +1714,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "Departments",
-        href: "/admin/facilities/departments",
+        href: "/admin/facility/department",
         icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
       },
 
@@ -1725,13 +1725,13 @@ const defaultNavGroups: NavGroup[] = [
         label: "Library",
         items: [
           {
-            label: "About",
-            href: "/admin/facilities/library/about",
+            label: "About Library",
+            href: "/admin/facility/library/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Feature",
-            href: "/admin/facilities/library/feature",
+            label: "Features",
+            href: "/admin/facility/library/feature",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
         ],
@@ -1745,22 +1745,22 @@ const defaultNavGroups: NavGroup[] = [
         items: [
           {
             label: "About",
-            href: "/admin/facilities/medical-education-unit/about",
+            href: "/admin/facility/meu/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Database",
-            href: "/admin/facilities/medical-education-unit/database",
+            label: "Academic Databases",
+            href: "/admin/facility/meu/database",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
-            label: "Facility",
-            href: "/admin/facilities/medical-education-unit/facility",
+            label: "Facilities & Resources",
+            href: "/admin/facility/meu/facility",
             icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
           },
           {
-            label: "Feature",
-            href: "/admin/facilities/medical-education-unit/feature",
+            label: "Features",
+            href: "/admin/facility/meu/feature",
             icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
           },
         ],
@@ -1774,12 +1774,12 @@ const defaultNavGroups: NavGroup[] = [
         items: [
           {
             label: "About",
-            href: "/admin/facilities/training/about",
+            href: "/admin/facility/training/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Facility",
-            href: "/admin/facilities/training/facility",
+            label: "Training Facilities",
+            href: "/admin/facility/training/facility",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
         ],
@@ -1793,22 +1793,22 @@ const defaultNavGroups: NavGroup[] = [
         items: [
           {
             label: "About",
-            href: "/admin/facilities/seminar/about",
+            href: "/admin/facility/seminar/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Activity",
-            href: "/admin/facilities/seminar/activity",
+            label: "Academic Activities",
+            href: "/admin/facility/seminar/activity",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
-            label: "Collaboration",
-            href: "/admin/facilities/seminar/collaboration",
+            label: "Speakers & Collaboration",
+            href: "/admin/facility/seminar/collaboration",
             icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
           },
           {
-            label: "Presentation",
-            href: "/admin/facilities/seminar/presentation",
+            label: "Academic Presentations",
+            href: "/admin/facility/seminar/presentation",
             icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
           },
         ],
@@ -1821,13 +1821,13 @@ const defaultNavGroups: NavGroup[] = [
         label: "Hostel",
         items: [
           {
-            label: "Hostel Service",
-            href: "/admin/facilities/hostel/hostel-service",
+            label: "About",
+            href: "/admin/facility/hostel-service/hostel",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Service",
-            href: "/admin/facilities/hostel/service",
+            label: "Services",
+            href: "/admin/facility/hostel-service/service",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
         ],
@@ -1841,12 +1841,12 @@ const defaultNavGroups: NavGroup[] = [
         items: [
           {
             label: "About",
-            href: "/admin/facilities/laboratory/about",
+            href: "/admin/facility/laboratory/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Facility",
-            href: "/admin/facilities/laboratory/facility",
+            label: "Facilities",
+            href: "/admin/facility/laboratory/facility",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
         ],
@@ -1860,12 +1860,12 @@ const defaultNavGroups: NavGroup[] = [
         items: [
           {
             label: "About",
-            href: "/admin/facilities/cafeteria/about",
+            href: "/admin/facility/cafeteria/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Cafe Facility",
-            href: "/admin/facilities/cafeteria/cafe-facility",
+            label: "Facilities",
+            href: "/admin/facility/cafeteria/cafe-facility",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
         ],
@@ -1888,47 +1888,47 @@ const defaultNavGroups: NavGroup[] = [
         items: [
           {
             label: "About",
-            href: "/admin/admission/procedure-fees/about",
+            href: "/admin/admission/procedure-and-fee/about",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
           {
-            label: "Document",
-            href: "/admin/admission/procedure-fees/document",
+            label: "Required Documents",
+            href: "/admin/admission/procedure-and-fee/document",
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
             label: "Eligibility Foreign",
-            href: "/admin/admission/procedure-fees/eligibility-foreign",
+            href: "/admin/admission/procedure-and-fee/eligibility-foreign-student",
             icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
           },
           {
             label: "Eligibility National",
-            href: "/admin/admission/procedure-fees/eligibility-national",
+            href: "/admin/admission/procedure-and-fee/eligibility-national-student",
             icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
           },
           {
             label: "Fee Foreign",
-            href: "/admin/admission/procedure-fees/fee-foreign",
+            href: "/admin/admission/procedure-and-fee/fee-foreign",
             icon: <span className="w-2 h-2 bg-red-400 rounded-full" />,
           },
           {
             label: "Fee National",
-            href: "/admin/admission/procedure-fees/fee-national",
+            href: "/admin/admission/procedure-and-fee/fee-national",
             icon: <span className="w-2 h-2 bg-indigo-400 rounded-full" />,
           },
           {
             label: "Monthly Fee",
-            href: "/admin/admission/procedure-fees/monthly-fee",
+            href: "/admin/admission/procedure-and-fee/monthly-fee",
             icon: <span className="w-2 h-2 bg-pink-400 rounded-full" />,
           },
           {
-            label: "Quota",
-            href: "/admin/admission/procedure-fees/quota",
+            label: "Student Quotas",
+            href: "/admin/admission/procedure-and-fee/quota",
             icon: <span className="w-2 h-2 bg-orange-400 rounded-full" />,
           },
           {
-            label: "Selection",
-            href: "/admin/admission/procedure-fees/selection",
+            label: "Selection & Admission",
+            href: "/admin/admission/procedure-and-fee/selection",
             icon: <span className="w-2 h-2 bg-teal-400 rounded-full" />,
           },
         ],
@@ -1939,7 +1939,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "Admission Papers",
-        href: "/admin/admission/papers",
+        href: "/admin/admission/paper",
         icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
       },
 
@@ -1948,7 +1948,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "Application Form",
-        href: "/admin/admission/application-form",
+        href: "/admin/admission/form",
         icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
       },
 
@@ -1957,7 +1957,7 @@ const defaultNavGroups: NavGroup[] = [
       -------------------------------------------------------- */
       {
         label: "Admission Results",
-        href: "/admin/admission/results",
+        href: "/admin/admission/result",
         icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
       },
     ],
