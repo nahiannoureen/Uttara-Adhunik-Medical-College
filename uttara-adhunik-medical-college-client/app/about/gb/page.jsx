@@ -1,5 +1,6 @@
 import Banner from "@/components/Aboutpage/GB/Banner";
-import TabNav from "@/components/Aboutpage/GB/TabNav";
+// import TabNav from "@/components/Aboutpage/GB/TabNav";
+import TabNav from "@/components/Aboutpage/shared/TabNav";
 import GBSection from "@/components/Aboutpage/GB/GBSection";
 import Admission from "@/components/Aboutpage/Aim/Admission";
 

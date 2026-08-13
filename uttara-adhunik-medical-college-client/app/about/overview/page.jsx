@@ -983,7 +983,7 @@
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
 import Banner from "@/components/Aboutpage/Overview/Banner";
-import TabNav from "@/components/Aboutpage/Overview/TabNav";
+import TabNav from "@/components/Aboutpage/shared/TabNav";
 import AboutSection from "@/components/Aboutpage/Overview/AboutSection";
 import StatsBar from "@/components/Aboutpage/Overview/StatsBar";
 import AdmissionAidSection from "@/components/Aboutpage/Overview/AdmissionAidSection";

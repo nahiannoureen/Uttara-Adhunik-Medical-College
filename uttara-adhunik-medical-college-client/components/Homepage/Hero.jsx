@@ -1,3 +1,267 @@
+// import { ArrowRight } from "lucide-react";
+
+// const GREEN = "#018837";
+// const YELLOW = "#FECD2F";
+
+// export default function Hero() {
+//   const slides = ["01", "02", "03", "04", "05"];
+
+//   return (
+//     <section
+//       id="home"
+//       className="relative flex min-h-[750px] flex-col justify-end px-6 py-[50px] text-white md:px-20"
+//       style={{
+//         backgroundImage: `
+//           linear-gradient(
+//             180deg,
+//             rgba(0, 0, 0, 0.2) 0%,
+//             rgba(1, 136, 55, 0.7) 100%
+//           ),
+//           url("/hero.jpg")
+//         `,
+//         backgroundSize: "cover",
+//         backgroundPosition: "center",
+//       }}
+//     >
+//       {/* =========================================================
+//           MAIN CONTENT WRAPPER
+//       ========================================================== */}
+//       <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10">
+//         {/* =========================================================
+//             SLIDE NAVIGATION
+//         ========================================================== */}
+//         <div className="flex items-center justify-between">
+//           {/* Previous */}
+//           <button
+//             type="button"
+//             className="font-display text-[13px] font-bold uppercase leading-[13px]"
+//           >
+//             Prev
+//           </button>
+
+//           {/* Slide numbers */}
+//           <div className="flex h-7 items-center justify-center gap-4 md:gap-[37px]">
+//             {/* Left divider */}
+//             <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+
+//             <div className="flex items-center">
+//               {slides.map((slide, index) => (
+//                 <div key={slide} className="flex items-center">
+//                   <button
+//                     type="button"
+//                     className="flex h-7 w-8 items-center justify-center px-[5px] font-display text-[18px] font-bold leading-[18px]"
+//                     style={{
+//                       color: index === 0 ? YELLOW : "rgba(255, 255, 255, 1)",
+//                     }}
+//                   >
+//                     {slide}
+//                   </button>
+
+//                   {index < slides.length - 1 && (
+//                     <span className="mx-2 h-[22px] w-px bg-white/30" />
+//                   )}
+//                 </div>
+//               ))}
+//             </div>
+
+//             {/* Right divider */}
+//             <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+//           </div>
+
+//           {/* Next */}
+//           <button
+//             type="button"
+//             className="font-display text-[13px] font-bold uppercase leading-[13px]"
+//           >
+//             Next
+//           </button>
+//         </div>
+
+//         {/* =========================================================
+//             CONTENT PANEL
+//         ========================================================== */}
+//         <div
+//           className="
+//             mx-auto
+//             flex
+//             w-full
+//             max-w-[1440px]
+//             flex-col
+//             justify-between
+//             gap-12
+//             bg-black/10
+//             p-5
+//             backdrop-blur-[2.5px]
+
+//             md:min-h-[399px]
+//             md:flex-row
+//             md:items-end
+//           "
+//         >
+//           {/* =======================================================
+//               LEFT CONTENT
+//           ======================================================== */}
+//           <div className="flex w-full max-w-[600px] flex-col gap-7">
+//             {/* Intro */}
+//             <div className="flex items-center gap-2">
+//               {/* Left decorative line */}
+//               <span className="h-[40px] w-[2px] bg-white" />
+
+//               <span className="font-body text-[14px] font-normal leading-[23px]">
+//                 Shaping the Future of Healthcare, One Student at a Time
+//               </span>
+//             </div>
+
+//             {/* Heading */}
+//             <h1
+//               className="
+//                 max-w-[670px]
+//                 font-display
+//                 text-[40px]
+//                 font-bold
+//                 leading-[1.2]
+
+//                 md:text-[60px]
+//                 md:leading-[75px]
+//               "
+//             >
+//               Excellence in Medical Education,{" "}
+//               <span style={{ color: YELLOW }}>Innovation</span> in Healthcare
+//             </h1>
+
+//             {/* CTA */}
+//             <button
+//               type="button"
+//               className="
+//                 flex
+//                 h-[48px]
+//                 w-fit
+//                 items-center
+//                 justify-center
+//                 gap-[10px]
+//                 bg-white
+//                 px-[26px]
+//                 py-[13px]
+//                 font-body
+//                 text-[14px]
+//                 font-medium
+//                 leading-[22px]
+//                 transition-opacity
+//                 hover:opacity-90
+//               "
+//               style={{ color: GREEN }}
+//             >
+//               <span>View Our Program</span>
+
+//               <ArrowRight className="h-[22px] w-[12px]" strokeWidth={2} />
+//             </button>
+//           </div>
+
+//           {/* =======================================================
+//               MBBS CONTENT
+//           ======================================================== */}
+//           <div className="flex w-full max-w-[272px] flex-col gap-[22px]">
+//             {/* Title */}
+//             <h3
+//               className="
+//                 flex
+//                 h-[54px]
+//                 items-center
+//                 font-display
+//                 text-[30px]
+//                 font-bold
+//                 leading-[34px]
+//               "
+//               style={{ color: YELLOW }}
+//             >
+//               MBBS Degrees
+//             </h3>
+
+//             <div className="flex w-full flex-col gap-[10px]">
+//               {/* =================================================
+//                   BACHELOR OF MEDICINE
+//               ================================================== */}
+//               <div className="flex flex-col pb-[10px]">
+//                 <a
+//                   href="#"
+//                   className="
+//                     flex
+//                     h-[26px]
+//                     w-full
+//                     items-center
+//                     justify-between
+//                     font-display
+//                     text-[16px]
+//                     font-normal
+//                     leading-[26px]
+//                   "
+//                 >
+//                   <span>Bachelor of Medicine</span>
+
+//                   <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
+//                 </a>
+
+//                 <p
+//                   className="
+//                     mt-[10px]
+//                     font-body
+//                     text-[12px]
+//                     font-normal
+//                     leading-[15px]
+//                     text-white/50
+//                   "
+//                 >
+//                   Comprehensive medical education preparing students for
+//                   professional healthcare practice.
+//                 </p>
+//               </div>
+
+//               {/* =================================================
+//                   BACHELOR OF SURGERY
+//               ================================================== */}
+//               <div className="flex flex-col pb-[10px]">
+//                 <a
+//                   href="#"
+//                   className="
+//                     flex
+//                     h-[26px]
+//                     w-full
+//                     items-center
+//                     justify-between
+//                     font-display
+//                     text-[16px]
+//                     font-normal
+//                     leading-[26px]
+//                   "
+//                 >
+//                   <span>Bachelor of Surgery</span>
+
+//                   <ArrowRight className="h-6 w-6 shrink-0" strokeWidth={2} />
+//                 </a>
+
+//                 <p
+//                   className="
+//                     mt-[10px]
+//                     font-body
+//                     text-[12px]
+//                     font-normal
+//                     leading-[15px]
+//                     text-white/50
+//                   "
+//                 >
+//                   Develop practical surgical knowledge and skills through
+//                   hands-on clinical learning.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// Version 2
 import { ArrowRight } from "lucide-react";
 
 const GREEN = "#018837";
@@ -9,7 +273,26 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[750px] flex-col justify-end px-6 py-[50px] text-white md:px-20"
+      className="
+        relative
+        flex
+        min-h-[750px]
+        flex-col
+        justify-end
+        px-4
+        py-8
+        text-white
+
+        sm:px-6
+        sm:py-10
+
+        md:px-10
+        md:py-[50px]
+
+        lg:px-16
+
+        xl:px-20
+      "
       style={{
         backgroundImage: `
           linear-gradient(
@@ -26,30 +309,108 @@ export default function Hero() {
       {/* =========================================================
           MAIN CONTENT WRAPPER
       ========================================================== */}
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10">
+      <div
+        className="
+          mx-auto
+          flex
+          w-full
+          max-w-[1440px]
+          flex-col
+          gap-6
+
+          sm:gap-8
+
+          md:gap-10
+        "
+      >
         {/* =========================================================
             SLIDE NAVIGATION
         ========================================================== */}
-        <div className="flex items-center justify-between">
+        <div
+          className="
+            flex
+            w-full
+            items-center
+            justify-between
+            gap-3
+
+            sm:gap-5
+
+            md:justify-center
+            md:gap-8
+          "
+        >
           {/* Previous */}
           <button
             type="button"
-            className="font-display text-[13px] font-bold uppercase leading-[13px]"
+            className="
+              shrink-0
+              font-display
+              text-[11px]
+              font-bold
+              uppercase
+              leading-[13px]
+
+              sm:text-[13px]
+            "
           >
             Prev
           </button>
 
           {/* Slide numbers */}
-          <div className="flex h-7 items-center justify-center gap-4 md:gap-[37px]">
-            {/* Left divider */}
-            <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+          <div
+            className="
+              flex
+              min-w-0
+              flex-1
+              items-center
+              justify-center
+              gap-1
 
-            <div className="flex items-center">
+              sm:gap-3
+
+              md:flex-none
+              md:gap-[37px]
+            "
+          >
+            {/* Left divider */}
+            <span
+              className="
+                hidden
+                h-px
+                w-[60px]
+                shrink-0
+                bg-white/30
+
+                sm:w-[80px]
+
+                md:block
+                md:w-[125px]
+              "
+            />
+
+            <div className="flex min-w-0 items-center">
               {slides.map((slide, index) => (
                 <div key={slide} className="flex items-center">
                   <button
                     type="button"
-                    className="flex h-7 w-8 items-center justify-center px-[5px] font-display text-[18px] font-bold leading-[18px]"
+                    className="
+                      flex
+                      h-7
+                      w-7
+                      shrink-0
+                      items-center
+                      justify-center
+                      px-[3px]
+                      font-display
+                      text-[14px]
+                      font-bold
+                      leading-[18px]
+
+                      sm:w-8
+                      sm:px-[5px]
+                      sm:text-[18px]
+                    "
                     style={{
                       color: index === 0 ? YELLOW : "rgba(255, 255, 255, 1)",
                     }}
@@ -58,20 +419,52 @@ export default function Hero() {
                   </button>
 
                   {index < slides.length - 1 && (
-                    <span className="mx-2 h-[22px] w-px bg-white/30" />
+                    <span
+                      className="
+                        mx-1
+                        h-[18px]
+                        w-px
+                        bg-white/30
+
+                        sm:mx-2
+                        sm:h-[22px]
+                      "
+                    />
                   )}
                 </div>
               ))}
             </div>
 
             {/* Right divider */}
-            <span className="hidden h-px w-[125px] bg-white/30 md:block" />
+            <span
+              className="
+                hidden
+                h-px
+                w-[60px]
+                shrink-0
+                bg-white/30
+
+                sm:w-[80px]
+
+                md:block
+                md:w-[125px]
+              "
+            />
           </div>
 
           {/* Next */}
           <button
             type="button"
-            className="font-display text-[13px] font-bold uppercase leading-[13px]"
+            className="
+              shrink-0
+              font-display
+              text-[11px]
+              font-bold
+              uppercase
+              leading-[13px]
+
+              sm:text-[13px]
+            "
           >
             Next
           </button>
@@ -88,10 +481,13 @@ export default function Hero() {
             max-w-[1440px]
             flex-col
             justify-between
-            gap-12
+            gap-10
             bg-black/10
-            p-5
+            p-4
             backdrop-blur-[2.5px]
+
+            sm:gap-12
+            sm:p-5
 
             md:min-h-[399px]
             md:flex-row
@@ -101,13 +497,33 @@ export default function Hero() {
           {/* =======================================================
               LEFT CONTENT
           ======================================================== */}
-          <div className="flex w-full max-w-[600px] flex-col gap-7">
+          <div
+            className="
+              flex
+              w-full
+              max-w-[600px]
+              flex-col
+              gap-6
+
+              sm:gap-7
+            "
+          >
             {/* Intro */}
             <div className="flex items-center gap-2">
               {/* Left decorative line */}
-              <span className="h-[40px] w-[2px] bg-white" />
+              <span className="h-[40px] w-[2px] shrink-0 bg-white" />
 
-              <span className="font-body text-[14px] font-normal leading-[23px]">
+              <span
+                className="
+                  font-body
+                  text-[12px]
+                  font-normal
+                  leading-[20px]
+
+                  sm:text-[14px]
+                  sm:leading-[23px]
+                "
+              >
                 Shaping the Future of Healthcare, One Student at a Time
               </span>
             </div>
@@ -117,12 +533,19 @@ export default function Hero() {
               className="
                 max-w-[670px]
                 font-display
-                text-[40px]
+                text-[32px]
                 font-bold
                 leading-[1.2]
 
-                md:text-[60px]
-                md:leading-[75px]
+                sm:text-[40px]
+
+                md:text-[48px]
+                md:leading-[1.25]
+
+                lg:text-[54px]
+
+                xl:text-[60px]
+                xl:leading-[75px]
               "
             >
               Excellence in Medical Education,{" "}
@@ -140,14 +563,17 @@ export default function Hero() {
                 justify-center
                 gap-[10px]
                 bg-white
-                px-[26px]
+                px-[22px]
                 py-[13px]
                 font-body
-                text-[14px]
+                text-[13px]
                 font-medium
                 leading-[22px]
                 transition-opacity
                 hover:opacity-90
+
+                sm:px-[26px]
+                sm:text-[14px]
               "
               style={{ color: GREEN }}
             >
@@ -160,7 +586,17 @@ export default function Hero() {
           {/* =======================================================
               MBBS CONTENT
           ======================================================== */}
-          <div className="flex w-full max-w-[272px] flex-col gap-[22px]">
+          <div
+            className="
+              flex
+              w-full
+              max-w-[272px]
+              flex-col
+              gap-[22px]
+
+              md:shrink-0
+            "
+          >
             {/* Title */}
             <h3
               className="
@@ -168,9 +604,11 @@ export default function Hero() {
                 h-[54px]
                 items-center
                 font-display
-                text-[30px]
+                text-[26px]
                 font-bold
                 leading-[34px]
+
+                sm:text-[30px]
               "
               style={{ color: YELLOW }}
             >
@@ -190,10 +628,13 @@ export default function Hero() {
                     w-full
                     items-center
                     justify-between
+                    gap-3
                     font-display
-                    text-[16px]
+                    text-[15px]
                     font-normal
                     leading-[26px]
+
+                    sm:text-[16px]
                   "
                 >
                   <span>Bachelor of Medicine</span>
@@ -205,10 +646,12 @@ export default function Hero() {
                   className="
                     mt-[10px]
                     font-body
-                    text-[12px]
+                    text-[11px]
                     font-normal
                     leading-[15px]
                     text-white/50
+
+                    sm:text-[12px]
                   "
                 >
                   Comprehensive medical education preparing students for
@@ -228,10 +671,13 @@ export default function Hero() {
                     w-full
                     items-center
                     justify-between
+                    gap-3
                     font-display
-                    text-[16px]
+                    text-[15px]
                     font-normal
                     leading-[26px]
+
+                    sm:text-[16px]
                   "
                 >
                   <span>Bachelor of Surgery</span>
@@ -243,10 +689,12 @@ export default function Hero() {
                   className="
                     mt-[10px]
                     font-body
-                    text-[12px]
+                    text-[11px]
                     font-normal
                     leading-[15px]
                     text-white/50
+
+                    sm:text-[12px]
                   "
                 >
                   Develop practical surgical knowledge and skills through

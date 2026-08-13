@@ -1,5 +1,6 @@
 import Banner from "@/components/Aboutpage/HistoryUAMC/Banner";
-import TabNav from "@/components/Aboutpage/HistoryUAMC/TabNav";
+// import TabNav from "@/components/Aboutpage/HistoryUAMC/TabNav";
+import TabNav from "@/components/Aboutpage/shared/TabNav";
 
 import HistorySection from "@/components/Aboutpage/HistoryUAMC/HistorySection";
 import StatStrip from "@/components/Aboutpage/HistoryUAMC/StatStrip";
