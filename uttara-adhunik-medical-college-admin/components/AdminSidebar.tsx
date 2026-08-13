@@ -55,13 +55,13 @@ const defaultNavGroups: NavGroup[] = [
         icon: <span className="w-2 h-2 bg-purple-400 rounded-full"></span>,
       },
       {
-        label: "We Work",
-        href: "/admin/we-work",
+        label: "Notice",
+        href: "/admin/homepage/notice",
         icon: <span className="w-2 h-2 bg-green-400 rounded-full"></span>,
       },
       {
-        label: "Apart",
-        href: "/admin/apart",
+        label: "Publication",
+        href: "/admin/homepage/publication",
         icon: <span className="w-2 h-2 bg-green-400 rounded-full"></span>,
       },
       {
@@ -100,8 +100,8 @@ const defaultNavGroups: NavGroup[] = [
     ),
     items: [
       {
-        label: "Established Excellence",
-        href: "/admin/established-excellence",
+        label: "Overview",
+        href: "/admin/about/overview/hero",
         icon: <span className="w-2 h-2 bg-purple-400 rounded-full"></span>,
       },
       {
