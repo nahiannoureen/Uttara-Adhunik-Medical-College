@@ -51,14 +51,16 @@ export default function LoginPage() {
         <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
           {/* Logo */}
           <div className="flex justify-center mb-8">
-            <div className="w-14 h-14 bg-linear-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
+            <div className="w-14 h-14 bg-linear-to-br from-green-600 to-yellow-600 rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-2xl">D</span>
             </div>
           </div>
 
           {/* Heading */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">CMS Admin</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Admin Panel
+            </h1>
             <p className="text-gray-600">
               Sign in to manage your website content
             </p>
