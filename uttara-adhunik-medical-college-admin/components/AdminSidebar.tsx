@@ -1577,7 +1577,7 @@ const defaultNavGroups: NavGroup[] = [
         label: "History of UAMC",
         items: [
           {
-            label: "Hero",
+            label: "About",
             href: "/admin/about/history/history-banner",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
@@ -1606,7 +1606,7 @@ const defaultNavGroups: NavGroup[] = [
         label: "Aim & Objective",
         items: [
           {
-            label: "Hero",
+            label: "About",
             href: "/admin/about/aim/banner",
             icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
           },
@@ -1671,12 +1671,12 @@ const defaultNavGroups: NavGroup[] = [
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
-            label: "Clinical Departments",
+            label: "Medicine Related Clinical Departments",
             href: "/admin/facility/hospital-service/clinical-service",
             icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
           },
           {
-            label: "Diagnostic Services",
+            label: "Diagnostic & Imaging Services",
             href: "/admin/facility/hospital-service/diagnostic-service",
             icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
           },
@@ -1686,7 +1686,7 @@ const defaultNavGroups: NavGroup[] = [
             icon: <span className="w-2 h-2 bg-red-400 rounded-full" />,
           },
           {
-            label: "Facilities & Services",
+            label: "UAMCH Facilities & Services",
             href: "/admin/facility/hospital-service/facilities",
             icon: <span className="w-2 h-2 bg-indigo-400 rounded-full" />,
           },
@@ -1696,12 +1696,12 @@ const defaultNavGroups: NavGroup[] = [
             icon: <span className="w-2 h-2 bg-pink-400 rounded-full" />,
           },
           {
-            label: "Medical Service",
+            label: "Medical Services",
             href: "/admin/facility/hospital-service/medical-service",
             icon: <span className="w-2 h-2 bg-teal-400 rounded-full" />,
           },
           {
-            label: "Surgical Service",
+            label: "Surgical Related Clinical Departments",
             href: "/admin/facility/hospital-service/surgical-service",
             icon: <span className="w-2 h-2 bg-orange-400 rounded-full" />,
           },
@@ -1897,27 +1897,27 @@ const defaultNavGroups: NavGroup[] = [
             icon: <span className="w-2 h-2 bg-blue-400 rounded-full" />,
           },
           {
-            label: "Eligibility Foreign",
+            label: "Eligibility for Foreign",
             href: "/admin/admission/procedure-and-fee/eligibility-foreign-student",
             icon: <span className="w-2 h-2 bg-green-400 rounded-full" />,
           },
           {
-            label: "Eligibility National",
+            label: "Eligibility for National",
             href: "/admin/admission/procedure-and-fee/eligibility-national-student",
             icon: <span className="w-2 h-2 bg-yellow-400 rounded-full" />,
           },
           {
-            label: "Fee Foreign",
+            label: "Foreign Fees",
             href: "/admin/admission/procedure-and-fee/fee-foreign",
             icon: <span className="w-2 h-2 bg-red-400 rounded-full" />,
           },
           {
-            label: "Fee National",
+            label: "National Fees",
             href: "/admin/admission/procedure-and-fee/fee-national",
             icon: <span className="w-2 h-2 bg-indigo-400 rounded-full" />,
           },
           {
-            label: "Monthly Fee",
+            label: "Monthly Fees",
             href: "/admin/admission/procedure-and-fee/monthly-fee",
             icon: <span className="w-2 h-2 bg-pink-400 rounded-full" />,
           },
@@ -1986,7 +1986,7 @@ const defaultNavGroups: NavGroup[] = [
     items: [
       {
         label: "Contact",
-        href: "/admin/contact",
+        href: "/admin/site-setting",
         icon: <span className="w-2 h-2 bg-purple-400 rounded-full" />,
       },
     ],
