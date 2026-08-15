@@ -3206,9 +3206,10 @@ export default async function AboutSection() {
                   overflow-hidden
                   border
                   border-dashed
-                  bg-white
-                  transition-all
-                  duration-300
+                  bg-white hover:bg-yellow-400 
+              
+                  // transition-all
+                  // duration-300
 
                   lg:w-[339.17px]
                 "
@@ -3216,7 +3217,7 @@ export default async function AboutSection() {
               >
                 {/* YELLOW HOVER BACKGROUND */}
 
-                <span
+                {/* <span
                   className="
                     absolute
                     inset-0
@@ -3229,7 +3230,7 @@ export default async function AboutSection() {
                     group-hover:scale-x-100
                   "
                   style={{ backgroundColor: YELLOW }}
-                />
+                /> */}
 
                 {/* ICON */}
 
@@ -3258,9 +3259,9 @@ export default async function AboutSection() {
                       h-full
                       w-full
                       object-contain
-                      transition-transform
-                      duration-300
-                      group-hover:scale-105
+                      // transition-transform
+                      // duration-300
+                      // group-hover:scale-105
                     "
                   />
                 </div>
@@ -3284,9 +3285,9 @@ export default async function AboutSection() {
                       text-[18px]
                       font-medium
                       leading-[23px]
-                      transition-colors
-                      duration-300
-                      group-hover:text-black
+                      // transition-colors
+                      // duration-300
+                      // group-hover:text-black
                     "
                     style={{ color: GREEN }}
                   >
