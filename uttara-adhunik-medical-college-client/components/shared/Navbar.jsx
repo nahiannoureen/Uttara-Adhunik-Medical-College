@@ -2834,12 +2834,12 @@ function MainNav({ settings }) {
   const isHomeActive = pathname === "/";
 
   const isNoticeMediaActive =
-    pathname === "/notice-media" ||
-    pathname.startsWith("/notice-media/") ||
+    pathname === "/notice" ||
+    pathname.startsWith("/notice/") ||
     pathname === "/notice";
 
   const isCareerActive =
-    pathname === "/career" || pathname.startsWith("/career/");
+    pathname === "/contact" || pathname.startsWith("/contact/");
 
   const isAboutActive = isSectionActive(dropdownMenus["About UAMC"]);
 
@@ -3013,7 +3013,7 @@ function MainNav({ settings }) {
           {/* NOTICE & MEDIA */}
 
           <Link
-            href="/notice-media"
+            href="/notice"
             onClick={() => setOpenDropdown(null)}
             className={`relative flex h-[38px] items-center px-[10px] font-display text-[15px] font-normal uppercase tracking-[0.02em] transition-colors duration-200 ${
               isNoticeMediaActive
@@ -3209,7 +3209,7 @@ function MainNav({ settings }) {
             {/* NOTICE & MEDIA */}
 
             <Link
-              href="/notice-media"
+              href="/notice"
               onClick={closeMenu}
               className={`flex border-b border-black/10 py-3 font-display text-sm uppercase tracking-[0.02em] ${
                 isNoticeMediaActive ? "text-[#018837]" : "text-black"
@@ -3246,11 +3246,11 @@ function MainNav({ settings }) {
                 onClick={closeMenu}
                 className="rounded-[5px] border border-black/10 px-4 py-3 font-body text-sm text-[#444444] transition-colors hover:border-[#018837] hover:text-[#018837]"
               >
-                Faculty Portal
+                Teachers Portal
               </Link>
 
               <Link
-                href="/notice-media"
+                href="/notice"
                 onClick={closeMenu}
                 className="rounded-[5px] border border-black/10 px-4 py-3 font-body text-sm text-[#444444] transition-colors hover:border-[#018837] hover:text-[#018837]"
               >

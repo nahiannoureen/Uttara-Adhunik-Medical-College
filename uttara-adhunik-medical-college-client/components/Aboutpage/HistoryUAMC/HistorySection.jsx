@@ -148,7 +148,7 @@ export default async function HistorySection() {
 
             <div className="flex w-full items-center justify-center py-[10px]">
               <p
-                className="w-full text-[15px] leading-[22px] font-bold text-[#444444] sm:text-[16px] md:text-[18px]"
+                className="w-full text-[15px] leading-[22px]  text-[#444444] sm:text-[16px] md:text-[18px]"
                 style={{
                   fontFamily: "Inter, sans-serif",
                 }}

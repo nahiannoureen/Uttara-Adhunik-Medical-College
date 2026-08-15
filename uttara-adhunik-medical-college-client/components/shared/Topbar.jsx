@@ -117,7 +117,7 @@ const portalLinks = [
     href: "#",
   },
   {
-    label: "Faculty Portal",
+    label: "Teachers Portal",
     href: "#",
   },
   {
@@ -125,7 +125,11 @@ const portalLinks = [
     href: "/notice",
   },
   {
-    label: "Contact",
+    label: "Alumni",
+    href: "#",
+  },
+  {
+    label: "Contact Us",
     href: "/career",
   },
 ];

@@ -3,14 +3,9 @@
 import { useState } from "react";
 import PhotoUpload from "@/components/ui/PhotoUpload";
 
-export default function LibraryForm({ initialData, onSubmit, onCancel }) {
+export default function GalleryForm({ initialData, onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
     title: initialData?.title || "",
-    subtitle: initialData?.subtitle || "",
-    description: initialData?.description || "",
-    data1: initialData?.data1 || "",
-    data2: initialData?.data2 || "",
-    data3: initialData?.data3 || "",
     image: initialData?.image || "",
   });
 
@@ -57,13 +52,8 @@ export default function LibraryForm({ initialData, onSubmit, onCancel }) {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.title.trim()) newErrors.title = "Title is required";
-    if (!formData.description.trim())
-      newErrors.description = "Description is required";
-    if (!formData.subtitle.trim()) newErrors.subtitle = "Subtitle is required";
-    if (!formData.data1.trim()) newErrors.data1 = "Data 1 is required";
-    if (!formData.data2.trim()) newErrors.data2 = "Data 2 is required";
-    if (!formData.data3.trim()) newErrors.data3 = "Data 3 is required";
+    if (!formData.title.trim()) newErrors.title = "Name is required";
+
     if (!formData.image) newErrors.image = "Image is required";
 
     setErrors(newErrors);
@@ -90,58 +80,18 @@ export default function LibraryForm({ initialData, onSubmit, onCancel }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <Input
-        label="Title"
+        label="Event Title"
         name="title"
         value={formData.title}
         onChange={handleChange}
         error={errors.title}
       />
 
-      <Input
-        label="Subtitle"
-        name="subtitle"
-        value={formData.subtitle}
-        onChange={handleChange}
-        error={errors.subtitle}
-      />
-
-      <Input
-        label="Description"
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        error={errors.description}
-      />
-
-      <Input
-        label="Data 1"
-        name="data1"
-        value={formData.data1}
-        onChange={handleChange}
-        error={errors.data1}
-      />
-
-      <Input
-        label="Data 2"
-        name="data2"
-        value={formData.data2}
-        onChange={handleChange}
-        error={errors.data2}
-      />
-
-      <Input
-        label="Data 3"
-        name="data3"
-        value={formData.data3}
-        onChange={handleChange}
-        error={errors.data3}
-      />
-
       {/* Image */}
 
       <PhotoUpload
         name="image"
-        label="About Hospital Image"
+        label="Member Image"
         required
         value={formData.image}
         onChange={handleImageChange}
@@ -163,7 +113,7 @@ export default function LibraryForm({ initialData, onSubmit, onCancel }) {
           type="submit"
           className="px-4 py-2 bg-blue-600 text-white rounded-md"
         >
-          {initialData ? "Update" : "Create"} About Library Section
+          {initialData ? "Update" : "Create"} Event
         </button>
       </div>
     </form>

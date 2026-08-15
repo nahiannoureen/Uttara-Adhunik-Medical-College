@@ -1849,7 +1849,7 @@ const LibrarySection = async () => {
 
           <div className="flex min-h-0 w-full flex-col justify-center px-0 font-sans text-base leading-[26px] tracking-[0.01em] text-[#444] sm:text-[17px] md:min-h-[141px] md:px-2.5 md:text-lg md:leading-7 lg:text-[20px] lg:leading-[30px] lg:text-justify">
             <strong className="mb-1 block w-full font-bold">
-              A Modern Hub for Academic Excellence
+              {library.subtitle || "A Modern Hub for Academic Excellence"}
             </strong>
 
             <span className="block w-full font-normal">{description}</span>
