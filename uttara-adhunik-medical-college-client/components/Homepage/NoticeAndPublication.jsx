@@ -562,7 +562,7 @@
 //   );
 // }
 
-// version 2
+// Dynamic Versino
 "use client";
 
 import { useEffect, useState } from "react";
@@ -599,17 +599,66 @@ function useMediaQuery(query) {
 }
 
 /* =========================================================
-   SAMPLE DATA
+   DATE FORMATTER
 ========================================================= */
 
-const noticeSample = Array.from({ length: 10 }, (_, i) => ({
-  id: i,
-  day: "12",
-  month: "Mar 25",
-  time: "3:40 PM",
-  title:
-    "BCPS e-Logbook: Modernizing the Monitoring of FCPS 1st Phase Training",
-}));
+function formatDate(dateString) {
+  if (!dateString) {
+    return {
+      day: "",
+      month: "",
+      time: "",
+    };
+  }
+
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return {
+      day: "",
+      month: "",
+      time: "",
+    };
+  }
+
+  const day = date.toLocaleDateString("en-US", {
+    day: "2-digit",
+  });
+
+  const month = date.toLocaleDateString("en-US", {
+    month: "short",
+    year: "2-digit",
+  });
+
+  const time = date.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
+  return {
+    day,
+    month,
+    time,
+  };
+}
+
+/* =========================================================
+   NORMALIZE API DATA
+========================================================= */
+
+function normalizeItem(item) {
+  const { day, month, time } = formatDate(item.createdAt);
+
+  return {
+    id: item._id,
+    title: item.title?.replace(/^"|"$/g, "") || "",
+    day,
+    month,
+    time,
+    createdAt: item.createdAt,
+    updatedAt: item.updatedAt,
+  };
+}
 
 /* =========================================================
    NOTICE CARD
@@ -634,8 +683,6 @@ function NoticeCard({ item, mobile }) {
         boxSizing: "border-box",
 
         flexShrink: 0,
-
-        overflow: "hidden",
       }}
     >
       {/* ================================================
@@ -645,8 +692,6 @@ function NoticeCard({ item, mobile }) {
       <div
         style={{
           width: mobile ? "65px" : "90px",
-
-          minWidth: mobile ? "65px" : "90px",
 
           height: mobile ? "76px" : "86px",
 
@@ -713,8 +758,6 @@ function NoticeCard({ item, mobile }) {
             fontWeight: 600,
 
             boxSizing: "border-box",
-
-            whiteSpace: "nowrap",
           }}
         >
           {item.month}
@@ -729,9 +772,7 @@ function NoticeCard({ item, mobile }) {
         style={{
           minWidth: 0,
 
-          flex: "1 1 auto",
-
-          width: 0,
+          flex: 1,
 
           height: mobile ? "76px" : "86px",
 
@@ -745,8 +786,6 @@ function NoticeCard({ item, mobile }) {
           padding: mobile ? "3px 0" : "5px 0",
 
           boxSizing: "border-box",
-
-          overflow: "hidden",
         }}
       >
         {/* TITLE */}
@@ -754,8 +793,6 @@ function NoticeCard({ item, mobile }) {
         <p
           style={{
             width: "100%",
-
-            minWidth: 0,
 
             margin: 0,
 
@@ -776,10 +813,6 @@ function NoticeCard({ item, mobile }) {
             WebkitLineClamp: 2,
 
             overflow: "hidden",
-
-            wordBreak: "break-word",
-
-            overflowWrap: "anywhere",
           }}
         >
           {item.title}
@@ -804,10 +837,6 @@ function NoticeCard({ item, mobile }) {
             lineHeight: mobile ? "16px" : "18px",
 
             fontWeight: 600,
-
-            whiteSpace: "nowrap",
-
-            flexShrink: 0,
           }}
         >
           <Clock size={mobile ? 13 : 15} strokeWidth={1.8} />
@@ -823,8 +852,22 @@ function NoticeCard({ item, mobile }) {
    TABBED LIST
 ========================================================= */
 
-function TabbedList({ title, tabs, items, mobile, tablet }) {
+function TabbedList({ title, tabs, items, mobile, tablet, loading, error }) {
   const [active, setActive] = useState(0);
+
+  const activeTab = tabs[active];
+
+  /*
+   * Only display items belonging to the currently
+   * selected tab.
+   *
+   * For Notice:
+   * item.type === noticeType
+   *
+   * For Publication:
+   * item.type === publicationType
+   */
+  const filteredItems = items.filter((item) => item.type === activeTab);
 
   return (
     <div
@@ -832,8 +875,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
         width: "100%",
 
         maxWidth: "720px",
-
-        minWidth: 0,
 
         display: "flex",
 
@@ -865,8 +906,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
           padding: mobile ? "0" : tablet ? "0 10px" : "0 20px",
 
           boxSizing: "border-box",
-
-          minWidth: 0,
         }}
       >
         {/* TITLE */}
@@ -886,12 +925,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
             fontWeight: 700,
 
             whiteSpace: "nowrap",
-
-            minWidth: 0,
-
-            overflow: "hidden",
-
-            textOverflow: "ellipsis",
           }}
         >
           {title}
@@ -925,8 +958,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
             textDecoration: "none",
 
             whiteSpace: "nowrap",
-
-            flexShrink: 0,
           }}
         >
           <span>View All</span>
@@ -942,8 +973,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
       <div
         style={{
           width: "100%",
-
-          minWidth: 0,
 
           display: "flex",
 
@@ -974,11 +1003,7 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
 
             overflowX: "auto",
 
-            overflowY: "hidden",
-
             scrollbarWidth: "none",
-
-            WebkitOverflowScrolling: "touch",
           }}
         >
           {tabs.map((tab, index) => {
@@ -986,13 +1011,13 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
 
             return (
               <button
-                key={index}
+                key={tab}
                 type="button"
                 onClick={() => setActive(index)}
                 style={{
                   flex: mobile ? "0 0 auto" : "1 1 0",
 
-                  minWidth: mobile ? "135px" : tablet ? "120px" : "150px",
+                  minWidth: mobile ? "135px" : tablet ? "130px" : "150px",
 
                   height: mobile ? "50px" : "64px",
 
@@ -1033,8 +1058,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
                     : "none",
 
                   transition: "all 0.2s ease",
-
-                  flexShrink: 0,
                 }}
               >
                 {tab}
@@ -1052,10 +1075,6 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
             width: "100%",
 
             height: mobile ? "500px" : tablet ? "550px" : "610px",
-
-            maxHeight: "610px",
-
-            minHeight: 0,
 
             display: "flex",
 
@@ -1076,13 +1095,95 @@ function TabbedList({ title, tabs, items, mobile, tablet }) {
             scrollbarWidth: "thin",
 
             scrollbarColor: `${GREEN} ${LIGHT_BG}`,
-
-            WebkitOverflowScrolling: "touch",
           }}
         >
-          {items.map((item) => (
-            <NoticeCard key={item.id} item={item} mobile={mobile} />
-          ))}
+          {/* LOADING */}
+
+          {loading && (
+            <div
+              style={{
+                minHeight: "150px",
+
+                display: "flex",
+
+                alignItems: "center",
+
+                justifyContent: "center",
+
+                color: TEXT,
+
+                fontFamily: "Inter, sans-serif",
+
+                fontSize: mobile ? "13px" : "15px",
+              }}
+            >
+              Loading...
+            </div>
+          )}
+
+          {/* ERROR */}
+
+          {!loading && error && (
+            <div
+              style={{
+                minHeight: "150px",
+
+                display: "flex",
+
+                alignItems: "center",
+
+                justifyContent: "center",
+
+                textAlign: "center",
+
+                color: "#D32F2F",
+
+                fontFamily: "Inter, sans-serif",
+
+                fontSize: mobile ? "13px" : "15px",
+
+                padding: "20px",
+              }}
+            >
+              {error}
+            </div>
+          )}
+
+          {/* EMPTY */}
+
+          {!loading && !error && filteredItems.length === 0 && (
+            <div
+              style={{
+                minHeight: "150px",
+
+                display: "flex",
+
+                alignItems: "center",
+
+                justifyContent: "center",
+
+                textAlign: "center",
+
+                color: TEXT,
+
+                fontFamily: "Inter, sans-serif",
+
+                fontSize: mobile ? "13px" : "15px",
+
+                padding: "20px",
+              }}
+            >
+              No {activeTab.toLowerCase()} available.
+            </div>
+          )}
+
+          {/* DATA */}
+
+          {!loading &&
+            !error &&
+            filteredItems.map((item) => (
+              <NoticeCard key={item.id} item={item} mobile={mobile} />
+            ))}
         </div>
       </div>
     </div>
@@ -1098,14 +1199,150 @@ export default function NoticeAndPublication() {
 
   const tablet = useMediaQuery("(min-width: 601px) and (max-width: 900px)");
 
+  /* =======================================================
+     API STATES
+  ======================================================= */
+
+  const [notices, setNotices] = useState([]);
+
+  const [publications, setPublications] = useState([]);
+
+  const [loadingNotices, setLoadingNotices] = useState(true);
+
+  const [loadingPublications, setLoadingPublications] = useState(true);
+
+  const [noticeError, setNoticeError] = useState("");
+
+  const [publicationError, setPublicationError] = useState("");
+
+  /* =======================================================
+     FETCH NOTICES
+  ======================================================= */
+
+  useEffect(() => {
+    const fetchNotices = async () => {
+      try {
+        setLoadingNotices(true);
+        setNoticeError("");
+
+        const baseUrl = process.env.NEXT_PUBLIC_ADMIN_API;
+
+        if (!baseUrl) {
+          throw new Error("NEXT_PUBLIC_API_BASE_URL is not configured.");
+        }
+
+        const response = await fetch(`${baseUrl}/api/homepage/notice`, {
+          method: "GET",
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch notices. Status: ${response.status}`,
+          );
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error("Invalid notice API response.");
+        }
+
+        const formattedNotices = data.map((item) => ({
+          ...normalizeItem(item),
+
+          /*
+           * This is what the tab filtering uses.
+           *
+           * Example:
+           * General Notice
+           * Admission Notice
+           * Reports
+           * Job Circular
+           */
+          type: item.noticeType,
+        }));
+
+        setNotices(formattedNotices);
+      } catch (error) {
+        console.error("Notice API error:", error);
+
+        setNoticeError(error?.message || "Unable to load notices.");
+      } finally {
+        setLoadingNotices(false);
+      }
+    };
+
+    fetchNotices();
+  }, []);
+
+  /* =======================================================
+     FETCH PUBLICATIONS
+  ======================================================= */
+
+  useEffect(() => {
+    const fetchPublications = async () => {
+      try {
+        setLoadingPublications(true);
+        setPublicationError("");
+
+        const baseUrl = process.env.NEXT_PUBLIC_ADMIN_API;
+
+        if (!baseUrl) {
+          throw new Error("NEXT_PUBLIC_API_BASE_URL is not configured.");
+        }
+
+        const response = await fetch(`${baseUrl}/api/homepage/publication`, {
+          method: "GET",
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error(
+            `Failed to fetch publications. Status: ${response.status}`,
+          );
+        }
+
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          throw new Error("Invalid publication API response.");
+        }
+
+        const formattedPublications = data.map((item) => ({
+          ...normalizeItem(item),
+
+          /*
+           * This is what the tab filtering uses.
+           *
+           * Example:
+           * Journal
+           * Tenders
+           */
+          type: item.publicationType,
+        }));
+
+        setPublications(formattedPublications);
+      } catch (error) {
+        console.error("Publication API error:", error);
+
+        setPublicationError(error?.message || "Unable to load publications.");
+      } finally {
+        setLoadingPublications(false);
+      }
+    };
+
+    fetchPublications();
+  }, []);
+
+  /* =======================================================
+     RENDER
+  ======================================================= */
+
   return (
     <section
       style={{
         width: "100%",
-
-        maxWidth: "100vw",
-
-        overflowX: "hidden",
 
         backgroundColor: "#FFFFFF",
 
@@ -1129,7 +1366,7 @@ export default function NoticeAndPublication() {
           display: "grid",
 
           gridTemplateColumns:
-            mobile || tablet ? "minmax(0, 1fr)" : "repeat(2, minmax(0, 1fr))",
+            mobile || tablet ? "1fr" : "repeat(2, minmax(0, 1fr))",
 
           columnGap: mobile || tablet ? "0" : "10px",
 
@@ -1138,8 +1375,6 @@ export default function NoticeAndPublication() {
           alignItems: "start",
 
           boxSizing: "border-box",
-
-          minWidth: 0,
         }}
       >
         {/* =================================================
@@ -1154,9 +1389,11 @@ export default function NoticeAndPublication() {
             "Reports",
             "Job Circular",
           ]}
-          items={noticeSample}
+          items={notices}
           mobile={mobile}
           tablet={tablet}
+          loading={loadingNotices}
+          error={noticeError}
         />
 
         {/* =================================================
@@ -1166,9 +1403,11 @@ export default function NoticeAndPublication() {
         <TabbedList
           title="Publication"
           tabs={["Journal", "Tenders"]}
-          items={noticeSample}
+          items={publications}
           mobile={mobile}
           tablet={tablet}
+          loading={loadingPublications}
+          error={publicationError}
         />
       </div>
     </section>

@@ -2199,12 +2199,12 @@ export default function AdminSidebar() {
 
       <div className="p-6 border-b border-gray-200">
         <Link href="/admin" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">AS</span>
+          <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-yellow-600 rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-lg">UA</span>
           </div>
 
           <div>
-            <p className="font-bold text-gray-900">ASBD</p>
+            <p className="font-bold text-gray-900">UAMC</p>
 
             <p className="text-xs text-gray-600">AdminPanel-v1.0</p>
           </div>

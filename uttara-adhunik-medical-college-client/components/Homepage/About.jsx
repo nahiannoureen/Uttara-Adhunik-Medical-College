@@ -417,7 +417,7 @@ export default function AboutUAMC() {
               leading-[27px]
               text-white
               transition-opacity
-              hover:opacity-90
+              hover:opacity-90 
             "
             style={{ backgroundColor: GREEN }}
           >
