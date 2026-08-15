@@ -66,7 +66,7 @@ export default function AboutUAMC() {
           hands-on clinical training needed to excel in the medical profession.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-5">
+        {/* <div className="flex flex-col sm:flex-row gap-5">
           {[
             { title: "College Mission", sub: "Statement" },
             { title: "College Vision", sub: "Achievement" },
@@ -91,6 +91,33 @@ export default function AboutUAMC() {
                   className="font-display text-lg font-medium"
                   style={{ color: GREEN }}
                 >
+                  {box.sub}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div> */}
+
+        <div className="flex flex-col sm:flex-row gap-5">
+          {[
+            { title: "College Mission", sub: "Statement" },
+            { title: "College Vision", sub: "Achievement" },
+          ].map((box) => (
+            <div
+              key={box.title}
+              className="group flex flex-1 items-center gap-4 border border-dashed p-5"
+              style={{ borderColor: GREEN }}
+            >
+              <div
+                className="h-10 w-10 shrink-0 rounded-full"
+                style={{ backgroundColor: GREEN }}
+              />
+
+              <div>
+                <p className="font-display text-lg font-medium text-green-700 group-hover:text-yellow-400">
+                  {box.title}
+                </p>
+                <p className="font-display text-lg font-medium text-green-700 group-hover:text-yellow-400">
                   {box.sub}
                 </p>
               </div>
