@@ -2,7 +2,7 @@ import Banner from "@/components/Aboutpage/Aim/Banner";
 // import TabNav from "@/components/Aboutpage/Aim/TabNav";
 import TabNav from "@/components/Aboutpage/shared/TabNav";
 import AimSection from "@/components/Aboutpage/Aim/AimSection";
-import Admission from "@/components/homepage/Admission";
+import Admission from "@/components/Homepage/Admission";
 
 export default function Aim() {
   return (
